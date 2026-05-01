@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: #0B7FED;
+  --brand-dark: #004da3;
+  --accent-green: #00C896;
+  --neutral-50: #fafafa;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3;
+}
+
+/* Selection */
+::selection {
+  background-color: #baddff;
+  color: #002d61;
+}
+
+@layer components {
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-20 xl:px-32;
+  }
+
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-brand-600 text-white px-7 py-3.5 rounded-full text-sm font-semibold
+           hover:bg-brand-700 active:bg-brand-800 transition-all duration-200
+           shadow-md hover:shadow-lg hover:shadow-brand-200;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 bg-white text-neutral-800 px-7 py-3.5 rounded-full text-sm font-semibold
+           border border-neutral-200 hover:border-neutral-300 hover:bg-neutral-50
+           transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+
+  .heading-display {
+    @apply font-display font-bold tracking-tight;
+  }
+
+  .label-tag {
+    @apply inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-brand-600
+           bg-brand-50 border border-brand-100 px-3 py-1.5 rounded-full;
+  }
+
+  .legal-prose h2 {
+    @apply font-display text-xl md:text-2xl text-neutral-900 font-semibold mt-10 mb-3 tracking-tight;
+  }
+  .legal-prose p {
+    @apply text-neutral-600 leading-relaxed;
+  }
+  .legal-prose a {
+    @apply text-brand-600 hover:text-brand-700 underline-offset-2 hover:underline;
+  }
+  .legal-prose strong {
+    @apply text-neutral-800 font-semibold;
+  }
+}

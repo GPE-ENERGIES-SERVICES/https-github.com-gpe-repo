@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cahier des charges — GPE Énergies & Services</title>
+<style>
+  :root {
+    --brand: #0B7FED;
+    --brand-dark: #004da3;
+    --green: #00C896;
+    --ink: #0a0a0a;
+    --ink-2: #262626;
+    --muted: #525252;
+    --muted-2: #737373;
+    --line: #e8e8e8;
+    --line-soft: #f1f1f3;
+    --bg: #ffffff;
+    --bg-soft: #fafafa;
+    --bg-tint: #f6f9ff;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(15, 23, 42, .04), 0 8px 24px rgba(15, 23, 42, .04);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--ink-2);
+    background: var(--bg);
+    line-height: 1.6;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 28px; }
+
+  /* Cover */
+  .cover {
+    background: linear-gradient(135deg, #f6f9ff 0%, #eef9f5 100%);
+    border-bottom: 1px solid var(--line);
+    padding: 96px 0 80px;
+  }
+  .cover .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 11px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .cover .eyebrow::before { content: ""; width: 28px; height: 1px; background: #b6bdc7; }
+  .cover h1 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 1.05;
+    color: var(--ink);
+    margin: 18px 0 0;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+  .cover h1 em { font-style: normal; color: var(--brand); }
+  .cover .lede { margin-top: 18px; font-size: 18px; color: var(--muted); max-width: 640px; }
+  .cover .meta {
+    margin-top: 36px; display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; border: 1px solid var(--line); border-radius: var(--radius); background: #fff;
+    overflow: hidden;
+  }
+  .cover .meta div { padding: 16px 18px; }
+  .cover .meta div + div { border-left: 1px solid var(--line); }
+  .cover .meta dt { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted-2); margin: 0 0 4px; font-weight: 600; }
+  .cover .meta dd { margin: 0; font-size: 14px; font-weight: 600; color: var(--ink); }
+
+  /* TOC */
+  .toc {
+    background: var(--bg-soft);
+    border-bottom: 1px solid var(--line);
+    padding: 28px 0;
+  }
+  .toc h2 {
+    font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--muted-2); margin: 0 0 14px; font-weight: 700;
+  }
+  .toc ol {
+    list-style: none; padding: 0; margin: 0;
+    columns: 2; column-gap: 28px;
+  }
+  .toc li { margin: 6px 0; break-inside: avoid; }
+  .toc a {
+    color: var(--ink-2); text-decoration: none; font-weight: 500;
+    display: inline-flex; gap: 10px; align-items: baseline;
+  }
+  .toc a:hover { color: var(--brand); }
+  .toc a .num { color: var(--muted-2); font-variant-numeric: tabular-nums; min-width: 22px; }
+
+  /* Sections */
+  section.chapter { padding: 56px 0 8px; border-bottom: 1px solid var(--line-soft); }
+  section.chapter:last-of-type { border-bottom: none; }
+  section.chapter h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 30px; line-height: 1.15; color: var(--ink);
+    margin: 0; font-weight: 700; letter-spacing: -0.01em;
+    display: flex; gap: 18px; align-items: baseline;
+  }
+  section.chapter h2 .num {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+    font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--brand); font-weight: 700;
+    border: 1px solid #d8e7fb; background: #f1f7ff;
+    padding: 6px 10px; border-radius: 100px; align-self: center;
+  }
+  section.chapter h3 {
+    font-size: 18px; color: var(--ink); margin: 36px 0 10px;
+    font-weight: 600; letter-spacing: -0.005em;
+  }
+  section.chapter h4 {
+    font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--muted-2); font-weight: 700; margin: 28px 0 10px;
+  }
+  section.chapter p { margin: 10px 0; color: var(--ink-2); }
+  section.chapter ul { padding-left: 20px; margin: 10px 0; }
+  section.chapter li { margin: 4px 0; }
+
+  /* Tables */
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 14px 0; background: #fff;
+    border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden; font-size: 14px;
+  }
+  th, td { text-align: left; padding: 11px 14px; vertical-align: top; }
+  thead th {
+    background: var(--bg-soft); color: var(--muted);
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700;
+    border-bottom: 1px solid var(--line);
+  }
+  tbody tr + tr td { border-top: 1px solid var(--line-soft); }
+  td code { font-size: 12.5px; }
+
+  /* Code & callouts */
+  pre, code {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+  }
+  pre {
+    background: var(--ink); color: #e6edf3;
+    padding: 16px 18px; border-radius: 12px; overflow-x: auto;
+    margin: 14px 0; line-height: 1.55;
+  }
+  code {
+    background: var(--line-soft); padding: 1.5px 6px; border-radius: 5px;
+    color: var(--ink-2);
+  }
+  pre code { background: transparent; padding: 0; color: inherit; }
+
+  .note {
+    border-left: 3px solid var(--brand); background: var(--bg-tint);
+    padding: 14px 16px; border-radius: 0 12px 12px 0;
+    margin: 18px 0; font-size: 14px;
+  }
+  .note strong { color: var(--brand-dark); }
+
+  /* Cards / grid */
+  .grid { display: grid; gap: 14px; }
+  .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 720px) {
+    .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; }
+    .cover .meta { grid-template-columns: repeat(2, 1fr); }
+    .cover .meta div + div { border-left: none; }
+    .cover .meta div:nth-child(n+3) { border-top: 1px solid var(--line); }
+    .cover .meta div:nth-child(even) { border-left: 1px solid var(--line); }
+    .toc ol { columns: 1; }
+  }
+  .card {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 18px; box-shadow: var(--shadow);
+  }
+  .card h4 { margin: 0 0 6px; color: var(--ink); font-size: 14px; letter-spacing: 0; text-transform: none; }
+  .card p { margin: 0; color: var(--muted); font-size: 13.5px; }
+
+  /* Tags */
+  .tag {
+    display: inline-block; font-size: 11px; font-weight: 600;
+    padding: 3px 8px; border-radius: 100px; letter-spacing: .04em;
+    background: #f1f7ff; color: var(--brand-dark); border: 1px solid #d8e7fb;
+  }
+  .tag.green { background: #e7faf3; color: #006d52; border-color: #b8eedc; }
+  .tag.gray  { background: var(--bg-soft); color: var(--muted); border-color: var(--line); }
+  .tag.red   { background: #fdecec; color: #8a1f1f; border-color: #f5cccc; }
+
+  /* Checklist */
+  .checklist { list-style: none; padding: 0; }
+  .checklist li {
+    display: flex; gap: 10px; padding: 8px 0;
+    border-bottom: 1px dashed var(--line-soft);
+  }
+  .checklist li::before {
+    content: ""; flex: 0 0 16px; height: 16px; border-radius: 4px;
+    border: 1.5px solid #c5cdd6; margin-top: 4px;
+  }
+
+  /* Footer */
+  footer.doc-foot {
+    margin-top: 32px; padding: 32px 0 60px;
+    border-top: 1px solid var(--line); color: var(--muted-2); font-size: 13px;
+    background: var(--bg-soft);
+  }
+  footer.doc-foot .row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+
+  /* Print */
+  @media print {
+    body { font-size: 12px; }
+    .cover { padding: 40px 0 30px; }
+    .toc { page-break-after: always; }
+    section.chapter { page-break-inside: avoid; padding: 28px 0 6px; }
+    section.chapter h2 { page-break-after: avoid; }
+    pre { background: #f4f4f4; color: #111; }
+    .card { box-shadow: none; }
+    .no-print { display: none; }
+  }
+
+  a { color: var(--brand-dark); }
+  a:hover { color: var(--brand); }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<header class="cover">
+  <div class="wrap">
+    <span class="eyebrow">Cahier des charges · v1.0 · Avril 2026</span>
+    <h1>Site corporate <em>GPE Énergies &amp; Services</em></h1>
+    <p class="lede">Document de spécifications fonctionnelles et techniques pour le site vitrine
+      et le système de gestion des leads de GPE Énergies &amp; Services.</p>
+
+    <dl class="meta">
+      <div><dt>Type</dt><dd>Vitrine B2B + lead capture</dd></div>
+      <div><dt>Stack</dt><dd>Next.js 14 · TS · Tailwind</dd></div>
+      <div><dt>Pages</dt><dd>16 routes prérendues</dd></div>
+      <div><dt>Backend</dt><dd>Nodemailer SMTP</dd></div>
+    </dl>
+  </div>
+</header>
+
+<!-- TOC -->
+<nav class="toc">
+  <div class="wrap">
+    <h2>Sommaire</h2>
+    <ol>
+      <li><a href="#c1"><span class="num">01</span> Contexte &amp; objectifs</a></li>
+      <li><a href="#c2"><span class="num">02</span> Périmètre fonctionnel</a></li>
+      <li><a href="#c3"><span class="num">03</span> Fonctionnalités détaillées</a></li>
+      <li><a href="#c4"><span class="num">04</span> Backend &amp; API contact</a></li>
+      <li><a href="#c5"><span class="num">05</span> Architecture technique</a></li>
+      <li><a href="#c6"><span class="num">06</span> Design system</a></li>
+      <li><a href="#c7"><span class="num">07</span> Sécurité &amp; conformité</a></li>
+      <li><a href="#c8"><span class="num">08</span> Performance &amp; SEO</a></li>
+      <li><a href="#c9"><span class="num">09</span> Responsive design</a></li>
+      <li><a href="#c10"><span class="num">10</span> Configuration &amp; déploiement</a></li>
+      <li><a href="#c11"><span class="num">11</span> Évolutions possibles</a></li>
+      <li><a href="#c12"><span class="num">12</span> Recettes &amp; validation</a></li>
+    </ol>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- C1 -->
+<section class="chapter" id="c1">
+  <h2><span class="num">01</span> Contexte &amp; objectifs</h2>
+
+  <h3>1.1 Contexte</h3>
+  <p>GPE Énergies &amp; Services (Vitrolles, depuis 2008) intervient sur cinq métiers complémentaires :
+    électricité courants forts/faibles, énergies renouvelables, CVC, VRD et bureau d'études.
+    La cible principale est constituée de maîtres d'ouvrage publics et privés, promoteurs,
+    bailleurs sociaux, collectivités et entreprises tertiaires.</p>
+
+  <h3>1.2 Objectifs business</h3>
+  <ul>
+    <li><strong>Présenter</strong> les 8 expertises métier de manière claire et hiérarchisée.</li>
+    <li><strong>Convertir</strong> les visiteurs en leads qualifiés via un formulaire direct.</li>
+    <li><strong>Crédibiliser</strong> par références clients, certifications et chiffres clés.</li>
+    <li><strong>Référencer</strong> sur les requêtes métier (SEO local + sectoriel).</li>
+  </ul>
+
+  <h3>1.3 Personas cibles</h3>
+  <table>
+    <thead><tr><th>Persona</th><th>Besoin principal</th></tr></thead>
+    <tbody>
+      <tr><td>Maître d'ouvrage / promoteur</td><td>Comprendre le périmètre, demander un devis</td></tr>
+      <tr><td>Bureau d'études externe</td><td>Vérifier les compétences, identifier les certifications</td></tr>
+      <tr><td>Collectivité</td><td>Confirmer les références similaires, contacter</td></tr>
+      <tr><td>Particulier (rénovation)</td><td>Trouver le service adapté, obtenir un contact</td></tr>
+    </tbody>
+  </table>
+
+  <h3>1.4 Critères de succès</h3>
+  <ul>
+    <li>Score Lighthouse Performance ≥ 90 sur mobile.</li>
+    <li>Formulaire de contact opérationnel avec envoi email automatique.</li>
+    <li>Site 100% responsive (mobile, tablette, desktop, grand écran).</li>
+    <li>Délai d'affichage initial &lt; 2 s sur 4G.</li>
+  </ul>
+</section>
+
+<!-- C2 -->
+<section class="chapter" id="c2">
+  <h2><span class="num">02</span> Périmètre fonctionnel</h2>
+
+  <h3>2.1 Arborescence</h3>
+<pre><code>/                                  Accueil
+├── /#services                     Ancre — Section services
+├── /#references                   Ancre — Réalisations
+├── /#about                        Ancre — À propos
+├── /#contact                      Ancre — Formulaire
+│
+├── /services/[slug]               8 pages services dynamiques
+│   ├── courants-forts
+│   ├── courants-faibles
+│   ├── energies-renouvelables
+│   ├── mobilite-electrique
+│   ├── renovation-energetique
+│   ├── chauffage-climatisation
+│   ├── vrd
+│   └── bureau-etudes
+│
+├── /mentions-legales              Page légale
+├── /politique-confidentialite     Page RGPD
+├── /cgv                           Conditions générales
+└── /api/contact                   Endpoint POST (backend)</code></pre>
+
+  <h3>2.2 Vue d'ensemble des pages</h3>
+  <table>
+    <thead><tr><th>Page</th><th>Type</th><th>Pré-rendu</th><th>Auth.</th><th>Indexable</th></tr></thead>
+    <tbody>
+      <tr><td>Accueil</td><td>Statique</td><td><span class="tag green">SSG</span></td><td>Non</td><td>✓</td></tr>
+      <tr><td>Services individuels (×8)</td><td>Dynamique SSG</td><td><span class="tag green">SSG build-time</span></td><td>Non</td><td>✓</td></tr>
+      <tr><td>Pages légales (×3)</td><td>Statique</td><td><span class="tag green">SSG</span></td><td>Non</td><td>✓</td></tr>
+      <tr><td><code>/api/contact</code></td><td>Server Route</td><td><span class="tag">Dynamique</span></td><td>Non</td><td>—</td></tr>
+      <tr><td>404</td><td>Statique</td><td><span class="tag green">SSG</span></td><td>Non</td><td>✗</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- C3 -->
+<section class="chapter" id="c3">
+  <h2><span class="num">03</span> Fonctionnalités détaillées</h2>
+
+  <h3>3.1 Navigation globale (Navbar)</h3>
+  <ul>
+    <li><strong>Position</strong> : fixe en haut, persistante sur toutes les pages.</li>
+    <li><strong>Comportement</strong> : verre transparent au repos, blur intensifié + bordure fine au scroll (&gt; 24 px).</li>
+    <li><strong>Contenu</strong> : logo + nom, 4 liens d'ancre (Services / Réalisations / À propos / Contact),
+      téléphone cliquable, CTA pilule sombre « Demander un devis ».</li>
+    <li><strong>Effets</strong> : soulignement animé au survol (origin-left scale-x).</li>
+    <li><strong>Mobile</strong> : burger 3 traits fins, menu plein écran avec scroll body verrouillé,
+      flèches discrètes par item.</li>
+  </ul>
+
+  <h3>3.2 Pied de page (Footer)</h3>
+  <p>Fond noir, 4 colonnes en desktop, repliées en colonne unique en mobile :</p>
+  <ol>
+    <li><strong>Marque</strong> : logo + baseline + icônes sociales.</li>
+    <li><strong>Navigation</strong> : 5 liens principaux.</li>
+    <li><strong>Services clés</strong> : 5 services (choix éditorial, pas la liste exhaustive).</li>
+    <li><strong>Contact</strong> : téléphone + email + adresse + indicateur « réponse 24 h ouvrées ».</li>
+  </ol>
+  <p>Barre du bas : copyright et 3 liens légaux.</p>
+
+  <h3>3.3 Hero d'accueil</h3>
+  <ul>
+    <li>Section plein écran (<code>min-h-screen</code>) avec gradient pastel et 2 cercles flous diffus.</li>
+    <li>Eyebrow sobre <em>« Vitrolles · depuis 2008 »</em>.</li>
+    <li>Titre principal Playfair Display — taille fluide 4xl mobile → 8xl desktop, segment
+      <em>« donne vie »</em> mis en surbrillance bleue animée.</li>
+    <li>2 CTAs : Contactez-nous (primaire) + Nos Services (secondaire).</li>
+    <li>4 chiffres clés avec compteurs animés (0 → cible) déclenchés à l'apparition dans la vue,
+      easing cubique sur 1,6 s, joués une seule fois.</li>
+  </ul>
+
+  <h3>3.4 Section Services</h3>
+  <ul>
+    <li>Grille adaptative 1 / 2 / 3 / 4 colonnes.</li>
+    <li>Carte = image (16:9), badge couleur + icône SVG, titre, description courte (clamp 3 lignes), lien <em>En savoir plus</em>.</li>
+    <li>Animations fade-up séquentielles (stagger 80 ms).</li>
+  </ul>
+
+  <h3>3.5 Section Réalisations</h3>
+  <ul>
+    <li>Grille de logos clients (2/5 cols) — 10 placeholders typographiques.</li>
+    <li>6 cartes projets de référence (label + localisation + tag de service).</li>
+  </ul>
+
+  <h3>3.6 Section À propos</h3>
+  <ul>
+    <li>Fond noir (rupture visuelle), titre + paragraphes, badges certifications RGE QualiPV, Qualifelec, RGE QualiClimat, IRVE Qualif., Qualibat.</li>
+    <li>Colonne droite : 3 valeurs + bloc « snapshot » 3 colonnes (2008 · Création / +40 · Collaborateurs / Sud · Région).</li>
+  </ul>
+
+  <h3>3.7 Section Contact</h3>
+  <div class="grid cols-2">
+    <div class="card">
+      <h4>Colonne informations</h4>
+      <p>Titre, sous-titre, 3 contacts cliquables (tel / mailto / Maps), encart horaires.</p>
+    </div>
+    <div class="card">
+      <h4>Colonne formulaire</h4>
+      <p>Nom, Email, Téléphone, Société, Service (select), Message + honeypot caché.
+         États idle → loading → success / error, bouton « Nouveau message » après envoi.</p>
+    </div>
+  </div>
+
+  <h3>3.8 Pages services dynamiques</h3>
+  <ol>
+    <li><strong>Hero immersif</strong> — image plein écran, dégradé sombre, badge icône, titre + sous-titre, lien retour.</li>
+    <li><strong>Bloc principal (2/3)</strong> — description longue, prestations incluses (coches colorées), processus 4 étapes (01 → 04).</li>
+    <li><strong>Sidebar sticky (1/3)</strong> — CTA noir avec accent du service, bouton appel, encart certifications.</li>
+    <li><strong>Bloc bas</strong> — 3 services complémentaires.</li>
+  </ol>
+
+  <h3>3.9 Pages légales</h3>
+  <p>Layout partagé (<code>components/LegalLayout.tsx</code>) : lien retour, titre + date, contenu structuré
+    (h2 + paragraphes), styles <code>.legal-prose</code>.</p>
+
+  <h3>3.10 Page 404</h3>
+  <p>Centrée, fond clair, code 404 géant, titre + description, bouton retour accueil.</p>
+</section>
+
+<!-- C4 -->
+<section class="chapter" id="c4">
+  <h2><span class="num">04</span> Backend &amp; API contact</h2>
+
+  <h3>4.1 Endpoint</h3>
+<pre><code>POST /api/contact
+Content-Type: application/json</code></pre>
+
+  <h3>4.2 Schéma de requête (Zod)</h3>
+  <table>
+    <thead><tr><th>Champ</th><th>Type</th><th>Contraintes</th></tr></thead>
+    <tbody>
+      <tr><td><code>name</code></td><td>string</td><td>min 2, max 120, requis</td></tr>
+      <tr><td><code>email</code></td><td>string</td><td>format email valide, max 200, requis</td></tr>
+      <tr><td><code>phone</code></td><td>string</td><td>max 40, optionnel</td></tr>
+      <tr><td><code>company</code></td><td>string</td><td>max 160, optionnel</td></tr>
+      <tr><td><code>service</code></td><td>string</td><td>max 80, optionnel</td></tr>
+      <tr><td><code>message</code></td><td>string</td><td>min 20, max 5000, requis</td></tr>
+      <tr><td><code>website</code></td><td>string</td><td>max 0 (honeypot anti-bot)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>4.3 Codes de réponse</h3>
+  <table>
+    <thead><tr><th>Code</th><th>Cas</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag green">201</span></td><td>Message reçu (et envoyé si SMTP configuré)</td></tr>
+      <tr><td><span class="tag">400</span></td><td>Validation Zod en échec</td></tr>
+      <tr><td><span class="tag">429</span></td><td>Rate-limit dépassé (5 req/h/IP)</td></tr>
+      <tr><td><span class="tag red">502</span></td><td>Erreur SMTP en aval</td></tr>
+      <tr><td><span class="tag red">500</span></td><td>Erreur interne inattendue</td></tr>
+    </tbody>
+  </table>
+
+  <h3>4.4 Mécanismes de sécurité</h3>
+  <ul>
+    <li><strong>Validation stricte serveur</strong> via Zod — aucune confiance accordée au client.</li>
+    <li><strong>Honeypot</strong> : champ <code>website</code> invisible — si rempli, requête rejetée silencieusement.</li>
+    <li><strong>Rate-limit en mémoire</strong> : 5 requêtes par IP / heure
+      (<code>x-forwarded-for</code> puis <code>x-real-ip</code>).</li>
+    <li><strong>Échappement HTML</strong> de tous les contenus utilisateur dans le mail.</li>
+    <li><strong>Runtime Node.js</strong> explicite — Nodemailer n'est pas Edge-compatible.</li>
+    <li><strong>CONTACT_TO</strong> distinct de <code>SMTP_USER</code>, configurable par env.</li>
+  </ul>
+
+  <h3>4.5 Module <code>lib/mailer.ts</code></h3>
+  <ul>
+    <li><code>sendContactEmail(payload)</code> crée un <code>Transporter</code> nodemailer mis en cache.</li>
+    <li><strong>Fallback gracieux</strong> : si les variables d'env manquent, retourne
+      <code>{ sent: false, reason: 'smtp-not-configured' }</code> — le formulaire reste fonctionnel en dev.</li>
+    <li>Email <strong>HTML stylisé</strong> : header dégradé bleu/vert, table des champs, message blanc, horodatage.</li>
+    <li>Plain text <strong>fallback</strong> pour clients sans HTML.</li>
+    <li><code>Reply-To</code> = email du visiteur → réponse en un clic.</li>
+  </ul>
+
+  <h3>4.6 Configuration SMTP</h3>
+<pre><code>SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=hl.human.link@gmail.com
+SMTP_PASS=&lt;app password 16 caractères&gt;
+CONTACT_TO=etatz56@gmail.com</code></pre>
+  <div class="note">
+    <strong>Compatibilité fournisseurs</strong> : Gmail (avec <em>App Password</em>), OVH,
+    Office 365, SendGrid, Mailgun. Port 465 → <code>secure: true</code> automatique ;
+    port 587 ou autre → STARTTLS.
+  </div>
+</section>
+
+<!-- C5 -->
+<section class="chapter" id="c5">
+  <h2><span class="num">05</span> Architecture technique</h2>
+
+  <h3>5.1 Stack</h3>
+  <table>
+    <thead><tr><th>Couche</th><th>Technologie</th><th>Rôle</th></tr></thead>
+    <tbody>
+      <tr><td>Framework</td><td>Next.js 14.2 (App Router)</td><td>Rendu hybride SSG/SSR/Client</td></tr>
+      <tr><td>Langage</td><td>TypeScript 5 strict</td><td>Sûreté de typage</td></tr>
+      <tr><td>Style</td><td>Tailwind CSS 3.4</td><td>Utility classes + design system</td></tr>
+      <tr><td>Animations</td><td>Framer Motion 11</td><td>Entrées, hover, scroll-trigger</td></tr>
+      <tr><td>Formulaires</td><td>react-hook-form 7</td><td>UX formulaires côté client</td></tr>
+      <tr><td>Validation</td><td>Zod 3</td><td>Schéma partagé client/serveur</td></tr>
+      <tr><td>Email</td><td>Nodemailer 6</td><td>SMTP (Gmail, OVH, etc.)</td></tr>
+      <tr><td>Polices</td><td>next/font (Google)</td><td>Outfit + Playfair Display</td></tr>
+      <tr><td>Images</td><td>next/image</td><td>Optimisation &amp; sizes responsive</td></tr>
+    </tbody>
+  </table>
+
+  <h3>5.2 Structure des dossiers</h3>
+<pre><code>gpe-energies/
+├── app/                          App Router — chaque dossier = route
+│   ├── layout.tsx                Layout racine (Navbar + Footer + fonts)
+│   ├── page.tsx                  Page d'accueil (compose les sections)
+│   ├── globals.css               Tailwind + classes custom
+│   ├── not-found.tsx             404
+│   ├── api/contact/route.ts      Endpoint backend
+│   ├── services/[slug]/          Pages dynamiques services
+│   ├── mentions-legales/page.tsx
+│   ├── politique-confidentialite/page.tsx
+│   └── cgv/page.tsx
+├── components/                   Composants React
+│   ├── Navbar.tsx                Header fixe
+│   ├── Footer.tsx                Pied de page
+│   ├── Hero.tsx                  Section hero
+│   ├── ServicesSection.tsx       Grille services
+│   ├── ReferencesSection.tsx     Références
+│   ├── AboutSection.tsx          À propos
+│   ├── ContactSection.tsx        Formulaire + infos
+│   ├── ServiceIcon.tsx           Icônes SVG
+│   └── LegalLayout.tsx           Wrapper légal
+├── lib/
+│   ├── services.ts               Données des 8 services
+│   └── mailer.ts                 SMTP + template email
+├── public/images/                Assets statiques (logo)
+├── tailwind.config.ts
+├── tsconfig.json
+├── next.config.js
+├── .env.example                  Template variables d'env
+├── .env.local                    Secrets (gitignored)
+├── .gitignore
+└── package.json</code></pre>
+
+  <h3>5.3 Modèle de données — Service</h3>
+<pre><code>interface Service {
+  slug: string             // identifiant URL
+  title: string            // ex. « Courants Forts »
+  shortDesc: string        // teaser carte (≈ 130 car.)
+  description: string[]    // paragraphes longs
+  benefits: string[]       // 5 prestations clés
+  icon: string             // nom (mappé dans ServiceIcon)
+  color: string            // hex couleur d'accent
+  image: string            // URL Unsplash placeholder
+}</code></pre>
+  <p>Source de vérité unique : <code>lib/services.ts</code>. Sert à la fois la grille d'accueil,
+    le footer, les pages dynamiques et le sélecteur du formulaire.</p>
+</section>
+
+<!-- C6 -->
+<section class="chapter" id="c6">
+  <h2><span class="num">06</span> Design system</h2>
+
+  <h3>6.1 Palette</h3>
+  <table>
+    <thead><tr><th>Token</th><th>Valeur</th><th>Usage</th></tr></thead>
+    <tbody>
+      <tr><td><code>brand-50 → 900</code></td><td>bleu (principal <code>#0B7FED</code>)</td><td>Liens, CTA primaire, accents</td></tr>
+      <tr><td><code>accent-green</code></td><td><code>#00C896</code></td><td>Confirmations, énergies vertes</td></tr>
+      <tr><td><code>accent-greenLight</code></td><td><code>#e6faf5</code></td><td>Fonds doux verts</td></tr>
+      <tr><td><code>neutral-50 → 950</code></td><td>grayscale</td><td>Texte, fonds, bordures</td></tr>
+    </tbody>
+  </table>
+
+  <h3>6.2 Typographie</h3>
+  <ul>
+    <li><strong>Sans</strong> — Outfit (UI, corps de texte).</li>
+    <li><strong>Display</strong> — Playfair Display (titres <code>.heading-display</code>).</li>
+    <li>Tailles fluides via classes responsive Tailwind (<code>text-4xl sm:text-5xl md:text-6xl …</code>).</li>
+  </ul>
+
+  <h3>6.3 Composants utilitaires (CSS @layer)</h3>
+  <table>
+    <thead><tr><th>Classe</th><th>Rôle</th></tr></thead>
+    <tbody>
+      <tr><td><code>.btn-primary</code></td><td>CTA bleu pilule</td></tr>
+      <tr><td><code>.btn-secondary</code></td><td>Bouton blanc bordure</td></tr>
+      <tr><td><code>.heading-display</code></td><td>Titres Playfair gras tracking-tight</td></tr>
+      <tr><td><code>.label-tag</code></td><td>Pilule bordure, uppercase tracking-widest</td></tr>
+      <tr><td><code>.section-padding</code></td><td>Padding horizontal responsive</td></tr>
+      <tr><td><code>.container-max</code></td><td>max-w-7xl mx-auto</td></tr>
+      <tr><td><code>.legal-prose</code></td><td>Styles h2/p/a/strong des pages légales</td></tr>
+    </tbody>
+  </table>
+
+  <h3>6.4 Principes UX</h3>
+  <ul>
+    <li>Beaucoup de blanc, hiérarchie typographique forte.</li>
+    <li>Animations subtiles fade-up + scroll-triggered, jouées une seule fois.</li>
+    <li>Pas de carrousel auto-rotatif, pas de pop-up, pas de tracking publicitaire.</li>
+    <li>Cibles tactiles ≥ 44 px sur mobile.</li>
+  </ul>
+</section>
+
+<!-- C7 -->
+<section class="chapter" id="c7">
+  <h2><span class="num">07</span> Sécurité &amp; conformité</h2>
+  <table>
+    <thead><tr><th>Volet</th><th>Mesure</th></tr></thead>
+    <tbody>
+      <tr><td>Validation entrée</td><td>Zod côté serveur (jamais que côté client)</td></tr>
+      <tr><td>Anti-spam</td><td>Honeypot + rate-limit IP</td></tr>
+      <tr><td>Échappement</td><td>HTML escape sur tous les contenus utilisateur dans le mail</td></tr>
+      <tr><td>Secrets</td><td><code>.env.local</code> gitignored, jamais en repo</td></tr>
+      <tr><td>HTTPS</td><td>Géré au déploiement (Vercel, OVH, Netlify…)</td></tr>
+      <tr><td>RGPD</td><td>Page dédiée + mention sous le formulaire + droits explicites</td></tr>
+      <tr><td>Cookies</td><td>Aucun cookie de tracking — uniquement techniques</td></tr>
+      <tr><td>En-têtes</td><td>À renforcer en prod (CSP, X-Frame-Options) via <code>next.config.js</code></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- C8 -->
+<section class="chapter" id="c8">
+  <h2><span class="num">08</span> Performance &amp; SEO</h2>
+
+  <h3>8.1 Performance</h3>
+  <ul>
+    <li>SSG sur toutes les pages publiques → HTML pré-rendu, TTFB minimal.</li>
+    <li><code>next/image</code> avec <code>sizes</code> adaptés et <code>priority</code> sur les images critiques.</li>
+    <li><code>next/font</code> Google Fonts via CSS (pas de FOIT/FOUT, swap).</li>
+    <li>Code splitting automatique par route.</li>
+    <li>Animations Framer Motion en <em>viewport once</em> pour ne pas re-rejouer.</li>
+  </ul>
+
+  <h3>8.2 SEO</h3>
+  <ul>
+    <li><code>metadata</code> par page (title + description + OpenGraph) via Next.js metadata API.</li>
+    <li>Template de title : <code>%s — GPE Énergies &amp; Services</code>.</li>
+    <li><code>metadataBase</code> via <code>NEXT_PUBLIC_SITE_URL</code>.</li>
+    <li>404 propre, HTML sémantique (h1 unique par page, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>), <code>lang="fr"</code>.</li>
+  </ul>
+
+  <h3>8.3 Accessibilité</h3>
+  <ul>
+    <li>Contrastes WCAG AA (texte neutral-700+ sur blanc).</li>
+    <li><code>aria-label</code> sur boutons icôniques (burger, sociaux).</li>
+    <li>Focus visible sur les inputs et boutons.</li>
+    <li>Navigation clavier fonctionnelle.</li>
+  </ul>
+</section>
+
+<!-- C9 -->
+<section class="chapter" id="c9">
+  <h2><span class="num">09</span> Responsive design</h2>
+  <table>
+    <thead><tr><th>Breakpoint</th><th>Largeur</th><th>Comportement</th></tr></thead>
+    <tbody>
+      <tr><td><code>&lt; sm</code></td><td>&lt; 640 px</td><td>Mobile portrait — 1 colonne, burger, hero compact</td></tr>
+      <tr><td><code>sm</code></td><td>≥ 640 px</td><td>Mobile paysage, espacements augmentés</td></tr>
+      <tr><td><code>md</code></td><td>≥ 768 px</td><td>Tablette — 2 colonnes services, navbar desktop</td></tr>
+      <tr><td><code>lg</code></td><td>≥ 1024 px</td><td>Laptop — 2 col. about/contact, 3 col. services</td></tr>
+      <tr><td><code>xl</code></td><td>≥ 1280 px</td><td>Desktop — 4 col. services, hero pleine taille</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- C10 -->
+<section class="chapter" id="c10">
+  <h2><span class="num">10</span> Configuration &amp; déploiement</h2>
+
+  <h3>10.1 Variables d'environnement</h3>
+  <table>
+    <thead><tr><th>Variable</th><th>Obligatoire</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>SMTP_HOST</code></td><td>Si email actif</td><td>Hôte SMTP</td></tr>
+      <tr><td><code>SMTP_PORT</code></td><td>Si email actif</td><td>465 (SSL) / 587 (STARTTLS)</td></tr>
+      <tr><td><code>SMTP_USER</code></td><td>Si email actif</td><td>Login SMTP</td></tr>
+      <tr><td><code>SMTP_PASS</code></td><td>Si email actif</td><td>Mot de passe (Gmail = app password)</td></tr>
+      <tr><td><code>CONTACT_TO</code></td><td>Recommandé</td><td>Adresse qui reçoit les leads</td></tr>
+      <tr><td><code>NEXT_PUBLIC_SITE_URL</code></td><td>Recommandé</td><td>URL canonique (SEO/OG)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>10.2 Scripts npm</h3>
+<pre><code>npm run dev      Serveur dev (port 3000) avec hot reload
+npm run build    Build production (SSG + bundle)
+npm run start    Serveur production
+npm run lint     ESLint via next lint</code></pre>
+
+  <h3>10.3 Déploiement recommandé</h3>
+  <div class="grid cols-3">
+    <div class="card"><h4>Vercel</h4><p>Zero config, hébergeur Next.js de référence — recommandé.</p></div>
+    <div class="card"><h4>OVH / Netlify</h4><p>Alternatives Node.js Hosting ou Cloudflare Pages.</p></div>
+    <div class="card"><h4>Pré-requis</h4><p>Configurer les env vars dans le panneau de l'hébergeur, jamais en repo. Domaine custom + HTTPS auto.</p></div>
+  </div>
+</section>
+
+<!-- C11 -->
+<section class="chapter" id="c11">
+  <h2><span class="num">11</span> Évolutions possibles</h2>
+  <table>
+    <thead><tr><th>Évolution</th><th>Effort</th><th>Bénéfice</th></tr></thead>
+    <tbody>
+      <tr><td>Espace réalisations dédié <code>/realisations</code> avec galerie</td><td><span class="tag">M</span></td><td>Crédibilité commerciale</td></tr>
+      <tr><td>CMS headless (Sanity, Strapi)</td><td><span class="tag red">L</span></td><td>Autonomie éditoriale</td></tr>
+      <tr><td>Blog / actualités</td><td><span class="tag">M</span></td><td>SEO contenu, autorité</td></tr>
+      <tr><td>Multilingue (fr/en) via <code>next-intl</code></td><td><span class="tag">M</span></td><td>Marchés export</td></tr>
+      <tr><td>Stockage des leads en base (Supabase, Postgres)</td><td><span class="tag">M</span></td><td>Historique, analytics</td></tr>
+      <tr><td>Intégration CRM (HubSpot, Pipedrive)</td><td><span class="tag">M</span></td><td>Suivi commercial</td></tr>
+      <tr><td>Page certifications détaillée</td><td><span class="tag green">S</span></td><td>Trust building</td></tr>
+      <tr><td>Module devis estimatif en ligne</td><td><span class="tag red">L</span></td><td>Lead qualification</td></tr>
+      <tr><td>Analytics privacy-friendly (Plausible, Umami)</td><td><span class="tag green">S</span></td><td>Mesure</td></tr>
+      <tr><td>Sitemap.xml + robots.txt automatiques</td><td><span class="tag green">S</span></td><td>SEO technique</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- C12 -->
+<section class="chapter" id="c12">
+  <h2><span class="num">12</span> Recettes &amp; validation</h2>
+
+  <h3>12.1 Tests fonctionnels manuels</h3>
+  <ul class="checklist">
+    <li>Navigation entre toutes les pages (8 services + 3 légales + accueil).</li>
+    <li>Ancres internes scrollent à la bonne section.</li>
+    <li>Menu mobile s'ouvre/ferme proprement, scroll bloqué pendant l'ouverture.</li>
+    <li>Formulaire : succès, erreur validation, erreur réseau (couper internet).</li>
+    <li>Email reçu sur <code>CONTACT_TO</code>, format HTML correct.</li>
+    <li>Reply-To du mail = email saisi par le visiteur.</li>
+    <li>Honeypot : remplir <code>website</code> via DevTools → message rejeté silencieusement.</li>
+    <li>Rate-limit : 6e POST en moins d'1 h → réponse 429.</li>
+  </ul>
+
+  <h3>12.2 Tests responsive</h3>
+  <ul class="checklist">
+    <li>iPhone SE (375 px) : tous les contenus lisibles, pas de débordement horizontal.</li>
+    <li>iPad portrait (768 px) : grille 2 colonnes services.</li>
+    <li>Desktop 1440 px : grille 4 colonnes services, hero ample.</li>
+  </ul>
+
+  <h3>12.3 Tests performance</h3>
+  <ul class="checklist">
+    <li>Lighthouse mobile ≥ 90 sur Performance, Accessibility, Best Practices, SEO.</li>
+    <li>LCP &lt; 2,5 s sur 4G simulé.</li>
+    <li>Aucune erreur console en production.</li>
+  </ul>
+
+  <div class="note" style="margin-top:24px">
+    <strong>Validation finale</strong> — la recette est validée lorsque les trois familles
+    de tests sont vertes et que l'envoi d'email arrive bien dans la boîte de réception
+    de <code>CONTACT_TO</code> avec un Reply-To fonctionnel.
+  </div>
+</section>
+
+</main>
+
+<footer class="doc-foot">
+  <div class="wrap row">
+    <div>© 2026 GPE Énergies &amp; Services — Cahier des charges du site corporate.</div>
+    <div class="no-print">
+      <a href="javascript:window.print()">Imprimer / exporter en PDF →</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
