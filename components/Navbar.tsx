@@ -43,15 +43,16 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 inset-x-0 z-50 transition-[background,backdrop-filter,border-color] duration-300 ${
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 border-b ${
           scrolled
-            ? 'bg-white/80 backdrop-blur-xl border-b border-neutral-200/60'
-            : 'bg-white/40 backdrop-blur-md border-b border-transparent'
+            ? 'bg-white/95 backdrop-blur-xl border-neutral-200'
+            : 'bg-white/80 backdrop-blur-md border-transparent'
         }`}
       >
         <nav className="section-padding container-max">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+
+            {/* LOGO */}
             <Link href="/" className="flex items-center gap-2.5 -ms-1 flex-shrink-0">
               <Image
                 src="/images/logo.png"
@@ -61,7 +62,7 @@ export default function Navbar() {
                 className="h-9 w-auto md:h-10"
                 priority
               />
-              <span className="hidden sm:block text-[13px] font-semibold tracking-tight text-neutral-900 leading-tight">
+              <span className="hidden sm:block text-[13px] font-semibold text-[#2e5240] leading-tight">
                 GPE Énergies
                 <span className="block text-[10px] font-medium tracking-widest uppercase text-neutral-400">
                   &amp; Services
@@ -69,21 +70,23 @@ export default function Navbar() {
               </span>
             </Link>
 
-            {/* Desktop Nav */}
+            {/* NAV LINKS */}
             <div className="hidden lg:flex items-center gap-0.5">
               {navLinks.map((link) => {
                 const active = isActive(link.href)
+
                 return (
                   <Link
                     key={link.key}
                     href={link.href}
                     className={`group relative px-3.5 py-2 text-[13px] font-medium transition-colors ${
-                      active ? 'text-brand-400' : 'text-neutral-600 hover:text-neutral-900'
-                    }`}
+                      active ? 'text-[#2e5240]' : 'text-[#2e5240]/80'
+                    } hover:text-[#a3e635]`}
                   >
                     {t(link.key)}
+
                     <span
-                      className={`pointer-events-none absolute left-3.5 right-3.5 -bottom-0.5 h-px origin-left bg-brand-400 transition-transform duration-300 ${
+                      className={`absolute left-3.5 right-3.5 -bottom-0.5 h-px bg-[#a3e635] transition-transform duration-300 ${
                         active ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                       }`}
                     />
@@ -92,53 +95,55 @@ export default function Navbar() {
               })}
             </div>
 
-            {/* Right — lang + phone + CTA */}
+            {/* RIGHT SIDE */}
             <div className="hidden lg:flex items-center gap-3">
               <LanguageSwitcher />
               <span className="h-4 w-px bg-neutral-200" />
+
               <a
                 href="tel:+33442072262"
-                className="text-[13px] font-medium text-neutral-500 hover:text-neutral-900 transition-colors"
+                className="text-[13px] font-medium text-[#2e5240]/70 hover:text-[#a3e635] transition-colors"
               >
                 +33 4 42 07 22 62
               </a>
+
               <span className="h-4 w-px bg-neutral-200" />
+
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-1.5 bg-brand-400 text-white text-[13px] font-semibold px-4 py-2 rounded-full hover:bg-brand-500 transition-colors shadow-sm"
+                className="inline-flex items-center gap-1.5 bg-[#2e5240] text-white text-[13px] font-semibold px-4 py-2 rounded-full hover:bg-[#a3e635] hover:text-black transition-colors shadow-sm"
               >
                 {t('nav.cta')}
               </Link>
             </div>
 
-            {/* Burger (mobile / tablet) */}
+            {/* BURGER */}
             <button
               className="lg:hidden -me-2 p-2 rounded-lg hover:bg-neutral-100 transition-colors"
               onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Menu"
-              aria-expanded={menuOpen}
             >
               <div className="relative w-5 h-4">
-                <span className={`absolute left-0 right-0 h-px bg-neutral-900 transition-all duration-300 ${menuOpen ? 'top-2 rotate-45' : 'top-0'}`} />
-                <span className={`absolute left-0 right-0 top-2 h-px bg-neutral-900 transition-opacity duration-200 ${menuOpen ? 'opacity-0' : 'opacity-100'}`} />
-                <span className={`absolute left-0 right-0 h-px bg-neutral-900 transition-all duration-300 ${menuOpen ? 'top-2 -rotate-45' : 'top-4'}`} />
+                <span className={`absolute left-0 right-0 h-px bg-[#2e5240] transition-all duration-300 ${menuOpen ? 'top-2 rotate-45' : 'top-0'}`} />
+                <span className={`absolute left-0 right-0 top-2 h-px bg-[#2e5240] transition-opacity duration-200 ${menuOpen ? 'opacity-0' : 'opacity-100'}`} />
+                <span className={`absolute left-0 right-0 h-px bg-[#2e5240] transition-all duration-300 ${menuOpen ? 'top-2 -rotate-45' : 'top-4'}`} />
               </div>
             </button>
+
           </div>
         </nav>
       </header>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-white pt-20 px-6 lg:hidden overflow-y-auto"
+            className="fixed inset-0 z-40 bg-white pt-20 px-6 lg:hidden"
           >
             <div className="flex flex-col">
+
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.key}
@@ -150,40 +155,36 @@ export default function Navbar() {
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
                     className={`flex items-center justify-between py-5 text-[22px] font-medium border-b border-neutral-100 ${
-                      isActive(link.href) ? 'text-brand-400' : 'text-neutral-900'
+                      isActive(link.href) ? 'text-[#a3e635]' : 'text-[#2e5240]'
                     }`}
                   >
                     {t(link.key)}
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-neutral-300">
-                      <path d="M5 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
                   </Link>
                 </motion.div>
               ))}
 
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="mt-8 space-y-3"
-              >
+              <div className="mt-8 space-y-3">
+
                 <Link
                   href="/contact"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-center bg-brand-400 text-white text-sm font-semibold px-5 py-3.5 rounded-full"
+                  className="flex items-center justify-center bg-[#2e5240] text-white text-sm font-semibold px-5 py-3.5 rounded-full hover:bg-[#a3e635] hover:text-black transition"
                 >
                   {t('nav.cta')}
                 </Link>
+
                 <a
                   href="tel:+33442072262"
-                  className="flex items-center justify-center text-sm font-medium text-neutral-600 px-5 py-3.5 rounded-full border border-neutral-200"
+                  className="flex items-center justify-center text-sm font-medium text-[#2e5240] px-5 py-3.5 rounded-full border border-neutral-200"
                 >
                   +33 4 42 07 22 62
                 </a>
+
                 <div className="flex justify-center pt-2">
                   <LanguageSwitcher />
                 </div>
-              </motion.div>
+
+              </div>
             </div>
           </motion.div>
         )}

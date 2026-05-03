@@ -1,45 +1,66 @@
 'use client'
 
+import Image from 'next/image'
+
 const certs = [
-  { name: 'RGE QualiPV', desc: 'Photovoltaïque' },
-  { name: 'Qualifelec', desc: 'Installations électriques' },
-  { name: 'RGE QualiClimat', desc: 'CVC & ENR' },
-  { name: 'IRVE Qualif.', desc: 'Recharge véhicules' },
-  { name: 'Qualibat', desc: 'Bâtiment & rénovation' },
-  { name: 'ISO 9001', desc: 'Management qualité' },
-  { name: "Qualit'ENR", desc: 'Énergies renouvelables' },
-  { name: 'APSAD R81', desc: "Systèmes d'alarme" },
+  { img: '/images/Certifications/AFNOR-removebg-preview.png' },
+  { img: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png'},
+  { img: '/images/Certifications/qualifelec.png' },
+  { img: '/images/Certifications/logo-qualipac.png'},
+  { img: '/images/Certifications/logo-qualiPV-RGE-e1700507436946-768x509-removebg-preview.png' },
+
+ 
+
   // duplicate for seamless loop
-  { name: 'RGE QualiPV', desc: 'Photovoltaïque' },
-  { name: 'Qualifelec', desc: 'Installations électriques' },
-  { name: 'RGE QualiClimat', desc: 'CVC & ENR' },
-  { name: 'IRVE Qualif.', desc: 'Recharge véhicules' },
-  { name: 'Qualibat', desc: 'Bâtiment & rénovation' },
-  { name: 'ISO 9001', desc: 'Management qualité' },
-  { name: "Qualit'ENR", desc: 'Énergies renouvelables' },
-  { name: 'APSAD R81', desc: "Systèmes d'alarme" },
+  { img: '/images/Certifications/AFNOR-removebg-preview.png' },
+  { img: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png' },
+  { img: '/images/Certifications/qualifelec.png' },
+  { img: '/images/Certifications/logo-qualipac.png' },
+  { img: '/images/Certifications/logo-qualiPV-RGE-e1700507436946-768x509-removebg-preview.png' },
+
 ]
+
+
 
 export default function CertificationsMarquee() {
   return (
-    <div className="relative overflow-hidden py-10">
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-white to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-white to-transparent" />
+    <div className="relative overflow-hidden py-14">
 
-      <div className="flex gap-4 animate-marquee w-max">
+      {/* fade edges */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-28 z-10 bg-gradient-to-r from-white to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-28 z-10 bg-gradient-to-l from-white to-transparent" />
+
+      <div className="flex gap-8 animate-marquee w-max">
+
         {certs.map((cert, i) => (
           <div
             key={i}
-            className="flex-shrink-0 flex flex-col items-center justify-center w-44 h-24 rounded-2xl border border-neutral-200 bg-white shadow-sm px-4"
+            className="group relative flex-shrink-0 flex items-center justify-center
+                       w-60 h-36 rounded-2xl border border-neutral-300 bg-white
+                       shadow-md p-6 transition-all duration-300
+                       hover:-translate-y-2 hover:shadow-xl hover:border-[#a3e635]"
           >
-            <div className="font-bold text-sm text-neutral-900 text-center leading-tight">
-              {cert.name}
-            </div>
-            <div className="mt-1 text-[10px] font-medium text-neutral-400 uppercase tracking-wider text-center">
-              {cert.desc}
-            </div>
+
+            {/* Glow subtil */}
+            <div className="absolute inset-0 rounded-2xl opacity-0
+                            group-hover:opacity-100 transition duration-500
+                            bg-green-300/20 blur-2xl" />
+
+            {/* Logo */}
+            <Image
+              src={cert.img}
+              alt={cert.alt}
+              width={180}
+              height={90}
+              className="relative z-10 object-contain w-full h-full
+                         opacity-70 grayscale
+                         group-hover:opacity-100 group-hover:grayscale-0
+                         group-hover:scale-110
+                         transition duration-300"
+            />
           </div>
         ))}
+
       </div>
     </div>
   )

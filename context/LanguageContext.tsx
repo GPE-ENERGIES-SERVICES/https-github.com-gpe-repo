@@ -16,7 +16,7 @@ const t18n: Record<Lang, Record<string, string>> = {
     'nav.cta': 'Demander un devis',
 
     // ── Hero
-    'hero.eyebrow': 'Vitrolles · depuis 2008',
+    'hero.eyebrow': 'Alger',
     'hero.title.part1': "L'énergie qui",
     'hero.title.highlight': 'donne vie',
     'hero.title.part2': 'à vos propriétés.',
@@ -100,14 +100,15 @@ const t18n: Record<Lang, Record<string, string>> = {
     'service.projects.viewAll': 'Voir tous',
 
     // ── Service titles (for dynamic pages)
-    'service.courants-forts.title': 'Courants Forts',
-    'service.courants-faibles.title': 'Courants Faibles',
-    'service.energies-renouvelables.title': 'Énergies Renouvelables',
-    'service.mobilite-electrique.title': 'Mobilité Électrique',
-    'service.renovation-energetique.title': 'Rénovation Énergétique',
-    'service.chauffage-climatisation.title': 'Chauffage & Climatisation',
-    'service.vrd.title': 'VRD',
-    'service.bureau-etudes.title': "Bureau d'Études",
+
+    "service.energies-renouvelables.title": "Énergies renouvelables",
+    "service.courants-forts-faibles.title": "Courants forts & faibles",
+    "service.mobilite-electrique.title": "Mobilité électrique",
+    "service.gtb-knx.title": "GTB / KNX",
+    "service.chauffage-climatisation.title": "Chauffage & climatisation",
+    "service.renovation-energetique.title": "Rénovation énergétique",
+    "service.bureau-etudes.title": "Bureau d'études",
+
 
     // ── Contact page
     'contact.label': 'Contact',
@@ -177,7 +178,7 @@ const t18n: Record<Lang, Record<string, string>> = {
     'nav.contact': 'Contact',
     'nav.cta': 'Request a quote',
 
-    'hero.eyebrow': 'Vitrolles · since 2008',
+    'hero.eyebrow': 'Algiers',
     'hero.title.part1': 'The energy that',
     'hero.title.highlight': 'brings life',
     'hero.title.part2': 'to your properties.',
@@ -255,14 +256,15 @@ const t18n: Record<Lang, Record<string, string>> = {
     'service.projects.title': 'Completed projects',
     'service.projects.viewAll': 'View all',
 
-    'service.courants-forts.title': 'Power Wiring',
-    'service.courants-faibles.title': 'Low Current Systems',
-    'service.energies-renouvelables.title': 'Renewable Energy',
-    'service.mobilite-electrique.title': 'Electric Mobility',
-    'service.renovation-energetique.title': 'Energy Renovation',
-    'service.chauffage-climatisation.title': 'Heating & Cooling',
-    'service.vrd.title': 'Civil Engineering',
-    'service.bureau-etudes.title': 'Engineering Office',
+    
+    "service.energies-renouvelables.title": "Renewable Energy",
+    "service.courants-forts-faibles.title": "High & Low Voltage Systems",
+    "service.mobilite-electrique.title": "Electric Mobility",
+    "service.gtb-knx.title": "Building Automation (GTB / KNX)",
+    "service.chauffage-climatisation.title": "Heating & Air Conditioning",
+    "service.renovation-energetique.title": "Energy Renovation",
+    "service.bureau-etudes.title": "Engineering Office",
+
 
     'contact.label': 'Contact',
     'contact.title': "Let's talk about your project.",
@@ -329,7 +331,7 @@ const t18n: Record<Lang, Record<string, string>> = {
     'nav.contact': 'اتصل بنا',
     'nav.cta': 'طلب عرض أسعار',
 
-    'hero.eyebrow': 'فيترول · منذ ٢٠٠٨',
+    'hero.eyebrow': 'الجزائر العاصمة',
     'hero.title.part1': 'الطاقة التي',
     'hero.title.highlight': 'تُحيي',
     'hero.title.part2': 'ممتلكاتكم.',
@@ -407,14 +409,13 @@ const t18n: Record<Lang, Record<string, string>> = {
     'service.projects.title': 'المشاريع المنجزة',
     'service.projects.viewAll': 'عرض الكل',
 
-    'service.courants-forts.title': 'الكهرباء القوية',
-    'service.courants-faibles.title': 'الكهرباء الضعيفة',
-    'service.energies-renouvelables.title': 'الطاقات المتجددة',
-    'service.mobilite-electrique.title': 'التنقل الكهربائي',
-    'service.renovation-energetique.title': 'تجديد الطاقة',
-    'service.chauffage-climatisation.title': 'التدفئة والتكييف',
-    'service.vrd.title': 'البنية التحتية',
-    'service.bureau-etudes.title': 'مكتب الدراسات',
+    "service.energies-renouvelables.title": "الطاقات المتجددة",
+    "service.courants-forts-faibles.title": "التيارات القوية والضعيفة",
+    "service.mobilite-electrique.title": "التنقل الكهربائي",
+    "service.gtb-knx.title": "أنظمة التحكم الذكي (GTB / KNX)",
+    "service.chauffage-climatisation.title": "التدفئة والتكييف",
+    "service.renovation-energetique.title": "تجديد الطاقة",
+    'service.bureau-etudes.title': "مكتب الدراسات",
 
     'contact.label': 'تواصل معنا',
     'contact.title': 'لنتحدث عن مشروعكم.',
