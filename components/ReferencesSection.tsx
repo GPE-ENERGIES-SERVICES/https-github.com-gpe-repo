@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { projects } from '@/lib/projects'
+import { useLanguage } from '@/context/LanguageContext'
 
 const clients = [
   { name: 'Bouygues Immobilier', initials: 'BI' },
@@ -20,6 +21,8 @@ const clients = [
 const featured = projects.slice(0, 6)
 
 export default function ReferencesSection() {
+  const { t } = useLanguage()
+
   return (
     <section id="references" className="py-32 bg-white">
       <div className="section-padding container-max">
@@ -32,19 +35,19 @@ export default function ReferencesSection() {
           className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 max-w-full"
         >
           <div className="max-w-2xl">
-            <span className="label-tag">Nos réalisations</span>
+            <span className="label-tag">{t('references.label')}</span>
             <h2 className="heading-display text-4xl md:text-5xl text-neutral-950 mt-5">
-              Ils nous font confiance.
+              {t('references.title')}
             </h2>
             <p className="mt-5 text-neutral-500 text-lg">
-              Plus de 500 projets réalisés pour des maîtres d&apos;ouvrage publics et privés partout en France.
+              {t('references.subtitle')}
             </p>
           </div>
           <Link
             href="/realisations"
             className="flex-shrink-0 inline-flex items-center gap-2 text-sm font-semibold text-brand-400 hover:text-brand-500 transition-colors"
           >
-            Voir tous les projets
+            {t('references.viewAll')}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -84,7 +87,7 @@ export default function ReferencesSection() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-20"
         >
-          <h3 className="text-lg font-semibold text-neutral-800 mb-8">Projets de référence</h3>
+          <h3 className="text-lg font-semibold text-neutral-800 mb-8">{t('references.featured')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {featured.map((project, i) => (
               <motion.div
@@ -119,7 +122,7 @@ export default function ReferencesSection() {
           className="mt-12 text-center"
         >
           <Link href="/realisations" className="btn-primary px-8 py-3.5">
-            Explorer tous nos projets
+            {t('references.cta')}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>

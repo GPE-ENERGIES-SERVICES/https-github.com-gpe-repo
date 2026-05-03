@@ -1,26 +1,17 @@
 'use client'
 
 import { motion } from 'framer-motion'
-
-const values = [
-  {
-    title: 'Excellence technique',
-    desc: 'Chaque installation est réalisée dans les règles de l\'art, certifiée et contrôlée par nos équipes qualifiées.',
-    icon: '⚡',
-  },
-  {
-    title: 'Engagement durable',
-    desc: 'Nous plaçons la transition énergétique au cœur de nos projets, pour un impact positif sur l\'environnement.',
-    icon: '🌿',
-  },
-  {
-    title: 'Partenariat long terme',
-    desc: 'Nos clients sont nos partenaires. Nous construisons des relations de confiance sur la durée, du projet à la maintenance.',
-    icon: '🤝',
-  },
-]
+import { useLanguage } from '@/context/LanguageContext'
 
 export default function AboutSection() {
+  const { t } = useLanguage()
+
+  const values = [
+    { titleKey: 'about.value0.title', descKey: 'about.value0.desc', icon: '⚡' },
+    { titleKey: 'about.value1.title', descKey: 'about.value1.desc', icon: '🌿' },
+    { titleKey: 'about.value2.title', descKey: 'about.value2.desc', icon: '🤝' },
+  ]
+
   return (
     <section id="about" className="py-32 bg-neutral-950 text-white overflow-hidden">
       <div className="section-padding container-max">
@@ -34,26 +25,17 @@ export default function AboutSection() {
           >
             <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-accent-lime bg-white/5 border border-white/10 px-3 py-1.5 rounded-full mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-accent-lime" />
-              Notre histoire
+              {t('about.label')}
             </span>
 
             <h2 className="heading-display text-4xl md:text-5xl text-white leading-tight">
-              Bâtir un avenir électrique,{' '}
-              <span className="text-brand-300">ensemble.</span>
+              {t('about.title.main')}{' '}
+              <span className="text-brand-300">{t('about.title.highlight')}</span>
             </h2>
 
             <div className="mt-8 space-y-5 text-neutral-300 text-base leading-relaxed">
-              <p>
-                Fondée en 2008 à Lyon, GPE Énergies & Services est née de la conviction que l&apos;excellence technique
-                et l&apos;innovation énergétique doivent aller de pair. En quinze ans, nous avons accompagné des
-                centaines de maîtres d&apos;ouvrage dans leur transition vers des bâtiments plus performants,
-                plus économes et plus durables.
-              </p>
-              <p>
-                Notre approche multidisciplinaire — électricité, renouvelables, CVC, VRD et ingénierie —
-                nous permet de traiter un projet dans sa globalité, en garantissant cohérence technique,
-                respect des délais et maîtrise des coûts.
-              </p>
+              <p>{t('about.p1')}</p>
+              <p>{t('about.p2')}</p>
             </div>
 
             {/* Certifications */}
@@ -70,7 +52,7 @@ export default function AboutSection() {
           <div className="space-y-5">
             {values.map((value, i) => (
               <motion.div
-                key={value.title}
+                key={value.titleKey}
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -79,8 +61,8 @@ export default function AboutSection() {
               >
                 <div className="text-2xl flex-shrink-0 mt-0.5">{value.icon}</div>
                 <div>
-                  <h3 className="font-semibold text-white text-base">{value.title}</h3>
-                  <p className="mt-1.5 text-sm text-neutral-400 leading-relaxed">{value.desc}</p>
+                  <h3 className="font-semibold text-white text-base">{t(value.titleKey)}</h3>
+                  <p className="mt-1.5 text-sm text-neutral-400 leading-relaxed">{t(value.descKey)}</p>
                 </div>
               </motion.div>
             ))}
@@ -94,17 +76,17 @@ export default function AboutSection() {
               className="grid grid-cols-3 rounded-2xl border border-white/10 overflow-hidden"
             >
               {[
-                { v: '2008', l: 'Création' },
-                { v: '+40', l: 'Collaborateurs' },
-                { v: 'Sud', l: "Région d'intervention" },
+                { v: '2008', lKey: 'about.stat.founded' },
+                { v: '+40', lKey: 'about.stat.team' },
+                { v: t('about.stat.regionVal'), lKey: 'about.stat.region' },
               ].map((item, i) => (
                 <div
-                  key={item.l}
+                  key={item.lKey}
                   className={`p-5 ${i < 2 ? 'border-r border-white/10' : ''}`}
                 >
                   <div className="text-2xl font-semibold text-white">{item.v}</div>
                   <div className="mt-1 text-[11px] tracking-widest uppercase text-neutral-500">
-                    {item.l}
+                    {t(item.lKey)}
                   </div>
                 </div>
               ))}

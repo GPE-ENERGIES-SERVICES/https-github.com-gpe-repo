@@ -191,12 +191,12 @@ export default function RealisationsClient() {
       {/* CTA */}
       <section className="py-20 bg-neutral-950 text-white">
         <div className="section-padding container-max text-center">
-          <h2 className="heading-display text-4xl md:text-5xl">Un projet similaire ?</h2>
+          <h2 className="heading-display text-4xl md:text-5xl">{t('realisations.cta.title')}</h2>
           <p className="mt-4 text-neutral-400 text-lg max-w-xl mx-auto">
-            Discutons de votre projet. Notre équipe d&apos;experts vous répond sous 24h ouvrées.
+            {t('realisations.cta.subtitle')}
           </p>
           <Link href="/contact" className="mt-8 btn-primary text-base px-8 py-4 inline-flex">
-            Nous contacter
+            {t('realisations.cta.button')}
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M10 5l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>

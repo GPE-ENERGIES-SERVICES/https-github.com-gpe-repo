@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
+import { useLanguage } from '@/context/LanguageContext'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -24,7 +25,7 @@ function Counter({ end, duration = 1600 }: { end: number; duration?: number }) {
     const start = performance.now()
     const tick = (now: number) => {
       const t = Math.min(1, (now - start) / duration)
-      const eased = 1 - Math.pow(1 - t, 3) // easeOutCubic
+      const eased = 1 - Math.pow(1 - t, 3)
       setCount(Math.round(end * eased))
       if (t < 1) raf = requestAnimationFrame(tick)
     }
@@ -36,11 +37,13 @@ function Counter({ end, duration = 1600 }: { end: number; duration?: number }) {
 }
 
 export default function Hero() {
+  const { t } = useLanguage()
+
   const stats = [
-    { value: 10, suffix: '+', label: "Années d'expérience" },
-    { value: 150, suffix: '+', label: 'Projets réalisés' },
-    { value: 8, suffix: '', label: 'Expertises métier' },
-    { value: 95, suffix: '%', label: 'Clients satisfaits' },
+    { value: 10, suffix: '+', labelKey: 'hero.stat.years' },
+    { value: 150, suffix: '+', labelKey: 'hero.stat.projects' },
+    { value: 8, suffix: '', labelKey: 'hero.stat.expertise' },
+    { value: 95, suffix: '%', labelKey: 'hero.stat.satisfaction' },
   ]
 
   return (
@@ -66,7 +69,7 @@ export default function Hero() {
             className="mb-7 flex items-center gap-3 text-[11px] font-medium tracking-[0.18em] uppercase text-neutral-500"
           >
             <span className="w-8 h-px bg-neutral-300" />
-            Vitrolles · depuis 2008
+            {t('hero.eyebrow')}
           </motion.div>
 
           {/* Headline */}
@@ -77,9 +80,9 @@ export default function Hero() {
             variants={fadeUp}
             className="heading-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-neutral-950 leading-[1.05]"
           >
-            L&apos;énergie qui{' '}
+            {t('hero.title.part1')}{' '}
             <span className="relative inline-block">
-              <span className="relative z-10 text-brand-400">donne vie</span>
+              <span className="relative z-10 text-brand-400">{t('hero.title.highlight')}</span>
               <motion.span
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
@@ -87,7 +90,7 @@ export default function Hero() {
                 className="absolute bottom-1 left-0 right-0 h-3 bg-brand-100 rounded-sm -z-10 origin-left"
               />
             </span>
-            <br className="hidden sm:block" /> à vos propriétés.
+            <br className="hidden sm:block" /> {t('hero.title.part2')}
           </motion.h1>
 
           {/* Subline */}
@@ -98,8 +101,7 @@ export default function Hero() {
             variants={fadeUp}
             className="mt-8 text-base sm:text-lg md:text-xl text-neutral-500 max-w-2xl leading-relaxed font-light"
           >
-            Installations électriques, énergies renouvelables, CVC, VRD et bureau d&apos;études.
-            Des solutions intégrées pour les professionnels et les collectivités exigeants.
+            {t('hero.subtitle')}
           </motion.p>
 
           {/* CTAs */}
@@ -111,13 +113,13 @@ export default function Hero() {
             className="mt-12 flex flex-wrap gap-4 items-center"
           >
             <Link href="/contact" className="btn-primary text-base px-8 py-4">
-              Contactez-nous
+              {t('hero.cta.contact')}
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M10 5l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
             <Link href="/#services" className="btn-secondary text-base px-8 py-4">
-              Nos Services
+              {t('hero.cta.services')}
             </Link>
           </motion.div>
 
@@ -130,12 +132,12 @@ export default function Hero() {
             className="mt-16 sm:mt-20 grid grid-cols-2 sm:flex sm:flex-wrap gap-8 sm:gap-12"
           >
             {stats.map((stat) => (
-              <div key={stat.label}>
+              <div key={stat.labelKey}>
                 <div className="text-2xl sm:text-3xl font-bold text-neutral-900 flex items-end gap-1">
                   <Counter end={stat.value} />
                   <span>{stat.suffix}</span>
                 </div>
-                <div className="text-sm text-neutral-400 mt-0.5 font-medium">{stat.label}</div>
+                <div className="text-sm text-neutral-400 mt-0.5 font-medium">{t(stat.labelKey)}</div>
               </div>
             ))}
           </motion.div>

@@ -16,7 +16,18 @@ interface FormData {
   website?: string
 }
 
-const services = [
+const officeLocation: MapLocation = {
+  id: 'vitrolles',
+  city: 'Vitrolles',
+  country: 'France',
+  flag: '🇫🇷',
+  address: "92 Bd de l'Europe ZA, 13127 Vitrolles",
+  phone: '+33 4 42 07 22 62',
+  role: 'Siège social',
+  osmEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=5.22%2C43.40%2C5.30%2C43.44&layer=mapnik&marker=43.4212125%2C5.2639742',
+}
+
+const serviceOptionsFr = [
   'Courants Forts',
   'Courants Faibles',
   'Énergies Renouvelables',
@@ -27,17 +38,6 @@ const services = [
   "Bureau d'Études",
   'Autre / Non défini',
 ]
-
-const officeLocation: MapLocation = {
-  id: 'vitrolles',
-  city: 'Vitrolles',
-  country: 'France',
-  flag: '🇫🇷',
-  address: '92 Bd de l\'Europe ZA, 13127 Vitrolles',
-  phone: '+33 4 42 07 22 62',
-  role: 'Siège social',
-  osmEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=5.22%2C43.40%2C5.30%2C43.44&layer=mapnik&marker=43.4212125%2C5.2639742',
-}
 
 export default function ContactPageClient() {
   const { t } = useLanguage()
@@ -63,6 +63,41 @@ export default function ContactPageClient() {
     `w-full px-4 py-3.5 rounded-xl border text-sm text-neutral-800 placeholder-neutral-400 bg-white transition-all duration-150 outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-400 ${
       hasError ? 'border-red-300' : 'border-neutral-200 hover:border-neutral-300'
     }`
+
+  const contactItems = [
+    {
+      icon: (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      ),
+      labelKey: 'contact.info.phone',
+      value: '+33 4 42 07 22 62',
+      href: 'tel:+33442072262',
+    },
+    {
+      icon: (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      ),
+      labelKey: 'contact.info.email',
+      value: 'contact@gpefrance.eu',
+      href: 'mailto:contact@gpefrance.eu',
+    },
+    {
+      icon: (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+      ),
+      labelKey: 'contact.info.address',
+      value: "92 Bd de l'Europe ZA, 13127 Vitrolles",
+      href: 'https://www.google.com/maps/place/GPE+%C3%89NERGIES+%26+SERVICES/@43.4212125,5.2639742,17z',
+    },
+  ]
 
   return (
     <>
@@ -96,42 +131,9 @@ export default function ContactPageClient() {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <div className="space-y-6">
-                {[
-                  {
-                    icon: (
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                      </svg>
-                    ),
-                    label: 'Téléphone',
-                    value: '+33 4 42 07 22 62',
-                    href: 'tel:+33442072262',
-                  },
-                  {
-                    icon: (
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                        <polyline points="22,6 12,13 2,6"/>
-                      </svg>
-                    ),
-                    label: 'Email',
-                    value: 'contact@gpefrance.eu',
-                    href: 'mailto:contact@gpefrance.eu',
-                  },
-                  {
-                    icon: (
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                        <circle cx="12" cy="10" r="3"/>
-                      </svg>
-                    ),
-                    label: 'Adresse',
-                    value: "92 Bd de l'Europe ZA, 13127 Vitrolles",
-                    href: 'https://www.google.com/maps/place/GPE+%C3%89NERGIES+%26+SERVICES/@43.4212125,5.2639742,17z',
-                  },
-                ].map((item) => (
+                {contactItems.map((item) => (
                   <a
-                    key={item.label}
+                    key={item.labelKey}
                     href={item.href}
                     className="flex items-start gap-4 group"
                     target={item.href.startsWith('http') ? '_blank' : undefined}
@@ -141,8 +143,12 @@ export default function ContactPageClient() {
                       {item.icon}
                     </div>
                     <div>
-                      <div className="text-xs font-semibold text-neutral-400 uppercase tracking-wider">{item.label}</div>
-                      <div className="text-sm font-medium text-neutral-700 mt-0.5 group-hover:text-brand-400 transition-colors">{item.value}</div>
+                      <div className="text-xs font-semibold text-neutral-400 uppercase tracking-wider">
+                        {t(item.labelKey)}
+                      </div>
+                      <div className="text-sm font-medium text-neutral-700 mt-0.5 group-hover:text-brand-400 transition-colors">
+                        {item.value}
+                      </div>
                     </div>
                   </a>
                 ))}
@@ -150,15 +156,17 @@ export default function ContactPageClient() {
 
               {/* Hours */}
               <div className="mt-10 p-5 rounded-2xl bg-neutral-50 border border-neutral-150">
-                <div className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-3">Horaires</div>
+                <div className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-3">
+                  {t('contact.hours.title')}
+                </div>
                 <div className="space-y-1.5 text-sm">
                   <div className="flex justify-between text-neutral-700">
-                    <span>Lundi – Vendredi</span>
-                    <span className="font-medium">8h00 – 18h00</span>
+                    <span>{t('contact.hours.weekdays')}</span>
+                    <span className="font-medium">{t('contact.hours.weekdaysTime')}</span>
                   </div>
                   <div className="flex justify-between text-neutral-400">
-                    <span>Samedi – Dimanche</span>
-                    <span>Fermé</span>
+                    <span>{t('contact.hours.weekend')}</span>
+                    <span>{t('contact.hours.closed')}</span>
                   </div>
                 </div>
               </div>
@@ -183,12 +191,12 @@ export default function ContactPageClient() {
                         <polyline points="20 6 9 17 4 12"/>
                       </svg>
                     </div>
-                    <h3 className="text-xl font-semibold text-neutral-900">Message envoyé !</h3>
+                    <h3 className="text-xl font-semibold text-neutral-900">{t('contact.success.title')}</h3>
                     <p className="mt-2 text-neutral-500 text-sm max-w-xs">
-                      Merci pour votre message. Notre équipe vous répondra dans les 24h ouvrées.
+                      {t('contact.success.message')}
                     </p>
                     <button onClick={() => setStatus('idle')} className="mt-6 btn-secondary text-sm">
-                      Nouveau message
+                      {t('contact.success.button')}
                     </button>
                   </div>
                 ) : (
@@ -202,44 +210,74 @@ export default function ContactPageClient() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">Nom complet *</label>
-                        <input {...register('name', { required: true })} placeholder="Jean Dupont" className={inputClass(!!errors.name)} />
+                        <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">
+                          {t('contact.form.name')}
+                        </label>
+                        <input
+                          {...register('name', { required: true })}
+                          placeholder={t('contact.form.namePlaceholder')}
+                          className={inputClass(!!errors.name)}
+                        />
                       </div>
                       <div>
-                        <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">Email *</label>
-                        <input {...register('email', { required: true, pattern: /^\S+@\S+$/i })} type="email" placeholder="jean@exemple.fr" className={inputClass(!!errors.email)} />
+                        <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">
+                          {t('contact.form.email')}
+                        </label>
+                        <input
+                          {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
+                          type="email"
+                          placeholder={t('contact.form.emailPlaceholder')}
+                          className={inputClass(!!errors.email)}
+                        />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">Téléphone</label>
-                        <input {...register('phone')} type="tel" placeholder="+33 6 XX XX XX XX" className={inputClass()} />
+                        <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">
+                          {t('contact.form.phone')}
+                        </label>
+                        <input
+                          {...register('phone')}
+                          type="tel"
+                          placeholder={t('contact.form.phonePlaceholder')}
+                          className={inputClass()}
+                        />
                       </div>
                       <div>
-                        <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">Société</label>
-                        <input {...register('company')} placeholder="Votre entreprise" className={inputClass()} />
+                        <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">
+                          {t('contact.form.company')}
+                        </label>
+                        <input
+                          {...register('company')}
+                          placeholder={t('contact.form.companyPlaceholder')}
+                          className={inputClass()}
+                        />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">Service concerné</label>
+                      <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">
+                        {t('contact.form.service')}
+                      </label>
                       <select {...register('service')} className={inputClass()}>
-                        <option value="">Sélectionnez un service</option>
-                        {services.map((s) => <option key={s} value={s}>{s}</option>)}
+                        <option value="">{t('contact.form.serviceDefault')}</option>
+                        {serviceOptionsFr.map((s) => <option key={s} value={s}>{s}</option>)}
                       </select>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">Votre message *</label>
+                      <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">
+                        {t('contact.form.message')}
+                      </label>
                       <textarea
                         {...register('message', { required: true, minLength: 20 })}
                         rows={5}
-                        placeholder="Décrivez votre projet ou votre demande..."
+                        placeholder={t('contact.form.messagePlaceholder')}
                         className={`${inputClass(!!errors.message)} resize-none`}
                       />
                       {errors.message && (
-                        <p className="text-xs text-red-500 mt-1">Veuillez détailler votre message (min. 20 caractères)</p>
+                        <p className="text-xs text-red-500 mt-1">{t('contact.form.messageError')}</p>
                       )}
                     </div>
 
@@ -254,11 +292,11 @@ export default function ContactPageClient() {
                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
                             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
                           </svg>
-                          Envoi en cours...
+                          {t('contact.form.sending')}
                         </>
                       ) : (
                         <>
-                          Envoyer le message
+                          {t('contact.form.submit')}
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
                           </svg>
@@ -268,11 +306,11 @@ export default function ContactPageClient() {
 
                     {status === 'error' && (
                       <p className="text-xs text-red-500 text-center">
-                        Une erreur s&apos;est produite. Veuillez réessayer ou nous contacter par téléphone.
+                        {t('contact.form.error')}
                       </p>
                     )}
                     <p className="text-xs text-neutral-400 text-center">
-                      En envoyant ce formulaire, vous acceptez notre politique de confidentialité.
+                      {t('contact.form.privacy')}
                     </p>
                   </form>
                 )}

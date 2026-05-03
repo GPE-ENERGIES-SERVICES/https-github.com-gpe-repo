@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Outfit, Playfair_Display } from 'next/font/google'
+import { Outfit, Playfair_Display, IBM_Plex_Sans_Arabic } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -14,6 +14,13 @@ const outfit = Outfit({
 const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
+  display: 'swap',
+})
+
+const ibmPlexArabic = IBM_Plex_Sans_Arabic({
+  subsets: ['arabic'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-arabic',
   display: 'swap',
 })
 
@@ -50,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr" className={`${outfit.variable} ${playfair.variable}`}>
+    <html lang="fr" className={`${outfit.variable} ${playfair.variable} ${ibmPlexArabic.variable}`}>
       <body className="bg-white text-neutral-900 antialiased">
         <Providers>
           <Navbar />

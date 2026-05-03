@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { services } from '@/lib/services'
 import ServiceIcon from './ServiceIcon'
+import { useLanguage } from '@/context/LanguageContext'
 
 const containerVariants = {
   hidden: {},
@@ -23,6 +24,8 @@ const cardVariants = {
 }
 
 export default function ServicesSection() {
+  const { t } = useLanguage()
+
   return (
     <section id="services" className="py-32 bg-neutral-50">
       <div className="section-padding container-max">
@@ -34,12 +37,14 @@ export default function ServicesSection() {
           transition={{ duration: 0.6 }}
           className="max-w-2xl"
         >
-          <span className="label-tag">Nos expertises</span>
+          <span className="label-tag">{t('services.label')}</span>
           <h2 className="heading-display text-4xl md:text-5xl text-neutral-950 mt-5 leading-tight">
-            Des solutions complètes,<br />de la conception à la réalisation.
+            {t('services.title').split('\n').map((line, i) => (
+              <span key={i}>{line}{i === 0 && <br />}</span>
+            ))}
           </h2>
           <p className="mt-5 text-neutral-500 text-lg leading-relaxed">
-            Huit métiers complémentaires pour répondre à l&apos;ensemble de vos besoins en énergie et en bâtiment.
+            {t('services.subtitle')}
           </p>
         </motion.div>
 
@@ -51,7 +56,7 @@ export default function ServicesSection() {
           viewport={{ once: true, margin: '-100px' }}
           className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
         >
-          {services.map((service, index) => (
+          {services.map((service) => (
             <motion.div
               key={service.slug}
               variants={cardVariants}
@@ -84,7 +89,7 @@ export default function ServicesSection() {
                   href={`/services/${service.slug}`}
                   className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-400 hover:text-brand-500 transition-colors"
                 >
-                  En savoir plus
+                  {t('services.learnMore')}
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="group-hover:translate-x-0.5 transition-transform">
                     <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>

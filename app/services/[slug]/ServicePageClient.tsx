@@ -7,14 +7,23 @@ import type { Service } from '@/lib/services'
 import ServiceIcon from '@/components/ServiceIcon'
 import { services } from '@/lib/services'
 import { getProjectsByService } from '@/lib/projects'
+import { useLanguage } from '@/context/LanguageContext'
 
 interface Props {
   service: Service
 }
 
 export default function ServicePageClient({ service }: Props) {
+  const { t } = useLanguage()
   const related = services.filter(s => s.slug !== service.slug).slice(0, 3)
   const serviceProjects = getProjectsByService(service.slug)
+
+  const processSteps = [
+    { step: '01', titleKey: 'service.process.0.title', descKey: 'service.process.0.desc' },
+    { step: '02', titleKey: 'service.process.1.title', descKey: 'service.process.1.desc' },
+    { step: '03', titleKey: 'service.process.2.title', descKey: 'service.process.2.desc' },
+    { step: '04', titleKey: 'service.process.3.title', descKey: 'service.process.3.desc' },
+  ]
 
   return (
     <>
@@ -44,7 +53,7 @@ export default function ServicePageClient({ service }: Props) {
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path d="M11 7H3M6 4L3 7l3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              Tous nos services
+              {t('service.back')}
             </Link>
 
             <div
@@ -75,9 +84,9 @@ export default function ServicePageClient({ service }: Props) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                <span className="label-tag">Notre expertise</span>
+                <span className="label-tag">{t('service.expertise.label')}</span>
                 <h2 className="heading-display text-3xl md:text-4xl text-neutral-950 mt-4 mb-8 leading-tight">
-                  Ce que nous réalisons pour vous
+                  {t('service.expertise.title')}
                 </h2>
                 <div className="space-y-5">
                   {service.description.map((para, i) => (
@@ -95,7 +104,7 @@ export default function ServicePageClient({ service }: Props) {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="mt-12"
               >
-                <h3 className="font-semibold text-neutral-900 text-xl mb-6">Nos prestations incluses</h3>
+                <h3 className="font-semibold text-neutral-900 text-xl mb-6">{t('service.benefits.title')}</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {service.benefits.map((benefit) => (
                     <div
@@ -123,14 +132,9 @@ export default function ServicePageClient({ service }: Props) {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="mt-12"
               >
-                <h3 className="font-semibold text-neutral-900 text-xl mb-6">Notre processus</h3>
+                <h3 className="font-semibold text-neutral-900 text-xl mb-6">{t('service.process.title')}</h3>
                 <div className="space-y-4">
-                  {[
-                    { step: '01', title: 'Analyse & Étude', desc: 'Audit technique de votre site et analyse de vos besoins spécifiques.' },
-                    { step: '02', title: 'Conception & Devis', desc: 'Proposition technique détaillée avec chiffrage transparent et délais engagés.' },
-                    { step: '03', title: 'Réalisation', desc: 'Exécution par nos équipes certifiées, avec suivi de chantier rigoureux.' },
-                    { step: '04', title: 'Réception & SAV', desc: 'Mise en service, formation et contrat de maintenance adapté.' },
-                  ].map((item) => (
+                  {processSteps.map((item) => (
                     <div key={item.step} className="flex gap-4 p-4 rounded-xl hover:bg-neutral-50 transition-colors">
                       <div
                         className="text-sm font-bold flex-shrink-0 w-8 mt-0.5"
@@ -139,8 +143,8 @@ export default function ServicePageClient({ service }: Props) {
                         {item.step}
                       </div>
                       <div>
-                        <div className="font-semibold text-neutral-900 text-sm">{item.title}</div>
-                        <div className="text-sm text-neutral-500 mt-0.5">{item.desc}</div>
+                        <div className="font-semibold text-neutral-900 text-sm">{t(item.titleKey)}</div>
+                        <div className="text-sm text-neutral-500 mt-0.5">{t(item.descKey)}</div>
                       </div>
                     </div>
                   ))}
@@ -165,35 +169,37 @@ export default function ServicePageClient({ service }: Props) {
                     <ServiceIcon name={service.icon} size={18} color="white" />
                   </div>
                   <h3 className="font-semibold text-lg leading-snug">
-                    Un projet {service.title.toLowerCase()} ?
+                    {t('service.cta.prefix')} {service.title.toLowerCase()} {t('service.cta.suffix')}
                   </h3>
                   <p className="mt-2 text-sm text-neutral-400 leading-relaxed">
-                    Obtenez une étude personnalisée et un devis gratuit sous 24h.
+                    {t('service.cta.subtitle')}
                   </p>
                   <Link
                     href="/contact"
                     className="mt-5 btn-primary w-full justify-center text-sm"
                     style={{ backgroundColor: service.color }}
                   >
-                    Demander un devis
+                    {t('service.cta.quote')}
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                       <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </Link>
                   <a
-                    href="tel:+33478000000"
+                    href="tel:+33442072262"
                     className="mt-3 btn-secondary w-full justify-center text-sm"
                   >
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                     </svg>
-                    Nous appeler
+                    {t('service.cta.call')}
                   </a>
                 </div>
 
                 {/* Certifications */}
                 <div className="bg-neutral-50 rounded-2xl p-5 border border-neutral-150">
-                  <div className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-3">Certifications</div>
+                  <div className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-3">
+                    {t('service.certs.title')}
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     {['RGE', 'Qualifelec', 'IRVE', 'Qualibat'].map((cert) => (
                       <span key={cert} className="text-xs font-medium text-neutral-600 bg-white border border-neutral-200 px-2.5 py-1 rounded-lg">
@@ -213,12 +219,12 @@ export default function ServicePageClient({ service }: Props) {
         <section className="py-16 bg-white border-t border-neutral-100">
           <div className="section-padding container-max">
             <div className="flex items-center justify-between mb-8">
-              <h3 className="font-semibold text-neutral-800 text-lg">Projets réalisés</h3>
+              <h3 className="font-semibold text-neutral-800 text-lg">{t('service.projects.title')}</h3>
               <Link
                 href={`/realisations?service=${service.slug}`}
                 className="text-sm font-semibold text-brand-400 hover:text-brand-500 transition-colors flex items-center gap-1"
               >
-                Voir tous
+                {t('service.projects.viewAll')}
                 <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
                   <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -265,7 +271,7 @@ export default function ServicePageClient({ service }: Props) {
       {/* Related services */}
       <section className="py-16 bg-neutral-50 border-t border-neutral-100">
         <div className="section-padding container-max">
-          <h3 className="font-semibold text-neutral-800 text-lg mb-8">Services complémentaires</h3>
+          <h3 className="font-semibold text-neutral-800 text-lg mb-8">{t('service.related.title')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {related.map((s) => (
               <Link

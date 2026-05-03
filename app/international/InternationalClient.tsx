@@ -11,7 +11,7 @@ const locations: MapLocation[] = [
     city: 'Vitrolles',
     country: 'France',
     flag: '🇫🇷',
-    address: '92 Bd de l\'Europe ZA, 13127 Vitrolles',
+    address: "92 Bd de l'Europe ZA, 13127 Vitrolles",
     phone: '+33 4 42 07 22 62',
     role: 'Siège social',
     osmEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=5.22%2C43.40%2C5.30%2C43.44&layer=mapnik&marker=43.4212125%2C5.2639742',
@@ -51,15 +51,15 @@ const partners = [
   { name: 'Meridiam', region: 'International' },
 ]
 
-const stats = [
-  { value: '3', label: 'Continents' },
-  { value: '8+', label: 'Pays couverts' },
-  { value: '50+', label: 'Projets internationaux' },
-  { value: '15', label: 'Partenaires mondiaux' },
-]
-
 export default function InternationalClient() {
   const { t } = useLanguage()
+
+  const stats = [
+    { value: '3', labelKey: 'international.stat.0' },
+    { value: '8+', labelKey: 'international.stat.1' },
+    { value: '50+', labelKey: 'international.stat.2' },
+    { value: '15', labelKey: 'international.stat.3' },
+  ]
 
   return (
     <>
@@ -95,9 +95,11 @@ export default function InternationalClient() {
             className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6"
           >
             {stats.map((s) => (
-              <div key={s.label} className="p-5 rounded-2xl bg-white/5 border border-white/10">
+              <div key={s.labelKey} className="p-5 rounded-2xl bg-white/5 border border-white/10">
                 <div className="text-3xl font-bold text-white">{s.value}</div>
-                <div className="mt-1 text-xs text-neutral-500 uppercase tracking-wider font-semibold">{s.label}</div>
+                <div className="mt-1 text-xs text-neutral-500 uppercase tracking-wider font-semibold">
+                  {t(s.labelKey)}
+                </div>
               </div>
             ))}
           </motion.div>
@@ -116,7 +118,7 @@ export default function InternationalClient() {
           >
             <span className="label-tag">{t('international.locations.title')}</span>
             <h2 className="heading-display text-4xl md:text-5xl text-neutral-950 mt-4 leading-tight">
-              Une présence sur <br className="hidden sm:block" />3 continents.
+              {t('international.map.title')}
             </h2>
           </motion.div>
 
@@ -143,7 +145,7 @@ export default function InternationalClient() {
           >
             <span className="label-tag">{t('international.partners.title')}</span>
             <h2 className="heading-display text-4xl md:text-5xl text-neutral-950 mt-4">
-              Des alliances stratégiques.
+              {t('international.partners.subtitle')}
             </h2>
           </motion.div>
 
@@ -181,7 +183,7 @@ export default function InternationalClient() {
           >
             <span className="label-tag">{t('international.certs.title')}</span>
             <h2 className="heading-display text-4xl md:text-5xl text-neutral-950 mt-4">
-              Certifiés. Reconnus. Fiables.
+              {t('international.certs.subtitle')}
             </h2>
           </motion.div>
         </div>
