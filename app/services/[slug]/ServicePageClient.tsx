@@ -6,6 +6,7 @@ import Link from 'next/link'
 import type { Service } from '@/lib/services'
 import ServiceIcon from '@/components/ServiceIcon'
 import { services } from '@/lib/services'
+import { getProjectsByService } from '@/lib/projects'
 
 interface Props {
   service: Service
@@ -13,6 +14,7 @@ interface Props {
 
 export default function ServicePageClient({ service }: Props) {
   const related = services.filter(s => s.slug !== service.slug).slice(0, 3)
+  const serviceProjects = getProjectsByService(service.slug)
 
   return (
     <>
@@ -169,7 +171,7 @@ export default function ServicePageClient({ service }: Props) {
                     Obtenez une étude personnalisée et un devis gratuit sous 24h.
                   </p>
                   <Link
-                    href="/#contact"
+                    href="/contact"
                     className="mt-5 btn-primary w-full justify-center text-sm"
                     style={{ backgroundColor: service.color }}
                   >
@@ -205,6 +207,60 @@ export default function ServicePageClient({ service }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Related projects */}
+      {serviceProjects.length > 0 && (
+        <section className="py-16 bg-white border-t border-neutral-100">
+          <div className="section-padding container-max">
+            <div className="flex items-center justify-between mb-8">
+              <h3 className="font-semibold text-neutral-800 text-lg">Projets réalisés</h3>
+              <Link
+                href={`/realisations?service=${service.slug}`}
+                className="text-sm font-semibold text-brand-400 hover:text-brand-500 transition-colors flex items-center gap-1"
+              >
+                Voir tous
+                <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+                  <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {serviceProjects.slice(0, 3).map((project, i) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.08 }}
+                  className="group rounded-2xl overflow-hidden border border-neutral-150 bg-neutral-50 hover:border-neutral-200 hover:shadow-md transition-all duration-300"
+                >
+                  <div className="relative h-36 overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    <div className="absolute bottom-2 start-2 text-[10px] font-bold text-white/80 uppercase tracking-wider">
+                      {project.year}
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="font-semibold text-sm text-neutral-900 leading-snug">{project.title}</div>
+                    <div className="text-xs text-neutral-400 mt-1">{project.location} · {project.client}</div>
+                    <div className="mt-2 flex flex-wrap gap-1">
+                      {project.tags.slice(0, 2).map(tag => (
+                        <span key={tag} className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-neutral-200 text-neutral-500">{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Related services */}
       <section className="py-16 bg-neutral-50 border-t border-neutral-100">

@@ -3,6 +3,7 @@ import { Outfit, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import Providers from '@/components/Providers'
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -51,9 +52,11 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${outfit.variable} ${playfair.variable}`}>
       <body className="bg-white text-neutral-900 antialiased">
-        <Navbar />
-        <main className="overflow-x-hidden">{children}</main>
-        <Footer />
+        <Providers>
+          <Navbar />
+          <main className="overflow-x-hidden">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   )

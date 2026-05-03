@@ -110,7 +110,7 @@ export default function Hero() {
             variants={fadeUp}
             className="mt-12 flex flex-wrap gap-4 items-center"
           >
-            <Link href="/#contact" className="btn-primary text-base px-8 py-4">
+            <Link href="/contact" className="btn-primary text-base px-8 py-4">
               Contactez-nous
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M10 5l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

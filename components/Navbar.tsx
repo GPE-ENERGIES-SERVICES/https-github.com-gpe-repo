@@ -5,18 +5,22 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-
-const navLinks = [
-  { label: 'Services', href: '/#services' },
-  { label: 'Réalisations', href: '/#references' },
-  { label: 'À propos', href: '/#about' },
-  { label: 'Contact', href: '/#contact' },
-]
+import LanguageSwitcher from './LanguageSwitcher'
+import { useLanguage } from '@/context/LanguageContext'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
+  const { t } = useLanguage()
+
+  const navLinks = [
+    { key: 'nav.home', href: '/' },
+    { key: 'nav.services', href: '/#services' },
+    { key: 'nav.realisations', href: '/realisations' },
+    { key: 'nav.international', href: '/international' },
+    { key: 'nav.contact', href: '/contact' },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -25,32 +29,35 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Lock body scroll when mobile menu open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
-    return () => {
-      document.body.style.overflow = ''
-    }
+    return () => { document.body.style.overflow = '' }
   }, [menuOpen])
+
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/'
+    if (href.startsWith('/#')) return pathname === '/'
+    return pathname.startsWith(href)
+  }
 
   return (
     <>
       <header
         className={`fixed top-0 inset-x-0 z-50 transition-[background,backdrop-filter,border-color] duration-300 ${
           scrolled
-            ? 'bg-white/75 backdrop-blur-xl border-b border-neutral-200/60'
+            ? 'bg-white/80 backdrop-blur-xl border-b border-neutral-200/60'
             : 'bg-white/40 backdrop-blur-md border-b border-transparent'
         }`}
       >
         <nav className="section-padding container-max">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 -ml-1">
+            <Link href="/" className="flex items-center gap-2.5 -ms-1 flex-shrink-0">
               <Image
                 src="/images/logo.png"
                 alt="GPE Énergies"
-                width={200}
-                height={60}
+                width={500}
+                height={200}
                 className="h-9 w-auto md:h-10"
                 priority
               />
@@ -63,22 +70,21 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-0.5">
               {navLinks.map((link) => {
-                const active =
-                  pathname === '/' && link.href.startsWith('/#') === false
-                    ? false
-                    : false
+                const active = isActive(link.href)
                 return (
                   <Link
-                    key={link.label}
+                    key={link.key}
                     href={link.href}
-                    className="group relative px-4 py-2 text-[13.5px] font-medium text-neutral-600 hover:text-neutral-900 transition-colors"
+                    className={`group relative px-3.5 py-2 text-[13px] font-medium transition-colors ${
+                      active ? 'text-brand-400' : 'text-neutral-600 hover:text-neutral-900'
+                    }`}
                   >
-                    {link.label}
+                    {t(link.key)}
                     <span
-                      className={`pointer-events-none absolute left-4 right-4 -bottom-0.5 h-px origin-left scale-x-0 bg-neutral-900 transition-transform duration-300 group-hover:scale-x-100 ${
-                        active ? 'scale-x-100' : ''
+                      className={`pointer-events-none absolute left-3.5 right-3.5 -bottom-0.5 h-px origin-left bg-brand-400 transition-transform duration-300 ${
+                        active ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                       }`}
                     />
                   </Link>
@@ -86,8 +92,10 @@ export default function Navbar() {
               })}
             </div>
 
-            {/* CTA + meta */}
-            <div className="hidden md:flex items-center gap-5">
+            {/* Right — lang + phone + CTA */}
+            <div className="hidden lg:flex items-center gap-3">
+              <LanguageSwitcher />
+              <span className="h-4 w-px bg-neutral-200" />
               <a
                 href="tel:+33442072262"
                 className="text-[13px] font-medium text-neutral-500 hover:text-neutral-900 transition-colors"
@@ -96,36 +104,24 @@ export default function Navbar() {
               </a>
               <span className="h-4 w-px bg-neutral-200" />
               <Link
-                href="/#contact"
-                className="inline-flex items-center gap-1.5 bg-neutral-900 text-white text-[13px] font-medium px-4 py-2 rounded-full hover:bg-neutral-800 transition-colors"
+                href="/contact"
+                className="inline-flex items-center gap-1.5 bg-brand-400 text-white text-[13px] font-semibold px-4 py-2 rounded-full hover:bg-brand-500 transition-colors shadow-sm"
               >
-                Demander un devis
+                {t('nav.cta')}
               </Link>
             </div>
 
-            {/* Burger */}
+            {/* Burger (mobile / tablet) */}
             <button
-              className="md:hidden -mr-2 p-2 rounded-lg hover:bg-neutral-100 transition-colors"
+              className="lg:hidden -me-2 p-2 rounded-lg hover:bg-neutral-100 transition-colors"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Menu"
               aria-expanded={menuOpen}
             >
               <div className="relative w-5 h-4">
-                <span
-                  className={`absolute left-0 right-0 h-px bg-neutral-900 transition-all duration-300 ${
-                    menuOpen ? 'top-2 rotate-45' : 'top-0'
-                  }`}
-                />
-                <span
-                  className={`absolute left-0 right-0 top-2 h-px bg-neutral-900 transition-opacity duration-200 ${
-                    menuOpen ? 'opacity-0' : 'opacity-100'
-                  }`}
-                />
-                <span
-                  className={`absolute left-0 right-0 h-px bg-neutral-900 transition-all duration-300 ${
-                    menuOpen ? 'top-2 -rotate-45' : 'top-4'
-                  }`}
-                />
+                <span className={`absolute left-0 right-0 h-px bg-neutral-900 transition-all duration-300 ${menuOpen ? 'top-2 rotate-45' : 'top-0'}`} />
+                <span className={`absolute left-0 right-0 top-2 h-px bg-neutral-900 transition-opacity duration-200 ${menuOpen ? 'opacity-0' : 'opacity-100'}`} />
+                <span className={`absolute left-0 right-0 h-px bg-neutral-900 transition-all duration-300 ${menuOpen ? 'top-2 -rotate-45' : 'top-4'}`} />
               </div>
             </button>
           </div>
@@ -140,12 +136,12 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-white pt-20 px-6 md:hidden"
+            className="fixed inset-0 z-40 bg-white pt-20 px-6 lg:hidden overflow-y-auto"
           >
             <div className="flex flex-col">
               {navLinks.map((link, i) => (
                 <motion.div
-                  key={link.label}
+                  key={link.key}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05 + i * 0.04 }}
@@ -153,9 +149,11 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="flex items-center justify-between py-5 text-[22px] font-medium text-neutral-900 border-b border-neutral-100"
+                    className={`flex items-center justify-between py-5 text-[22px] font-medium border-b border-neutral-100 ${
+                      isActive(link.href) ? 'text-brand-400' : 'text-neutral-900'
+                    }`}
                   >
-                    {link.label}
+                    {t(link.key)}
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-neutral-300">
                       <path d="M5 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -166,15 +164,15 @@ export default function Navbar() {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.25 }}
+                transition={{ delay: 0.3 }}
                 className="mt-8 space-y-3"
               >
                 <Link
-                  href="/#contact"
+                  href="/contact"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-center bg-neutral-900 text-white text-sm font-medium px-5 py-3.5 rounded-full"
+                  className="flex items-center justify-center bg-brand-400 text-white text-sm font-semibold px-5 py-3.5 rounded-full"
                 >
-                  Demander un devis
+                  {t('nav.cta')}
                 </Link>
                 <a
                   href="tel:+33442072262"
@@ -182,6 +180,9 @@ export default function Navbar() {
                 >
                   +33 4 42 07 22 62
                 </a>
+                <div className="flex justify-center pt-2">
+                  <LanguageSwitcher />
+                </div>
               </motion.div>
             </div>
           </motion.div>
