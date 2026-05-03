@@ -59,7 +59,7 @@ export default function ReferencesSection() {
               className="group flex items-center justify-center h-20 bg-neutral-50 rounded-2xl border border-neutral-150 hover:border-brand-200 hover:bg-brand-50/30 transition-all duration-300 cursor-default"
             >
               <div className="text-center">
-                <div className="text-xs font-bold text-neutral-400 group-hover:text-brand-500 transition-colors tracking-wider">
+                <div className="text-xs font-bold text-neutral-400 group-hover:text-brand-400 transition-colors tracking-wider">
                   {client.initials}
                 </div>
                 <div className="text-[10px] text-neutral-400 mt-0.5 font-medium leading-tight px-2 text-center">
@@ -90,12 +90,12 @@ export default function ReferencesSection() {
                 className="flex items-start gap-4 p-5 rounded-2xl bg-neutral-50 border border-neutral-150"
               >
                 <div className="w-10 h-10 rounded-xl bg-brand-100 flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-brand-500" />
+                  <div className="w-2 h-2 rounded-full bg-brand-400" />
                 </div>
                 <div>
                   <div className="font-semibold text-sm text-neutral-900">{project.label}</div>
                   <div className="text-xs text-neutral-400 mt-1">{project.location}</div>
-                  <span className="mt-2 inline-block text-[10px] font-semibold text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full border border-brand-100">
+                  <span className="mt-2 inline-block text-[10px] font-semibold text-brand-400 bg-brand-50 px-2 py-0.5 rounded-full border border-brand-100">
                     {project.type}
                   </span>
                 </div>

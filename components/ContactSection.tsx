@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
@@ -17,13 +17,13 @@ interface FormData {
 const services = [
   'Courants Forts',
   'Courants Faibles',
-  'Énergies Renouvelables',
-  'Mobilité Électrique',
-  'Rénovation Énergétique',
+  'Ã‰nergies Renouvelables',
+  'MobilitÃ© Ã‰lectrique',
+  'RÃ©novation Ã‰nergÃ©tique',
   'Chauffage & Climatisation',
   'VRD',
-  "Bureau d'Études",
-  'Autre / Non défini',
+  "Bureau d'Ã‰tudes",
+  'Autre / Non dÃ©fini',
 ]
 
 export default function ContactSection() {
@@ -70,8 +70,8 @@ export default function ContactSection() {
               Parlons de votre projet.
             </h2>
             <p className="mt-5 text-neutral-500 text-lg leading-relaxed">
-              Notre équipe répond sous 24h ouvrées. Que ce soit pour un devis, une étude de faisabilité
-              ou une question technique, nous sommes à votre écoute.
+              Notre Ã©quipe rÃ©pond sous 24h ouvrÃ©es. Que ce soit pour un devis, une Ã©tude de faisabilitÃ©
+              ou une question technique, nous sommes Ã  votre Ã©coute.
             </p>
 
             <div className="mt-12 space-y-6">
@@ -82,7 +82,7 @@ export default function ContactSection() {
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                     </svg>
                   ),
-                  label: 'Téléphone',
+                  label: 'TÃ©lÃ©phone',
                   value: '+33 4 42 07 22 62',
                   href: 'tel:+33 4 42 07 22 62',
                 },
@@ -105,7 +105,7 @@ export default function ContactSection() {
                     </svg>
                   ),
                   label: 'Adresse',
-                  value: '92 Bd de l’Europe ZA, 13127 Vitrolles',
+                  value: '92 Bd de lâ€™Europe ZA, 13127 Vitrolles',
                   href: 'https://www.google.com/maps/place/GPE+%C3%89NERGIES+%26+SERVICES/@43.4212125,5.2639742,17z/data=!3m1!4b1!4m6!3m5!1s0x6dc78fdecc88bfb5:0xadad83fbf53b1ce4!8m2!3d43.4212125!4d5.2639742!16s%2Fg%2F11xdg50yvg?entry=ttu&g_ep=EgoyMDI2MDQxOS4wIKXMDSoASAFQAw%3D%3D',
                 },
               ].map((item) => (
@@ -116,12 +116,12 @@ export default function ContactSection() {
                   target={item.href.startsWith('http') ? '_blank' : undefined}
                   rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 >
-                  <div className="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-200 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-brand-100 text-brand-400 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-200 transition-colors">
                     {item.icon}
                   </div>
                   <div>
                     <div className="text-xs font-semibold text-neutral-400 uppercase tracking-wider">{item.label}</div>
-                    <div className="text-sm font-medium text-neutral-700 mt-0.5 group-hover:text-brand-600 transition-colors">{item.value}</div>
+                    <div className="text-sm font-medium text-neutral-700 mt-0.5 group-hover:text-brand-400 transition-colors">{item.value}</div>
                   </div>
                 </a>
               ))}
@@ -132,12 +132,12 @@ export default function ContactSection() {
               <div className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-3">Horaires d&apos;ouverture</div>
               <div className="space-y-1.5 text-sm">
                 <div className="flex justify-between text-neutral-700">
-                  <span>Lundi – Vendredi</span>
-                  <span className="font-medium">8h00 – 18h00</span>
+                  <span>Lundi â€“ Vendredi</span>
+                  <span className="font-medium">8h00 â€“ 18h00</span>
                 </div>
                 <div className="flex justify-between text-neutral-400">
-                  <span>Samedi – Dimanche</span>
-                  <span>Fermé</span>
+                  <span>Samedi â€“ Dimanche</span>
+                  <span>FermÃ©</span>
                 </div>
               </div>
             </div>
@@ -153,14 +153,14 @@ export default function ContactSection() {
             <div className="bg-white rounded-3xl border border-neutral-150 p-8 shadow-sm">
               {status === 'success' ? (
                 <div className="flex flex-col items-center justify-center text-center py-12">
-                  <div className="w-16 h-16 rounded-full bg-accent-greenLight flex items-center justify-center mb-5">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00C896" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <div className="w-16 h-16 rounded-full bg-accent-limeLight flex items-center justify-center mb-5">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C6FF00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold text-neutral-900">Message envoyé !</h3>
+                  <h3 className="text-xl font-semibold text-neutral-900">Message envoyÃ© !</h3>
                   <p className="mt-2 text-neutral-500 text-sm max-w-xs">
-                    Merci pour votre message. Notre équipe vous répondra dans les 24h ouvrées.
+                    Merci pour votre message. Notre Ã©quipe vous rÃ©pondra dans les 24h ouvrÃ©es.
                   </p>
                   <button onClick={() => setStatus('idle')} className="mt-6 btn-secondary text-sm">
                     Nouveau message
@@ -168,7 +168,7 @@ export default function ContactSection() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
-                  {/* Honeypot — must stay empty (hidden from real users) */}
+                  {/* Honeypot â€” must stay empty (hidden from real users) */}
                   <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
                     <label>
                       Ne pas remplir
@@ -201,7 +201,7 @@ export default function ContactSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">
-                        Téléphone
+                        TÃ©lÃ©phone
                       </label>
                       <input
                         {...register('phone')}
@@ -212,7 +212,7 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">
-                        Société
+                        SociÃ©tÃ©
                       </label>
                       <input
                         {...register('company')}
@@ -223,10 +223,10 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">
-                      Service concerné
+                      Service concernÃ©
                     </label>
                     <select {...register('service')} className={inputClass()}>
-                      <option value="">Sélectionnez un service</option>
+                      <option value="">SÃ©lectionnez un service</option>
                       {services.map((s) => (
                         <option key={s} value={s}>{s}</option>
                       ))}
@@ -239,11 +239,11 @@ export default function ContactSection() {
                     <textarea
                       {...register('message', { required: true, minLength: 20 })}
                       rows={5}
-                      placeholder="Décrivez votre projet ou votre demande..."
+                      placeholder="DÃ©crivez votre projet ou votre demande..."
                       className={`${inputClass(!!errors.message)} resize-none`}
                     />
                     {errors.message && (
-                      <p className="text-xs text-red-500 mt-1">Veuillez détailler votre message (min. 20 caractères)</p>
+                      <p className="text-xs text-red-500 mt-1">Veuillez dÃ©tailler votre message (min. 20 caractÃ¨res)</p>
                     )}
                   </div>
                   <button
@@ -270,11 +270,11 @@ export default function ContactSection() {
                   </button>
                   {status === 'error' && (
                     <p className="text-xs text-red-500 text-center">
-                      Une erreur s&apos;est produite. Veuillez réessayer ou nous contacter par téléphone.
+                      Une erreur s&apos;est produite. Veuillez rÃ©essayer ou nous contacter par tÃ©lÃ©phone.
                     </p>
                   )}
                   <p className="text-xs text-neutral-400 text-center">
-                    En envoyant ce formulaire, vous acceptez notre politique de confidentialité.
+                    En envoyant ce formulaire, vous acceptez notre politique de confidentialitÃ©.
                   </p>
                 </form>
               )}

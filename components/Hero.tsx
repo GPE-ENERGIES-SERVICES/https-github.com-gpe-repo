@@ -50,7 +50,7 @@ export default function Hero() {
 
       {/* Decorative elements */}
       <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-brand-100/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent-greenLight/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent-limeLight/40 rounded-full blur-3xl pointer-events-none" />
 
       {/* Geometric accents */}
       <div className="hidden md:block absolute top-1/3 right-1/4 w-px h-40 bg-gradient-to-b from-transparent via-brand-200 to-transparent opacity-60" />
@@ -79,7 +79,7 @@ export default function Hero() {
           >
             L&apos;énergie qui{' '}
             <span className="relative inline-block">
-              <span className="relative z-10 text-brand-600">donne vie</span>
+              <span className="relative z-10 text-brand-400">donne vie</span>
               <motion.span
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}

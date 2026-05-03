@@ -227,7 +227,7 @@ export default function ServicePageClient({ service }: Props) {
                   <div className="font-semibold text-sm text-neutral-900">{s.title}</div>
                   <div className="text-xs text-neutral-500 mt-0.5 truncate">{s.shortDesc.substring(0, 50)}…</div>
                 </div>
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-neutral-400 group-hover:text-brand-500 transition-colors flex-shrink-0">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-neutral-400 group-hover:text-brand-400 transition-colors flex-shrink-0">
                   <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </Link>

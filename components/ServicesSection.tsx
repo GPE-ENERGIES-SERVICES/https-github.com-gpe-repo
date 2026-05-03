@@ -82,7 +82,7 @@ export default function ServicesSection() {
                 <p className="mt-2 text-sm text-neutral-500 leading-relaxed line-clamp-3">{service.shortDesc}</p>
                 <Link
                   href={`/services/${service.slug}`}
-                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-700 transition-colors"
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-400 hover:text-brand-500 transition-colors"
                 >
                   En savoir plus
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="group-hover:translate-x-0.5 transition-transform">

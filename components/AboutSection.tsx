@@ -32,8 +32,8 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-accent-green bg-white/5 border border-white/10 px-3 py-1.5 rounded-full mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-green" />
+            <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-accent-lime bg-white/5 border border-white/10 px-3 py-1.5 rounded-full mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-lime" />
               Notre histoire
             </span>
 

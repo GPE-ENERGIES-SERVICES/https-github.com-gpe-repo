@@ -98,7 +98,7 @@ export default function Footer() {
             </ul>
             <div className="mt-6">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-accent-green" />
+                <div className="w-2 h-2 rounded-full bg-accent-lime" />
                 <span className="text-xs text-neutral-500">Réponse sous 24h ouvrées</span>
               </div>
             </div>
