@@ -99,15 +99,65 @@ const t18n: Record<Lang, Record<string, string>> = {
     'service.projects.title': 'Projets réalisés',
     'service.projects.viewAll': 'Voir tous',
 
-    // ── Service titles (for dynamic pages)
+    // ── Service: Courants forts & faibles
+    'service.courants-forts-faibles.title': 'Courants forts & faibles',
+    'service.courants-forts-faibles.shortDesc': 'Conception et réalisation de vos installations électriques haute et basse tension, du tableau général jusqu\'aux équipements terminaux.',
+    'service.courants-forts-faibles.desc1': 'GPE Énergies & Services prend en charge l\'intégralité de vos installations électriques, de la conception des schémas unifilaires jusqu\'à la mise en service des équipements. Nos techniciens qualifiés interviennent sur tous types de bâtiments : tertiaires, industriels, commerciaux et résidentiels.',
+    'service.courants-forts-faibles.desc2': 'Nous mettons notre expertise HTA/BT au service de vos projets en garantissant la conformité aux normes NF C 15-100 et la sécurité de vos installations. De la réalisation de tableaux électriques sur mesure à la maintenance préventive, nous vous accompagnons à chaque étape.',
+    'service.courants-forts-faibles.benefit1': 'Conformité normes NF C 15-100',
+    'service.courants-forts-faibles.benefit2': 'Expertise HTA/BT',
+    'service.courants-forts-faibles.benefit3': 'Tableaux électriques sur mesure',
+    'service.courants-forts-faibles.benefit4': 'Maintenance & diagnostic',
 
-    "service.energies-renouvelables.title": "Énergies renouvelables",
-    "service.courants-forts-faibles.title": "Courants forts & faibles",
-    "service.mobilite-electrique.title": "Mobilité électrique",
-    "service.gtb-knx.title": "GTB / KNX",
-    "service.chauffage-climatisation.title": "Chauffage & climatisation",
-    "service.renovation-energetique.title": "Rénovation énergétique",
-    "service.bureau-etudes.title": "Bureau d'études",
+    // ── Service: Énergies renouvelables
+    'service.energies-renouvelables.title': 'Énergies renouvelables',
+    'service.energies-renouvelables.shortDesc': 'Installation de systèmes photovoltaïques et de solutions de stockage énergétique pour accélérer votre transition vers l\'énergie verte.',
+    'service.energies-renouvelables.desc1': 'Accélérez votre transition énergétique avec nos solutions photovoltaïques sur mesure. Notre équipe certifiée RGE conçoit, installe et met en service des systèmes solaires adaptés à vos besoins : autoconsommation totale ou partielle, vente de surplus ou systèmes hybrides avec stockage batterie.',
+    'service.energies-renouvelables.desc2': 'Que vous soyez un particulier, une entreprise ou une collectivité, nous maximisons votre rentabilité et votre autonomie énergétique grâce à une étude personnalisée intégrant l\'ensemble des aides financières disponibles (MaPrimeRénov\', CEE, subventions locales).',
+    'service.energies-renouvelables.benefit1': 'Panneaux photovoltaïques monocristallins',
+    'service.energies-renouvelables.benefit2': 'Autoconsommation optimisée',
+    'service.energies-renouvelables.benefit3': 'Stockage sur batterie',
+    'service.energies-renouvelables.benefit4': 'Certification RGE QualiPV',
+
+    // ── Service: Mobilité électrique
+    'service.mobilite-electrique.title': 'Mobilité électrique',
+    'service.mobilite-electrique.shortDesc': 'Déploiement d\'infrastructures de recharge pour véhicules électriques, de la borne résidentielle aux solutions de supervision intelligente.',
+    'service.mobilite-electrique.desc1': 'Nous concevons et déployons des infrastructures de recharge pour véhicules électriques adaptées à tous les contextes : résidentiel individuel, copropriété, parc d\'entreprise, espace public ou commerce. Nos techniciens certifiés IRVE garantissent conformité et performance de chaque installation.',
+    'service.mobilite-electrique.desc2': 'Nos solutions évolutives et connectées s\'appuient sur des équipements de pointe et des plateformes de supervision intelligente, vous permettant de gérer votre parc de bornes à distance, d\'optimiser la facturation et d\'anticiper les besoins en maintenance.',
+    'service.mobilite-electrique.benefit1': 'Bornes résidentielles & professionnelles',
+    'service.mobilite-electrique.benefit2': 'IRVE collectif & tertiaire',
+    'service.mobilite-electrique.benefit3': 'Recharge rapide DC',
+    'service.mobilite-electrique.benefit4': 'Supervision & télégestion',
+
+    // ── Service: Rénovation énergétique
+    'service.renovation-energetique.title': 'Rénovation énergétique',
+    'service.renovation-energetique.shortDesc': 'Audit, conseil et travaux d\'amélioration pour réduire vos consommations et valoriser vos bâtiments.',
+    'service.renovation-energetique.desc1': 'Notre bureau d\'experts réalise des audits énergétiques complets de vos bâtiments et vous propose un plan d\'actions priorisé pour améliorer votre performance énergétique. Nous intervenons sur toutes les composantes de l\'enveloppe du bâtiment : isolation thermique, menuiseries, ventilation et gestion technique.',
+    'service.renovation-energetique.desc2': 'Certifiés RGE, nous vous accompagnons dans l\'accès aux aides financières (MaPrimeRénov\', Éco-PTZ, CEE) et pilotons les travaux jusqu\'à l\'obtention du label, pour une valorisation concrète de votre patrimoine immobilier.',
+    'service.renovation-energetique.benefit1': 'Audit énergétique certifié',
+    'service.renovation-energetique.benefit2': 'Isolation thermique & phonique',
+    'service.renovation-energetique.benefit3': 'Accès aux aides financières',
+    'service.renovation-energetique.benefit4': 'Optimisation DPE / label RE2020',
+
+    // ── Service: Chauffage & climatisation
+    'service.chauffage-climatisation.title': 'Chauffage & climatisation',
+    'service.chauffage-climatisation.shortDesc': 'Solutions CVC sur mesure pour un confort thermique optimal, de l\'installation à la maintenance.',
+    'service.chauffage-climatisation.desc1': 'GPE Énergies & Services conçoit et installe des systèmes CVC adaptés à chaque usage : pompes à chaleur air/air et air/eau, climatisation réversible multi-split, planchers chauffants et systèmes de ventilation double-flux. Nos équipes qualifiées interviennent en neuf comme en rénovation.',
+    'service.chauffage-climatisation.desc2': 'Au-delà de l\'installation, nous assurons la maintenance préventive et corrective de vos équipements pour garantir performances, longévité et économies d\'énergie sur le long terme. Un service de télémaintenance est disponible pour les parcs multi-sites.',
+    'service.chauffage-climatisation.benefit1': 'Pompes à chaleur (air/air, air/eau)',
+    'service.chauffage-climatisation.benefit2': 'Climatisation réversible multi-split',
+    'service.chauffage-climatisation.benefit3': 'Plancher chauffant hydraulique',
+    'service.chauffage-climatisation.benefit4': 'Ventilation double-flux',
+
+    // ── Service: Bureau d'études
+    'service.bureau-etudes.title': "Bureau d'études",
+    'service.bureau-etudes.shortDesc': 'Ingénierie, conception et maîtrise d\'œuvre pour vos projets électriques, énergétiques et CVC.',
+    'service.bureau-etudes.desc1': 'Notre bureau d\'études pluridisciplinaire accompagne maîtres d\'ouvrage et promoteurs depuis la phase de programmation jusqu\'à la réception des ouvrages. Nous réalisons études de conception (schémas, plans, CCTP), chiffrages détaillés et dossiers de consultation des entreprises (DCE).',
+    'service.bureau-etudes.desc2': 'Grâce à nos outils de modélisation BIM et de simulation thermique dynamique, nous optimisons la conception de vos projets avant leur réalisation, réduisant les risques et maîtrisant les coûts de construction et d\'exploitation.',
+    'service.bureau-etudes.benefit1': 'Études techniques & réglementaires',
+    'service.bureau-etudes.benefit2': 'Modélisation BIM / maquette numérique',
+    'service.bureau-etudes.benefit3': 'Suivi de chantier & OPC',
+    'service.bureau-etudes.benefit4': "Maîtrise d'œuvre complète",
 
 
     // ── Contact page
@@ -257,13 +307,65 @@ const t18n: Record<Lang, Record<string, string>> = {
     'service.projects.viewAll': 'View all',
 
     
-    "service.energies-renouvelables.title": "Renewable Energy",
-    "service.courants-forts-faibles.title": "High & Low Voltage Systems",
-    "service.mobilite-electrique.title": "Electric Mobility",
-    "service.gtb-knx.title": "Building Automation (GTB / KNX)",
-    "service.chauffage-climatisation.title": "Heating & Air Conditioning",
-    "service.renovation-energetique.title": "Energy Renovation",
-    "service.bureau-etudes.title": "Engineering Office",
+    // ── Service: High & Low Voltage Systems
+    'service.courants-forts-faibles.title': 'High & Low Voltage Systems',
+    'service.courants-forts-faibles.shortDesc': 'Design and installation of LV/HV electrical systems, from main distribution boards to terminal equipment.',
+    'service.courants-forts-faibles.desc1': 'GPE Énergies & Services handles the full scope of your electrical infrastructure — from single-line diagram design through to equipment commissioning. Our certified engineers and technicians serve all building types: commercial, industrial, retail, and residential.',
+    'service.courants-forts-faibles.desc2': 'Drawing on deep LV/HV expertise, we ensure full compliance with applicable wiring regulations and deliver custom-built switchboards, preventive maintenance programmes, and diagnostic services to keep your installations performing at their best.',
+    'service.courants-forts-faibles.benefit1': 'LV/HV Wiring Regulations Compliance',
+    'service.courants-forts-faibles.benefit2': 'HV/LV Switchgear & Distribution',
+    'service.courants-forts-faibles.benefit3': 'Custom Electrical Panels & Boards',
+    'service.courants-forts-faibles.benefit4': 'Maintenance & Fault Diagnostics',
+
+    // ── Service: Renewable Energy
+    'service.energies-renouvelables.title': 'Renewable Energy',
+    'service.energies-renouvelables.shortDesc': 'Tailored solar PV and battery storage solutions to accelerate your energy transition.',
+    'service.energies-renouvelables.desc1': 'Our RGE-certified team designs, installs, and commissions solar PV systems matched to your consumption profile — self-consumption, surplus feed-in, or hybrid battery storage. We serve homeowners, businesses, and public-sector clients with equal attention to detail.',
+    'service.energies-renouvelables.desc2': 'Every project includes a full financial study covering available incentives so you can make informed decisions and maximise your return on investment from day one.',
+    'service.energies-renouvelables.benefit1': 'Monocrystalline Solar Panels',
+    'service.energies-renouvelables.benefit2': 'Self-Consumption Optimisation',
+    'service.energies-renouvelables.benefit3': 'Battery Energy Storage',
+    'service.energies-renouvelables.benefit4': 'RGE QualiPV Certified Installer',
+
+    // ── Service: Electric Vehicle Charging
+    'service.mobilite-electrique.title': 'Electric Vehicle Charging',
+    'service.mobilite-electrique.shortDesc': 'End-to-end EV charging infrastructure, from residential wallboxes to smart networked charging hubs.',
+    'service.mobilite-electrique.desc1': 'We design and deploy EV charging infrastructure for all settings: private homes, residential complexes, corporate fleets, public car parks, and retail sites. All installations are carried out by our IRVE-certified technicians, ensuring safety, regulatory compliance, and optimal performance.',
+    'service.mobilite-electrique.desc2': 'Our scalable, connected solutions integrate with smart energy management platforms, enabling remote fleet monitoring, dynamic load balancing, and automated billing — future-proofing your charging infrastructure as EV adoption grows.',
+    'service.mobilite-electrique.benefit1': 'Home & Commercial Chargers',
+    'service.mobilite-electrique.benefit2': 'Multi-Unit Residential (IRVE)',
+    'service.mobilite-electrique.benefit3': 'DC Fast Charging',
+    'service.mobilite-electrique.benefit4': 'Remote Monitoring & Fleet Management',
+
+    // ── Service: Energy Renovation
+    'service.renovation-energetique.title': 'Energy Renovation',
+    'service.renovation-energetique.shortDesc': 'Energy auditing, consultancy, and renovation works to cut consumption and enhance building value.',
+    'service.renovation-energetique.desc1': 'Our energy experts carry out comprehensive building audits and deliver a prioritised action plan to improve your energy performance rating. We address every element of the building envelope: thermal insulation, glazing upgrades, HVAC improvements, and smart building controls.',
+    'service.renovation-energetique.desc2': 'As an RGE-certified firm, we guide you through every available funding scheme and supervise all works through to final label certification — delivering measurable, lasting value for your property portfolio.',
+    'service.renovation-energetique.benefit1': 'Certified Energy Auditing',
+    'service.renovation-energetique.benefit2': 'Thermal & Acoustic Insulation',
+    'service.renovation-energetique.benefit3': 'Access to Government Incentives',
+    'service.renovation-energetique.benefit4': 'EPC Optimisation & RE2020 Compliance',
+
+    // ── Service: Heating & Air Conditioning
+    'service.chauffage-climatisation.title': 'Heating & Air Conditioning',
+    'service.chauffage-climatisation.shortDesc': 'End-to-end HVAC solutions for optimal thermal comfort, from installation through to long-term maintenance.',
+    'service.chauffage-climatisation.desc1': 'GPE Énergies & Services designs and installs HVAC systems tailored to every application: air-to-air and air-to-water heat pumps, reversible multi-split systems, underfloor heating, and heat-recovery ventilation. Our Qualibat-certified teams work on new builds and refurbishments alike.',
+    'service.chauffage-climatisation.desc2': 'Beyond installation, we provide preventive and corrective maintenance to keep your equipment running at peak efficiency — extending service life and reducing energy costs. Remote monitoring packages are available for multi-site clients.',
+    'service.chauffage-climatisation.benefit1': 'Air-to-Air & Air-to-Water Heat Pumps',
+    'service.chauffage-climatisation.benefit2': 'Reversible Multi-Split AC',
+    'service.chauffage-climatisation.benefit3': 'Hydronic Underfloor Heating',
+    'service.chauffage-climatisation.benefit4': 'Heat-Recovery Ventilation (HRV)',
+
+    // ── Service: Engineering Office
+    'service.bureau-etudes.title': 'Engineering Office',
+    'service.bureau-etudes.shortDesc': 'Multidisciplinary engineering, project design, and contract administration for electrical and energy projects.',
+    'service.bureau-etudes.desc1': 'Our in-house engineering team supports project owners and developers from early-stage feasibility right through to project handover. We produce full design packages — single-line diagrams, layout drawings, technical specifications, and tender documents — across all disciplines.',
+    'service.bureau-etudes.desc2': 'With BIM modelling and dynamic thermal simulation, we optimise every design before construction begins, minimising risk, controlling life-cycle costs, and ensuring regulatory compliance from day one.',
+    'service.bureau-etudes.benefit1': 'Technical & Regulatory Studies',
+    'service.bureau-etudes.benefit2': 'BIM / Digital Building Models',
+    'service.bureau-etudes.benefit3': 'Site Supervision & Project Programming',
+    'service.bureau-etudes.benefit4': 'Full Contract Administration (MOE)',
 
 
     'contact.label': 'Contact',
@@ -409,13 +511,65 @@ const t18n: Record<Lang, Record<string, string>> = {
     'service.projects.title': 'المشاريع المنجزة',
     'service.projects.viewAll': 'عرض الكل',
 
-    "service.energies-renouvelables.title": "الطاقات المتجددة",
-    "service.courants-forts-faibles.title": "التيارات القوية والضعيفة",
-    "service.mobilite-electrique.title": "التنقل الكهربائي",
-    "service.gtb-knx.title": "أنظمة التحكم الذكي (GTB / KNX)",
-    "service.chauffage-climatisation.title": "التدفئة والتكييف",
-    "service.renovation-energetique.title": "تجديد الطاقة",
-    'service.bureau-etudes.title': "مكتب الدراسات",
+    // ── Service: التيارات القوية والضعيفة
+    'service.courants-forts-faibles.title': 'التيارات القوية والضعيفة',
+    'service.courants-forts-faibles.shortDesc': 'تصميم وتنفيذ منظومات التوزيع الكهربائي للجهد المنخفض والمتوسط، من اللوحة الرئيسية إلى المعدات الطرفية.',
+    'service.courants-forts-faibles.desc1': 'تتولى GPE Énergies & Services تنفيذ كامل منظومتكم الكهربائية، من وضع المخططات الأحادية وحتى تشغيل المعدات. يتدخل تقنيونا المعتمدون في جميع أنواع المباني: المكتبية والصناعية والتجارية والسكنية، بضمان الجودة واحترام المعايير المعتمدة.',
+    'service.courants-forts-faibles.desc2': 'نوظّف خبرتنا العميقة في أنظمة الجهد المتوسط والمنخفض لضمان مطابقة التركيبات للمعايير التقنية، وتنفيذ لوحات التوزيع المخصصة، وتقديم خدمات الصيانة الوقائية والتشخيص لضمان استمرارية الأداء.',
+    'service.courants-forts-faibles.benefit1': 'مطابقة معايير التوصيلات الكهربائية',
+    'service.courants-forts-faibles.benefit2': 'خبرة في الجهد المتوسط والمنخفض',
+    'service.courants-forts-faibles.benefit3': 'لوحات توزيع كهربائية مخصصة',
+    'service.courants-forts-faibles.benefit4': 'الصيانة والتشخيص الكهربائي',
+
+    // ── Service: الطاقات المتجددة
+    'service.energies-renouvelables.title': 'الطاقات المتجددة',
+    'service.energies-renouvelables.shortDesc': 'تركيب أنظمة الطاقة الشمسية الكهروضوئية وحلول تخزين الطاقة لتسريع انتقالكم نحو الطاقة النظيفة.',
+    'service.energies-renouvelables.desc1': 'يصمم فريقنا المعتمد ويركّب وينفّذ أنظمة الطاقة الشمسية وفق احتياجاتكم الفعلية: الاستهلاك الذاتي الكلي أو الجزئي، بيع الفائض، أو الأنظمة الهجينة مع تخزين البطاريات. نخدم الأفراد والمؤسسات والهيئات العامة بنفس المستوى من الكفاءة والدقة.',
+    'service.energies-renouvelables.desc2': 'يشمل كل مشروع دراسة مالية شاملة تتضمن الدعم الحكومي المتاح، لتتخذوا قراراتكم على أسس موثوقة وتحققوا أقصى عائد على الاستثمار منذ اليوم الأول.',
+    'service.energies-renouvelables.benefit1': 'ألواح شمسية كهروضوئية عالية الكفاءة',
+    'service.energies-renouvelables.benefit2': 'تحسين الاستهلاك الذاتي للطاقة',
+    'service.energies-renouvelables.benefit3': 'أنظمة تخزين الطاقة بالبطاريات',
+    'service.energies-renouvelables.benefit4': 'اعتماد مؤسسة QualiPV / RGE',
+
+    // ── Service: التنقل الكهربائي
+    'service.mobilite-electrique.title': 'التنقل الكهربائي',
+    'service.mobilite-electrique.shortDesc': 'تركيب وتشغيل بنية تحتية متكاملة لشحن المركبات الكهربائية، من محطة الشحن المنزلي إلى الشبكات الذكية.',
+    'service.mobilite-electrique.desc1': 'نصمم وننشر منظومات شحن المركبات الكهربائية لجميع الاستخدامات: المنازل والعمارات السكنية، وأسطول المؤسسات، ومواقف السيارات العامة والمراكز التجارية. ينجز جميع الأعمال تقنيونا المعتمدون لضمان السلامة والأداء الأمثل.',
+    'service.mobilite-electrique.desc2': 'تتكامل حلولنا القابلة للتوسع مع منصات الإدارة الذكية لتمكينكم من مراقبة الأسطول عن بُعد، وموازنة الأحمال ديناميكيًا، وإدارة الفوترة بشكل آلي.',
+    'service.mobilite-electrique.benefit1': 'محطات شحن منزلية ومهنية',
+    'service.mobilite-electrique.benefit2': 'تركيبات جماعية في العمارات (IRVE)',
+    'service.mobilite-electrique.benefit3': 'شحن سريع بالتيار المستمر',
+    'service.mobilite-electrique.benefit4': 'الإدارة عن بُعد ومراقبة الأسطول',
+
+    // ── Service: تجديد الكفاءة الطاقوية
+    'service.renovation-energetique.title': 'تجديد الكفاءة الطاقوية',
+    'service.renovation-energetique.shortDesc': 'مراجعة وتحسين الأداء الطاقوي للمباني لخفض الاستهلاك ورفع قيمة العقار.',
+    'service.renovation-energetique.desc1': 'يجري خبراؤنا مراجعات طاقوية شاملة للمباني ويضعون خطة إجراءات مرتبة حسب الأولوية لتحسين معدل الأداء الطاقوي. نتدخل على جميع مكونات غلاف المبنى: العزل الحراري، الفتحات والنوافذ، تحديث أنظمة التكييف، والتحكم التقني.',
+    'service.renovation-energetique.desc2': 'بوصفنا شركة معتمدة RGE، نرشدكم إلى جميع الدعم المالي المتاح ونشرف على الأشغال حتى الحصول على الاعتماد النهائي، لتحقيق قيمة ملموسة ومستدامة لمحفظتكم العقارية.',
+    'service.renovation-energetique.benefit1': 'مراجعة طاقوية معتمدة',
+    'service.renovation-energetique.benefit2': 'عزل حراري وصوتي',
+    'service.renovation-energetique.benefit3': 'الاستفادة من الدعم المالي الحكومي',
+    'service.renovation-energetique.benefit4': 'تحسين تصنيف الأداء الطاقوي (DPE)',
+
+    // ── Service: التدفئة والتكييف
+    'service.chauffage-climatisation.title': 'التدفئة والتكييف',
+    'service.chauffage-climatisation.shortDesc': 'حلول تكييف وتهوية متكاملة لضمان الراحة الحرارية المثلى، من التركيب إلى الصيانة الدائمة.',
+    'service.chauffage-climatisation.desc1': 'تصمم GPE Énergies & Services وتركّب منظومات التدفئة والتهوية والتكييف المناسبة لكل استخدام: مضخات الحرارة هواء/هواء وهواء/ماء، أنظمة التكييف المقلوب المتعدد، التدفئة بالأرضية الإشعاعية، وأنظمة التهوية المزدوجة.',
+    'service.chauffage-climatisation.desc2': 'نقدم خدمات الصيانة الوقائية والتصحيحية للحفاظ على كفاءة معداتكم وإطالة عمرها التشغيلي وتقليص فاتورة الطاقة. كما تتوفر خدمة المراقبة عن بُعد لعملاء المواقع المتعددة.',
+    'service.chauffage-climatisation.benefit1': 'مضخات الحرارة (هواء/هواء وهواء/ماء)',
+    'service.chauffage-climatisation.benefit2': 'تكييف مقلوب متعدد الوحدات',
+    'service.chauffage-climatisation.benefit3': 'تدفئة بالأرضية الهيدروليكية',
+    'service.chauffage-climatisation.benefit4': 'تهوية باسترداد الحرارة (HRV)',
+
+    // ── Service: مكتب الدراسات
+    'service.bureau-etudes.title': 'مكتب الدراسات',
+    'service.bureau-etudes.shortDesc': 'هندسة وتصميم وإدارة عقود المشاريع الكهربائية والطاقوية.',
+    'service.bureau-etudes.desc1': 'يرافق مكتب الدراسات الداخلي لدينا أصحاب المشاريع والمطورين من مرحلة الجدوى الأولية وحتى تسليم الأعمال. ننجز حزم التصميم الكاملة — المخططات الأحادية، المخططات المعمارية، المواصفات التقنية، ووثائق طلب العروض — عبر جميع التخصصات.',
+    'service.bureau-etudes.desc2': 'بفضل نمذجة BIM والمحاكاة الحرارية الديناميكية، نُحسّن كل تصميم قبل بدء التنفيذ لتقليل المخاطر والتحكم في تكاليف دورة الحياة وضمان الامتثال للوائح منذ اليوم الأول.',
+    'service.bureau-etudes.benefit1': 'دراسات تقنية وتنظيمية',
+    'service.bureau-etudes.benefit2': 'نمذجة BIM والنموذج الرقمي للمبنى',
+    'service.bureau-etudes.benefit3': 'الإشراف على المواقع وبرمجة المشاريع',
+    'service.bureau-etudes.benefit4': 'إدارة عقود كاملة (MOE)',
 
     'contact.label': 'تواصل معنا',
     'contact.title': 'لنتحدث عن مشروعكم.',

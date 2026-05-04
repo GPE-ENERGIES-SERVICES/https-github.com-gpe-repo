@@ -119,7 +119,7 @@ export default function Hero() {
           >
             <Link
               href="/contact"
-              className="px-8 py-4 bg-[#2e5240] hover:bg-[#a3e635] text-white hover:text-black transition rounded-xl"
+              className="px-8 py-4 bg-[#1faf5a] hover:bg-[#a3e635] text-white hover:text-black transition rounded-xl"
             >
               {t('hero.cta.contact')}
             </Link>

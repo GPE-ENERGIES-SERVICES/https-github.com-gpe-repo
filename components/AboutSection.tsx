@@ -13,7 +13,7 @@ export default function AboutSection() {
   ]
 
   return (
-    <section id="about" className="py-32 bg-neutral-50 text-[#2e5240] overflow-hidden">
+    <section id="about" className="py-32 bg-white text-[#2e5240] overflow-hidden">
 
       <div className="section-padding container-max">
 

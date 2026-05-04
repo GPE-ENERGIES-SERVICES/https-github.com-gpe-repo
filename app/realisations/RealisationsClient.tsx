@@ -122,65 +122,76 @@ export default function RealisationsClient() {
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
               >
                 {filtered.map((project, i) => (
-                  <motion.article
+                  <motion.div
                     key={project.id}
                     layout
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: i * 0.04 }}
-                    className="group bg-white rounded-3xl overflow-hidden border border-neutral-150 hover:border-neutral-200 hover:shadow-xl hover:shadow-neutral-100 transition-all duration-500"
                   >
-                    {/* Image */}
-                    <div className="relative h-52 overflow-hidden">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                      <div className="absolute bottom-3 start-3 flex items-center gap-2">
-                        <span
-                          className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full text-white"
-                          style={{ backgroundColor: serviceColors[project.serviceSlug] ?? '#1FAF5A' }}
-                        >
-                          {project.serviceLabel}
-                        </span>
-                        <span className="text-[10px] font-semibold text-white/80">{project.year}</span>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6">
-                      <h2 className="font-semibold text-neutral-900 text-base leading-snug">
-                        {project.title}
-                      </h2>
-                      <div className="mt-1.5 flex items-center gap-1.5 text-xs text-neutral-400 font-medium">
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-                        </svg>
-                        {project.location}
-                        <span className="text-neutral-200 mx-0.5">·</span>
-                        {project.client}
-                      </div>
-                      <p className="mt-3 text-sm text-neutral-500 leading-relaxed line-clamp-3">
-                        {project.description}
-                      </p>
-
-                      {/* Tags */}
-                      <div className="mt-4 flex flex-wrap gap-1.5">
-                        {project.tags.map(tag => (
+                    <Link
+                      href={`/realisations/${project.id}`}
+                      className="group block bg-white rounded-3xl overflow-hidden border border-neutral-150 hover:border-neutral-200 hover:shadow-xl hover:shadow-neutral-100 transition-all duration-500"
+                    >
+                      {/* Image */}
+                      <div className="relative h-52 overflow-hidden">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-700"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                        <div className="absolute bottom-3 start-3 flex items-center gap-2">
                           <span
-                            key={tag}
-                            className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-neutral-100 text-neutral-500"
+                            className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full text-white"
+                            style={{ backgroundColor: serviceColors[project.serviceSlug] ?? '#1FAF5A' }}
                           >
-                            {tag}
+                            {project.serviceLabel}
                           </span>
-                        ))}
+                          <span className="text-[10px] font-semibold text-white/80">{project.year}</span>
+                        </div>
                       </div>
-                    </div>
-                  </motion.article>
+
+                      {/* Content */}
+                      <div className="p-6">
+                        <h2 className="font-semibold text-neutral-900 text-base leading-snug group-hover:text-brand-400 transition-colors">
+                          {project.title}
+                        </h2>
+                        <div className="mt-1.5 flex items-center gap-1.5 text-xs text-neutral-400 font-medium">
+                          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                          </svg>
+                          {project.location}
+                          <span className="text-neutral-200 mx-0.5">·</span>
+                          {project.client}
+                        </div>
+                        <p className="mt-3 text-sm text-neutral-500 leading-relaxed line-clamp-3">
+                          {project.description}
+                        </p>
+
+                        {/* Tags */}
+                        <div className="mt-4 flex flex-wrap gap-1.5">
+                          {project.tags.map(tag => (
+                            <span
+                              key={tag}
+                              className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-neutral-100 text-neutral-500"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="mt-4 flex items-center gap-1 text-sm font-semibold text-brand-400 group-hover:gap-2 transition-all">
+                          Voir le projet
+                          <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+                            <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </Link>
+                  </motion.div>
                 ))}
               </motion.div>
             )}

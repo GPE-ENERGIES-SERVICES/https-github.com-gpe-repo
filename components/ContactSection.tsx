@@ -55,7 +55,7 @@ export default function ContactSection() {
     }`
 
   return (
-    <section id="contact" className="py-32 bg-neutral-50">
+    <section id="contact" className="py-32 bg-white">
       <div className="section-padding container-max">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
           {/* Left info */}

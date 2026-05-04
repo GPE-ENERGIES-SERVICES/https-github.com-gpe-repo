@@ -17,7 +17,7 @@ export default function Footer() {
   ]
 
   const keyServices = [
-    { labelKey: 'service.courants-forts.title', href: '/services/courants-forts' },
+    { labelKey: 'service.courants-forts-faibles.title', href: '/services/courants-forts-faibles' },
     { labelKey: 'service.energies-renouvelables.title', href: '/services/energies-renouvelables' },
     { labelKey: 'service.mobilite-electrique.title', href: '/services/mobilite-electrique' },
     { labelKey: 'service.chauffage-climatisation.title', href: '/services/chauffage-climatisation' },
@@ -31,7 +31,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-[#2e5240] text-white pt-16 pb-8">
+    <footer className="bg-[#1faf5a] text-white pt-16 pb-8">
       <div className="section-padding container-max">
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">

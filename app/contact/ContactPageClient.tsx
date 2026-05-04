@@ -24,7 +24,7 @@ const officeLocation: MapLocation = {
   address: "92 Bd de l'Europe ZA, 13127 Vitrolles",
   phone: '+33 4 42 07 22 62',
   role: 'Siège social',
-  osmEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=5.22%2C43.40%2C5.30%2C43.44&layer=mapnik&marker=43.4212125%2C5.2639742',
+  coords: [43.4212, 5.2640],
 }
 
 const serviceOptionsFr = [

@@ -111,7 +111,7 @@ export default function Navbar() {
 
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-1.5 bg-[#2e5240] text-white text-[13px] font-semibold px-4 py-2 rounded-full hover:bg-[#a3e635] hover:text-black transition-colors shadow-sm"
+                className="inline-flex items-center gap-1.5 bg-[#1faf5a] text-white text-[13px] font-semibold px-4 py-2 rounded-full hover:bg-[#a3e635] hover:text-black transition-colors shadow-sm"
               >
                 {t('nav.cta')}
               </Link>
@@ -168,7 +168,7 @@ export default function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-center bg-[#2e5240] text-white text-sm font-semibold px-5 py-3.5 rounded-full hover:bg-[#a3e635] hover:text-black transition"
+                  className="flex items-center justify-center bg-[#1faf5a] text-white text-sm font-semibold px-5 py-3.5 rounded-full hover:bg-[#a3e635] hover:text-black transition"
                 >
                   {t('nav.cta')}
                 </Link>

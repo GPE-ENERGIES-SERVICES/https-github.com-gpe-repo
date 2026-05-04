@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import { services, getServiceBySlug } from '@/lib/services'
+import { tFR } from '@/lib/i18n'
 import type { Metadata } from 'next'
 import ServicePageClient from './ServicePageClient'
 
@@ -15,8 +16,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = getServiceBySlug(params.slug)
   if (!service) return { title: 'Service introuvable' }
   return {
-    title: `${service.title} — GPE Énergies & Services`,
-    description: service.shortDesc,
+    title: `${tFR(service.title)} — GPE Énergies & Services`,
+    description: tFR(service.shortDesc),
   }
 }
 

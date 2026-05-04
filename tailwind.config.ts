@@ -26,9 +26,9 @@ const config: Config = {
           900: '#062f18',
         },
         accent: {
-          lime: '#C6FF00',
-          limeLight: '#edffa0',
-          limeDark: '#a8d900',
+          lime: '#a3e635',
+          limeLight: '#d4f99a',
+          limeDark: '#7bc21a',
         },
         neutral: {
           50: '#ffffff',

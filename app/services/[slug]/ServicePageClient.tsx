@@ -32,7 +32,7 @@ export default function ServicePageClient({ service }: Props) {
         <div className="absolute inset-0">
           <Image
             src={service.image}
-            alt={service.title}
+            alt={t(service.title)}
             fill
             className="object-cover"
             priority
@@ -64,10 +64,10 @@ export default function ServicePageClient({ service }: Props) {
             </div>
 
             <h1 className="heading-display text-4xl md:text-6xl text-white leading-tight">
-              {service.title}
+              {t(service.title)}
             </h1>
             <p className="mt-4 text-lg text-white/70 max-w-2xl leading-relaxed">
-              {service.shortDesc}
+              {t(service.shortDesc)}
             </p>
           </motion.div>
         </div>
@@ -89,9 +89,9 @@ export default function ServicePageClient({ service }: Props) {
                   {t('service.expertise.title')}
                 </h2>
                 <div className="space-y-5">
-                  {service.description.map((para, i) => (
+                  {service.description.map((key, i) => (
                     <p key={i} className="text-neutral-600 leading-relaxed text-base">
-                      {para}
+                      {t(key)}
                     </p>
                   ))}
                 </div>
@@ -106,9 +106,9 @@ export default function ServicePageClient({ service }: Props) {
               >
                 <h3 className="font-semibold text-neutral-900 text-xl mb-6">{t('service.benefits.title')}</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {service.benefits.map((benefit) => (
+                  {service.benefits.map((key) => (
                     <div
-                      key={benefit}
+                      key={key}
                       className="flex items-center gap-3 p-4 rounded-xl bg-neutral-50 border border-neutral-150"
                     >
                       <div
@@ -119,7 +119,7 @@ export default function ServicePageClient({ service }: Props) {
                           <path d="M2 6l3 3 5-5" stroke={service.color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                       </div>
-                      <span className="text-sm font-medium text-neutral-700">{benefit}</span>
+                      <span className="text-sm font-medium text-neutral-700">{t(key)}</span>
                     </div>
                   ))}
                 </div>
@@ -169,7 +169,7 @@ export default function ServicePageClient({ service }: Props) {
                     <ServiceIcon name={service.icon} size={18} color="white" />
                   </div>
                   <h3 className="font-semibold text-lg leading-snug">
-                    {t('service.cta.prefix')} {service.title.toLowerCase()} {t('service.cta.suffix')}
+                    {t('service.cta.prefix')} {t(service.title).toLowerCase()} {t('service.cta.suffix')}
                   </h3>
                   <p className="mt-2 text-sm text-neutral-400 leading-relaxed">
                     {t('service.cta.subtitle')}
@@ -177,7 +177,6 @@ export default function ServicePageClient({ service }: Props) {
                   <Link
                     href="/contact"
                     className="mt-5 btn-primary w-full justify-center text-sm"
-                    style={{ backgroundColor: service.color }}
                   >
                     {t('service.cta.quote')}
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -269,7 +268,7 @@ export default function ServicePageClient({ service }: Props) {
       )}
 
       {/* Related services */}
-      <section className="py-16 bg-neutral-50 border-t border-neutral-100">
+      <section className="py-16 bg-white border-t border-neutral-100">
         <div className="section-padding container-max">
           <h3 className="font-semibold text-neutral-800 text-lg mb-8">{t('service.related.title')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -286,8 +285,8 @@ export default function ServicePageClient({ service }: Props) {
                   <ServiceIcon name={s.icon} size={18} color={s.color} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="font-semibold text-sm text-neutral-900">{s.title}</div>
-                  <div className="text-xs text-neutral-500 mt-0.5 truncate">{s.shortDesc.substring(0, 50)}…</div>
+                  <div className="font-semibold text-sm text-neutral-900">{t(s.title)}</div>
+                  <div className="text-xs text-neutral-500 mt-0.5 truncate">{t(s.shortDesc).substring(0, 50)}…</div>
                 </div>
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-neutral-400 group-hover:text-brand-400 transition-colors flex-shrink-0">
                   <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

@@ -27,7 +27,7 @@ export default function ServicesSection() {
   const { t } = useLanguage()
 
   return (
-    <section id="services" className="py-32 bg-neutral-50">
+    <section id="services" className="py-32 bg-white">
       <div className="section-padding container-max">
         {/* Header */}
         <motion.div
@@ -83,8 +83,8 @@ export default function ServicesSection() {
 
               {/* Content */}
               <div className="p-5">
-                <h3 className="font-semibold text-neutral-900 text-base leading-snug">{service.title}</h3>
-                <p className="mt-2 text-sm text-neutral-500 leading-relaxed line-clamp-3">{service.shortDesc}</p>
+                <h3 className="font-semibold text-neutral-900 text-base leading-snug">{t(service.title)}</h3>
+                <p className="mt-2 text-sm text-neutral-500 leading-relaxed line-clamp-3">{t(service.shortDesc)}</p>
                 <Link
                   href={`/services/${service.slug}`}
                   className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-400 hover:text-brand-500 transition-colors"

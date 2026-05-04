@@ -58,7 +58,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={`${outfit.variable} ${playfair.variable} ${ibmPlexArabic.variable}`}>
-      <body className="bg-white text-neutral-900 antialiased">
+      <body className="bg-[#ebebeb] text-neutral-900 antialiased">
         <Providers>
           <Navbar />
           <main className="overflow-x-hidden">{children}</main>
