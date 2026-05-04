@@ -2,21 +2,40 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { projects } from '@/lib/projects'
 import { useLanguage } from '@/context/LanguageContext'
 
 const clients = [
-  { name: 'Bouygues Immobilier', initials: 'BI' },
-  { name: 'Vinci Construction', initials: 'VC' },
-  { name: 'Mairie de Lyon', initials: 'ML' },
-  { name: 'Engie', initials: 'EN' },
-  { name: 'EDF Renouvelables', initials: 'EDF' },
-  { name: 'Eiffage', initials: 'EF' },
-  { name: 'SNCF Réseau', initials: 'SR' },
-  { name: 'Nexity', initials: 'NX' },
-  { name: 'Grand Lyon Habitat', initials: 'GLH' },
-  { name: 'Sodexo', initials: 'SO' },
+  { name: 'Soltyce',           logo: '/images/logoPartenaires/PV/solstyce.jpg' },
+  { name: 'Voltalia',          logo: '/images/logoPartenaires/PV/Voltalia.png' },
+  { name: 'Enerlis',           logo: '/images/logoPartenaires/PV/enerlis.png' },
+  { name: 'Enoe',              logo: '/images/logoPartenaires/PV/enoe.jpg' },
+  { name: 'Apex Énergie',      logo: '/images/logoPartenaires/PV/apex.png' },
+  { name: 'EDF Solaire',       logo: '/images/logoPartenaires/PV/edfsolaire.png' },
+  { name: 'Engie',             logo: '/images/logoPartenaires/PV/engie.png' },
+  { name: 'EDF Renouvelables', logo: '/images/logoPartenaires/PV/edfrenouvelables.png' },
+  { name: 'Les Mousquetaires', logo: '/images/logoPartenaires/PV/mousquetaires.png' },
+  { name: 'Circet France',     logo: '/images/logoPartenaires/IRVE/circet.jpg' },
+  { name: 'Carrefour',         logo: '/images/logoPartenaires/IRVE/Logo_Carrefour.svg.png' },
+  { name: 'WAAT',              logo: '/images/logoPartenaires/IRVE/Logo-MyWAAT-couleur-2023.png' },
+  { name: 'Izivia',            logo: '/images/logoPartenaires/IRVE/izivia.webp' },
+  { name: 'Ensio',             logo: '/images/logoPartenaires/IRVE/LOGO-Ensio_RVB.webp' },
+  { name: 'ENEDIS',            logo: '/images/logoPartenaires/IRVE/Logo_enedis_header.png' },
+  { name: 'Beev',              logo: '/images/logoPartenaires/IRVE/beev.png' },
+  { name: 'Driveco',           logo: '/images/logoPartenaires/IRVE/driveco.webp' },
+  { name: 'Bouygues',          logo: '/images/logoPartenaires/Electricité/Bouygues_Construction_logo.svg.png' },
+  { name: 'VINCI',             logo: '/images/logoPartenaires/Electricité/Logo_Vinci.svg.png' },
+  { name: 'EQUANS',            logo: '/images/logoPartenaires/Electricité/Equans_Logo.png' },
+  { name: 'EIFFAGE',           logo: '/images/logoPartenaires/Electricité/Logo_Eiffage_Construction.svg.png' },
+  { name: 'Dalkia',            logo: '/images/logoPartenaires/Electricité/Logo_Dalkia.svg.png' },
+  { name: "Cit'éos",           logo: '/images/logoPartenaires/Electricité/citeos.webp' },
+  { name: 'Veolia',            logo: '/images/logoPartenaires/Electricité/veolialogo.png' },
+  { name: 'Fauché',            logo: '/images/logoPartenaires/Electricité/FAUCHE_logo.png' },
+  { name: 'Spie Batignolles',  logo: '/images/logoPartenaires/Electricité/Spie_Batignolles_Logo.svg.png' },
 ]
+
+const marqueeItems = [...clients, ...clients]
 
 const featured = projects.slice(0, 6)
 
@@ -54,30 +73,25 @@ export default function ReferencesSection() {
           </Link>
         </motion.div>
 
-        {/* Client logos */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-14 grid grid-cols-2 md:grid-cols-5 gap-3"
-        >
-          {clients.map((client) => (
-            <div
-              key={client.name}
-              className="group flex items-center justify-center h-20 bg-neutral-50 rounded-2xl border border-neutral-150 hover:border-brand-200 hover:bg-brand-50/30 transition-all duration-300 cursor-default"
-            >
-              <div className="text-center">
-                <div className="text-xs font-bold text-neutral-400 group-hover:text-brand-400 transition-colors tracking-wider">
-                  {client.initials}
-                </div>
-                <div className="text-[10px] text-neutral-400 mt-0.5 font-medium leading-tight px-2 text-center">
-                  {client.name}
-                </div>
+        {/* Client logos marquee */}
+        <div className="mt-14 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+          <div className="flex animate-marquee">
+            {marqueeItems.map((client, i) => (
+              <div
+                key={i}
+                className="group flex-shrink-0 flex items-center justify-center h-20 px-6 mx-2 bg-white border border-neutral-150 rounded-2xl cursor-default transition-all duration-200 hover:border-[#1faf5a]/40 hover:shadow-[0_0_14px_rgba(31,175,90,0.14)]"
+              >
+                <Image
+                  src={client.logo}
+                  alt={client.name}
+                  width={140}
+                  height={60}
+                  className="object-contain h-10 w-auto max-w-[120px] opacity-60 grayscale group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105 transition duration-300"
+                />
               </div>
-            </div>
-          ))}
-        </motion.div>
+            ))}
+          </div>
+        </div>
 
         {/* Featured projects */}
         <motion.div

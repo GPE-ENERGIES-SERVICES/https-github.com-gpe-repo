@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import InteractiveMap, { type MapLocation } from '@/components/InteractiveMap'
 import CertificationsMarquee from '@/components/CertificationsMarquee'
 import { useLanguage } from '@/context/LanguageContext'
@@ -38,17 +39,60 @@ const locations: MapLocation[] = [
   },
 ]
 
-const partners = [
-  { name: 'Engie', region: 'Europe' },
-  { name: 'EDF Renouvelables', region: 'International' },
-  { name: 'Vinci Energies', region: 'Europe & Afrique' },
-  { name: 'Eiffage Énergie', region: 'Afrique' },
-  { name: 'Schneider Electric', region: 'Mondial' },
-  { name: 'Legrand', region: 'Mondial' },
-  { name: 'ABB', region: 'Europe' },
-  { name: 'Siemens Energy', region: 'Europe' },
-  { name: 'TotalEnergies', region: 'Afrique' },
-  { name: 'Meridiam', region: 'International' },
+const partnerCategories = [
+  {
+    label: 'PV',
+    badgeBg: 'bg-amber-50',
+    badgeBorder: 'border-amber-200',
+    badgeText: 'text-amber-700',
+    dotColor: 'bg-amber-400',
+    partners: [
+      { name: 'Soltyce',           logo: '/images/logoPartenaires/PV/solstyce.jpg' },
+      { name: 'Voltalia',          logo: '/images/logoPartenaires/PV/Voltalia.png' },
+      { name: 'Enerlis',           logo: '/images/logoPartenaires/PV/enerlis.png' },
+      { name: 'Enoe',              logo: '/images/logoPartenaires/PV/enoe.jpg' },
+      { name: 'Apex Énergie',      logo: '/images/logoPartenaires/PV/apex.png' },
+      { name: 'EDF Solaire',       logo: '/images/logoPartenaires/PV/edfsolaire.png' },
+      { name: 'Engie',             logo: '/images/logoPartenaires/PV/engie.png' },
+      { name: 'EDF Renouvelables', logo: '/images/logoPartenaires/PV/edfrenouvelables.png' },
+      { name: 'Les Mousquetaires', logo: '/images/logoPartenaires/PV/mousquetaires.png' },
+    ],
+  },
+  {
+    label: 'IRVE',
+    badgeBg: 'bg-blue-50',
+    badgeBorder: 'border-blue-200',
+    badgeText: 'text-blue-700',
+    dotColor: 'bg-blue-400',
+    partners: [
+      { name: 'Circet France', logo: '/images/logoPartenaires/IRVE/circet.jpg' },
+      { name: 'Carrefour',     logo: '/images/logoPartenaires/IRVE/Logo_Carrefour.svg.png' },
+      { name: 'WAAT',          logo: '/images/logoPartenaires/IRVE/Logo-MyWAAT-couleur-2023.png' },
+      { name: 'Izivia',        logo: '/images/logoPartenaires/IRVE/izivia.webp' },
+      { name: 'Ensio',         logo: '/images/logoPartenaires/IRVE/LOGO-Ensio_RVB.webp' },
+      { name: 'ENEDIS',        logo: '/images/logoPartenaires/IRVE/Logo_enedis_header.png' },
+      { name: 'Beev',          logo: '/images/logoPartenaires/IRVE/beev.png' },
+      { name: 'Driveco',       logo: '/images/logoPartenaires/IRVE/driveco.webp' },
+    ],
+  },
+  {
+    label: 'Électricité',
+    badgeBg: 'bg-[#1faf5a]/8',
+    badgeBorder: 'border-[#1faf5a]/20',
+    badgeText: 'text-[#1faf5a]',
+    dotColor: 'bg-[#1faf5a]',
+    partners: [
+      { name: 'Bouygues',         logo: '/images/logoPartenaires/Electricité/Bouygues_Construction_logo.svg.png' },
+      { name: 'VINCI',            logo: '/images/logoPartenaires/Electricité/Logo_Vinci.svg.png' },
+      { name: 'EQUANS',           logo: '/images/logoPartenaires/Electricité/Equans_Logo.png' },
+      { name: 'EIFFAGE',          logo: '/images/logoPartenaires/Electricité/Logo_Eiffage_Construction.svg.png' },
+      { name: 'Dalkia',           logo: '/images/logoPartenaires/Electricité/Logo_Dalkia.svg.png' },
+      { name: "Cit'éos",          logo: '/images/logoPartenaires/Electricité/citeos.webp' },
+      { name: 'Veolia',           logo: '/images/logoPartenaires/Electricité/veolialogo.png' },
+      { name: 'Fauché',           logo: '/images/logoPartenaires/Electricité/FAUCHE_logo.png' },
+      { name: 'Spie Batignolles', logo: '/images/logoPartenaires/Electricité/Spie_Batignolles_Logo.svg.png' },
+    ],
+  },
 ]
 
 export default function InternationalClient() {
@@ -150,21 +194,38 @@ export default function InternationalClient() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
           >
-            {partners.map((partner) => (
-              <div
-                key={partner.name}
-                className="group flex flex-col items-center justify-center h-24 rounded-2xl bg-white border border-neutral-200 hover:border-brand-200 hover:shadow-md transition-all duration-300 cursor-default px-4"
-              >
-                <div className="text-sm font-bold text-neutral-700 group-hover:text-brand-500 transition-colors text-center leading-tight">
-                  {partner.name}
+            {partnerCategories.map((cat) => (
+              <div key={cat.label} className="bg-white rounded-3xl border border-neutral-150 shadow-sm overflow-hidden">
+                {/* Category header */}
+                <div className="px-6 py-5 border-b border-neutral-100">
+                  <span className={`inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border ${cat.badgeBg} ${cat.badgeBorder} ${cat.badgeText}`}>
+                    <span className={`w-1.5 h-1.5 rounded-full ${cat.dotColor}`} />
+                    {cat.label}
+                  </span>
                 </div>
-                <div className="text-[10px] text-neutral-400 mt-1 font-medium">{partner.region}</div>
+                {/* Partner list */}
+                <div className="divide-y divide-neutral-50">
+                  {cat.partners.map((partner) => (
+                    <div
+                      key={partner.name}
+                      className="group flex items-center justify-center px-6 py-4 hover:bg-[#1faf5a]/4 transition-colors cursor-default"
+                    >
+                      <Image
+                        src={partner.logo}
+                        alt={partner.name}
+                        width={140}
+                        height={60}
+                        className="object-contain h-8 w-auto max-w-[130px] opacity-60 grayscale group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105 transition duration-300"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </motion.div>
