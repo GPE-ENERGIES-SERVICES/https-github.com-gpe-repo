@@ -20,7 +20,7 @@ const t18n: Record<Lang, Record<string, string>> = {
     'hero.title.part1': "L'énergie qui",
     'hero.title.highlight': 'donne vie',
     'hero.title.part2': 'à vos propriétés.',
-    'hero.subtitle': "Installations électriques, énergies renouvelables, CVC, VRD et bureau d'études. Des solutions intégrées pour les professionnels et les collectivités exigeants.",
+    'hero.subtitle': "Énergies renouvelables, solutions solaires et bornes de recharge : votre avenir, notre expertise.",
     'hero.cta.contact': 'Contactez-nous',
     'hero.cta.services': 'Nos Services',
     'hero.stat.years': "Années d'expérience",
@@ -31,7 +31,7 @@ const t18n: Record<Lang, Record<string, string>> = {
     // ── Services section
     'services.label': 'Nos expertises',
     'services.title': 'Des solutions complètes,\nde la conception à la réalisation.',
-    'services.subtitle': "Huit métiers complémentaires pour répondre à l'ensemble de vos besoins en énergie et en bâtiment.",
+    'services.subtitle': "Six métiers complémentaires pour répondre à l'ensemble de vos besoins en énergie et en bâtiment.",
     'services.learnMore': 'En savoir plus',
 
     // ── References section
@@ -42,8 +42,8 @@ const t18n: Record<Lang, Record<string, string>> = {
     'references.featured': 'Projets de référence',
     'references.cta': 'Explorer tous nos projets',
     'references.category.pv': 'Photovoltaïque',
-    'references.category.irve': 'Mobilité électrique — IRVE',
-    'references.category.electricite': 'Électricité & Génie climatique',
+    'references.category.irve': 'IRVE',
+    'references.category.electricite': 'Électricité',
 
     // ── About section
     'about.label': 'Notre histoire',

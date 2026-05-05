@@ -101,7 +101,7 @@ export default function InternationalClient() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-48 pb-24 text-white overflow-hidden">
+      <section className="relative min-h-screen flex items-center text-white overflow-hidden">
 
   {/* Background image */}
   <div className="absolute inset-0">
@@ -110,19 +110,22 @@ export default function InternationalClient() {
       alt="International"
       fill
       priority
-      className="object-cover object-center scale-105"
+      className="object-cover object-[center_30%]"
     />
 
-    {/* Gradient overlay brand (VERT → JAUNE) */}
+    {/* Gradient overlay brand */}
     <div className="absolute inset-0 bg-gradient-to-br from-[#1faf5a]/70 via-black/55 to-[#c6ff00]/25" />
 
-    {/* Glow effects (premium touch) */}
+    {/* Glow effects */}
     <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#1faf5a]/20 blur-3xl rounded-full" />
     <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-[#c6ff00]/20 blur-3xl rounded-full" />
+
+    {/* 🔥 FADE BAS VERS BLANC (IMPORTANT) */}
+    <div className="absolute bottom-0 left-0 w-full h-56 bg-gradient-to-t from-white via-white/70 to-transparent" />
   </div>
 
   {/* Content */}
-  <div className="relative section-padding container-max">
+  <div className="relative section-padding container-max w-full">
 
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -165,6 +168,7 @@ export default function InternationalClient() {
     </motion.div>
 
   </div>
+
 </section>
 
       {/* Interactive map */}

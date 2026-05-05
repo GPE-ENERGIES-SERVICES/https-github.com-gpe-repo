@@ -1,9 +1,14 @@
+export interface ServiceSection {
+  title: string
+  items: string[]
+}
+
 export interface Service {
   slug: string
   title: string
   shortDesc: string
-  description: string[]
-  benefits: string[]
+  intro: string
+  sections: ServiceSection[]
   icon: string
   color: string
   image: string
@@ -14,33 +19,71 @@ export const services: Service[] = [
     slug: 'courants-forts-faibles',
     title: 'service.courants-forts-faibles.title',
     shortDesc: 'service.courants-forts-faibles.shortDesc',
-    description: [
-      'service.courants-forts-faibles.desc1',
-      'service.courants-forts-faibles.desc2',
-    ],
-    benefits: [
-      'service.courants-forts-faibles.benefit1',
-      'service.courants-forts-faibles.benefit2',
-      'service.courants-forts-faibles.benefit3',
-      'service.courants-forts-faibles.benefit4',
+    intro: "Experts en électricité, nous concevons et déployons des installations fiables et sécurisées.",
+    sections: [
+      {
+        title: "Méthodologie et accompagnement",
+        items: [
+          "Étude de conception, d'exécution et dimensionnement",
+          "Installation, maintenance et dépannage",
+          "Accompagnement, assistance et conseils personnalisés",
+        ],
+      },
+      {
+        title: "Courant Fort",
+        items: [
+          "Réseaux Basse tension et Haute tension",
+          "Câblage et raccordements",
+          "Groupes électrogènes",
+          "Éclairage public",
+        ],
+      },
+      {
+        title: "Courants Faibles",
+        items: [
+          "SSI",
+          "Vidéosurveillance, alarmes, contrôle d'accès",
+          "Réseaux IT et téléphonie",
+          "Domotique / GTB / GTC",
+          "Automatismes industriels",
+        ],
+      },
+      {
+        title: "Secteurs",
+        items: [
+          "Logements",
+          "Tertiaire / bureaux / logistique",
+        ],
+      },
     ],
     icon: 'zap',
     color: '#1faf5a',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+    image: '/images/services/courantff.jpg',
   },
   {
     slug: 'energies-renouvelables',
     title: 'service.energies-renouvelables.title',
     shortDesc: 'service.energies-renouvelables.shortDesc',
-    description: [
-      'service.energies-renouvelables.desc1',
-      'service.energies-renouvelables.desc2',
-    ],
-    benefits: [
-      'service.energies-renouvelables.benefit1',
-      'service.energies-renouvelables.benefit2',
-      'service.energies-renouvelables.benefit3',
-      'service.energies-renouvelables.benefit4',
+    intro: "Solutions solaires performantes adaptées à vos besoins.",
+    sections: [
+      {
+        title: "Méthodologie",
+        items: [
+          "Études",
+          "Installation",
+          "Maintenance",
+        ],
+      },
+      {
+        title: "Photovoltaïque",
+        items: [
+          "Particuliers (< 36 kWc)",
+          "Haute puissance (jusqu'à 500 kWc)",
+          "Autoconsommation",
+          "Revente",
+          "Systèmes hybrides avec batterie",
+        ],
+      },
     ],
     icon: 'sun',
     color: '#1faf5a',
@@ -50,15 +93,18 @@ export const services: Service[] = [
     slug: 'mobilite-electrique',
     title: 'service.mobilite-electrique.title',
     shortDesc: 'service.mobilite-electrique.shortDesc',
-    description: [
-      'service.mobilite-electrique.desc1',
-      'service.mobilite-electrique.desc2',
-    ],
-    benefits: [
-      'service.mobilite-electrique.benefit1',
-      'service.mobilite-electrique.benefit2',
-      'service.mobilite-electrique.benefit3',
-      'service.mobilite-electrique.benefit4',
+    intro: "Déployer des infrastructures de recharge adaptées.",
+    sections: [
+      {
+        title: "Solutions",
+        items: [
+          "Véhicules légers",
+          "Bus",
+          "Camions",
+          "Copropriétés",
+          "Stationnement intelligent",
+        ],
+      },
     ],
     icon: 'car',
     color: '#1faf5a',
@@ -68,51 +114,62 @@ export const services: Service[] = [
     slug: 'renovation-energetique',
     title: 'service.renovation-energetique.title',
     shortDesc: 'service.renovation-energetique.shortDesc',
-    description: [
-      'service.renovation-energetique.desc1',
-      'service.renovation-energetique.desc2',
-    ],
-    benefits: [
-      'service.renovation-energetique.benefit1',
-      'service.renovation-energetique.benefit2',
-      'service.renovation-energetique.benefit3',
-      'service.renovation-energetique.benefit4',
+    intro: "Améliorer le confort et réduire la consommation énergétique.",
+    sections: [
+      {
+        title: "Prestations",
+        items: [
+          "Isolation combles",
+          "ITI",
+          "ITE",
+          "Planchers bas",
+        ],
+      },
     ],
     icon: 'home',
     color: '#1faf5a',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80',
+    image: '/images/services/renov.jpg',
   },
   {
     slug: 'chauffage-climatisation',
     title: 'service.chauffage-climatisation.title',
     shortDesc: 'service.chauffage-climatisation.shortDesc',
-    description: [
-      'service.chauffage-climatisation.desc1',
-      'service.chauffage-climatisation.desc2',
-    ],
-    benefits: [
-      'service.chauffage-climatisation.benefit1',
-      'service.chauffage-climatisation.benefit2',
-      'service.chauffage-climatisation.benefit3',
-      'service.chauffage-climatisation.benefit4',
+    intro: "Assurer un confort thermique optimal.",
+    sections: [
+      {
+        title: "Solutions",
+        items: [
+          "Pompes à chaleur",
+          "Climatisation réversible",
+          "Chaudières",
+          "Chauffe-eaux",
+          "Systèmes solaires combinés",
+        ],
+      },
     ],
     icon: 'thermometer',
     color: '#1faf5a',
-    image: 'https://images.unsplash.com/photo-1631545806609-4e1b59b25481?w=800&q=80',
+    image: '/images/services/clim.jpg',
   },
   {
     slug: 'bureau-etudes',
     title: 'service.bureau-etudes.title',
     shortDesc: 'service.bureau-etudes.shortDesc',
-    description: [
-      'service.bureau-etudes.desc1',
-      'service.bureau-etudes.desc2',
-    ],
-    benefits: [
-      'service.bureau-etudes.benefit1',
-      'service.bureau-etudes.benefit2',
-      'service.bureau-etudes.benefit3',
-      'service.bureau-etudes.benefit4',
+    intro: "Notre bureau d'études vous accompagne dans la conception, l'analyse et l'optimisation de vos projets à travers une expertise technique globale.",
+    sections: [
+      {
+        title: "Nos domaines d'intervention",
+        items: [
+          "Maquette numérique (BIM)",
+          "Audit énergétique (Maison individuelle et secteur tertiaire)",
+          "Optimisation énergétique",
+          "Études CFO/CFA (Courants forts et Courants faibles)",
+          "Études pour la mobilité électrique",
+          "Études pour l'énergie photovoltaïque",
+          "Études de chauffage et climatisation",
+          "Études d'isolation thermique",
+        ],
+      },
     ],
     icon: 'drafting-compass',
     color: '#1faf5a',

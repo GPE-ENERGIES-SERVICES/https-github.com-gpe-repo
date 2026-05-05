@@ -50,28 +50,25 @@ export default function Navbar() {
         }`}
       >
         <nav className="section-padding container-max">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20 gap-6">
 
             {/* LOGO */}
             <Link href="/" className="flex items-center gap-2.5 -ms-1 flex-shrink-0">
               <Image
                 src="/images/logo.png"
                 alt="GPE Énergies"
-                width={500}
-                height={200}
-                className="h-9 w-auto md:h-10"
+                width={600}
+                height={250}
+                className="h-14 w-auto md:h-16"
                 priority
               />
-              <span className="hidden sm:block text-[13px] font-semibold text-[#2e5240] leading-tight">
-                GPE Énergies
-                <span className="block text-[10px] font-medium tracking-widest uppercase text-neutral-400">
-                  &amp; Services
-                </span>
+              <span className="hidden sm:block text-[13px] font-bold text-[#2e5240] leading-tight whitespace-nowrap">
+                GPE Énergies & Services
               </span>
             </Link>
 
             {/* NAV LINKS */}
-            <div className="hidden lg:flex items-center gap-0.5">
+            <div className="hidden lg:flex items-center gap-3 flex-nowrap">
               {navLinks.map((link) => {
                 const active = isActive(link.href)
 
@@ -79,7 +76,7 @@ export default function Navbar() {
                   <Link
                     key={link.key}
                     href={link.href}
-                    className={`group relative px-3.5 py-2 text-[13px] font-medium transition-colors ${
+                    className={`group relative px-3.5 py-2 text-[13px] font-medium transition-colors whitespace-nowrap ${
                       active ? 'text-[#2e5240]' : 'text-[#2e5240]/80'
                     } hover:text-[#a3e635]`}
                   >
@@ -96,13 +93,13 @@ export default function Navbar() {
             </div>
 
             {/* RIGHT SIDE */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-4 flex-shrink-0 whitespace-nowrap">
               <LanguageSwitcher />
               <span className="h-4 w-px bg-neutral-200" />
 
               <a
                 href="tel:+33442072262"
-                className="text-[13px] font-medium text-[#2e5240]/70 hover:text-[#a3e635] transition-colors"
+                className="text-[13px] font-medium text-[#2e5240]/70 hover:text-[#a3e635] transition-colors whitespace-nowrap"
               >
                 +33 4 42 07 22 62
               </a>
@@ -111,7 +108,7 @@ export default function Navbar() {
 
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-1.5 bg-[#1faf5a] text-white text-[13px] font-semibold px-4 py-2 rounded-full hover:bg-[#a3e635] hover:text-black transition-colors shadow-sm"
+                className="inline-flex items-center gap-1.5 bg-[#1faf5a] text-white text-[13px] font-semibold px-4 py-2 rounded-full hover:bg-[#a3e635] hover:text-black transition-colors shadow-sm whitespace-nowrap"
               >
                 {t('nav.cta')}
               </Link>

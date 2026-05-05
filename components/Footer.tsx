@@ -4,6 +4,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'
 
+// Remplacer ces valeurs par les URLs définitives
+const SOCIAL_LINKS = {
+  linkedin: 'https://www.linkedin.com/company/gpe-energies',
+  facebook: 'https://www.facebook.com/gpeenergies',
+}
+
 export default function Footer() {
   const { t } = useLanguage()
 
@@ -62,7 +68,9 @@ export default function Footer() {
 
               {/* LinkedIn */}
               <a
-                href="#"
+                href={SOCIAL_LINKS.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#a3e635] flex items-center justify-center transition-colors"
               >
                 <svg
@@ -77,7 +85,9 @@ export default function Footer() {
 
               {/* Facebook */}
               <a
-                href="#"
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#a3e635] flex items-center justify-center transition-colors"
               >
                 <svg

@@ -39,23 +39,48 @@ export default function RealisationsClient() {
   return (
     <>
       {/* Header */}
-      <section className="pt-36 pb-16 bg-white border-b border-neutral-100">
-        <div className="section-padding container-max">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="label-tag">{t('realisations.label')}</span>
-            <h1 className="heading-display text-5xl md:text-6xl text-neutral-950 mt-4 leading-tight">
-              {t('realisations.title')}
-            </h1>
-            <p className="mt-5 text-neutral-500 text-lg leading-relaxed max-w-2xl">
-              {t('realisations.sub')}
-            </p>
-          </motion.div>
-        </div>
-      </section>
+<section className="relative min-h-screen flex items-center text-white overflow-hidden">
+
+  {/* Background image */}
+  <div className="absolute inset-0">
+    <Image
+      src="/images/realisationshero.jpg"
+      alt="Réalisations"
+      fill
+      priority
+      className="object-cover object-[center_30%]"
+    />
+
+    {/* Overlay branding */}
+    <div className="absolute inset-0 bg-gradient-to-br from-[#1faf5a]/70 via-black/60 to-[#c6ff00]/25" />
+
+    {/* Fade bas vers blanc */}
+    <div className="absolute bottom-0 left-0 w-full h-56 bg-gradient-to-t from-white via-white/70 to-transparent" />
+  </div>
+
+  {/* Content */}
+  <div className="relative section-padding container-max w-full">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="max-w-3xl"
+    >
+      <span className="label-tag text-[#c6ff00] border-white/10 bg-white/5">
+        {t('realisations.label')}
+      </span>
+
+      <h1 className="heading-display text-5xl md:text-7xl text-white mt-4 leading-tight">
+        {t('realisations.title')}
+      </h1>
+
+      <p className="mt-6 text-neutral-200 text-lg leading-relaxed max-w-2xl">
+        {t('realisations.sub')}
+      </p>
+    </motion.div>
+  </div>
+
+</section>
 
       {/* Filter bar */}
       <section className="sticky top-16 z-30 bg-white/90 backdrop-blur-md border-b border-neutral-100 py-4">

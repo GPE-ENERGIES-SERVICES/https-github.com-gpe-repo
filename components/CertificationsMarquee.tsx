@@ -49,7 +49,7 @@ export default function CertificationsMarquee() {
             {/* Logo */}
             <Image
               src={cert.img}
-              alt={cert.alt}
+              alt=""
               width={180}
               height={90}
               className="relative z-10 object-contain w-full h-full
