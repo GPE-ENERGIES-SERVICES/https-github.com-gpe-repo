@@ -252,9 +252,7 @@ export default function InternationalClient() {
                           className="object-contain transition-transform duration-300 group-hover:scale-105"
                         />
                       </div>
-                      <span className="relative text-[10.5px] font-medium text-neutral-500 text-center leading-tight">
-                        {partner.name}
-                      </span>
+                     
                     </motion.div>
                   ))}
                 </div>

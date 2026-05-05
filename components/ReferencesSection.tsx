@@ -32,7 +32,7 @@ const clients = [
   { name: "Cit'éos",           logo: '/images/logoPartenaires/Electricité/citeos.webp' },
   { name: 'Veolia',            logo: '/images/logoPartenaires/Electricité/veolialogo.png' },
   { name: 'Fauché',            logo: '/images/logoPartenaires/Electricité/FAUCHE_logo.png' },
-  { name: 'Spie Batignolles',  logo: '/images/logoPartenaires/Electricité/Spie_Batignolles_Logo.svg.png' },
+  {   logo: '/images/logoPartenaires/Electricité/Spie_Batignolles_Logo.svg.png' },
 ]
 
 const marqueeItems = [...clients, ...clients]
