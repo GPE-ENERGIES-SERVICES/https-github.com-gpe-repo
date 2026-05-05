@@ -47,17 +47,8 @@ export default function AboutSection() {
               <p>{t('about.p2')}</p>
             </div>
 
-            {/* certifications */}
-            <div className="mt-10 flex flex-wrap gap-3">
-              {['RGE QualiPV', 'Qualifelec', 'RGE QualiClimat', 'IRVE Qualif.', 'Qualibat'].map((cert) => (
-                <span
-                  key={cert}
-                  className="text-xs font-medium text-[#2e5240]/70 bg-white border border-[#2e5240]/10 px-3 py-1.5 rounded-full hover:border-[#a3e635] hover:text-[#2e5240] transition"
-                >
-                  {cert}
-                </span>
-              ))}
-            </div>
+          
+          
 
           </motion.div>
 
@@ -100,7 +91,7 @@ export default function AboutSection() {
               className="grid grid-cols-3 rounded-2xl border border-[#2e5240]/10 overflow-hidden bg-white"
             >
               {[
-                { v: '2008', lKey: 'about.stat.founded' },
+                { v: '2023', lKey: 'about.stat.founded' },
                 { v: '+40', lKey: 'about.stat.team' },
                 { v: t('about.stat.regionVal'), lKey: 'about.stat.region' },
               ].map((item, i) => (

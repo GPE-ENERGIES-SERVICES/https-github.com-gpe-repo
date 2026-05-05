@@ -14,104 +14,25 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  // Courants forts
-  {
-    id: 'cf-1',
-    title: 'Distribution HTA/BT — Centre Hospitalier Régional',
-    location: 'Marseille, PACA',
-    serviceSlug: 'courants-forts',
-    serviceLabel: 'Courants Forts',
-    client: 'CHU Marseille',
-    year: 2023,
-    description: 'Refonte complète de l\'installation électrique HTA/BT d\'un établissement de santé de 400 lits.',
-    longDescription: 'Ce projet d\'envergure a consisté en la refonte complète de l\'installation électrique HTA/BT d\'un établissement de santé de 400 lits. Nos équipes ont réalisé la mise en place de TGBT redondants garantissant une continuité d\'alimentation critique, l\'installation d\'onduleurs UPS haute capacité pour les blocs opératoires et unités de soins intensifs, ainsi que la réfection complète du câblage et la mise en conformité totale avec la norme NF C 15-100. Un système de gestion et de monitoring de l\'énergie en temps réel a également été déployé pour optimiser la consommation électrique de l\'établissement.',
-    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80',
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
-      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80',
-      'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80',
-    ],
-    tags: ['HTA/BT', 'Santé', 'Redondance'],
-  },
-  {
-    id: 'cf-2',
-    title: 'Électrification — Entrepôt logistique 25 000 m²',
-    location: 'Vitrolles, PACA',
-    serviceSlug: 'courants-forts',
-    serviceLabel: 'Courants Forts',
-    client: 'XPO Logistics',
-    year: 2022,
-    description: 'Installation électrique complète d\'un entrepôt logistique incluant éclairage LED et gestion d\'énergie.',
-    longDescription: 'Pour ce vaste entrepôt logistique de 25 000 m², GPE Énergies & Services a réalisé l\'installation électrique intégrale depuis les postes de transformation jusqu\'aux équipements de quai. Le projet a inclus la mise en place d\'un éclairage LED haute performance (réduction de 60 % de la consommation d\'éclairage), l\'alimentation des 18 quais de chargement et déchargement, la réalisation de tableaux divisionnaires par zone, et le déploiement d\'un système de gestion d\'énergie BMS permettant un pilotage fin des consommations. Les travaux ont été réalisés en phases pour ne pas perturber l\'activité logistique en cours.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80',
-      'https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80',
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
-    ],
-    tags: ['Industrie', 'LED', 'BT'],
-  },
-  {
-    id: 'cf-3',
-    title: 'Mise aux normes électriques — Résidence 200 logements',
-    location: 'Aix-en-Provence, PACA',
-    serviceSlug: 'courants-forts',
-    serviceLabel: 'Courants Forts',
-    client: 'Bouygues Immobilier',
-    year: 2023,
-    description: 'Mise en conformité NF C 15-100 d\'une résidence collective avec remplacement des tableaux et installations.',
-    longDescription: 'La mise en conformité de cette résidence de 200 logements a représenté un défi organisationnel majeur, l\'ensemble des travaux devant être menés avec les résidents en place. Nos équipes ont procédé au remplacement intégral des 200 tableaux de logement, à la mise à la terre généralisée, à l\'installation de nouvelles prises de courant aux normes, au remplacement de l\'éclairage des parties communes par des LED avec détection de présence, et à la réfection du TGBT principal. Un planning de 6 mois par roulements de bâtiments a permis de minimiser les interruptions pour les occupants. L\'ensemble des travaux a été réceptionné avec zéro réserve par le maître d\'ouvrage.',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
-      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
-      'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80',
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
-    ],
-    tags: ['Résidentiel', 'Conformité', 'BT'],
-  },
+  // Courants forts & faibles
+   {
+     id: 'cff-1',
+     title: 'projet x',
+     location: 'marseille',
+     serviceSlug: 'courants-forts-faibles',
+     serviceLabel: 'Courants Forts & Faibles',
+     client: 'enedis',
+     year: 2024,
+     description: 'miaw miaw',
+     longDescription: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+     image: '/images/logo.png',
+     gallery: [
+      '/images/logo.png',
+      '/images/logo.png'
 
-  // Courants faibles
-  {
-    id: 'cfa-1',
-    title: 'Vidéosurveillance & Contrôle d\'accès — Campus tertiaire',
-    location: 'Lyon, Auvergne-Rhône-Alpes',
-    serviceSlug: 'courants-faibles',
-    serviceLabel: 'Courants Faibles',
-    client: 'Nexity',
-    year: 2023,
-    description: 'Déploiement d\'un système intégré de vidéosurveillance IP HD et contrôle d\'accès biométrique sur 15 000 m².',
-    longDescription: 'Ce campus tertiaire de 15 000 m² a nécessité la conception et le déploiement d\'une solution de sécurité électronique complète et intégrée. Le système comprend 120 caméras IP HD (intérieur et extérieur) reliées à un serveur d\'enregistrement centralisé, un contrôle d\'accès biométrique sur les 38 portes sensibles du site avec gestion des droits par profil, un système d\'interphonie vidéo sur les accès principaux, ainsi qu\'un câblage structuré dédié à la sécurité en chemin de câbles séparés. La supervision centralisée permet une gestion unifiée de l\'ensemble du système depuis le poste de sécurité.',
-    image: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=800&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1558002038-1055907df827?w=800&q=80',
-      'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&q=80',
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
-      'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80',
-    ],
-    tags: ['Sécurité', 'IP', 'Tertiaire'],
-  },
-  {
-    id: 'cfa-2',
-    title: 'Infrastructure réseau VDI — Siège social bancaire',
-    location: 'Paris, Île-de-France',
-    serviceSlug: 'courants-faibles',
-    serviceLabel: 'Courants Faibles',
-    client: 'Groupe BNP',
-    year: 2022,
-    description: 'Câblage structuré cat6A, baies de brassage et déploiement fibre optique sur 8 étages.',
-    longDescription: 'Le projet de refonte de l\'infrastructure réseau du siège social a couvert les 8 étages du bâtiment pour un total de 1 200 prises VDI (voix, données, images). Les travaux ont inclus la pose de câblage cuivre cat6A certifié Fluke pour toutes les prises de travail, le déploiement d\'un réseau de fibre optique monomode entre les locaux techniques de chaque étage, l\'installation et le brassage de 24 baies 19\' avec gestion des câbles optimisée, ainsi que le déploiement des systèmes domotiques KNX pour la gestion de l\'éclairage et des stores. L\'ensemble du câblage a été certifié et livré avec ses documents de recette.',
-    image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&q=80',
-      'https://images.unsplash.com/photo-1558002038-1055907df827?w=800&q=80',
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
-      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80',
-    ],
-    tags: ['VDI', 'Fibre', 'KNX'],
-  },
+     ],
+     tags: ['xx', 'yyy','zzz'],
+   },
 
   // Énergies renouvelables
   {
@@ -292,46 +213,6 @@ export const projects: Project[] = [
     tags: ['PAC', 'VMC DF', 'Senior'],
   },
 
-  // VRD
-  {
-    id: 'vrd-1',
-    title: 'Aménagement VRD — ZAC 400 logements',
-    location: 'Istres, PACA',
-    serviceSlug: 'vrd',
-    serviceLabel: 'VRD',
-    client: 'Eiffage Immobilier',
-    year: 2023,
-    description: 'Travaux de voirie, réseaux d\'assainissement et éclairage public LED pour une ZAC de 400 logements.',
-    longDescription: 'Ce chantier VRD d\'envergure a accompagné la création de la ZAC des Jardins d\'Istres destinée à accueillir 400 logements. GPE Énergies & Services a réalisé l\'intégralité des réseaux secs et de voirie : création de 3,2 km de voirie primaire et secondaire avec bordures et trottoirs, réalisation du réseau d\'assainissement eaux usées et eaux pluviales (séparatif), alimentation eau potable, enfouissement des réseaux électriques et télécom, et installation de 180 mâts d\'éclairage public LED à détection adaptative. Le système d\'éclairage intelligent permet une variation automatique selon l\'heure et la présence, réduisant la consommation d\'éclairage de 65 % par rapport à une installation conventionnelle. Les travaux ont été livrés dans les délais contractuels de 18 mois.',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
-      'https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?w=800&q=80',
-      'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80',
-      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
-    ],
-    tags: ['Voirie', 'Assainissement', 'LED'],
-  },
-  {
-    id: 'vrd-2',
-    title: 'Éclairage public intelligent — Centre-ville',
-    location: 'Martigues, PACA',
-    serviceSlug: 'vrd',
-    serviceLabel: 'VRD',
-    client: 'Mairie de Martigues',
-    year: 2022,
-    description: 'Remplacement de 800 luminaires par des LED intelligents avec variation automatique et télégestion.',
-    longDescription: 'Le programme de modernisation de l\'éclairage public de la commune de Martigues a porté sur le remplacement de 800 luminaires sodium haute pression par des LED intelligents de dernière génération. Chaque luminaire est équipé d\'un nœud de communication LoRaWAN permettant son adressage individuel et la remontée de données (consommation, température, alarmes). Le système de télégestion centralisé permet la variation automatique par scénarios horaires (100 % en soirée, 50 % après minuit, 30 % en fin de nuit) et la détection des pannes en temps réel avec géolocalisation sur carte. La consommation électrique globale de l\'éclairage public a été réduite de 68 %. Le retour sur investissement pour la commune est estimé à 5 ans, avec des économies annuelles de 180 000 €.',
-    image: 'https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?w=800&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?w=800&q=80',
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
-      'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80',
-    ],
-    tags: ['LED', 'Smart city', 'Collectivité'],
-  },
-
   // Bureau d'études
   {
     id: 'be-1',
@@ -382,12 +263,10 @@ export function getProjectById(id: string): Project | undefined {
 }
 
 export const serviceLabels: Record<string, string> = {
-  'courants-forts': 'Courants Forts',
-  'courants-faibles': 'Courants Faibles',
+  'courants-forts-faibles': 'Courants Forts & Faibles',
   'energies-renouvelables': 'Énergies Renouvelables',
   'mobilite-electrique': 'Mobilité Électrique',
   'renovation-energetique': 'Rénovation Énergétique',
   'chauffage-climatisation': 'Chauffage & Climatisation',
-  'vrd': 'VRD',
   'bureau-etudes': "Bureau d'Études",
 }

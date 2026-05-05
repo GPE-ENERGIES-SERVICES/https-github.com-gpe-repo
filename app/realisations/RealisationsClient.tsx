@@ -11,13 +11,11 @@ import { useLanguage } from '@/context/LanguageContext'
 const ALL = 'all'
 
 const serviceColors: Record<string, string> = {
-  'courants-forts': '#1FAF5A',
-  'courants-faibles': '#6366f1',
+  'courants-forts-faibles': '#6366f1',
   'energies-renouvelables': '#f59e0b',
   'mobilite-electrique': '#C6FF00',
   'renovation-energetique': '#10b981',
   'chauffage-climatisation': '#ef4444',
-  'vrd': '#8b5cf6',
   'bureau-etudes': '#1FAF5A',
 }
 

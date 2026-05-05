@@ -15,15 +15,13 @@ interface FormData {
 }
 
 const services = [
-  'Courants Forts',
-  'Courants Faibles',
+  'Courants forts / faibles',
   'Ã‰nergies Renouvelables',
-  'MobilitÃ© Ã‰lectrique',
-  'RÃ©novation Ã‰nergÃ©tique',
+  'Mobilité électrique',
+  'Rénovation énérgétique',
   'Chauffage & Climatisation',
-  'VRD',
-  "Bureau d'Ã‰tudes",
-  'Autre / Non dÃ©fini',
+  "Bureau d'éudes",
+  'Autre / Non défini',
 ]
 
 export default function ContactSection() {

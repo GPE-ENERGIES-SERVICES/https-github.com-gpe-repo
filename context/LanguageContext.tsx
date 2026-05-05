@@ -41,13 +41,16 @@ const t18n: Record<Lang, Record<string, string>> = {
     'references.viewAll': 'Voir tous les projets',
     'references.featured': 'Projets de référence',
     'references.cta': 'Explorer tous nos projets',
+    'references.category.pv': 'Photovoltaïque',
+    'references.category.irve': 'Mobilité électrique — IRVE',
+    'references.category.electricite': 'Électricité & Génie climatique',
 
     // ── About section
     'about.label': 'Notre histoire',
     'about.title.main': 'Bâtir un avenir électrique,',
     'about.title.highlight': 'ensemble.',
-    'about.p1': "Fondée en 2008 à Lyon, GPE Énergies & Services est née de la conviction que l'excellence technique et l'innovation énergétique doivent aller de pair. En quinze ans, nous avons accompagné des centaines de maîtres d'ouvrage dans leur transition vers des bâtiments plus performants, plus économes et plus durables.",
-    'about.p2': "Notre approche multidisciplinaire — électricité, renouvelables, CVC, VRD et ingénierie — nous permet de traiter un projet dans sa globalité, en garantissant cohérence technique, respect des délais et maîtrise des coûts.",
+    'about.p1': "GPE – ENERGIES & SERVICES est une entreprise spécialisée dans un large éventail de domaines, offrant des solutions d’avenir pour un approvisionnement énergétique durable.",
+    'about.p2': "Dans le secteur tertiaire et industriel, nous accompagnons nos clients avec des solutions techniques et économiques pour maximiser leur efficacité et réduire leurs coûts. Grâce à notre expertise dans les énergies renouvelables, telles que les systèmes solaires et les bornes de recharge pour véhicules électriques, nous proposons des solutions sur mesure pour aider les entreprises et les particuliers à passer à des sources d’énergie respectueuses de l’environnement.",
     'about.value0.title': 'Excellence technique',
     'about.value0.desc': "Chaque installation est réalisée dans les règles de l'art, certifiée et contrôlée par nos équipes qualifiées.",
     'about.value1.title': 'Engagement durable',
@@ -60,7 +63,7 @@ const t18n: Record<Lang, Record<string, string>> = {
     'about.stat.regionVal': 'Sud',
 
     // ── Footer
-    'footer.tagline': "Expert en installations électriques, énergies renouvelables et solutions CVC depuis 2008.",
+    'footer.tagline': "Expert en installations électriques, énergies renouvelables et solutions CVC.",
     'footer.nav.title': 'Navigation',
     'footer.services.title': 'Nos services',
     'footer.contact.title': 'Contact',
@@ -251,6 +254,9 @@ const t18n: Record<Lang, Record<string, string>> = {
     'references.viewAll': 'View all projects',
     'references.featured': 'Featured projects',
     'references.cta': 'Explore all our projects',
+    'references.category.pv': 'Photovoltaic',
+    'references.category.irve': 'EV Charging — IRVE',
+    'references.category.electricite': 'Electrical Engineering & HVAC',
 
     'about.label': 'Our story',
     'about.title.main': 'Building an electrical future,',
@@ -456,6 +462,9 @@ const t18n: Record<Lang, Record<string, string>> = {
     'references.viewAll': 'عرض جميع المشاريع',
     'references.featured': 'مشاريع مرجعية',
     'references.cta': 'استكشف جميع مشاريعنا',
+    'references.category.pv': 'الطاقة الشمسية الكهروضوئية',
+    'references.category.irve': 'شحن المركبات الكهربائية',
+    'references.category.electricite': 'الكهرباء والتكييف',
 
     'about.label': 'قصتنا',
     'about.title.main': 'نبني مستقبلاً كهربائياً،',

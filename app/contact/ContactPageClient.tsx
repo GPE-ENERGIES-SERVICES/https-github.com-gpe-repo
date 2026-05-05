@@ -28,13 +28,11 @@ const officeLocation: MapLocation = {
 }
 
 const serviceOptionsFr = [
-  'Courants Forts',
-  'Courants Faibles',
+  'Courants forts / faibles',
   'Énergies Renouvelables',
   'Mobilité Électrique',
   'Rénovation Énergétique',
   'Chauffage & Climatisation',
-  'VRD',
   "Bureau d'Études",
   'Autre / Non défini',
 ]

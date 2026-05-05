@@ -232,7 +232,7 @@ export default function InteractiveMapLeaflet({ locations, initialId, height = 5
   }, [activeId, active.coords, isMapReady])
 
   return (
-    <div className="rounded-3xl overflow-hidden border border-neutral-200 shadow-lg bg-white"
+    <div className="relative z-0 rounded-3xl overflow-hidden border border-neutral-200 shadow-lg bg-white"
          style={{ boxShadow: '0 8px 40px rgba(0,0,0,0.08)' }}>
       <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr]">
 
@@ -338,7 +338,7 @@ export default function InteractiveMapLeaflet({ locations, initialId, height = 5
         </div>
 
         {/* ── Map ── */}
-        <div className="relative" style={{ height }}>
+        <div className="relative z-0 isolate" style={{ height }}>
           {/* Loading overlay */}
           {!isMapReady && (
             <div className="absolute inset-0 bg-neutral-100 flex items-center justify-center z-10">
