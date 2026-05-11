@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --brand: #1FAF5A;
-  --brand-dark: #158043;
-  --accent-lime: #a3e635;
-  --accent-lime-light: #d4f99a;
+  --brand: #2e5240;
+  --brand-dark: #13241e;
+  --accent-lime: #5a9474;
+  --accent-lime-light: #9ec7b1;
   --bg-white: #ffffff;
   --bg-light: #F5F5F5;
-  --text-dark: #111111;
+  --text-dark: #1a2e22;
 }
 
 html {
@@ -46,8 +46,8 @@ body {
 
 /* Selection */
 ::selection {
-  background-color: #a3e635;
-  color: #111111;
+  background-color: #5a9474;
+  color: #1a2e22;
 }
 
 /* Marquee animation */
@@ -64,16 +64,16 @@ body {
 
 @layer components {
   .section-padding {
-    @apply px-6 md:px-12 lg:px-20 xl:px-32;
+    @apply px-6 md:px-10 lg:px-16 xl:px-20;
   }
 
   .container-max {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-[1600px] mx-auto;
   }
 
   .btn-primary {
     @apply inline-flex items-center gap-2 bg-brand-400 text-white px-7 py-3.5 rounded-full text-sm font-semibold
-           hover:bg-[#a3e635] hover:text-neutral-950 active:bg-brand-600 transition-all duration-200
+           hover:bg-brand-300 hover:text-white active:bg-brand-600 transition-all duration-200
            shadow-md hover:shadow-lg hover:shadow-brand-100;
   }
 

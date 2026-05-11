@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPE Énergies — Document de réécriture du contenu</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f5f0;
+      color: #1a1a1a;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: #2e5240;
+      color: white;
+      padding: 28px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+    header h1 { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
+    header p  { font-size: 13px; color: rgba(255,255,255,0.65); margin-top: 2px; }
+
+    /* ── NAV ── */
+    nav {
+      background: white;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 12px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    nav a {
+      font-size: 12px;
+      font-weight: 600;
+      color: #2e5240;
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid #c8dcd2;
+      transition: all .15s;
+    }
+    nav a:hover { background: #2e5240; color: white; border-color: #2e5240; }
+
+    /* ── LAYOUT ── */
+    main {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: #2e5240;
+      color: white;
+      padding: 20px 28px;
+      border-radius: 14px 14px 0 0;
+      margin-top: 52px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .page-header:first-child { margin-top: 0; }
+    .page-header .icon { font-size: 22px; }
+    .page-header h2 { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
+    .page-header span { font-size: 12px; color: rgba(255,255,255,0.55); display: block; margin-top: 1px; }
+
+    /* ── SECTION HEADER ── */
+    .section-wrapper {
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-top: none;
+      border-radius: 0;
+    }
+    .section-wrapper:last-of-type, .section-wrapper + .page-header { border-radius: 0 0 14px 14px; }
+
+    .section-block {
+      padding: 28px 28px 24px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .section-block:last-child { border-bottom: none; }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #5a9474;
+      background: #eef7f2;
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    /* ── FIELD ── */
+    .field { margin-bottom: 18px; }
+    .field:last-child { margin-bottom: 0; }
+
+    .field-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: #888;
+      margin-bottom: 6px;
+    }
+
+    .current-text {
+      background: #fafafa;
+      border: 1px solid #e8e8e8;
+      border-left: 3px solid #c8dcd2;
+      padding: 11px 15px;
+      border-radius: 0 8px 8px 0;
+      font-size: 14px;
+      color: #444;
+      line-height: 1.65;
+    }
+
+    .new-text-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: #2e5240;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+
+    [contenteditable="true"] {
+      border: 1.5px dashed #5a9474;
+      border-radius: 8px;
+      padding: 11px 15px;
+      font-size: 14px;
+      color: #1a1a1a;
+      min-height: 42px;
+      outline: none;
+      background: #f0faf5;
+      transition: border-color .15s, background .15s;
+      line-height: 1.65;
+    }
+    [contenteditable="true"]:focus {
+      border-color: #2e5240;
+      background: #e8f5ee;
+      box-shadow: 0 0 0 3px rgba(46,82,64,0.1);
+    }
+    [contenteditable="true"]:empty::before {
+      content: attr(data-placeholder);
+      color: #aaa;
+      font-style: italic;
+    }
+
+    /* ── STATS ROW ── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .stat-card {
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .stat-value { font-size: 22px; font-weight: 700; color: #2e5240; }
+    .stat-desc  { font-size: 12px; color: #888; margin-top: 2px; }
+
+    /* ── TAG LIST ── */
+    .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .tag {
+      font-size: 12px;
+      background: #eef7f2;
+      color: #2e5240;
+      border: 1px solid #c8dcd2;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    /* ── LOCATION CARD ── */
+    .location-card {
+      background: #fafafa;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+    .location-card h4 { font-size: 14px; font-weight: 700; color: #2e5240; }
+    .location-card p  { font-size: 13px; color: #666; margin-top: 2px; }
+
+    /* ── PROJECT CARD ── */
+    .project-card {
+      background: #fafafa;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-bottom: 14px;
+    }
+    .project-card h4 { font-size: 14px; font-weight: 700; color: #1a1a1a; }
+    .project-meta { font-size: 12px; color: #888; margin-top: 3px; }
+
+    /* ── DIVIDER ── */
+    .divider { height: 1px; background: #f0f0f0; margin: 20px 0; }
+
+    /* ── FOOTER NOTE ── */
+    .footer-note {
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    @media (max-width: 600px) {
+      header, nav { padding: 16px 16px; }
+      main { padding: 0 12px 60px; }
+      .page-header { padding: 16px 18px; }
+      .section-block { padding: 20px 18px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>GPE Énergies & Services — Document de réécriture du contenu</h1>
+  <p>Cliquez sur les zones vertes pour écrire directement votre nouveau texte. Aucune modification du site réel.</p>
+</header>
+
+<nav>
+  <a href="#accueil">Accueil</a>
+  <a href="#services">Services</a>
+  <a href="#realisations-section">Réalisations (accueil)</a>
+  <a href="#about">À propos</a>
+  <a href="#contact-section">Contact (accueil)</a>
+  <a href="#footer">Footer</a>
+  <a href="#page-realisations">Page Réalisations</a>
+  <a href="#page-projets">Projets</a>
+  <a href="#page-international">International</a>
+  <a href="#page-contact">Page Contact</a>
+  <a href="#pages-services">Pages Services</a>
+</nav>
+
+<main>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  PAGE : ACCUEIL                                            -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+
+<div class="page-header" id="accueil">
+  <div class="icon">🏠</div>
+  <div>
+    <h2>PAGE : ACCUEIL</h2>
+    <span>Composants : Hero → Services → Réalisations → À propos → Contact</span>
+  </div>
+</div>
+
+<div class="section-wrapper">
+
+  <!-- HERO -->
+  <div class="section-block">
+    <div class="section-label">SECTION — Hero</div>
+
+    <div class="field">
+      <div class="field-label">Eyebrow (petite ligne au-dessus du titre)</div>
+      <div class="current-text">Alger</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Écrivez le nouveau eyebrow ici..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Titre — Partie 1</div>
+      <div class="current-text">L'énergie qui</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Partie 1 du titre..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Titre — Mot mis en avant (couleur verte)</div>
+      <div class="current-text">donne vie</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Mot en évidence..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Titre — Partie 2 (2ème ligne)</div>
+      <div class="current-text">à vos propriétés.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Partie 2 du titre..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Sous-titre (phrase descriptive sous le titre)</div>
+      <div class="current-text">Énergies renouvelables, solutions solaires et bornes de recharge : votre avenir, notre expertise.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Nouveau sous-titre..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Statistiques (affichées sous les CTAs)</div>
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-value">10+</div>
+          <div class="stat-desc">Années d'expérience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">150+</div>
+          <div class="stat-desc">Projets réalisés</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">8</div>
+          <div class="stat-desc">Expertises métier</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">95%</div>
+          <div class="stat-desc">Clients satisfaits</div>
+        </div>
+      </div>
+      <div class="new-text-label">Nouvelles statistiques (format : valeur | label) :</div>
+      <div contenteditable="true" data-placeholder="Ex: 10+ | Années d'expérience&#10;150+ | Projets réalisés&#10;8 | Expertises&#10;95% | Clients satisfaits"></div>
+    </div>
+  </div>
+
+  <!-- SERVICES SECTION -->
+  <div class="section-block" id="services">
+    <div class="section-label">SECTION — Services (présentation générale)</div>
+
+    <div class="field">
+      <div class="field-label">Badge / Label de section</div>
+      <div class="current-text">Nos expertises</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Label de section..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Titre de la section</div>
+      <div class="current-text">Des solutions complètes, de la conception à la réalisation.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre de la section services..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Sous-titre de la section</div>
+      <div class="current-text">Six métiers complémentaires pour répondre à l'ensemble de vos besoins en énergie et en bâtiment.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Sous-titre de la section services..."></div>
+    </div>
+
+    <!-- Service 1 -->
+    <div class="divider"></div>
+    <div class="field">
+      <div class="field-label">Service 1 — Titre de la carte</div>
+      <div class="current-text">Courants forts &amp; faibles</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre du service..."></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Service 1 — Description courte (carte)</div>
+      <div class="current-text">Conception et réalisation de vos installations électriques haute et basse tension, du tableau général jusqu'aux équipements terminaux.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description courte..."></div>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="divider"></div>
+    <div class="field">
+      <div class="field-label">Service 2 — Titre de la carte</div>
+      <div class="current-text">Énergies renouvelables</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre du service..."></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Service 2 — Description courte (carte)</div>
+      <div class="current-text">Installation de systèmes photovoltaïques et de solutions de stockage énergétique pour accélérer votre transition vers l'énergie verte.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description courte..."></div>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="divider"></div>
+    <div class="field">
+      <div class="field-label">Service 3 — Titre de la carte</div>
+      <div class="current-text">Mobilité électrique</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre du service..."></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Service 3 — Description courte (carte)</div>
+      <div class="current-text">Déploiement d'infrastructures de recharge pour véhicules électriques, de la borne résidentielle aux solutions de supervision intelligente.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description courte..."></div>
+    </div>
+
+    <!-- Service 4 -->
+    <div class="divider"></div>
+    <div class="field">
+      <div class="field-label">Service 4 — Titre de la carte</div>
+      <div class="current-text">Rénovation énergétique</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre du service..."></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Service 4 — Description courte (carte)</div>
+      <div class="current-text">Audit, conseil et travaux d'amélioration pour réduire vos consommations et valoriser vos bâtiments.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description courte..."></div>
+    </div>
+
+    <!-- Service 5 -->
+    <div class="divider"></div>
+    <div class="field">
+      <div class="field-label">Service 5 — Titre de la carte</div>
+      <div class="current-text">Chauffage &amp; climatisation</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre du service..."></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Service 5 — Description courte (carte)</div>
+      <div class="current-text">Solutions CVC sur mesure pour un confort thermique optimal, de l'installation à la maintenance.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description courte..."></div>
+    </div>
+
+    <!-- Service 6 -->
+    <div class="divider"></div>
+    <div class="field">
+      <div class="field-label">Service 6 — Titre de la carte</div>
+      <div class="current-text">Bureau d'études</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre du service..."></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Service 6 — Description courte (carte)</div>
+      <div class="current-text">Ingénierie, conception et maîtrise d'œuvre pour vos projets électriques, énergétiques et CVC.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description courte..."></div>
+    </div>
+  </div>
+
+  <!-- RÉALISATIONS (accueil) -->
+  <div class="section-block" id="realisations-section">
+    <div class="section-label">SECTION — Nos réalisations (accueil)</div>
+
+    <div class="field">
+      <div class="field-label">Badge / Label</div>
+      <div class="current-text">Nos réalisations</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Label de section..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Titre</div>
+      <div class="current-text">Ils nous font confiance.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre de la section..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Sous-titre</div>
+      <div class="current-text">Plus de 500 projets réalisés pour des maîtres d'ouvrage publics et privés partout en France.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Sous-titre..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Liste des partenaires (logos affichés dans le défilé)</div>
+      <div class="tag-list">
+        <span class="tag">Soltyce</span><span class="tag">Voltalia</span><span class="tag">Enerlis</span>
+        <span class="tag">Enoe</span><span class="tag">Apex Énergie</span><span class="tag">EDF Solaire</span>
+        <span class="tag">Engie</span><span class="tag">EDF Renouvelables</span><span class="tag">Les Mousquetaires</span>
+        <span class="tag">Circet France</span><span class="tag">Carrefour</span><span class="tag">WAAT</span>
+        <span class="tag">Izivia</span><span class="tag">Ensio</span><span class="tag">ENEDIS</span>
+        <span class="tag">Beev</span><span class="tag">Driveco</span><span class="tag">Bouygues</span>
+        <span class="tag">VINCI</span><span class="tag">EQUANS</span><span class="tag">EIFFAGE</span>
+        <span class="tag">Dalkia</span><span class="tag">Cit'éos</span><span class="tag">Veolia</span>
+        <span class="tag">Fauché</span><span class="tag">Spie Batignolles</span>
+      </div>
+      <div class="new-text-label">Partenaires à ajouter / modifier / supprimer :</div>
+      <div contenteditable="true" data-placeholder="Listez les partenaires souhaités..."></div>
+    </div>
+  </div>
+
+  <!-- À PROPOS -->
+  <div class="section-block" id="about">
+    <div class="section-label">SECTION — À propos</div>
+
+    <div class="field">
+      <div class="field-label">Badge / Label</div>
+      <div class="current-text">Notre histoire</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Label de section..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Titre — Partie principale</div>
+      <div class="current-text">Bâtir un avenir électrique,</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Partie principale du titre..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Titre — Mot mis en évidence (vert)</div>
+      <div class="current-text">ensemble.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Mot en évidence..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Paragraphe 1</div>
+      <div class="current-text">GPE – ENERGIES & SERVICES est une entreprise spécialisée dans un large éventail de domaines, offrant des solutions d'avenir pour un approvisionnement énergétique durable.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Nouveau paragraphe 1..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Paragraphe 2</div>
+      <div class="current-text">Dans le secteur tertiaire et industriel, nous accompagnons nos clients avec des solutions techniques et économiques pour maximiser leur efficacité et réduire leurs coûts. Grâce à notre expertise dans les énergies renouvelables, telles que les systèmes solaires et les bornes de recharge pour véhicules électriques, nous proposons des solutions sur mesure pour aider les entreprises et les particuliers à passer à des sources d'énergie respectueuses de l'environnement.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Nouveau paragraphe 2..."></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="field">
+      <div class="field-label">Valeur 1 — Titre</div>
+      <div class="current-text">Excellence technique</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre valeur 1..."></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Valeur 1 — Description</div>
+      <div class="current-text">Chaque installation est réalisée dans les règles de l'art, certifiée et contrôlée par nos équipes qualifiées.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description valeur 1..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Valeur 2 — Titre</div>
+      <div class="current-text">Engagement durable</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre valeur 2..."></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Valeur 2 — Description</div>
+      <div class="current-text">Nous plaçons la transition énergétique au cœur de nos projets, pour un impact positif sur l'environnement.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description valeur 2..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Valeur 3 — Titre</div>
+      <div class="current-text">Partenariat long terme</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre valeur 3..."></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Valeur 3 — Description</div>
+      <div class="current-text">Nos clients sont nos partenaires. Nous construisons des relations de confiance sur la durée, du projet à la maintenance.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description valeur 3..."></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="field">
+      <div class="field-label">Statistiques (bandeau chiffres)</div>
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-value">2023</div>
+          <div class="stat-desc">Création</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">+40</div>
+          <div class="stat-desc">Collaborateurs</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">Sud</div>
+          <div class="stat-desc">Région d'intervention</div>
+        </div>
+      </div>
+      <div class="new-text-label">Nouvelles statistiques (format : valeur | label) :</div>
+      <div contenteditable="true" data-placeholder="Ex: 2023 | Création&#10;+40 | Collaborateurs&#10;Sud | Région d'intervention"></div>
+    </div>
+  </div>
+
+  <!-- CONTACT SECTION (accueil) -->
+  <div class="section-block" id="contact-section">
+    <div class="section-label">SECTION — Contact (accueil)</div>
+
+    <div class="field">
+      <div class="field-label">Titre</div>
+      <div class="current-text">Parlons de votre projet.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre de la section contact..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Sous-titre / Description</div>
+      <div class="current-text">Notre équipe répond sous 24h ouvrées. Que ce soit pour un devis, une étude de faisabilité ou une question technique, nous sommes à votre écoute.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Nouveau sous-titre..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Téléphone</div>
+      <div class="current-text">+33 4 42 07 22 62</div>
+      <div class="new-text-label">Nouveau numéro :</div>
+      <div contenteditable="true" data-placeholder="+33 ..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Email</div>
+      <div class="current-text">contact@gpefrance.eu</div>
+      <div class="new-text-label">Nouvel email :</div>
+      <div contenteditable="true" data-placeholder="email@domaine.com"></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Adresse</div>
+      <div class="current-text">92 Bd de l'Europe ZA, 13127 Vitrolles</div>
+      <div class="new-text-label">Nouvelle adresse :</div>
+      <div contenteditable="true" data-placeholder="Adresse complète..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Horaires d'ouverture</div>
+      <div class="current-text">Lundi – Vendredi : 8h00 – 18h00 | Samedi – Dimanche : Fermé</div>
+      <div class="new-text-label">Nouveaux horaires :</div>
+      <div contenteditable="true" data-placeholder="Lundi – Vendredi : ... | Samedi – Dimanche : ..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Formulaire — Labels des champs</div>
+      <div class="current-text">
+        Nom complet * | Email * | Téléphone | Société | Service concerné | Votre message *
+      </div>
+      <div class="new-text-label">Nouveaux labels de champs (si à modifier) :</div>
+      <div contenteditable="true" data-placeholder="Modifiez uniquement ce qui change..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Formulaire — Liste des services proposés</div>
+      <div class="current-text">Courants forts / faibles | Énergies Renouvelables | Mobilité électrique | Rénovation énergétique | Chauffage &amp; Climatisation | Bureau d'études | Autre / Non défini</div>
+      <div class="new-text-label">Nouvelle liste de services (un par ligne) :</div>
+      <div contenteditable="true" data-placeholder="Service 1&#10;Service 2&#10;..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Message de confirmation (après envoi réussi)</div>
+      <div class="current-text">Message envoyé ! — Merci pour votre message. Notre équipe vous répondra dans les 24h ouvrées.</div>
+      <div class="new-text-label">Nouveau message de confirmation :</div>
+      <div contenteditable="true" data-placeholder="Message après envoi..."></div>
+    </div>
+  </div>
+
+</div><!-- end section-wrapper accueil -->
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  FOOTER                                                    -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+
+<div class="page-header" id="footer">
+  <div class="icon">🔻</div>
+  <div>
+    <h2>FOOTER</h2>
+    <span>Présent sur toutes les pages</span>
+  </div>
+</div>
+
+<div class="section-wrapper">
+  <div class="section-block">
+    <div class="section-label">Informations du footer</div>
+
+    <div class="field">
+      <div class="field-label">Nom de l'entreprise (affiché en gras)</div>
+      <div class="current-text">GPE Énergies &amp; Services</div>
+      <div class="new-text-label">Nouveau nom :</div>
+      <div contenteditable="true" data-placeholder="Nom de l'entreprise..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Tagline / Accroche</div>
+      <div class="current-text">Expert en installations électriques, énergies renouvelables et solutions CVC.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Tagline du footer..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Téléphone (footer)</div>
+      <div class="current-text">+213 21 22 14 15</div>
+      <div class="new-text-label">Nouveau numéro :</div>
+      <div contenteditable="true" data-placeholder="+213 ..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Email (footer)</div>
+      <div class="current-text">contact@gpefrance.eu</div>
+      <div class="new-text-label">Nouvel email :</div>
+      <div contenteditable="true" data-placeholder="email@domaine.com"></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Adresse (footer)</div>
+      <div class="current-text">92 Bd de l'Europe ZA, 13127 Vitrolles</div>
+      <div class="new-text-label">Nouvelle adresse :</div>
+      <div contenteditable="true" data-placeholder="Adresse complète..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Mention délai de réponse</div>
+      <div class="current-text">Réponse sous 24h ouvrées</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Délai de réponse..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Mention copyright (bas de page)</div>
+      <div class="current-text">© [Année] GPE Énergies &amp; Services. Tous droits réservés.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Texte copyright..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Liens réseaux sociaux</div>
+      <div class="current-text">
+        LinkedIn : https://www.linkedin.com/company/gpe-energies<br>
+        Facebook : https://www.facebook.com/gpeenergies
+      </div>
+      <div class="new-text-label">Nouveaux liens :</div>
+      <div contenteditable="true" data-placeholder="LinkedIn : https://...&#10;Facebook : https://..."></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  PAGE : RÉALISATIONS                                       -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+
+<div class="page-header" id="page-realisations">
+  <div class="icon">🏗️</div>
+  <div>
+    <h2>PAGE : RÉALISATIONS</h2>
+    <span>/realisations</span>
+  </div>
+</div>
+
+<div class="section-wrapper">
+  <div class="section-block">
+    <div class="section-label">En-tête de la page</div>
+
+    <div class="field">
+      <div class="field-label">Badge / Label</div>
+      <div class="current-text">Nos réalisations</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Label..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Titre principal</div>
+      <div class="current-text">Des projets qui parlent d'eux-mêmes.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre de la page réalisations..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Sous-titre</div>
+      <div class="current-text">Plus de 500 projets réalisés pour des maîtres d'ouvrage publics et privés partout en France.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Sous-titre..."></div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-label">Bloc CTA (bas de page réalisations)</div>
+
+    <div class="field">
+      <div class="field-label">Titre du CTA</div>
+      <div class="current-text">Un projet similaire ?</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre CTA..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Sous-titre du CTA</div>
+      <div class="current-text">Discutons de votre projet. Notre équipe d'experts vous répond sous 24h ouvrées.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Sous-titre CTA..."></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  PROJETS (fiches individuelles)                            -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+
+<div class="page-header" id="page-projets">
+  <div class="icon">📋</div>
+  <div>
+    <h2>FICHES PROJETS</h2>
+    <span>Contenu de chaque réalisation</span>
+  </div>
+</div>
+
+<div class="section-wrapper">
+
+  <!-- Projet 1 -->
+  <div class="section-block">
+    <div class="project-card">
+      <h4>Ombrières photovoltaïques 300 kW</h4>
+      <div class="project-meta">Marseille · Client : Apex Energies · 2026 · Service : Énergies Renouvelables</div>
+    </div>
+    <div class="section-label">Projet 1</div>
+
+    <div class="field">
+      <div class="field-label">Titre du projet</div>
+      <div class="current-text">Ombrières photovoltaïques 300 kW</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre du projet..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Lieu</div>
+      <div class="current-text">Marseille</div>
+      <div class="new-text-label">Nouveau lieu :</div>
+      <div contenteditable="true" data-placeholder="Ville, région..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Client</div>
+      <div class="current-text">Apex Energies</div>
+      <div class="new-text-label">Nouveau client :</div>
+      <div contenteditable="true" data-placeholder="Nom du client..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description courte (carte)</div>
+      <div class="current-text">Nous sommes fiers de vous présenter une nouvelle installation réalisée pour une grande surface alimentaire : une centrale photovoltaïque de 300 kW en ombrières de parking</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description courte..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description longue (page du projet)</div>
+      <div class="current-text">Installation d'une centrale photovoltaïque de 300 kW en ombrières de parking au sein d'une grande surface alimentaire. Ce projet permet de valoriser les espaces de stationnement en les transformant en zones de production d'énergie renouvelable, tout en assurant une protection des véhicules et un meilleur confort pour les usagers. L'installation contribue à la production d'électricité locale et durable, participant ainsi activement à la transition énergétique du site.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description longue..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Tags</div>
+      <div class="tag-list">
+        <span class="tag">Photovoltaïque</span><span class="tag">Ombrières</span><span class="tag">Energie solaire</span>
+      </div>
+      <div class="new-text-label">Nouveaux tags :</div>
+      <div contenteditable="true" data-placeholder="Tag1, Tag2, Tag3..."></div>
+    </div>
+  </div>
+
+  <!-- Projet 2 -->
+  <div class="section-block">
+    <div class="project-card">
+      <h4>Centrale photovoltaïque 1.2 MW</h4>
+      <div class="project-meta">Cahors · Client : Enoé · 2026 · Service : Énergies Renouvelables</div>
+    </div>
+    <div class="section-label">Projet 2</div>
+
+    <div class="field">
+      <div class="field-label">Titre du projet</div>
+      <div class="current-text">Centrale photovoltaïque 1.2 MW</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre du projet..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Lieu</div>
+      <div class="current-text">Cahors</div>
+      <div class="new-text-label">Nouveau lieu :</div>
+      <div contenteditable="true" data-placeholder="Ville, région..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Client</div>
+      <div class="current-text">Enoé</div>
+      <div class="new-text-label">Nouveau client :</div>
+      <div contenteditable="true" data-placeholder="Nom du client..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description courte (carte)</div>
+      <div class="current-text">Centrale photovoltaïque de 1,2 MW installée en toiture bac acier près de Cahors, contribuant à la production d'énergie renouvelable locale grâce à une intégration optimisée sur le bâtiment.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description courte..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description longue (page du projet)</div>
+      <div class="current-text">Installation d'une centrale photovoltaïque de 1,2 MW en toiture bac acier à proximité de Cahors. Ce projet permet de produire une énergie renouvelable locale tout en s'intégrant efficacement à la structure existante, participant ainsi à la transition énergétique du site.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description longue..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Tags</div>
+      <div class="tag-list">
+        <span class="tag">Photovoltaïque</span><span class="tag">Energie solaire</span>
+      </div>
+      <div class="new-text-label">Nouveaux tags :</div>
+      <div contenteditable="true" data-placeholder="Tag1, Tag2..."></div>
+    </div>
+  </div>
+
+  <!-- Projet 3 -->
+  <div class="section-block">
+    <div class="project-card">
+      <h4>Prééquipement IRVE — Résidence</h4>
+      <div class="project-meta">Saint-Raphaël · Client : WAAT · 2025 · Service : Mobilité Électrique</div>
+    </div>
+    <div class="section-label">Projet 3</div>
+
+    <div class="field">
+      <div class="field-label">Titre du projet</div>
+      <div class="current-text">Prééquipement IRVE - Résidence</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre du projet..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Lieu</div>
+      <div class="current-text">Saint-Raphaël</div>
+      <div class="new-text-label">Nouveau lieu :</div>
+      <div contenteditable="true" data-placeholder="Ville, région..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Client</div>
+      <div class="current-text">WAAT</div>
+      <div class="new-text-label">Nouveau client :</div>
+      <div contenteditable="true" data-placeholder="Nom du client..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description courte (carte)</div>
+      <div class="current-text">Prééquipement IRVE réalisé sur une résidence à Saint-Raphaël, permettant l'installation future de bornes de recharge pour véhicules électriques.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description courte..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description longue (page du projet)</div>
+      <div class="current-text">Réalisation du prééquipement IRVE sur une résidence située à Saint-Raphaël. Cette installation prépare l'infrastructure nécessaire à l'accueil futur de bornes de recharge pour véhicules électriques, en garantissant une solution prête à être déployée selon les besoins des usagers. Ce projet s'inscrit dans la continuité du développement de la mobilité électrique. Nous remercions WAAT pour sa confiance et la qualité du suivi de ce chantier.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description longue..."></div>
+    </div>
+  </div>
+
+  <!-- Projet 4 -->
+  <div class="section-block">
+    <div class="project-card">
+      <h4>Installation photovoltaïque 50 kWc</h4>
+      <div class="project-meta">Toulon · 2025 · Service : Énergies Renouvelables</div>
+    </div>
+    <div class="section-label">Projet 4</div>
+
+    <div class="field">
+      <div class="field-label">Titre du projet</div>
+      <div class="current-text">Installation photovoltaïque 50 kWc</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre du projet..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Lieu</div>
+      <div class="current-text">Toulon</div>
+      <div class="new-text-label">Nouveau lieu :</div>
+      <div contenteditable="true" data-placeholder="Ville, région..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description courte (carte)</div>
+      <div class="current-text">Installation d'une centrale photovoltaïque de 50 kWc en toiture à Toulon, contribuant à la production d'énergie solaire locale et durable.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description courte..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description longue (page du projet)</div>
+      <div class="current-text">Réalisation d'une installation photovoltaïque de 50 kWc en toiture sur un bâtiment situé à Toulon. Ce projet illustre l'intégration de l'énergie solaire à différentes échelles, permettant de produire une électricité locale et renouvelable tout en participant à la transition énergétique.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description longue..."></div>
+    </div>
+  </div>
+
+  <!-- Projet vide 1 -->
+  <div class="section-block">
+    <div class="section-label">Projet 5 (actuellement vide — à remplir)</div>
+    <div class="field">
+      <div class="field-label">Titre</div>
+      <div class="current-text" style="color:#bbb;font-style:italic;">(vide)</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre du projet..."></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Lieu · Client · Année · Service</div>
+      <div class="current-text" style="color:#bbb;font-style:italic;">(vide)</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Lieu | Client | Année | Service..."></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Description courte</div>
+      <div class="current-text" style="color:#bbb;font-style:italic;">(vide)</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description courte..."></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Description longue</div>
+      <div class="current-text" style="color:#bbb;font-style:italic;">(vide)</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description longue..."></div>
+    </div>
+  </div>
+
+  <!-- Projet vide 2 -->
+  <div class="section-block">
+    <div class="section-label">Projet 6 (actuellement vide — à remplir)</div>
+    <div class="field">
+      <div class="field-label">Titre</div>
+      <div class="current-text" style="color:#bbb;font-style:italic;">(vide)</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre du projet..."></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Lieu · Client · Année · Service</div>
+      <div class="current-text" style="color:#bbb;font-style:italic;">(vide)</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Lieu | Client | Année | Service..."></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Description courte</div>
+      <div class="current-text" style="color:#bbb;font-style:italic;">(vide)</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description courte..."></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Description longue</div>
+      <div class="current-text" style="color:#bbb;font-style:italic;">(vide)</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Description longue..."></div>
+    </div>
+  </div>
+
+</div><!-- end section-wrapper projets -->
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  PAGE : INTERNATIONAL                                      -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+
+<div class="page-header" id="page-international">
+  <div class="icon">🌍</div>
+  <div>
+    <h2>PAGE : INTERNATIONAL</h2>
+    <span>/international</span>
+  </div>
+</div>
+
+<div class="section-wrapper">
+
+  <div class="section-block">
+    <div class="section-label">Hero de la page</div>
+
+    <div class="field">
+      <div class="field-label">Badge / Label</div>
+      <div class="current-text">Présence mondiale</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Label..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Titre principal</div>
+      <div class="current-text">Au-delà des frontières.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Sous-titre</div>
+      <div class="current-text">GPE Énergies &amp; Services accompagne des projets d'envergure en France et à l'international, en apportant son expertise technique sur chaque continent.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Sous-titre..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Statistiques</div>
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-value">3</div>
+          <div class="stat-desc">Continents</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">8+</div>
+          <div class="stat-desc">Pays couverts</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">50+</div>
+          <div class="stat-desc">Projets internationaux</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">15</div>
+          <div class="stat-desc">Partenaires mondiaux</div>
+        </div>
+      </div>
+      <div class="new-text-label">Nouvelles statistiques (format : valeur | label) :</div>
+      <div contenteditable="true" data-placeholder="3 | Continents&#10;8+ | Pays couverts&#10;50+ | Projets internationaux&#10;15 | Partenaires mondiaux"></div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-label">Section carte — Implantations</div>
+
+    <div class="field">
+      <div class="field-label">Label de section</div>
+      <div class="current-text">Nos implantations</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Label..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Titre</div>
+      <div class="current-text">Une présence sur 3 continents.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Implantation 1 — France (Siège social)</div>
+      <div class="location-card">
+        <h4>🇫🇷 Vitrolles, France</h4>
+        <p>92 Bd de l'Europe ZA, 13127 Vitrolles</p>
+        <p>+33 4 42 07 22 62 · Siège social</p>
+      </div>
+      <div class="new-text-label">Modifications :</div>
+      <div contenteditable="true" data-placeholder="Nouvelles coordonnées si changement..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Implantation 2 — Algérie (Bureau régional)</div>
+      <div class="location-card">
+        <h4>🇩🇿 Alger, Algérie</h4>
+        <p>Hydra, Alger</p>
+        <p>+213 21 22 14 15 · Bureau régional</p>
+      </div>
+      <div class="new-text-label">Modifications :</div>
+      <div contenteditable="true" data-placeholder="Nouvelles coordonnées si changement..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Implantation 3 — Arabie Saoudite (Bureau régional)</div>
+      <div class="location-card">
+        <h4>🇸🇦 Riyadh, Arabie Saoudite</h4>
+        <p>King Fahd District, Riyadh</p>
+        <p>+966 11 000 00 00 · Bureau régional</p>
+      </div>
+      <div class="new-text-label">Modifications :</div>
+      <div contenteditable="true" data-placeholder="Nouvelles coordonnées si changement..."></div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-label">Section partenaires internationaux</div>
+
+    <div class="field">
+      <div class="field-label">Label de section</div>
+      <div class="current-text">Partenaires internationaux</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Label..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Sous-titre</div>
+      <div class="current-text">Des alliances stratégiques.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Sous-titre..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Catégorie 1 — Photovoltaïque</div>
+      <div class="tag-list">
+        <span class="tag">Solstyce</span><span class="tag">Voltalia</span><span class="tag">Enerlis</span>
+        <span class="tag">Enoe</span><span class="tag">Apex Énergie</span><span class="tag">EDF Solaire</span>
+        <span class="tag">Engie</span><span class="tag">EDF Renouvelables</span><span class="tag">Les Mousquetaires</span>
+      </div>
+      <div class="new-text-label">Modifications :</div>
+      <div contenteditable="true" data-placeholder="Partenaires à ajouter / modifier..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Catégorie 2 — IRVE</div>
+      <div class="tag-list">
+        <span class="tag">Circet France</span><span class="tag">Carrefour</span><span class="tag">MyWAAT</span>
+        <span class="tag">Izivia</span><span class="tag">Ensio</span><span class="tag">Enedis</span>
+        <span class="tag">Beev</span><span class="tag">Driveco</span><span class="tag">Stations-E</span>
+      </div>
+      <div class="new-text-label">Modifications :</div>
+      <div contenteditable="true" data-placeholder="Partenaires à ajouter / modifier..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Catégorie 3 — Électricité &amp; CVC</div>
+      <div class="tag-list">
+        <span class="tag">Bouygues</span><span class="tag">Vinci</span><span class="tag">Equans</span>
+        <span class="tag">Eiffage</span><span class="tag">Dalkia</span><span class="tag">Cit'éos</span>
+        <span class="tag">Veolia</span><span class="tag">Fauché</span><span class="tag">Spie Batignolles</span>
+        <span class="tag">BYES</span>
+      </div>
+      <div class="new-text-label">Modifications :</div>
+      <div contenteditable="true" data-placeholder="Partenaires à ajouter / modifier..."></div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-label">Section certifications</div>
+
+    <div class="field">
+      <div class="field-label">Label de section</div>
+      <div class="current-text">Certifications &amp; qualifications</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Label..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Titre</div>
+      <div class="current-text">Certifiés. Reconnus. Fiables.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre..."></div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  PAGE : CONTACT                                            -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+
+<div class="page-header" id="page-contact">
+  <div class="icon">✉️</div>
+  <div>
+    <h2>PAGE : CONTACT</h2>
+    <span>/contact</span>
+  </div>
+</div>
+
+<div class="section-wrapper">
+  <div class="section-block">
+    <div class="section-label">En-tête de la page contact</div>
+
+    <div class="field">
+      <div class="field-label">Badge / Label</div>
+      <div class="current-text">Contact</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Label..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Titre</div>
+      <div class="current-text">Parlons de votre projet.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre de la page contact..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Sous-titre</div>
+      <div class="current-text">Notre équipe répond sous 24h ouvrées. Que ce soit pour un devis, une étude de faisabilité ou une question technique, nous sommes à votre écoute.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Sous-titre..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Téléphone</div>
+      <div class="current-text">+33 4 42 07 22 62</div>
+      <div class="new-text-label">Nouveau numéro :</div>
+      <div contenteditable="true" data-placeholder="+33 ..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Email</div>
+      <div class="current-text">contact@gpefrance.eu</div>
+      <div class="new-text-label">Nouvel email :</div>
+      <div contenteditable="true" data-placeholder="email@domaine.com"></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Adresse</div>
+      <div class="current-text">92 Bd de l'Europe ZA, 13127 Vitrolles</div>
+      <div class="new-text-label">Nouvelle adresse :</div>
+      <div contenteditable="true" data-placeholder="Adresse complète..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Horaires</div>
+      <div class="current-text">Lundi – Vendredi : 8h00 – 18h00 | Samedi – Dimanche : Fermé</div>
+      <div class="new-text-label">Nouveaux horaires :</div>
+      <div contenteditable="true" data-placeholder="Horaires..."></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  PAGES SERVICES (détail de chaque service)                 -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+
+<div class="page-header" id="pages-services">
+  <div class="icon">⚙️</div>
+  <div>
+    <h2>PAGES SERVICES (détail)</h2>
+    <span>Contenu des 6 pages de services individuelles</span>
+  </div>
+</div>
+
+<div class="section-wrapper">
+
+  <!-- ── Service 1 : Courants forts & faibles ── -->
+  <div class="section-block">
+    <div class="section-label">Service 1 — Courants forts &amp; faibles</div>
+
+    <div class="field">
+      <div class="field-label">Titre de la page</div>
+      <div class="current-text">Courants forts &amp; faibles</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre du service..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Accroche intro (phrase courte sous le titre)</div>
+      <div class="current-text">Experts en électricité, nous concevons et déployons des installations fiables et sécurisées.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Accroche intro..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description paragraphe 1</div>
+      <div class="current-text">GPE Énergies &amp; Services prend en charge l'intégralité de vos installations électriques, de la conception des schémas unifilaires jusqu'à la mise en service des équipements. Nos techniciens qualifiés interviennent sur tous types de bâtiments : tertiaires, industriels, commerciaux et résidentiels.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Paragraphe 1..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description paragraphe 2</div>
+      <div class="current-text">Nous mettons notre expertise HTA/BT au service de vos projets en garantissant la conformité aux normes NF C 15-100 et la sécurité de vos installations. De la réalisation de tableaux électriques sur mesure à la maintenance préventive, nous vous accompagnons à chaque étape.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Paragraphe 2..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Prestations incluses (4 points)</div>
+      <div class="current-text">1. Conformité normes NF C 15-100<br>2. Expertise HTA/BT<br>3. Tableaux électriques sur mesure<br>4. Maintenance &amp; diagnostic</div>
+      <div class="new-text-label">Nouveaux points :</div>
+      <div contenteditable="true" data-placeholder="1. ...&#10;2. ...&#10;3. ...&#10;4. ..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Sections détaillées (liste complète)</div>
+      <div class="current-text">
+        <strong>Méthodologie et accompagnement :</strong><br>
+        · Étude de conception, d'exécution et dimensionnement<br>
+        · Installation, maintenance et dépannage<br>
+        · Accompagnement, assistance et conseils personnalisés<br><br>
+        <strong>Courant Fort :</strong><br>
+        · Réseaux Basse tension et Haute tension<br>
+        · Câblage et raccordements<br>
+        · Groupes électrogènes<br>
+        · Éclairage public<br><br>
+        <strong>Courants Faibles :</strong><br>
+        · SSI<br>
+        · Vidéosurveillance, alarmes, contrôle d'accès<br>
+        · Réseaux IT et téléphonie<br>
+        · Domotique / GTB / GTC<br>
+        · Automatismes industriels<br><br>
+        <strong>Secteurs :</strong><br>
+        · Logements<br>
+        · Tertiaire / bureaux / logistique
+      </div>
+      <div class="new-text-label">Nouvelles sections / modifications :</div>
+      <div contenteditable="true" data-placeholder="Section : ...&#10;· point 1&#10;· point 2"></div>
+    </div>
+  </div>
+
+  <!-- ── Service 2 : Énergies renouvelables ── -->
+  <div class="section-block">
+    <div class="section-label">Service 2 — Énergies renouvelables</div>
+
+    <div class="field">
+      <div class="field-label">Accroche intro</div>
+      <div class="current-text">Solutions solaires performantes adaptées à vos besoins.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Accroche intro..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description paragraphe 1</div>
+      <div class="current-text">Accélérez votre transition énergétique avec nos solutions photovoltaïques sur mesure. Notre équipe certifiée RGE conçoit, installe et met en service des systèmes solaires adaptés à vos besoins : autoconsommation totale ou partielle, vente de surplus ou systèmes hybrides avec stockage batterie.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Paragraphe 1..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description paragraphe 2</div>
+      <div class="current-text">Que vous soyez un particulier, une entreprise ou une collectivité, nous maximisons votre rentabilité et votre autonomie énergétique grâce à une étude personnalisée intégrant l'ensemble des aides financières disponibles (MaPrimeRénov', CEE, subventions locales).</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Paragraphe 2..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Prestations incluses (4 points)</div>
+      <div class="current-text">1. Panneaux photovoltaïques monocristallins<br>2. Autoconsommation optimisée<br>3. Stockage sur batterie<br>4. Certification RGE QualiPV</div>
+      <div class="new-text-label">Nouveaux points :</div>
+      <div contenteditable="true" data-placeholder="1. ...&#10;2. ...&#10;3. ...&#10;4. ..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Sections détaillées</div>
+      <div class="current-text">
+        <strong>Méthodologie :</strong><br>
+        · Études · Installation · Maintenance<br><br>
+        <strong>Photovoltaïque :</strong><br>
+        · Particuliers (&lt; 36 kWc)<br>
+        · Haute puissance (jusqu'à 500 kWc)<br>
+        · Autoconsommation<br>
+        · Revente<br>
+        · Systèmes hybrides avec batterie
+      </div>
+      <div class="new-text-label">Nouvelles sections / modifications :</div>
+      <div contenteditable="true" data-placeholder="Section : ...&#10;· point 1"></div>
+    </div>
+  </div>
+
+  <!-- ── Service 3 : Mobilité électrique ── -->
+  <div class="section-block">
+    <div class="section-label">Service 3 — Mobilité électrique</div>
+
+    <div class="field">
+      <div class="field-label">Accroche intro</div>
+      <div class="current-text">Déployer des infrastructures de recharge adaptées.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Accroche intro..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description paragraphe 1</div>
+      <div class="current-text">Nous concevons et déployons des infrastructures de recharge pour véhicules électriques adaptées à tous les contextes : résidentiel individuel, copropriété, parc d'entreprise, espace public ou commerce. Nos techniciens certifiés IRVE garantissent conformité et performance de chaque installation.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Paragraphe 1..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description paragraphe 2</div>
+      <div class="current-text">Nos solutions évolutives et connectées s'appuient sur des équipements de pointe et des plateformes de supervision intelligente, vous permettant de gérer votre parc de bornes à distance, d'optimiser la facturation et d'anticiper les besoins en maintenance.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Paragraphe 2..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Prestations incluses (4 points)</div>
+      <div class="current-text">1. Bornes résidentielles &amp; professionnelles<br>2. IRVE collectif &amp; tertiaire<br>3. Recharge rapide DC<br>4. Supervision &amp; télégestion</div>
+      <div class="new-text-label">Nouveaux points :</div>
+      <div contenteditable="true" data-placeholder="1. ...&#10;2. ...&#10;3. ...&#10;4. ..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Sections détaillées</div>
+      <div class="current-text">
+        <strong>Solutions :</strong><br>
+        · Véhicules légers · Bus · Camions<br>
+        · Copropriétés · Stationnement intelligent
+      </div>
+      <div class="new-text-label">Nouvelles sections / modifications :</div>
+      <div contenteditable="true" data-placeholder="Section : ...&#10;· point 1"></div>
+    </div>
+  </div>
+
+  <!-- ── Service 4 : Rénovation énergétique ── -->
+  <div class="section-block">
+    <div class="section-label">Service 4 — Rénovation énergétique</div>
+
+    <div class="field">
+      <div class="field-label">Accroche intro</div>
+      <div class="current-text">Améliorer le confort et réduire la consommation énergétique.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Accroche intro..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description paragraphe 1</div>
+      <div class="current-text">Notre bureau d'experts réalise des audits énergétiques complets de vos bâtiments et vous propose un plan d'actions priorisé pour améliorer votre performance énergétique. Nous intervenons sur toutes les composantes de l'enveloppe du bâtiment : isolation thermique, menuiseries, ventilation et gestion technique.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Paragraphe 1..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description paragraphe 2</div>
+      <div class="current-text">Certifiés RGE, nous vous accompagnons dans l'accès aux aides financières (MaPrimeRénov', Éco-PTZ, CEE) et pilotons les travaux jusqu'à l'obtention du label, pour une valorisation concrète de votre patrimoine immobilier.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Paragraphe 2..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Prestations incluses (4 points)</div>
+      <div class="current-text">1. Audit énergétique certifié<br>2. Isolation thermique &amp; phonique<br>3. Accès aux aides financières<br>4. Optimisation DPE / label RE2020</div>
+      <div class="new-text-label">Nouveaux points :</div>
+      <div contenteditable="true" data-placeholder="1. ...&#10;2. ...&#10;3. ...&#10;4. ..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Sections détaillées</div>
+      <div class="current-text">
+        <strong>Prestations :</strong><br>
+        · Isolation combles · ITI · ITE · Planchers bas
+      </div>
+      <div class="new-text-label">Nouvelles sections / modifications :</div>
+      <div contenteditable="true" data-placeholder="Section : ...&#10;· point 1"></div>
+    </div>
+  </div>
+
+  <!-- ── Service 5 : Chauffage & climatisation ── -->
+  <div class="section-block">
+    <div class="section-label">Service 5 — Chauffage &amp; climatisation</div>
+
+    <div class="field">
+      <div class="field-label">Accroche intro</div>
+      <div class="current-text">Assurer un confort thermique optimal.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Accroche intro..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description paragraphe 1</div>
+      <div class="current-text">GPE Énergies &amp; Services conçoit et installe des systèmes CVC adaptés à chaque usage : pompes à chaleur air/air et air/eau, climatisation réversible multi-split, planchers chauffants et systèmes de ventilation double-flux. Nos équipes qualifiées interviennent en neuf comme en rénovation.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Paragraphe 1..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description paragraphe 2</div>
+      <div class="current-text">Au-delà de l'installation, nous assurons la maintenance préventive et corrective de vos équipements pour garantir performances, longévité et économies d'énergie sur le long terme. Un service de télémaintenance est disponible pour les parcs multi-sites.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Paragraphe 2..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Prestations incluses (4 points)</div>
+      <div class="current-text">1. Pompes à chaleur (air/air, air/eau)<br>2. Climatisation réversible multi-split<br>3. Plancher chauffant hydraulique<br>4. Ventilation double-flux</div>
+      <div class="new-text-label">Nouveaux points :</div>
+      <div contenteditable="true" data-placeholder="1. ...&#10;2. ...&#10;3. ...&#10;4. ..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Sections détaillées</div>
+      <div class="current-text">
+        <strong>Solutions :</strong><br>
+        · Pompes à chaleur · Climatisation réversible<br>
+        · Chaudières · Chauffe-eaux · Systèmes solaires combinés
+      </div>
+      <div class="new-text-label">Nouvelles sections / modifications :</div>
+      <div contenteditable="true" data-placeholder="Section : ...&#10;· point 1"></div>
+    </div>
+  </div>
+
+  <!-- ── Service 6 : Bureau d'études ── -->
+  <div class="section-block">
+    <div class="section-label">Service 6 — Bureau d'études</div>
+
+    <div class="field">
+      <div class="field-label">Accroche intro</div>
+      <div class="current-text">Notre bureau d'études vous accompagne dans la conception, l'analyse et l'optimisation de vos projets à travers une expertise technique globale.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Accroche intro..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description paragraphe 1</div>
+      <div class="current-text">Notre bureau d'études pluridisciplinaire accompagne maîtres d'ouvrage et promoteurs depuis la phase de programmation jusqu'à la réception des ouvrages. Nous réalisons études de conception (schémas, plans, CCTP), chiffrages détaillés et dossiers de consultation des entreprises (DCE).</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Paragraphe 1..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Description paragraphe 2</div>
+      <div class="current-text">Grâce à nos outils de modélisation BIM et de simulation thermique dynamique, nous optimisons la conception de vos projets avant leur réalisation, réduisant les risques et maîtrisant les coûts de construction et d'exploitation.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Paragraphe 2..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Prestations incluses (4 points)</div>
+      <div class="current-text">1. Études techniques &amp; réglementaires<br>2. Modélisation BIM / maquette numérique<br>3. Suivi de chantier &amp; OPC<br>4. Maîtrise d'œuvre complète</div>
+      <div class="new-text-label">Nouveaux points :</div>
+      <div contenteditable="true" data-placeholder="1. ...&#10;2. ...&#10;3. ...&#10;4. ..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Sections détaillées</div>
+      <div class="current-text">
+        <strong>Nos domaines d'intervention :</strong><br>
+        · Maquette numérique (BIM)<br>
+        · Audit énergétique (Maison individuelle et secteur tertiaire)<br>
+        · Optimisation énergétique<br>
+        · Études CFO/CFA (Courants forts et Courants faibles)<br>
+        · Études pour la mobilité électrique<br>
+        · Études pour l'énergie photovoltaïque<br>
+        · Études de chauffage et climatisation<br>
+        · Études d'isolation thermique
+      </div>
+      <div class="new-text-label">Nouvelles sections / modifications :</div>
+      <div contenteditable="true" data-placeholder="Section : ...&#10;· point 1"></div>
+    </div>
+  </div>
+
+  <!-- ── Processus commun à toutes les pages services ── -->
+  <div class="section-block">
+    <div class="section-label">Processus (commun à toutes les pages services)</div>
+
+    <div class="field">
+      <div class="field-label">Titre du bloc processus</div>
+      <div class="current-text">Notre processus</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Étape 1</div>
+      <div class="current-text"><strong>Analyse &amp; Étude</strong> — Audit technique de votre site et analyse de vos besoins spécifiques.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre | Description..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Étape 2</div>
+      <div class="current-text"><strong>Conception &amp; Devis</strong> — Proposition technique détaillée avec chiffrage transparent et délais engagés.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre | Description..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Étape 3</div>
+      <div class="current-text"><strong>Réalisation</strong> — Exécution par nos équipes certifiées, avec suivi de chantier rigoureux.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre | Description..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Étape 4</div>
+      <div class="current-text"><strong>Réception &amp; SAV</strong> — Mise en service, formation et contrat de maintenance adapté.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Titre | Description..."></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">CTA bas de page service (accroche devis)</div>
+      <div class="current-text">Obtenez une étude personnalisée et un devis gratuit sous 24h.</div>
+      <div class="new-text-label">Nouveau texte :</div>
+      <div contenteditable="true" data-placeholder="Texte du CTA..."></div>
+    </div>
+  </div>
+
+</div><!-- end section-wrapper services -->
+
+
+<div class="footer-note">
+  Document de travail interne · GPE Énergies &amp; Services · Les modifications ici ne sont pas sauvegardées automatiquement — copiez votre texte avant de fermer le navigateur.
+</div>
+
+</main>
+</body>
+</html>

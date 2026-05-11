@@ -29,14 +29,14 @@ export default function AboutSection() {
 
             {/* badge */}
             <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#2e5240] bg-[#2e5240]/5 border border-[#2e5240]/10 px-3 py-1.5 rounded-full mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#a3e635]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#5a9474]" />
               {t('about.label')}
             </span>
 
             {/* title */}
             <h2 className="text-4xl md:text-5xl font-bold leading-tight text-[#2e5240]">
               {t('about.title.main')}{' '}
-              <span className="text-[#a3e635]">
+              <span className="text-[#5a9474]">
                 {t('about.title.highlight')}
               </span>
             </h2>
@@ -62,7 +62,7 @@ export default function AboutSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.6 }}
-                className="flex gap-5 p-6 rounded-2xl bg-white border border-[#2e5240]/10 shadow-sm hover:shadow-md hover:border-[#a3e635] transition"
+                className="flex gap-5 p-6 rounded-2xl bg-white border border-[#2e5240]/10 shadow-sm hover:shadow-md hover:border-[#5a9474] transition"
               >
 
                 <div className="text-2xl flex-shrink-0 mt-0.5">

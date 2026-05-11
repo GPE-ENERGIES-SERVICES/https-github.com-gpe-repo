@@ -55,16 +55,13 @@ export default function Navbar() {
             {/* LOGO */}
             <Link href="/" className="flex items-center gap-2.5 -ms-1 flex-shrink-0">
               <Image
-                src="/images/logo.png"
+                src="/images/logo0.png"
                 alt="GPE Énergies"
-                width={600}
-                height={250}
-                className="h-14 w-auto md:h-16"
+                width={10000}
+                height={5000}
+                className="h-36 w-auto md:h-42"
                 priority
               />
-              <span className="hidden sm:block text-[13px] font-bold text-[#2e5240] leading-tight whitespace-nowrap">
-                GPE Énergies & Services
-              </span>
             </Link>
 
             {/* NAV LINKS */}
@@ -78,12 +75,12 @@ export default function Navbar() {
                     href={link.href}
                     className={`group relative px-3.5 py-2 text-[13px] font-medium transition-colors whitespace-nowrap ${
                       active ? 'text-[#2e5240]' : 'text-[#2e5240]/80'
-                    } hover:text-[#a3e635]`}
+                    } hover:text-[#5a9474]`}
                   >
                     {t(link.key)}
 
                     <span
-                      className={`absolute left-3.5 right-3.5 -bottom-0.5 h-px bg-[#a3e635] transition-transform duration-300 ${
+                      className={`absolute left-3.5 right-3.5 -bottom-0.5 h-px bg-[#5a9474] transition-transform duration-300 ${
                         active ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                       }`}
                     />
@@ -99,7 +96,7 @@ export default function Navbar() {
 
               <a
                 href="tel:+33442072262"
-                className="text-[13px] font-medium text-[#2e5240]/70 hover:text-[#a3e635] transition-colors whitespace-nowrap"
+                className="text-[13px] font-medium text-[#2e5240]/70 hover:text-[#5a9474] transition-colors whitespace-nowrap"
               >
                 +33 4 42 07 22 62
               </a>
@@ -108,7 +105,7 @@ export default function Navbar() {
 
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-1.5 bg-[#1faf5a] text-white text-[13px] font-semibold px-4 py-2 rounded-full hover:bg-[#a3e635] hover:text-black transition-colors shadow-sm whitespace-nowrap"
+                className="inline-flex items-center gap-1.5 bg-[#2e5240] text-white text-[13px] font-semibold px-4 py-2 rounded-full hover:bg-[#5a9474] hover:text-white transition-colors shadow-sm whitespace-nowrap"
               >
                 {t('nav.cta')}
               </Link>
@@ -152,7 +149,7 @@ export default function Navbar() {
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
                     className={`flex items-center justify-between py-5 text-[22px] font-medium border-b border-neutral-100 ${
-                      isActive(link.href) ? 'text-[#a3e635]' : 'text-[#2e5240]'
+                      isActive(link.href) ? 'text-[#5a9474]' : 'text-[#2e5240]'
                     }`}
                   >
                     {t(link.key)}
@@ -165,7 +162,7 @@ export default function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-center bg-[#1faf5a] text-white text-sm font-semibold px-5 py-3.5 rounded-full hover:bg-[#a3e635] hover:text-black transition"
+                  className="flex items-center justify-center bg-[#2e5240] text-white text-sm font-semibold px-5 py-3.5 rounded-full hover:bg-[#5a9474] hover:text-white transition"
                 >
                   {t('nav.cta')}
                 </Link>

@@ -33,14 +33,14 @@ const MARKER_STYLES = `
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: rgba(31,175,90,0.25);
+    background: rgba(46,82,64,0.25);
     animation: gpePulse 2.2s ease-out infinite;
   }
   .gpe-pulse-2 {
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: rgba(31,175,90,0.12);
+    background: rgba(46,82,64,0.12);
     animation: gpePulse 2.2s ease-out 0.7s infinite;
   }
   .gpe-dot {
@@ -50,19 +50,19 @@ const MARKER_STYLES = `
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background: #1faf5a;
+    background: #2e5240;
     border-radius: 50%;
     border: 3px solid #fff;
-    box-shadow: 0 2px 12px rgba(31,175,90,0.55);
+    box-shadow: 0 2px 12px rgba(46,82,64,0.55);
     transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s ease;
   }
   .gpe-marker.active .gpe-dot {
-    background: #1faf5a;
+    background: #2e5240;
     transform: translate(-50%,-50%) scale(1.35);
-    box-shadow: 0 4px 20px rgba(31,175,90,0.75);
+    box-shadow: 0 4px 20px rgba(46,82,64,0.75);
   }
   .gpe-marker.active .gpe-pulse {
-    background: rgba(31,175,90,0.35);
+    background: rgba(46,82,64,0.35);
     animation-duration: 1.6s;
   }
   @keyframes gpePulse {
@@ -96,7 +96,7 @@ const MARKER_STYLES = `
     border-bottom: none !important;
   }
   .leaflet-control-zoom a:hover {
-    background: #1faf5a !important;
+    background: #2e5240 !important;
     color: #fff !important;
   }
   .leaflet-control-attribution {
@@ -107,7 +107,7 @@ const MARKER_STYLES = `
     padding: 3px 8px !important;
   }
   .leaflet-control-attribution a {
-    color: #1faf5a !important;
+    color: #2e5240 !important;
   }
   .gpe-div-icon {
     background: transparent !important;
@@ -242,7 +242,7 @@ export default function InteractiveMapLeaflet({ locations, initialId, height = 5
           {/* Panel header */}
           <div className="px-5 py-5 border-b border-neutral-100">
             <div className="flex items-center gap-2 mb-1">
-              <span className="w-2 h-2 rounded-full bg-[#1faf5a]" />
+              <span className="w-2 h-2 rounded-full bg-[#2e5240]" />
               <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-neutral-400">
                 Implantations
               </span>
@@ -262,7 +262,7 @@ export default function InteractiveMapLeaflet({ locations, initialId, height = 5
                   onClick={() => setActiveId(loc.id)}
                   className={`w-full text-start px-5 py-4 transition-all duration-200 group ${
                     isActive
-                      ? 'bg-[#1faf5a]/5 border-l-2 border-[#1faf5a]'
+                      ? 'bg-[#2e5240]/5 border-l-2 border-[#2e5240]'
                       : 'border-l-2 border-transparent hover:bg-neutral-50'
                   }`}
                 >
@@ -270,14 +270,14 @@ export default function InteractiveMapLeaflet({ locations, initialId, height = 5
                     <span className="text-lg leading-none">{loc.flag}</span>
                     <div className="flex-1 min-w-0">
                       <div className={`text-sm font-semibold leading-tight transition-colors ${
-                        isActive ? 'text-[#1faf5a]' : 'text-neutral-800 group-hover:text-neutral-600'
+                        isActive ? 'text-[#2e5240]' : 'text-neutral-800 group-hover:text-neutral-600'
                       }`}>
                         {loc.city}
                       </div>
                       <div className="text-xs text-neutral-400 mt-0.5">{loc.country}</div>
                     </div>
                     <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all ${
-                      isActive ? 'bg-[#1faf5a] scale-100' : 'bg-neutral-200 scale-75'
+                      isActive ? 'bg-[#2e5240] scale-100' : 'bg-neutral-200 scale-75'
                     }`} />
                   </div>
                 </button>
@@ -296,8 +296,8 @@ export default function InteractiveMapLeaflet({ locations, initialId, height = 5
               className="border-t border-neutral-100 px-5 py-5 space-y-3"
             >
               {active.role && (
-                <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[#1faf5a] bg-[#1faf5a]/8 border border-[#1faf5a]/20 px-2.5 py-1 rounded-full">
-                  <span className="w-1 h-1 rounded-full bg-[#1faf5a]" />
+                <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[#2e5240] bg-[#2e5240]/8 border border-[#2e5240]/20 px-2.5 py-1 rounded-full">
+                  <span className="w-1 h-1 rounded-full bg-[#2e5240]" />
                   {active.role}
                 </span>
               )}
@@ -316,10 +316,10 @@ export default function InteractiveMapLeaflet({ locations, initialId, height = 5
                   href={`tel:${active.phone.replace(/\s/g, '')}`}
                   className="flex items-center gap-2.5 group/phone"
                 >
-                  <svg className="w-3.5 h-3.5 text-neutral-400 flex-shrink-0 group-hover/phone:text-[#1faf5a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg className="w-3.5 h-3.5 text-neutral-400 flex-shrink-0 group-hover/phone:text-[#2e5240] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                   </svg>
-                  <span className="text-xs font-semibold text-neutral-700 group-hover/phone:text-[#1faf5a] transition-colors">
+                  <span className="text-xs font-semibold text-neutral-700 group-hover/phone:text-[#2e5240] transition-colors">
                     {active.phone}
                   </span>
                 </a>
@@ -343,7 +343,7 @@ export default function InteractiveMapLeaflet({ locations, initialId, height = 5
           {!isMapReady && (
             <div className="absolute inset-0 bg-neutral-100 flex items-center justify-center z-10">
               <div className="flex items-center gap-3 text-neutral-400">
-                <div className="w-4 h-4 rounded-full border-2 border-[#1faf5a] border-t-transparent animate-spin" />
+                <div className="w-4 h-4 rounded-full border-2 border-[#2e5240] border-t-transparent animate-spin" />
                 <span className="text-sm font-medium">Chargement…</span>
               </div>
             </div>
