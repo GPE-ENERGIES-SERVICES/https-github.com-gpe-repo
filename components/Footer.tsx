@@ -71,7 +71,7 @@ export default function Footer() {
                 href={SOCIAL_LINKS.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#5a9474] flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#a3e635]/20 flex items-center justify-center transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +88,7 @@ export default function Footer() {
                 href={SOCIAL_LINKS.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#5a9474] flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#a3e635]/20 flex items-center justify-center transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +113,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white hover:text-[#5a9474] transition-colors"
+                    className="text-sm text-white hover:text-[#a3e635] transition-colors"
                   >
                     {t(link.labelKey)}
                   </Link>
@@ -132,7 +132,7 @@ export default function Footer() {
                 <li key={s.href}>
                   <Link
                     href={s.href}
-                    className="text-sm text-white hover:text-[#5a9474] transition-colors"
+                    className="text-sm text-white hover:text-[#a3e635] transition-colors"
                   >
                     {t(s.labelKey)}
                   </Link>
@@ -149,13 +149,13 @@ export default function Footer() {
 
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="tel:+21321221415" className="text-white hover:text-[#5a9474] transition-colors">
+                <a href="tel:+21321221415" className="text-white hover:text-[#a3e635] transition-colors">
                   +213 21 22 14 15
                 </a>
               </li>
 
               <li>
-                <a href="mailto:contact@gpefrance.eu" className="text-white hover:text-[#5a9474] transition-colors">
+                <a href="mailto:contact@gpefrance.eu" className="text-white hover:text-[#a3e635] transition-colors">
                   contact@gpefrance.eu
                 </a>
               </li>
@@ -166,7 +166,7 @@ export default function Footer() {
             </ul>
 
             <div className="mt-6 flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-[#5a9474]" />
+              <div className="w-2 h-2 rounded-full bg-[#a3e635]" />
               <span className="text-xs text-white/80">
                 {t('footer.response')}
               </span>
@@ -185,7 +185,7 @@ export default function Footer() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-xs text-white/70 hover:text-[#5a9474] transition-colors"
+                className="text-xs text-white/70 hover:text-[#a3e635] transition-colors"
               >
                 {t(item.labelKey)}
               </Link>

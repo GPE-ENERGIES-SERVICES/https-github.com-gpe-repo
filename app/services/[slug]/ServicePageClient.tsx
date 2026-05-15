@@ -9,6 +9,110 @@ import { services } from '@/lib/services'
 import { getProjectsByService } from '@/lib/projects'
 import { useLanguage } from '@/context/LanguageContext'
 
+// ─── Certifications par service ──────────────────────────────────────────────
+
+type Certification = {
+  title: string
+  image: string
+  description: string
+}
+
+const CERTIFICATIONS_BY_SERVICE: Record<string, Certification[]> = {
+  'courants-forts-faibles': [
+    {
+      title: 'Qualifelec',
+      image: '/images/Certifications/qualifelec.png',
+      description: "Qualification des entreprises d'électricité",
+    },
+    {
+      title: 'AFNOR',
+      image: '/images/Certifications/AFNOR-removebg-preview.png',
+      description: 'Certification qualité et conformité normative',
+    },
+    {
+      title: 'OPQIBI',
+      image: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png',
+      description: "Qualification de l'ingénierie électrique",
+    },
+  ],
+  'bureau-etudes': [
+    {
+      title: 'AFNOR',
+      image: '/images/Certifications/AFNOR-removebg-preview.png',
+      description: 'Certification qualité et conformité normative',
+    },
+    {
+      title: 'OPQIBI',
+      image: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png',
+      description: "Qualification des bureaux d'études et de l'ingénierie",
+    },
+  ],
+  'mobilite-electrique': [
+    {
+      title: 'Qualifelec',
+      image: '/images/Certifications/qualifelec.png',
+      description: 'Qualification IRVE pour les bornes de recharge',
+    },
+    {
+      title: 'AFNOR',
+      image: '/images/Certifications/AFNOR-removebg-preview.png',
+      description: 'Certification qualité et conformité normative',
+    },
+    {
+      title: 'OPQIBI',
+      image: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png',
+      description: "Qualification de l'ingénierie",
+    },
+  ],
+  'renovation-energetique': [
+    {
+      title: 'QualiPAC',
+      image: '/images/Certifications/logo-qualipac.png',
+      description: 'Qualification RGE pour la rénovation énergétique',
+    },
+    {
+      title: 'Qualifelec',
+      image: '/images/Certifications/qualifelec.png',
+      description: 'Certification entreprise qualifiée RGE',
+    },
+    {
+      title: 'AFNOR',
+      image: '/images/Certifications/AFNOR-removebg-preview.png',
+      description: 'Certification qualité et conformité normative',
+    },
+  ],
+  'chauffage-climatisation': [
+    {
+      title: 'QualiPAC',
+      image: '/images/Certifications/logo-qualipac.png',
+      description: 'Qualification pompes à chaleur et systèmes thermiques',
+    },
+    {
+      title: 'Qualifelec',
+      image: '/images/Certifications/qualifelec.png',
+      description: 'Certification des installateurs',
+    },
+    {
+      title: 'AFNOR',
+      image: '/images/Certifications/AFNOR-removebg-preview.png',
+      description: 'Certification qualité et conformité normative',
+    },
+  ],
+}
+
+const CERTIFICATIONS_SUBTITLE_BY_SERVICE: Record<string, string> = {
+  'courants-forts-faibles':
+    'Nos qualifications certifient notre expertise en installations électriques courants forts et faibles.',
+  'bureau-etudes':
+    'Nos certifications garantissent la rigueur méthodologique et la qualité de nos études techniques.',
+  'mobilite-electrique':
+    'Nos qualifications IRVE certifient la conformité et la sécurité de vos infrastructures de recharge.',
+  'renovation-energetique':
+    "Nos certifications RGE vous donnent accès aux aides financières et garantissent la qualité des travaux.",
+  'chauffage-climatisation':
+    'Nos qualifications garantissent des installations thermiques conformes aux normes en vigueur.',
+}
+
 interface Props {
   service: Service
 }
@@ -184,6 +288,80 @@ export default function ServicePageClient({ service }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Certifications */}
+      {(CERTIFICATIONS_BY_SERVICE[service.slug] ?? []).length > 0 && (() => {
+        const certs = CERTIFICATIONS_BY_SERVICE[service.slug]!
+        const gridCols =
+          certs.length >= 5
+            ? 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-5'
+            : certs.length >= 3
+            ? 'grid-cols-1 sm:grid-cols-3'
+            : 'grid-cols-1 sm:grid-cols-2'
+        return (
+          <section className="py-24 bg-white border-t border-neutral-100">
+            <div className="section-padding container-max">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.6 }}
+                className="max-w-2xl mb-14"
+              >
+                <span className="label-tag">Qualité & Conformité</span>
+                <h2 className="heading-display text-4xl md:text-5xl text-neutral-950 mt-5 leading-tight">
+                  Certifications &{' '}
+                  <span style={{ color: service.color }}>Qualifications</span>
+                </h2>
+                <p className="mt-5 text-neutral-500 text-lg leading-relaxed">
+                  {CERTIFICATIONS_SUBTITLE_BY_SERVICE[service.slug] ??
+                    'Nos certifications garantissent la qualité et la conformité de nos prestations.'}
+                </p>
+              </motion.div>
+
+              <div className={`grid ${gridCols} gap-6`}>
+                {certs.map((cert, i) => (
+                  <motion.div
+                    key={cert.title}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{ duration: 0.5, delay: i * 0.08 }}
+                    className="group relative flex flex-col items-center gap-4 p-7 bg-white rounded-2xl border border-neutral-200
+                               hover:-translate-y-1.5 hover:border-[#a3e635]/40
+                               hover:shadow-xl hover:shadow-[#2e5240]/8
+                               transition-all duration-300 ease-in-out cursor-default"
+                  >
+                    {/* Glow overlay */}
+                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                      <div className="absolute inset-0 rounded-2xl bg-[#a3e635]/5" />
+                    </div>
+
+                    {/* Logo en couleur */}
+                    <div className="relative h-16 w-full flex items-center justify-center">
+                      <Image
+                        src={cert.image}
+                        alt={cert.title}
+                        width={160}
+                        height={64}
+                        className="object-contain max-h-16 w-auto transition-all duration-300 group-hover:scale-[1.05]"
+                      />
+                    </div>
+
+                    {/* Texte */}
+                    <div className="relative text-center">
+                      <div className="text-sm font-semibold text-neutral-800">{cert.title}</div>
+                      <div className="text-xs text-neutral-500 mt-1 leading-relaxed">
+                        {cert.description}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )
+      })()}
 
       {/* Related projects */}
       {serviceProjects.length > 0 && (

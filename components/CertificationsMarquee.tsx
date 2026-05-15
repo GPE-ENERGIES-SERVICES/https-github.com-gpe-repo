@@ -38,23 +38,21 @@ export default function CertificationsMarquee() {
             className="group relative flex-shrink-0 flex items-center justify-center
                        w-60 h-36 rounded-2xl border border-neutral-300 bg-white
                        shadow-md p-6 transition-all duration-300
-                       hover:-translate-y-2 hover:shadow-xl hover:border-[#5a9474]"
+                       hover:-translate-y-2 hover:shadow-xl hover:border-[#a3e635]/60"
           >
 
             {/* Glow subtil */}
             <div className="absolute inset-0 rounded-2xl opacity-0
                             group-hover:opacity-100 transition duration-500
-                            bg-[#5a9474]/20 blur-2xl" />
+                            bg-[#a3e635]/15 blur-2xl" />
 
-            {/* Logo */}
+            {/* Logo en couleur */}
             <Image
               src={cert.img}
               alt=""
               width={180}
               height={90}
               className="relative z-10 object-contain w-full h-full
-                         opacity-70 grayscale
-                         group-hover:opacity-100 group-hover:grayscale-0
                          group-hover:scale-110
                          transition duration-300"
             />

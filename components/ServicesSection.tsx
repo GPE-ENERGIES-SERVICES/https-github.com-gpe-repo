@@ -66,7 +66,7 @@ export default function ServicesSection() {
             <motion.div
               key={service.slug}
               variants={cardVariants}
-              className="group relative bg-white rounded-3xl overflow-hidden border border-neutral-150 hover:border-neutral-200 hover:shadow-xl hover:shadow-neutral-100 transition-all duration-500 min-h-[440px]"
+              className="group relative bg-white rounded-3xl overflow-hidden border border-neutral-150 hover:border-[#a3e635]/40 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-brand-400/10 transition-all duration-300 ease-in-out min-h-[440px]"
             >
               {/* Image */}
               <div className="relative h-60 overflow-hidden">
@@ -100,7 +100,7 @@ export default function ServicesSection() {
 
                 <Link
                   href={`/services/${service.slug}`}
-                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-400 hover:text-brand-500 transition-colors"
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-400 hover:text-[#a3e635] transition-colors duration-200"
                 >
                   {t('services.learnMore')}
                   <svg

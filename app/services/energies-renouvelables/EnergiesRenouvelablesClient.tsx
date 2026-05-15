@@ -1,0 +1,585 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import Link from 'next/link'
+import type { Service } from '@/lib/services'
+import ServiceIcon from '@/components/ServiceIcon'
+import { services } from '@/lib/services'
+import { getProjectsByService } from '@/lib/projects'
+import { useLanguage } from '@/context/LanguageContext'
+
+// ─── Types d'installations ────────────────────────────────────────────
+
+type InstallationType = {
+  id: string
+  label: string
+  title: string
+  description: string
+  image: string
+  features: string[]
+  specs: { label: string; value: string }[]
+}
+
+const INSTALLATION_TYPES: InstallationType[] = [
+  {
+    id: 'toiture-terrasse',
+    label: 'Installation 01',
+    title: 'Toiture & Terrasse',
+    description:
+      "Installation de panneaux photovoltaïques sur toiture inclinée ou terrasse plate. Idéale pour valoriser les surfaces de toiture des bâtiments résidentiels, tertiaires et industriels.",
+    image: '/images/projet2/1.jpg',
+    features: [
+      'Intégration architecturale soignée',
+      'Adapté toutes pentes et surfaces',
+      'Systèmes de fixation certifiés',
+      'Étanchéité garantie',
+    ],
+    specs: [
+      { label: 'Puissance', value: 'De 3 kWc à 500 kWc' },
+      { label: 'Usage', value: 'Résidentiel & Tertiaire' },
+    ],
+  },
+  {
+    id: 'ombriere',
+    label: 'Installation 02',
+    title: 'Ombrière Photovoltaïque',
+    description:
+      "Les ombrières photovoltaïques transforment vos parkings et espaces extérieurs en surfaces de production solaire. Double usage : protection des véhicules et génération d'électricité.",
+    image: '/images/projet1/1.jpg',
+    features: [
+      'Valorisation des parkings',
+      'Protection véhicules intégrée',
+      'Compatible bornes IRVE',
+      'Études structurelles complètes',
+    ],
+    specs: [
+      { label: 'Puissance', value: 'De 50 kWc à 2 MWc' },
+      { label: 'Usage', value: 'Entreprises & Collectivités' },
+    ],
+  },
+  {
+    id: 'centrale-sol',
+    label: 'Installation 03',
+    title: 'Centrale Photovoltaïque au Sol',
+    description:
+      "Déploiement de centrales photovoltaïques sur terrain nu ou friches. Solution pour les projets de grande envergure avec autoconsommation ou revente d'énergie sur le réseau.",
+    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=900&q=80',
+    features: [
+      'Grandes capacités de production',
+      'Revente totale ou partielle',
+      'Études de raccordement réseau',
+      'Suivi de production intégré',
+    ],
+    specs: [
+      { label: 'Puissance', value: 'De 100 kWc à plusieurs MWc' },
+      { label: 'Usage', value: 'Industriel & Énergéticiens' },
+    ],
+  },
+]
+
+// ─── Certifications ───────────────────────────────────────────────────
+
+type Certification = {
+  title: string
+  image: string
+  description: string
+}
+
+const CERTIFICATIONS: Certification[] = [
+  {
+    title: 'QualiPV RGE',
+    image: '/images/Certifications/logo-qualiPV-RGE-e1700507436946-768x509-removebg-preview.png',
+    description: 'Qualification RGE pour les installations photovoltaïques',
+  },
+  {
+    title: 'Qualifelec',
+    image: '/images/Certifications/qualifelec.png',
+    description: "Qualification des entreprises d'électricité",
+  },
+  {
+    title: 'AFNOR',
+    image: '/images/Certifications/AFNOR-removebg-preview.png',
+    description: 'Certification qualité et conformité normative',
+  },
+  {
+    title: 'OPQIBI',
+    image: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png',
+    description: "Qualification de l'ingénierie",
+  },
+  {
+    title: 'QualiPAC',
+    image: '/images/Certifications/logo-qualipac.png',
+    description: 'Qualification pompes à chaleur et systèmes solaires',
+  },
+]
+
+// ─── Composant principal ──────────────────────────────────────────────
+
+interface Props {
+  service: Service
+}
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay },
+  }),
+}
+
+export default function EnergiesRenouvelablesClient({ service }: Props) {
+  const { t } = useLanguage()
+  const related = services.filter((s) => s.slug !== service.slug).slice(0, 3)
+  const serviceProjects = getProjectsByService(service.slug).filter((p) => p.title && p.image)
+
+  return (
+    <>
+      {/* ── HERO ─────────────────────────────────────────────────────── */}
+      <section className="relative min-h-[65vh] flex items-end overflow-hidden pt-24">
+        <div className="absolute inset-0">
+          <Image
+            src={service.image}
+            alt={t(service.title)}
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/60 to-neutral-950/20" />
+        </div>
+
+        <div className="relative section-padding container-max w-full pb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Link
+              href="/#services"
+              className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm mb-6 transition-colors"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M11 7H3M6 4L3 7l3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              {t('service.back')}
+            </Link>
+
+            <div
+              className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4 shadow-lg"
+              style={{ backgroundColor: service.color }}
+            >
+              <ServiceIcon name={service.icon} size={22} color="white" />
+            </div>
+
+            <h1 className="heading-display text-4xl md:text-6xl text-white leading-tight">
+              {t(service.title)}
+            </h1>
+            <p className="mt-4 text-lg text-white/70 max-w-2xl leading-relaxed">
+              {t(service.shortDesc)}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── CONTENU PRINCIPAL + SIDEBAR ──────────────────────────────── */}
+      <section className="py-24 bg-white">
+        <div className="section-padding container-max">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+
+            {/* Main */}
+            <div className="lg:col-span-2 space-y-14">
+
+              {/* Intro */}
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                custom={0.1}
+                variants={fadeUp}
+              >
+                <span className="label-tag">{t('service.expertise.label')}</span>
+                <h2 className="heading-display text-3xl md:text-4xl text-neutral-950 mt-4 mb-8 leading-tight">
+                  {t('service.expertise.title')}
+                </h2>
+                <p
+                  className="text-lg text-neutral-600 leading-relaxed pl-5 py-1 border-l-4 rounded-sm"
+                  style={{ borderColor: service.color }}
+                >
+                  {service.intro}
+                </p>
+              </motion.div>
+
+              {/* Sections existantes */}
+              {service.sections.map((section, i) => (
+                <motion.div
+                  key={section.title}
+                  initial="hidden"
+                  animate="visible"
+                  custom={0.2 + i * 0.1}
+                  variants={fadeUp}
+                >
+                  <div className="flex items-center gap-3 mb-6">
+                    <div
+                      className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ backgroundColor: `${service.color}15` }}
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={service.color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-semibold text-neutral-900">{section.title}</h3>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {section.items.map((item) => (
+                      <div
+                        key={item}
+                        className="flex items-start gap-3 p-4 bg-neutral-50 border border-neutral-200 rounded-xl
+                                   hover:bg-white hover:border-[#1faf5a]/30 hover:shadow-[0_4px_20px_rgba(31,175,90,0.08)]
+                                   transition-all duration-200"
+                      >
+                        <div
+                          className="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+                          style={{ backgroundColor: `${service.color}20` }}
+                        >
+                          <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+                            <path d="M2 6l3 3 5-5" stroke={service.color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </div>
+                        <span className="text-sm font-medium text-neutral-700 leading-relaxed">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Sidebar CTA */}
+            <div className="lg:col-span-1">
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="sticky top-28 space-y-5"
+              >
+                <div className="bg-neutral-950 rounded-3xl p-7 text-white">
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
+                    style={{ backgroundColor: service.color }}
+                  >
+                    <ServiceIcon name={service.icon} size={18} color="white" />
+                  </div>
+                  <h3 className="font-semibold text-lg leading-snug">
+                    {t('service.cta.prefix')} {t(service.title).toLowerCase()} {t('service.cta.suffix')}
+                  </h3>
+                  <p className="mt-2 text-sm text-neutral-400 leading-relaxed">
+                    {t('service.cta.subtitle')}
+                  </p>
+                  <Link href="/contact" className="mt-5 btn-primary w-full justify-center text-sm">
+                    {t('service.cta.quote')}
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </Link>
+                  <a href="tel:+33442072262" className="mt-3 btn-secondary w-full justify-center text-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    {t('service.cta.call')}
+                  </a>
+                </div>
+
+                {/* Stats rapides */}
+                <div className="rounded-3xl border border-neutral-200 overflow-hidden bg-white">
+                  {[
+                    { value: '+150', label: 'Installations réalisées' },
+                    { value: '500 kWc', label: 'Plus grande installation' },
+                    { value: 'RGE', label: 'Certification QualiPV' },
+                  ].map((stat, i, arr) => (
+                    <div
+                      key={stat.label}
+                      className={`px-5 py-4 ${i < arr.length - 1 ? 'border-b border-neutral-100' : ''}`}
+                    >
+                      <div className="text-xl font-bold text-[#2e5240]">{stat.value}</div>
+                      <div className="text-xs text-neutral-500 mt-0.5">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── TYPES D'INSTALLATIONS ─────────────────────────────────────── */}
+      <section className="py-28 bg-[#f7f8f6]">
+        <div className="section-padding container-max">
+
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl mb-24"
+          >
+            <span className="label-tag">Nos installations</span>
+            <h2 className="heading-display text-4xl md:text-5xl text-neutral-950 mt-5 leading-tight">
+              3 types d&apos;installations{' '}
+              <span className="text-[#1faf5a]">photovoltaïques</span>
+            </h2>
+            <p className="mt-5 text-neutral-500 text-lg leading-relaxed">
+              Chaque projet est unique. Nous adaptons notre expertise à votre configuration et vos objectifs.
+            </p>
+          </motion.div>
+
+          {/* Cards alternées */}
+          <div className="space-y-28">
+            {INSTALLATION_TYPES.map((type, i) => (
+              <motion.div
+                key={type.id}
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className={`flex flex-col lg:items-center gap-12 lg:gap-20 ${
+                  i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'
+                }`}
+              >
+                {/* Image */}
+                <div className="relative w-full lg:w-1/2 h-72 sm:h-80 lg:h-[460px] rounded-3xl overflow-hidden flex-shrink-0">
+                  <Image
+                    src={type.image}
+                    alt={type.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#2e5240]/25 to-transparent" />
+
+                  {/* Badge numéro */}
+                  <div className="absolute top-5 left-5 px-3 py-1.5 rounded-xl bg-black/30 backdrop-blur-sm border border-white/20">
+                    <span className="text-white text-xs font-bold tracking-widest">{type.label}</span>
+                  </div>
+                </div>
+
+                {/* Contenu */}
+                <div className="w-full lg:w-1/2">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-8 h-px bg-[#1faf5a]" />
+                    <span className="text-xs font-semibold uppercase tracking-widest text-[#1faf5a]">
+                      {type.label}
+                    </span>
+                  </div>
+
+                  <h3 className="text-3xl md:text-4xl font-bold text-neutral-950 leading-tight">
+                    {type.title}
+                  </h3>
+
+                  <p className="mt-5 text-neutral-600 text-base leading-relaxed">
+                    {type.description}
+                  </p>
+
+                  {/* Specs */}
+                  <div className="mt-7 flex flex-wrap gap-3">
+                    {type.specs.map((spec) => (
+                      <div key={spec.label} className="px-4 py-3 rounded-2xl bg-white border border-neutral-200">
+                        <div className="text-[10px] uppercase tracking-widest text-neutral-400 font-medium">{spec.label}</div>
+                        <div className="text-sm font-semibold text-neutral-900 mt-0.5">{spec.value}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Features */}
+                  <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {type.features.map((feature) => (
+                      <div key={feature} className="flex items-center gap-2.5">
+                        <div
+                          className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+                          style={{ backgroundColor: '#1faf5a20' }}
+                        >
+                          <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+                            <path d="M2 6l3 3 5-5" stroke="#1faf5a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </div>
+                        <span className="text-sm text-neutral-700">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Link
+                    href="/contact"
+                    className="mt-9 inline-flex items-center gap-2 text-sm font-semibold text-[#2e5240] hover:text-[#a3e635] transition-colors duration-200"
+                  >
+                    Demander un devis gratuit
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CERTIFICATIONS ───────────────────────────────────────────── */}
+      <section className="py-24 bg-white border-t border-neutral-100">
+        <div className="section-padding container-max">
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl mb-14"
+          >
+            <span className="label-tag">Qualité & Conformité</span>
+            <h2 className="heading-display text-4xl md:text-5xl text-neutral-950 mt-5 leading-tight">
+              Certifications &{' '}
+              <span className="text-[#1faf5a]">Qualifications</span>
+            </h2>
+            <p className="mt-5 text-neutral-500 text-lg leading-relaxed">
+              Nos certifications garantissent la qualité, la sécurité et la conformité de chaque installation photovoltaïque.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            {CERTIFICATIONS.map((cert, i) => (
+              <motion.div
+                key={cert.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.5, delay: i * 0.07 }}
+                className="group relative flex flex-col items-center gap-4 p-6 bg-white rounded-2xl border border-neutral-200
+                           hover:-translate-y-1.5 hover:border-[#a3e635]/40 hover:shadow-xl hover:shadow-[#2e5240]/8
+                           transition-all duration-300 ease-in-out cursor-default"
+              >
+                {/* Glow */}
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                  <div className="absolute inset-0 rounded-2xl bg-[#a3e635]/5" />
+                </div>
+
+                {/* Logo en couleur */}
+                <div className="relative h-14 w-full flex items-center justify-center">
+                  <Image
+                    src={cert.image}
+                    alt={cert.title}
+                    width={140}
+                    height={56}
+                    className="object-contain max-h-14 w-auto transition-all duration-300 group-hover:scale-[1.05]"
+                  />
+                </div>
+
+                {/* Texte */}
+                <div className="relative text-center">
+                  <div className="text-sm font-semibold text-neutral-800">{cert.title}</div>
+                  <div className="text-xs text-neutral-500 mt-1 leading-relaxed">{cert.description}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROJETS LIÉS ─────────────────────────────────────────────── */}
+      {serviceProjects.length > 0 && (
+        <section className="py-16 bg-white border-t border-neutral-100">
+          <div className="section-padding container-max">
+            <div className="flex items-center justify-between mb-8">
+              <h3 className="font-semibold text-neutral-800 text-lg">{t('service.projects.title')}</h3>
+              <Link
+                href={`/realisations?service=${service.slug}`}
+                className="text-sm font-semibold text-brand-400 hover:text-[#a3e635] transition-colors flex items-center gap-1"
+              >
+                {t('service.projects.viewAll')}
+                <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+                  <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {serviceProjects.slice(0, 3).map((project, i) => (
+                <motion.div
+                  key={project.id + i}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.08 }}
+                  className="group rounded-2xl overflow-hidden border border-neutral-150 bg-neutral-50
+                             hover:border-neutral-200 hover:shadow-md transition-all duration-300"
+                >
+                  <div className="relative h-36 overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    <div className="absolute bottom-2 start-2 text-[10px] font-bold text-white/80 uppercase tracking-wider">
+                      {project.year}
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="font-semibold text-sm text-neutral-900 leading-snug">{project.title}</div>
+                    <div className="text-xs text-neutral-400 mt-1">{project.location} · {project.client}</div>
+                    <div className="mt-2 flex flex-wrap gap-1">
+                      {project.tags.filter(Boolean).slice(0, 2).map((tag) => (
+                        <span key={tag} className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-neutral-200 text-neutral-500">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── SERVICES LIÉS ────────────────────────────────────────────── */}
+      <section className="py-16 bg-white border-t border-neutral-100">
+        <div className="section-padding container-max">
+          <h3 className="font-semibold text-neutral-800 text-lg mb-8">{t('service.related.title')}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {related.map((s) => (
+              <Link
+                key={s.slug}
+                href={`/services/${s.slug}`}
+                className="group flex items-center gap-4 p-5 bg-white rounded-2xl border border-neutral-150
+                           hover:border-brand-200 hover:shadow-md transition-all duration-300"
+              >
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ backgroundColor: `${s.color}15` }}
+                >
+                  <ServiceIcon name={s.icon} size={18} color={s.color} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="font-semibold text-sm text-neutral-900">{t(s.title)}</div>
+                  <div className="text-xs text-neutral-500 mt-0.5 truncate">
+                    {t(s.shortDesc).substring(0, 50)}…
+                  </div>
+                </div>
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  className="text-neutral-400 group-hover:text-brand-400 transition-colors flex-shrink-0"
+                >
+                  <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}

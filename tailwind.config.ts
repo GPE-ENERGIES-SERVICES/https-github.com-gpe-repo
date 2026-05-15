@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['var(--font-outfit)', 'sans-serif'],
-        display: ['var(--font-playfair)', 'serif'],
+        display: ['var(--font-outfit)', 'sans-serif'],
       },
       colors: {
         brand: {
@@ -29,6 +29,8 @@ const config: Config = {
           lime: '#5a9474',
           limeLight: '#9ec7b1',
           limeDark: '#2e5240',
+          yellow: '#a3e635',
+          yellowDark: '#84cc16',
         },
         neutral: {
           50: '#ffffff',
@@ -62,6 +64,8 @@ const config: Config = {
       animation: {
         'fade-up': 'fadeUp 0.6s ease-out forwards',
         'fade-in': 'fadeIn 0.5s ease-out forwards',
+        'pulse-soft': 'pulseSoft 2.5s ease-in-out infinite',
+        'bounce-gentle': 'bounceGentle 2s ease-in-out infinite',
       },
       keyframes: {
         fadeUp: {
@@ -71,6 +75,14 @@ const config: Config = {
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
+        },
+        pulseSoft: {
+          '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(37,211,102,0.35)' },
+          '50%': { transform: 'scale(1.04)', boxShadow: '0 0 0 10px rgba(37,211,102,0)' },
+        },
+        bounceGentle: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-3px)' },
         },
       },
     },

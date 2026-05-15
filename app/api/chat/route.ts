@@ -1,0 +1,133 @@
+import { NextRequest, NextResponse } from 'next/server'
+import OpenAI from 'openai'
+
+// ─── Rate limiter (in-memory, adapté au faible trafic Vercel free) ───
+const rateMap = new Map<string, { count: number; resetAt: number }>()
+const RATE_LIMIT = 15   // requêtes max
+const RATE_WINDOW = 60_000 // par minute
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now()
+  const entry = rateMap.get(ip)
+  if (!entry || now > entry.resetAt) {
+    rateMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW })
+    return true
+  }
+  if (entry.count >= RATE_LIMIT) return false
+  entry.count++
+  return true
+}
+
+// ─── Prompt système GPE Énergies ──────────────────────────────────────
+const SYSTEM_PROMPT = `Tu es l'assistant commercial virtuel de GPE Énergies & Services.
+
+GPE est spécialisé en : installations électriques (courants forts & faibles), énergies renouvelables (photovoltaïque, solaire), mobilité électrique (bornes IRVE), rénovation énergétique, chauffage & climatisation (CVC), et bureau d'études.
+
+RÈGLES STRICTES :
+- Réponds UNIQUEMENT aux sujets liés à GPE Énergies & Services
+- 2 à 3 phrases maximum par réponse, jamais de longs paragraphes
+- Ton professionnel, chaleureux, rassurant
+- Pour toute demande de devis ou intervention : orienter vers +33 4 42 07 22 62 ou contact@gpefrance.eu
+- Ne jamais donner de prix fixes — toujours proposer un devis personnalisé gratuit
+- Question hors sujet → répondre : "Je suis spécialisé dans les services de GPE Énergies. Pour toute autre question, contactez-nous directement."
+
+INFOS ENTREPRISE :
+- Tél : +33 4 42 07 22 62 | Email : contact@gpefrance.eu
+- Adresse : 92 Bd de l'Europe ZA, 13127 Vitrolles
+- Certifications : RGE, Qualifelec, IRVE, AFNOR, OPQIBI
+- Interventions en France et à l'international (Afrique du Nord)
+
+Réponds dans la langue de l'utilisateur. Français par défaut.`
+
+// ─── Handler ─────────────────────────────────────────────────────────
+export async function POST(req: NextRequest) {
+  // Rate limit
+  const ip =
+    req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
+    req.headers.get('x-real-ip') ||
+    'unknown'
+
+  if (!checkRateLimit(ip)) {
+    return NextResponse.json(
+      { error: 'Trop de messages envoyés. Veuillez patienter une minute.' },
+      { status: 429 }
+    )
+  }
+
+  // Parse body
+  let messages: { role: string; content: string }[]
+  try {
+    const body = await req.json()
+    messages = body.messages
+  } catch {
+    return NextResponse.json({ error: 'Requête invalide.' }, { status: 400 })
+  }
+
+  // Validation
+  if (!Array.isArray(messages) || messages.length === 0) {
+    return NextResponse.json({ error: 'Messages invalides.' }, { status: 400 })
+  }
+
+  // Nettoyer + limiter l'historique pour réduire les coûts
+  const history = messages
+    .slice(-8) // 4 échanges max (8 messages)
+    .filter(
+      (m) =>
+        (m.role === 'user' || m.role === 'assistant') &&
+        typeof m.content === 'string' &&
+        m.content.trim().length > 0
+    )
+    .map((m) => ({
+      role: m.role as 'user' | 'assistant',
+      content: m.content.slice(0, 500), // 500 chars max par message
+    }))
+
+  if (history.length === 0) {
+    return NextResponse.json({ error: 'Messages invalides.' }, { status: 400 })
+  }
+
+  // Vérifier clé API
+  if (!process.env.OPENAI_API_KEY) {
+    console.error('[Chat] OPENAI_API_KEY manquante')
+    return NextResponse.json(
+      { error: 'Service non configuré. Contactez-nous au +33 4 42 07 22 62.' },
+      { status: 503 }
+    )
+  }
+
+  // Appel OpenAI
+  try {
+    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-4o-mini',     // modèle le plus économique et performant
+      messages: [
+        { role: 'system', content: SYSTEM_PROMPT },
+        ...history,
+      ],
+      max_tokens: 220,           // réponses courtes → coût minimal
+      temperature: 0.65,         // naturel mais cohérent
+    })
+
+    const reply =
+      completion.choices[0]?.message?.content?.trim() ||
+      "Je n'ai pas pu générer une réponse. Contactez-nous au +33 4 42 07 22 62."
+
+    return NextResponse.json({ reply })
+  } catch (err: unknown) {
+    console.error('[Chat API Error]', err)
+
+    // Distinguer les erreurs OpenAI courantes
+    if (err instanceof Error && err.message.includes('API key')) {
+      return NextResponse.json(
+        { error: 'Clé API invalide. Contactez l\'administrateur.' },
+        { status: 503 }
+      )
+    }
+
+    return NextResponse.json(
+      { error: 'Service temporairement indisponible. Réessayez dans un instant.' },
+      { status: 503 }
+    )
+  }
+}

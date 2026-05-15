@@ -1,19 +1,16 @@
 import type { Metadata, Viewport } from 'next'
-import { Outfit, Playfair_Display, IBM_Plex_Sans_Arabic } from 'next/font/google'
+import { Outfit, IBM_Plex_Sans_Arabic } from 'next/font/google'
 import './globals.css'
+import dynamic from 'next/dynamic'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Providers from '@/components/Providers'
 
+const FloatingButtons = dynamic(() => import('@/components/FloatingButtons'), { ssr: false })
+
 const outfit = Outfit({
   subsets: ['latin'],
   variable: '--font-outfit',
-  display: 'swap',
-})
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-playfair',
   display: 'swap',
 })
 
@@ -57,12 +54,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr" className={`${outfit.variable} ${playfair.variable} ${ibmPlexArabic.variable}`}>
+    <html lang="fr" className={`${outfit.variable} ${ibmPlexArabic.variable}`}>
       <body className="bg-[#ebebeb] text-neutral-900 antialiased">
         <Providers>
           <Navbar />
           <main className="overflow-x-hidden">{children}</main>
           <Footer />
+          <FloatingButtons />
         </Providers>
       </body>
     </html>

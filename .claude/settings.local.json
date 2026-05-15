@@ -3,7 +3,17 @@
     "allow": [
       "Bash(Get-ChildItem -Path . -Directory)",
       "Bash(Select-Object -ExpandProperty Name)",
-      "Bash(npx *)"
+      "Bash(npx *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Houssem\\\\Downloads\\\\gpe-energies\\\\gpe-energies\" -Force)",
+      "Bash(Select-Object Name, FullName, PSIsContainer)",
+      "Bash(npm install *)",
+      "Bash(node -e \"const p=require\\('./package.json'\\); console.log\\(p.dependencies.openai\\)\")",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Houssem\\\\Downloads\\\\gpe-energies\\\\gpe-energies\" -Recurse -Directory)",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(Sort-Object)",
+      "Bash(tree -L 3 -d \"C:\\\\Users\\\\Houssem\\\\Downloads\\\\gpe-energies\\\\gpe-energies\" --ignore \"node_modules\")",
+      "Bash(dir /b /s \"C:\\\\Users\\\\Houssem\\\\Downloads\\\\gpe-energies\\\\gpe-energies\")",
+      "Bash(findstr /E \"\\\\\\\\$\")"
     ]
   }
 }

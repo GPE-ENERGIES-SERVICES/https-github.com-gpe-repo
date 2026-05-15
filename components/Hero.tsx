@@ -91,7 +91,7 @@ export default function Hero() {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05]"
           >
             {t('hero.title.part1')}{' '}
-            <span className="text-[#5a9474]">
+            <span className="text-[#a3e635]">
               {t('hero.title.highlight')}
             </span>
             <br />
@@ -119,14 +119,14 @@ export default function Hero() {
           >
             <Link
               href="/contact"
-              className="px-8 py-4 bg-[#2e5240] hover:bg-[#5a9474] text-white transition rounded-xl"
+              className="px-8 py-4 bg-[#2e5240] hover:bg-[#a3e635] hover:text-[#1a2e22] text-white transition-all duration-200 rounded-xl font-semibold"
             >
               {t('hero.cta.contact')}
             </Link>
 
             <Link
               href="/#services"
-              className="px-8 py-4 border border-white/30 hover:border-[#5a9474] text-white rounded-xl transition"
+              className="px-8 py-4 border border-white/30 hover:border-[#a3e635] hover:text-[#a3e635] text-white rounded-xl transition-all duration-200"
             >
               {t('hero.cta.services')}
             </Link>
