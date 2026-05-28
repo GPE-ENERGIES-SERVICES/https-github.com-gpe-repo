@@ -23,8 +23,8 @@ const securityHeaders = [
       "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
       // Framer Motion et Next.js utilisent des styles inline
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-      // Images locales + Unsplash + tuiles Leaflet/OpenStreetMap + data URLs
-      "img-src 'self' blob: data: https://images.unsplash.com https://*.tile.openstreetmap.org",
+      // Images locales + Unsplash + tuiles CartoDB (Leaflet) + data URLs
+      "img-src 'self' blob: data: https://images.unsplash.com https://*.basemaps.cartocdn.com",
       // Polices Google Fonts
       "font-src 'self' https://fonts.gstatic.com",
       // Requêtes API uniquement vers le même domaine
