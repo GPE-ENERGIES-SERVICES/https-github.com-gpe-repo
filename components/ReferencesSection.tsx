@@ -7,32 +7,32 @@ import { projects } from '@/lib/projects'
 import { useLanguage } from '@/context/LanguageContext'
 
 const clients = [
-  { name: 'Soltyce',           logo: '/images/logoPartenaires/PV/solstyce.jpg' },
-  { name: 'Voltalia',          logo: '/images/logoPartenaires/PV/Voltalia.png' },
-  { name: 'Enerlis',           logo: '/images/logoPartenaires/PV/enerlis.png' },
-  { name: 'Enoe',              logo: '/images/logoPartenaires/PV/enoe.jpg' },
-  { name: 'Apex Énergie',      logo: '/images/logoPartenaires/PV/apex.png' },
-  { name: 'EDF Solaire',       logo: '/images/logoPartenaires/PV/edfsolaire.png' },
-  { name: 'Engie',             logo: '/images/logoPartenaires/PV/engie.png' },
-  { name: 'EDF Renouvelables', logo: '/images/logoPartenaires/PV/edfrenouvelables.png' },
-  { name: 'Les Mousquetaires', logo: '/images/logoPartenaires/PV/mousquetaires.png' },
-  { name: 'Circet France',     logo: '/images/logoPartenaires/IRVE/circet.jpg' },
-  { name: 'Carrefour',         logo: '/images/logoPartenaires/IRVE/Logo_Carrefour.svg.png' },
-  { name: 'WAAT',              logo: '/images/logoPartenaires/IRVE/Logo-MyWAAT-couleur-2023.png' },
-  { name: 'Izivia',            logo: '/images/logoPartenaires/IRVE/izivia.webp' },
-  { name: 'Ensio',             logo: '/images/logoPartenaires/IRVE/LOGO-Ensio_RVB.webp' },
-  { name: 'ENEDIS',            logo: '/images/logoPartenaires/IRVE/Logo_enedis_header.png' },
-  { name: 'Beev',              logo: '/images/logoPartenaires/IRVE/beev.png' },
-  { name: 'Driveco',           logo: '/images/logoPartenaires/IRVE/driveco.webp' },
-  { name: 'Bouygues',          logo: '/images/logoPartenaires/Electricité/Bouygues_Construction_logo.svg.png' },
-  { name: 'VINCI',             logo: '/images/logoPartenaires/Electricité/Logo_Vinci.svg.png' },
-  { name: 'EQUANS',            logo: '/images/logoPartenaires/Electricité/Equans_Logo.png' },
-  { name: 'EIFFAGE',           logo: '/images/logoPartenaires/Electricité/Logo_Eiffage_Construction.svg.png' },
-  { name: 'Dalkia',            logo: '/images/logoPartenaires/Electricité/Logo_Dalkia.svg.png' },
-  { name: "Cit'éos",           logo: '/images/logoPartenaires/Electricité/citeos.webp' },
-  { name: 'Veolia',            logo: '/images/logoPartenaires/Electricité/veolialogo.png' },
-  { name: 'Fauché',            logo: '/images/logoPartenaires/Electricité/FAUCHE_logo.png' },
-  { name: 'Spie Batignolles',  logo: '/images/logoPartenaires/Electricité/Spie_Batignolles_Logo.svg.png' },
+  { name: 'Soltyce',           logo: '/images/LogoPartenaires/PV/solstyce.jpg' },
+  { name: 'Voltalia',          logo: '/images/LogoPartenaires/PV/Voltalia.png' },
+  { name: 'Enerlis',           logo: '/images/LogoPartenaires/PV/enerlis.png' },
+  { name: 'Enoe',              logo: '/images/LogoPartenaires/PV/enoe.jpg' },
+  { name: 'Apex Énergie',      logo: '/images/LogoPartenaires/PV/apex.png' },
+  { name: 'EDF Solaire',       logo: '/images/LogoPartenaires/PV/edfsolaire.png' },
+  { name: 'Engie',             logo: '/images/LogoPartenaires/PV/engie.png' },
+  { name: 'EDF Renouvelables', logo: '/images/LogoPartenaires/PV/edfrenouvelables.png' },
+  { name: 'Les Mousquetaires', logo: '/images/LogoPartenaires/PV/mousquetaires.png' },
+  { name: 'Circet France',     logo: '/images/LogoPartenaires/IRVE/circet.jpg' },
+  { name: 'Carrefour',         logo: '/images/LogoPartenaires/IRVE/Logo_Carrefour.svg.png' },
+  { name: 'WAAT',              logo: '/images/LogoPartenaires/IRVE/Logo-MyWAAT-couleur-2023.png' },
+  { name: 'Izivia',            logo: '/images/LogoPartenaires/IRVE/izivia.webp' },
+  { name: 'Ensio',             logo: '/images/LogoPartenaires/IRVE/LOGO-Ensio_RVB.webp' },
+  { name: 'ENEDIS',            logo: '/images/LogoPartenaires/IRVE/Logo_enedis_header.png' },
+  { name: 'Beev',              logo: '/images/LogoPartenaires/IRVE/beev.png' },
+  { name: 'Driveco',           logo: '/images/LogoPartenaires/IRVE/driveco.webp' },
+  { name: 'Bouygues',          logo: '/images/LogoPartenaires/Electricité/Bouygues_Construction_logo.svg.png' },
+  { name: 'VINCI',             logo: '/images/LogoPartenaires/Electricité/Logo_Vinci.svg.png' },
+  { name: 'EQUANS',            logo: '/images/LogoPartenaires/Electricité/Equans_Logo.png' },
+  { name: 'EIFFAGE',           logo: '/images/LogoPartenaires/Electricité/Logo_Eiffage_Construction.svg.png' },
+  { name: 'Dalkia',            logo: '/images/LogoPartenaires/Electricité/Logo_Dalkia.svg.png' },
+  { name: "Cit'éos",           logo: '/images/LogoPartenaires/Electricité/citeos.webp' },
+  { name: 'Veolia',            logo: '/images/LogoPartenaires/Electricité/veolialogo.png' },
+  { name: 'Fauché',            logo: '/images/LogoPartenaires/Electricité/FAUCHE_logo.png' },
+  { name: 'Spie Batignolles',  logo: '/images/LogoPartenaires/Electricité/Spie_Batignolles_Logo.svg.png' },
 ]
 
 const marqueeItems = [...clients, ...clients]
@@ -84,12 +84,14 @@ export default function ReferencesSection() {
         <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 bg-[#1faf5a]/10 blur-2xl" />
         
         <div className="relative w-full h-full flex items-center justify-center p-6">
-          <Image
-            src={client.logo}
-            alt={client.name || 'Logo partenaire'}
-            fill
-            className="object-contain p-5 transition duration-300 group-hover:scale-105"
-          />
+          {client.logo && (
+            <Image
+              src={client.logo}
+              alt={client.name || 'Logo partenaire'}
+              fill
+              className="object-contain p-5 transition duration-300 group-hover:scale-105"
+            />
+          )}
         </div>
       </div>
     ))}
