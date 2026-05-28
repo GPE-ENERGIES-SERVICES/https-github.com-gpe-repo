@@ -52,17 +52,29 @@ export default function Navbar() {
         <nav className="section-padding container-max">
           <div className="flex items-center justify-between h-20 gap-6">
 
-            {/* LOGO */}
-            <Link href="/" className="flex items-center gap-2.5 -ms-1 flex-shrink-0">
+            {/* LOGO + DRAPEAU */}
+            <div className="flex items-center gap-3 flex-shrink-0 -ms-1">
+              <Link href="/" className="flex items-center">
+                <Image
+                  src="/images/logo0.png"
+                  alt="GPE Énergies"
+                  width={10000}
+                  height={5000}
+                  className="h-38 w-auto md:h-44"
+                  priority
+                />
+              </Link>
+
+              {/* Drapeau algérien */}
               <Image
-                src="/images/logo0.png"
-                alt="GPE Énergies"
-                width={10000}
-                height={5000}
-                className="h-36 w-auto md:h-42"
-                priority
+                src="/images/flag-algeria.png"
+                alt="Drapeau de l'Algérie"
+                width={36}
+                height={24}
+                className="flex-shrink-0 h-10 w-auto rounded shadow-sm
+                           transition-all duration-300 hover:scale-105 hover:shadow-md cursor-default"
               />
-            </Link>
+            </div>
 
             {/* NAV LINKS */}
             <div className="hidden lg:flex items-center gap-3 flex-nowrap">
