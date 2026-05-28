@@ -111,6 +111,47 @@ export const services: Service[] = [
     image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80',
   },
   {
+    slug: 'gtb-knx',
+    title: 'service.gtb-knx.title',
+    shortDesc: 'service.gtb-knx.shortDesc',
+    intro: "Spécialistes de la gestion technique du bâtiment, nous concevons et déployons des solutions KNX sur mesure pour automatiser, superviser et optimiser vos installations techniques.",
+    sections: [
+      {
+        title: "Systèmes GTB / KNX",
+        items: [
+          "Programmation KNX : éclairage, stores, HVAC",
+          "Supervision centralisée (BMS / SCADA)",
+          "Interfaces graphiques de contrôle (IHM)",
+          "Intégration multi-protocoles (KNX, BACnet, Modbus)",
+          "Coupleurs et passerelles IP",
+        ],
+      },
+      {
+        title: "Domaines d'application",
+        items: [
+          "Bâtiments tertiaires et commerciaux",
+          "Logements collectifs et résidences haut de gamme",
+          "Hôtels et établissements recevant du public",
+          "Bâtiments industriels et data centers",
+        ],
+      },
+      {
+        title: "Nos prestations",
+        items: [
+          "Étude et conception du système GTB",
+          "Installation et câblage bus KNX",
+          "Programmation ETS et mise en service",
+          "Maintenance préventive et corrective",
+          "Télémaintenance et supervision à distance",
+          "Formation des équipes exploitation",
+        ],
+      },
+    ],
+    icon: 'cpu',
+    color: '#1faf5a',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+  },
+  {
     slug: 'renovation-energetique',
     title: 'service.renovation-energetique.title',
     shortDesc: 'service.renovation-energetique.shortDesc',
@@ -174,47 +215,6 @@ export const services: Service[] = [
     icon: 'drafting-compass',
     color: '#1faf5a',
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
-  },
-  {
-    slug: 'gtb-knx',
-    title: 'service.gtb-knx.title',
-    shortDesc: 'service.gtb-knx.shortDesc',
-    intro: "Spécialistes de la gestion technique du bâtiment, nous concevons et déployons des solutions KNX sur mesure pour automatiser, superviser et optimiser vos installations techniques.",
-    sections: [
-      {
-        title: "Systèmes GTB / KNX",
-        items: [
-          "Programmation KNX : éclairage, stores, HVAC",
-          "Supervision centralisée (BMS / SCADA)",
-          "Interfaces graphiques de contrôle (IHM)",
-          "Intégration multi-protocoles (KNX, BACnet, Modbus)",
-          "Coupleurs et passerelles IP",
-        ],
-      },
-      {
-        title: "Domaines d'application",
-        items: [
-          "Bâtiments tertiaires et commerciaux",
-          "Logements collectifs et résidences haut de gamme",
-          "Hôtels et établissements recevant du public",
-          "Bâtiments industriels et data centers",
-        ],
-      },
-      {
-        title: "Nos prestations",
-        items: [
-          "Étude et conception du système GTB",
-          "Installation et câblage bus KNX",
-          "Programmation ETS et mise en service",
-          "Maintenance préventive et corrective",
-          "Télémaintenance et supervision à distance",
-          "Formation des équipes exploitation",
-        ],
-      },
-    ],
-    icon: 'cpu',
-    color: '#1faf5a',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
   },
 ]
 
