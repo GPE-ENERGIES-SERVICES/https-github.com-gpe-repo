@@ -159,4 +159,5 @@ export const serviceLabels: Record<string, string> = {
   'renovation-energetique': 'Rénovation Énergétique',
   'chauffage-climatisation': 'Chauffage & Climatisation',
   'bureau-etudes': "Bureau d'Études",
+  'gtb-knx': 'GTB / KNX',
 }

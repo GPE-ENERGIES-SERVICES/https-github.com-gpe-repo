@@ -98,6 +98,23 @@ const CERTIFICATIONS_BY_SERVICE: Record<string, Certification[]> = {
       description: 'Certification qualité et conformité normative',
     },
   ],
+  'gtb-knx': [
+    {
+      title: 'Qualifelec',
+      image: '/images/Certifications/qualifelec.png',
+      description: "Qualification des entreprises d'électricité et GTB",
+    },
+    {
+      title: 'AFNOR',
+      image: '/images/Certifications/AFNOR-removebg-preview.png',
+      description: 'Certification qualité et conformité normative',
+    },
+    {
+      title: 'OPQIBI',
+      image: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png',
+      description: "Qualification de l'ingénierie technique du bâtiment",
+    },
+  ],
 }
 
 const CERTIFICATIONS_SUBTITLE_BY_SERVICE: Record<string, string> = {
@@ -111,6 +128,8 @@ const CERTIFICATIONS_SUBTITLE_BY_SERVICE: Record<string, string> = {
     "Nos certifications RGE vous donnent accès aux aides financières et garantissent la qualité des travaux.",
   'chauffage-climatisation':
     'Nos qualifications garantissent des installations thermiques conformes aux normes en vigueur.',
+  'gtb-knx':
+    'Nos qualifications garantissent la maîtrise technique et la conformité de nos installations GTB/KNX.',
 }
 
 interface Props {
