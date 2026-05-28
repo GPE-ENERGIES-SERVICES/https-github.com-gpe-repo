@@ -50,17 +50,17 @@ export default function Navbar() {
         }`}
       >
         <nav className="section-padding container-max">
-          <div className="flex items-center justify-between h-20 gap-6">
+          <div className="flex items-center justify-between h-20 gap-2 lg:gap-3 xl:gap-6">
 
             {/* LOGO + DRAPEAU */}
-            <div className="flex items-center gap-3 flex-shrink-0 -ms-1">
+            <div className="flex items-center gap-2 xl:gap-3 flex-shrink-0 -ms-1">
               <Link href="/" className="flex items-center">
                 <Image
                   src="/images/logo0.png"
                   alt="GPE Énergies"
                   width={10000}
                   height={5000}
-                  className="h-38 w-auto md:h-44"
+                  className="h-14 w-auto sm:h-16 lg:h-28 xl:h-40 2xl:h-44"
                   priority
                 />
               </Link>
@@ -71,13 +71,13 @@ export default function Navbar() {
                 alt="Drapeau de l'Algérie"
                 width={36}
                 height={24}
-                className="flex-shrink-0 h-10 w-auto rounded shadow-sm
+                className="flex-shrink-0 h-7 w-auto lg:h-8 xl:h-10 rounded shadow-sm
                            transition-all duration-300 hover:scale-105 hover:shadow-md cursor-default"
               />
             </div>
 
             {/* NAV LINKS */}
-            <div className="hidden lg:flex items-center gap-3 flex-nowrap">
+            <div className="hidden lg:flex items-center gap-0.5 xl:gap-3 flex-nowrap">
               {navLinks.map((link) => {
                 const active = isActive(link.href)
 
@@ -85,14 +85,14 @@ export default function Navbar() {
                   <Link
                     key={link.key}
                     href={link.href}
-                    className={`group relative px-3.5 py-2 text-[13px] font-medium transition-colors whitespace-nowrap ${
+                    className={`group relative px-2 py-2 xl:px-3.5 text-[13px] font-medium transition-colors whitespace-nowrap ${
                       active ? 'text-[#2e5240]' : 'text-[#2e5240]/80'
                     } hover:text-[#a3e635]`}
                   >
                     {t(link.key)}
 
                     <span
-                      className={`absolute left-3.5 right-3.5 -bottom-0.5 h-px bg-[#a3e635] transition-transform duration-300 ${
+                      className={`absolute left-2 right-2 xl:left-3.5 xl:right-3.5 -bottom-0.5 h-px bg-[#a3e635] transition-transform duration-300 ${
                         active ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                       }`}
                     />
@@ -102,13 +102,13 @@ export default function Navbar() {
             </div>
 
             {/* RIGHT SIDE */}
-            <div className="hidden lg:flex items-center gap-4 flex-shrink-0 whitespace-nowrap">
+            <div className="hidden lg:flex items-center gap-2 xl:gap-4 flex-shrink-0 whitespace-nowrap">
               <LanguageSwitcher />
-              <span className="h-4 w-px bg-neutral-200" />
 
+              <span className="hidden xl:block h-4 w-px bg-neutral-200" />
               <a
                 href="tel:+33442072262"
-                className="text-[13px] font-medium text-[#2e5240]/70 hover:text-[#a3e635] transition-colors whitespace-nowrap"
+                className="hidden xl:block text-[13px] font-medium text-[#2e5240]/70 hover:text-[#a3e635] transition-colors whitespace-nowrap"
               >
                 +33 4 42 07 22 62
               </a>
