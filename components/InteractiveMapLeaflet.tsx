@@ -33,14 +33,14 @@ const MARKER_STYLES = `
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: rgba(46,82,64,0.25);
+    background: rgba(163,230,53,0.35);
     animation: gpePulse 2.2s ease-out infinite;
   }
   .gpe-pulse-2 {
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: rgba(46,82,64,0.12);
+    background: rgba(163,230,53,0.18);
     animation: gpePulse 2.2s ease-out 0.7s infinite;
   }
   .gpe-dot {
@@ -50,19 +50,19 @@ const MARKER_STYLES = `
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background: #2e5240;
+    background: #a3e635;
     border-radius: 50%;
     border: 3px solid #fff;
-    box-shadow: 0 2px 12px rgba(46,82,64,0.55);
+    box-shadow: 0 2px 12px rgba(163,230,53,0.65);
     transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s ease;
   }
   .gpe-marker.active .gpe-dot {
-    background: #2e5240;
+    background: #a3e635;
     transform: translate(-50%,-50%) scale(1.35);
-    box-shadow: 0 4px 20px rgba(46,82,64,0.75);
+    box-shadow: 0 4px 20px rgba(163,230,53,0.80);
   }
   .gpe-marker.active .gpe-pulse {
-    background: rgba(46,82,64,0.35);
+    background: rgba(163,230,53,0.45);
     animation-duration: 1.6s;
   }
   @keyframes gpePulse {
