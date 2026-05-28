@@ -44,6 +44,12 @@ function rateLimited(ip: string): boolean {
 
 export async function POST(req: NextRequest) {
   try {
+    // Vérifie que la requête est bien JSON
+    const contentType = req.headers.get('content-type') ?? ''
+    if (!contentType.includes('application/json')) {
+      return NextResponse.json({ error: 'Content-Type invalide' }, { status: 415 })
+    }
+
     const ip = getClientIp(req)
     if (rateLimited(ip)) {
       return NextResponse.json(

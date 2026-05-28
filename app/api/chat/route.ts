@@ -3,8 +3,15 @@ import OpenAI from 'openai'
 
 // ─── Rate limiter (in-memory, adapté au faible trafic Vercel free) ───
 const rateMap = new Map<string, { count: number; resetAt: number }>()
-const RATE_LIMIT = 15   // requêtes max
+const RATE_LIMIT = 10   // requêtes max par fenêtre
 const RATE_WINDOW = 60_000 // par minute
+
+// Instance OpenAI réutilisée entre les invocations (warm instances Vercel)
+let _openai: OpenAI | null = null
+function getOpenAI(): OpenAI {
+  if (!_openai) _openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+  return _openai
+}
 
 function checkRateLimit(ip: string): boolean {
   const now = Date.now()
@@ -41,6 +48,12 @@ Réponds dans la langue de l'utilisateur. Français par défaut.`
 
 // ─── Handler ─────────────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
+  // Vérifie Content-Type
+  const contentType = req.headers.get('content-type') ?? ''
+  if (!contentType.includes('application/json')) {
+    return NextResponse.json({ error: 'Content-Type invalide.' }, { status: 415 })
+  }
+
   // Rate limit
   const ip =
     req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
@@ -95,9 +108,9 @@ export async function POST(req: NextRequest) {
     )
   }
 
-  // Appel OpenAI
+  // Appel OpenAI (instance réutilisée)
   try {
-    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+    const openai = getOpenAI()
 
     const completion = await openai.chat.completions.create({
       model: 'gpt-4o-mini',     // modèle le plus économique et performant

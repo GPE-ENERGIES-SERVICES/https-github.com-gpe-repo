@@ -1,4 +1,4 @@
-﻿import nodemailer, { type Transporter } from 'nodemailer'
+import nodemailer, { type Transporter } from 'nodemailer'
 
 export interface ContactPayload {
   name: string
@@ -39,6 +39,11 @@ function escapeHtml(s: string): string {
     .replace(/'/g, '&#39;')
 }
 
+// Empêche l'injection d'en-têtes email via les champs libres
+function sanitizeSubjectPart(s: string): string {
+  return s.replace(/[\r\n\t]/g, ' ').trim().slice(0, 80)
+}
+
 function buildHtml(p: ContactPayload): string {
   const row = (label: string, value?: string) =>
     value
@@ -49,14 +54,14 @@ function buildHtml(p: ContactPayload): string {
       <div style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:18px;overflow:hidden;border:1px solid #e8e8e8;">
         <div style="background:linear-gradient(135deg,#1FAF5A,#C6FF00);padding:24px 28px;color:#fff;">
           <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.85;">Nouveau contact</div>
-          <div style="font-size:20px;font-weight:600;margin-top:4px;">GPE Ã‰nergies &amp; Services</div>
+          <div style="font-size:20px;font-weight:600;margin-top:4px;">GPE &Eacute;nergies &amp; Services</div>
         </div>
         <div style="padding:28px;">
           <table style="width:100%;border-collapse:collapse;">
             ${row('Nom', p.name)}
             ${row('Email', p.email)}
-            ${row('TÃ©lÃ©phone', p.phone)}
-            ${row('SociÃ©tÃ©', p.company)}
+            ${row('T&eacute;l&eacute;phone', p.phone)}
+            ${row('Soci&eacute;t&eacute;', p.company)}
             ${row('Service', p.service)}
           </table>
           <div style="margin-top:24px;padding-top:20px;border-top:1px solid #efefef;">
@@ -65,7 +70,7 @@ function buildHtml(p: ContactPayload): string {
           </div>
         </div>
         <div style="padding:14px 28px;background:#fafafa;border-top:1px solid #efefef;color:#a3a3a3;font-size:11px;">
-          ReÃ§u le ${new Date().toLocaleString('fr-FR', { dateStyle: 'long', timeStyle: 'short' })}
+          Re&ccedil;u le ${new Date().toLocaleString('fr-FR', { dateStyle: 'long', timeStyle: 'short' })}
         </div>
       </div>
     </div>
@@ -79,8 +84,10 @@ export async function sendContactEmail(payload: ContactPayload): Promise<{ sent:
   }
 
   const to = process.env.CONTACT_TO || process.env.SMTP_USER!
-  const fromName = 'GPE Ã‰nergies â€” Site web'
-  const subject = `[GPE] Contact â€” ${payload.service || 'Demande gÃ©nÃ©rale'} (${payload.name})`
+  const fromName = 'GPE Energies - Site web'
+  const safeName    = sanitizeSubjectPart(payload.name)
+  const safeService = sanitizeSubjectPart(payload.service || 'Demande generale')
+  const subject = `[GPE] Contact - ${safeService} (${safeName})`
 
   await transporter.sendMail({
     from: `"${fromName}" <${process.env.SMTP_USER}>`,
@@ -91,9 +98,9 @@ export async function sendContactEmail(payload: ContactPayload): Promise<{ sent:
     text:
       `Nom: ${payload.name}\n` +
       `Email: ${payload.email}\n` +
-      (payload.phone ? `TÃ©lÃ©phone: ${payload.phone}\n` : '') +
-      (payload.company ? `SociÃ©tÃ©: ${payload.company}\n` : '') +
-      (payload.service ? `Service: ${payload.service}\n` : '') +
+      (payload.phone   ? `Telephone: ${payload.phone}\n`  : '') +
+      (payload.company ? `Societe: ${payload.company}\n`  : '') +
+      (payload.service ? `Service: ${payload.service}\n`  : '') +
       `\n${payload.message}\n`,
   })
 
