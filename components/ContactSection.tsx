@@ -105,8 +105,8 @@ export default function ContactSection() {
                     </svg>
                   ),
                   label: 'Adresse',
-                  value: '92 Bd de lâ€™Europe ZA, 13127 Vitrolles',
-                  href: 'https://www.google.com/maps/place/GPE+%C3%89NERGIES+%26+SERVICES/@43.4212125,5.2639742,17z/data=!3m1!4b1!4m6!3m5!1s0x6dc78fdecc88bfb5:0xadad83fbf53b1ce4!8m2!3d43.4212125!4d5.2639742!16s%2Fg%2F11xdg50yvg?entry=ttu&g_ep=EgoyMDI2MDQxOS4wIKXMDSoASAFQAw%3D%3D',
+                  value: 'Résidence Coloris, Chemin Sidi Yahia, Bir Mourad Raïs 16005, Alger',
+                  href: 'https://www.google.com/maps/search/R%C3%A9sidence+Coloris+Chemin+Sidi+Yahia+Bir+Mourad+Ra%C3%AFs+Alger',
                 },
               ].map((item) => (
                 <a

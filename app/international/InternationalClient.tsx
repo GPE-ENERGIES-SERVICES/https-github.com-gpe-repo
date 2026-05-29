@@ -8,24 +8,14 @@ import { useLanguage } from '@/context/LanguageContext'
 
 const locations: MapLocation[] = [
   {
-    id: 'france',
-    city: 'Vitrolles',
-    country: 'France',
-    flag: '🇫🇷',
-    address: "92 Bd de l'Europe ZA, 13127 Vitrolles",
-    phone: '+33 4 42 07 22 62',
-    role: 'Siège social',
-    coords: [43.4212, 5.2640],
-  },
-  {
     id: 'algerie',
-    city: 'Alger',
+    city: 'Bir Mourad Raïs',
     country: 'Algérie',
     flag: '🇩🇿',
-    address: 'Hydra, Alger',
-    phone: '+213 21 22 14 15',
-    role: 'Bureau régional',
-    coords: [36.7538, 3.0588],
+    address: 'Résidence Coloris, Chemin Sidi Yahia, Bir Mourad Raïs 16005',
+    phone: '+213 549 48 00 97',
+    role: 'Siège social',
+    coords: [36.7308, 3.0492],
   },
   {
     id: 'saudi',

@@ -34,13 +34,13 @@ RÈGLES STRICTES :
 - Réponds UNIQUEMENT aux sujets liés à GPE Énergies & Services
 - 2 à 3 phrases maximum par réponse, jamais de longs paragraphes
 - Ton professionnel, chaleureux, rassurant
-- Pour toute demande de devis ou intervention : orienter vers +33 4 42 07 22 62 ou contact@gpefrance.eu
+- Pour toute demande de devis ou intervention : orienter vers +213 549 48 00 97 ou contact@gpealgerie.com
 - Ne jamais donner de prix fixes — toujours proposer un devis personnalisé gratuit
 - Question hors sujet → répondre : "Je suis spécialisé dans les services de GPE Énergies. Pour toute autre question, contactez-nous directement."
 
 INFOS ENTREPRISE :
-- Tél : +33 4 42 07 22 62 | Email : contact@gpefrance.eu
-- Adresse : 92 Bd de l'Europe ZA, 13127 Vitrolles
+- Tél : +213 549 48 00 97 | Email : contact@gpealgerie.com
+- Adresse : Résidence Coloris, Chemin Sidi Yahia, Bir Mourad Raïs 16005, Alger
 - Certifications : RGE, Qualifelec, IRVE, AFNOR, OPQIBI
 - Interventions en France et à l'international (Afrique du Nord)
 
@@ -103,7 +103,7 @@ export async function POST(req: NextRequest) {
   if (!process.env.OPENAI_API_KEY) {
     console.error('[Chat] OPENAI_API_KEY manquante')
     return NextResponse.json(
-      { error: 'Service non configuré. Contactez-nous au +33 4 42 07 22 62.' },
+      { error: 'Service non configuré. Contactez-nous au +213 549 48 00 97.' },
       { status: 503 }
     )
   }
@@ -124,7 +124,7 @@ export async function POST(req: NextRequest) {
 
     const reply =
       completion.choices[0]?.message?.content?.trim() ||
-      "Je n'ai pas pu générer une réponse. Contactez-nous au +33 4 42 07 22 62."
+      "Je n'ai pas pu générer une réponse. Contactez-nous au +213 549 48 00 97."
 
     return NextResponse.json({ reply })
   } catch (err: unknown) {

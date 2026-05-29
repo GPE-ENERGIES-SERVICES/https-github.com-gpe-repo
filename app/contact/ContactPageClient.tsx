@@ -17,14 +17,14 @@ interface FormData {
 }
 
 const officeLocation: MapLocation = {
-  id: 'vitrolles',
-  city: 'Vitrolles',
-  country: 'France',
-  flag: '🇫🇷',
-  address: "92 Bd de l'Europe ZA, 13127 Vitrolles",
+  id: 'alger',
+  city: 'Bir Mourad Raïs',
+  country: 'Algérie',
+  flag: '🇩🇿',
+  address: 'Résidence Coloris, Chemin Sidi Yahia, Bir Mourad Raïs 16005',
   phone: '+213 549 48 00 97',
   role: 'Siège social',
-  coords: [43.4212, 5.2640],
+  coords: [36.7308, 3.0492],
 }
 
 const serviceOptionsFr = [
@@ -94,8 +94,8 @@ export default function ContactPageClient() {
         </svg>
       ),
       labelKey: 'contact.info.address',
-      value: "92 Bd de l'Europe ZA, 13127 Vitrolles",
-      href: 'https://www.google.com/maps/place/GPE+%C3%89NERGIES+%26+SERVICES/@43.4212125,5.2639742,17z',
+      value: 'Résidence Coloris, Chemin Sidi Yahia, Bir Mourad Raïs 16005, Alger',
+      href: 'https://www.google.com/maps/search/R%C3%A9sidence+Coloris+Chemin+Sidi+Yahia+Bir+Mourad+Ra%C3%AFs+Alger',
     },
   ]
 

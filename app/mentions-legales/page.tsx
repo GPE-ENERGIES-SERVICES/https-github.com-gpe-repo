@@ -13,11 +13,11 @@ export default function MentionsLegales() {
       <p>
         <strong>GPE Énergies &amp; Services</strong>
         <br />
-        92 Bd de l’Europe ZA, 13127 Vitrolles, France
+        Résidence Coloris, Chemin Sidi Yahia, Bir Mourad Raïs 16005, Alger, Algérie
         <br />
-        Téléphone : +33 4 42 07 22 62
+        Téléphone : +213 549 48 00 97
         <br />
-        Email : contact@gpefrance.eu
+        Email : contact@gpealgerie.com
       </p>
 
       <h2>Directeur de la publication</h2>

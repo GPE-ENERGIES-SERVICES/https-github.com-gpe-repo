@@ -163,7 +163,7 @@ export default function Footer() {
               </li>
 
               <li className="text-white/80">
-                92 Bd de l&apos;Europe ZA, 13127 Vitrolles
+                Résidence Coloris, Chemin Sidi Yahia<br />Bir Mourad Raïs 16005, Alger
               </li>
             </ul>
 
