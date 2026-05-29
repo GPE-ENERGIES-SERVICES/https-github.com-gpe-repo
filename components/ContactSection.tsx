@@ -16,11 +16,13 @@ interface FormData {
 
 const services = [
   'Courants forts / faibles',
-  'Ã‰nergies Renouvelables',
-  'Mobilité électrique',
-  'Rénovation énérgétique',
+  'Énergies Renouvelables',
+  'Mobilité Électrique',
+  'GTB / KNX',
+  'Rénovation Énergétique',
   'Chauffage & Climatisation',
-  "Bureau d'éudes",
+  "Bureau d'Études",
+  'VRD',
   'Autre / Non défini',
 ]
 
@@ -81,8 +83,8 @@ export default function ContactSection() {
                     </svg>
                   ),
                   label: 'TÃ©lÃ©phone',
-                  value: '+33 4 42 07 22 62',
-                  href: 'tel:+33 4 42 07 22 62',
+                  value: '+213 549 48 00 97',
+                  href: 'tel:+213549480097',
                 },
                 {
                   icon: (
@@ -92,8 +94,8 @@ export default function ContactSection() {
                     </svg>
                   ),
                   label: 'Email',
-                  value: 'contact@gpefrance.eu',
-                  href: 'mailto:contact@gpefrance.eu',
+                  value: 'contact@gpealgerie.com',
+                  href: 'mailto:contact@gpealgerie.com',
                 },
                 {
                   icon: (

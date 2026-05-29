@@ -69,8 +69,8 @@ export default function Navbar() {
               <Image
                 src="/images/flag-algeria.png"
                 alt="Drapeau de l'Algérie"
-                width={36}
-                height={24}
+                width={32}
+                height={18}
                 className="flex-shrink-0 h-7 w-auto lg:h-8 xl:h-10 rounded shadow-sm
                            transition-all duration-300 hover:scale-105 hover:shadow-md cursor-default"
               />
@@ -107,10 +107,10 @@ export default function Navbar() {
 
               <span className="hidden xl:block h-4 w-px bg-neutral-200" />
               <a
-                href="tel:+33442072262"
+                href="tel:+213 549 48 00 97"
                 className="hidden xl:block text-[13px] font-medium text-[#2e5240]/70 hover:text-[#a3e635] transition-colors whitespace-nowrap"
               >
-                +213 xx xx xx xx xx
+                +213 549 48 00 97
               </a>
 
               <span className="h-4 w-px bg-neutral-200" />
@@ -180,10 +180,10 @@ export default function Navbar() {
                 </Link>
 
                 <a
-                  href="tel:+213"
+                  href="tel:+213549480097"
                   className="flex items-center justify-center text-sm font-medium text-[#2e5240] px-5 py-3.5 rounded-full border border-neutral-200"
                 >
-                  +213 xx xx xx xx xx
+                  +213 549 48 00 97
                 </a>
 
                 <div className="flex justify-center pt-2">

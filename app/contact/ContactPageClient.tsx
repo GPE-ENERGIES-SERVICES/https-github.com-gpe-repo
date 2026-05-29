@@ -22,7 +22,7 @@ const officeLocation: MapLocation = {
   country: 'France',
   flag: '🇫🇷',
   address: "92 Bd de l'Europe ZA, 13127 Vitrolles",
-  phone: '+33 4 42 07 22 62',
+  phone: '+213 549 48 00 97',
   role: 'Siège social',
   coords: [43.4212, 5.2640],
 }
@@ -31,9 +31,11 @@ const serviceOptionsFr = [
   'Courants forts / faibles',
   'Énergies Renouvelables',
   'Mobilité Électrique',
+  'GTB / KNX',
   'Rénovation Énergétique',
   'Chauffage & Climatisation',
   "Bureau d'Études",
+  'VRD',
   'Autre / Non défini',
 ]
 
@@ -70,8 +72,8 @@ export default function ContactPageClient() {
         </svg>
       ),
       labelKey: 'contact.info.phone',
-      value: '+33 4 42 07 22 62',
-      href: 'tel:+33442072262',
+      value: '+213 549 48 00 97',
+      href: 'tel:+213549480097',
     },
     {
       icon: (
@@ -81,8 +83,8 @@ export default function ContactPageClient() {
         </svg>
       ),
       labelKey: 'contact.info.email',
-      value: 'contact@gpefrance.eu',
-      href: 'mailto:contact@gpefrance.eu',
+      value: 'contact@gpealgerie.com',
+      href: 'mailto:contact@gpealgerie.com',
     },
     {
       icon: (

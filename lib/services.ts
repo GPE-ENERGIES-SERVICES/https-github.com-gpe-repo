@@ -216,6 +216,45 @@ export const services: Service[] = [
     color: '#1faf5a',
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
   },
+  {
+    slug: 'vrd',
+    title: 'service.vrd.title',
+    shortDesc: 'service.vrd.shortDesc',
+    intro: "Spécialistes des Voiries, Réseaux et Divers, nous intervenons sur la conception et la réalisation de tous les réseaux extérieurs et aménagements de site.",
+    sections: [
+      {
+        title: "Voiries & aménagements",
+        items: [
+          "Terrassement général et travaux de déblai/remblai",
+          "Création et réhabilitation de voiries",
+          "Pavage, dallage et revêtements extérieurs",
+          "Aménagements paysagers et espaces verts",
+        ],
+      },
+      {
+        title: "Réseaux extérieurs",
+        items: [
+          "Réseaux d'assainissement (EU, EP)",
+          "Réseaux d'adduction d'eau potable",
+          "Réseaux électriques et d'éclairage public",
+          "Réseaux télécoms et fibres optiques",
+          "Canalisations gaz",
+        ],
+      },
+      {
+        title: "Nos prestations",
+        items: [
+          "Étude et conception des réseaux",
+          "Coordination des travaux avec les concessionnaires",
+          "Suivi de chantier et contrôle qualité",
+          "Récolement des réseaux",
+        ],
+      },
+    ],
+    icon: 'road',
+    color: '#1faf5a',
+    image: 'https://images.unsplash.com/photo-1581092921461-7384a7c01e71?w=800&q=80',
+  },
 ]
 
 export function getServiceBySlug(slug: string): Service | undefined {
