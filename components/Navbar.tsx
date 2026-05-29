@@ -110,7 +110,7 @@ export default function Navbar() {
                 href="tel:+33442072262"
                 className="hidden xl:block text-[13px] font-medium text-[#2e5240]/70 hover:text-[#a3e635] transition-colors whitespace-nowrap"
               >
-                +33 4 42 07 22 62
+                +213 xx xx xx xx xx
               </a>
 
               <span className="h-4 w-px bg-neutral-200" />
@@ -180,10 +180,10 @@ export default function Navbar() {
                 </Link>
 
                 <a
-                  href="tel:+33442072262"
+                  href="tel:+213"
                   className="flex items-center justify-center text-sm font-medium text-[#2e5240] px-5 py-3.5 rounded-full border border-neutral-200"
                 >
-                  +33 4 42 07 22 62
+                  +213 xx xx xx xx xx
                 </a>
 
                 <div className="flex justify-center pt-2">

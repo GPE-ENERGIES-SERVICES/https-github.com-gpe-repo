@@ -4,7 +4,6 @@ export interface Project {
   location: string
   serviceSlug: string
   serviceLabel: string
-  client: string
   year: number
   description: string
   longDescription: string
@@ -21,7 +20,6 @@ export const projects: Project[] = [
      location: 'marseille',
      serviceSlug: 'energies-renouvelables',
      serviceLabel: 'Énergies Renouvelables',
-     client: 'Apex Energies',
      year: 2026,
      description: 'Nous sommes fiers de vous présenter une nouvelle installation réalisée pour une grande surface alimentaire : une centrale photovoltaïque de 300 kW en ombrières de parking',
 
@@ -44,7 +42,6 @@ export const projects: Project[] = [
     location: 'Cahors ',
     serviceSlug: 'energies-renouvelables',
     serviceLabel: 'Énergies Renouvelables',
-    client: 'Enoé',
     year: 2026 ,
     description: 'Centrale photovoltaïque de 1,2 MW installée en toiture bac acier près de Cahors, contribuant à la production d’énergie renouvelable locale grâce à une intégration optimisée sur le bâtiment.',
     longDescription: 'Installation d’une centrale photovoltaïque de 1,2 MW en toiture bac acier à proximité de Cahors. Ce projet permet de produire une énergie renouvelable locale tout en s’intégrant efficacement à la structure existante, participant ainsi à la transition énergétique du site.',
@@ -64,8 +61,7 @@ export const projects: Project[] = [
     title: 'Prééquipement IRVE - Résidence',
     location: 'Saint-Raphaël',
     serviceSlug: 'mobilite-electrique', 
-    serviceLabel: 'Mobilité Électrique', 
-    client: 'WAAT',
+    serviceLabel: 'Mobilité Électrique',
     year: 2025 ,
     description: 'Prééquipement IRVE réalisé sur une résidence à Saint-Raphaël, permettant l’installation future de bornes de recharge pour véhicules électriques.',
     longDescription: 'Réalisation du prééquipement IRVE sur une résidence située à Saint-Raphaël. Cette installation prépare l’infrastructure nécessaire à l’accueil futur de bornes de recharge pour véhicules électriques, en garantissant une solution prête à être déployée selon les besoins des usagers. Ce projet s’inscrit dans la continuité du développement de la mobilité électrique. Nous remercions WAAT pour sa confiance et la qualité du suivi de ce chantier.',
@@ -89,7 +85,6 @@ export const projects: Project[] = [
     location: 'Toulon',
     serviceSlug: 'energies-renouvelables',
     serviceLabel: 'Énergies Renouvelables',
-    client: '',
     year: 2025 ,
     description: 'Installation d’une centrale photovoltaïque de 50 kWc en toiture à Toulon, contribuant à la production d’énergie solaire locale et durable.',
     longDescription: 'Réalisation d’une installation photovoltaïque de 50 kWc en toiture sur un bâtiment situé à Toulon. Ce projet illustre l’intégration de l’énergie solaire à différentes échelles, permettant de produire une électricité locale et renouvelable tout en participant à la transition énergétique',
@@ -112,7 +107,6 @@ export const projects: Project[] = [
     location: '',
     serviceSlug: '',
     serviceLabel: '',
-    client: '',
     year:1 ,
     description: '',
     longDescription: '',
@@ -130,7 +124,6 @@ export const projects: Project[] = [
     location: '',
     serviceSlug: '',
     serviceLabel: '',
-    client: '',
     year:1 ,
     description: '',
     longDescription: '',

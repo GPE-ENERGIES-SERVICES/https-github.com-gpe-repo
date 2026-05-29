@@ -9,6 +9,7 @@ import { projects, serviceLabels } from '@/lib/projects'
 import { useLanguage } from '@/context/LanguageContext'
 
 const ALL = 'all'
+const FEATURED_IDS = ['er-1', 'er-2', 'me-1']
 
 const serviceColors: Record<string, string> = {
   'courants-forts-faibles': '#6366f1',
@@ -81,6 +82,124 @@ export default function RealisationsClient() {
   </div>
 
 </section>
+
+      {/* Projets Référents */}
+      {(() => {
+        const featuredProjects = FEATURED_IDS
+          .map(id => projects.find(p => p.id === id))
+          .filter((p): p is NonNullable<typeof p> => !!p?.title)
+        if (!featuredProjects.length) return null
+        return (
+          <section className="py-20 bg-white border-b border-neutral-100">
+            <div className="section-padding container-max">
+
+              {/* Header */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="mb-10"
+              >
+                <span className="label-tag inline-flex items-center gap-1.5">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                  Projets Référents
+                </span>
+                <h2 className="heading-display text-3xl md:text-4xl text-neutral-950 mt-3">
+                  Nos réalisations phares
+                </h2>
+                <p className="mt-3 text-neutral-500 text-base max-w-xl leading-relaxed">
+                  Une sélection de nos projets les plus emblématiques, reflet de notre savoir-faire terrain.
+                </p>
+              </motion.div>
+
+              {/* Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {featuredProjects.map((project, i) => (
+                  <motion.div
+                    key={`featured-${project.id}`}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="h-full"
+                  >
+                    <Link
+                      href={`/realisations/${project.id}`}
+                      className="group flex flex-col h-full bg-white rounded-3xl overflow-hidden border border-neutral-150 hover:border-[#a3e635]/40 hover:shadow-2xl hover:shadow-neutral-200/80 transition-all duration-500 card-hover"
+                    >
+                      {/* Image — légèrement plus haute que les cartes standard */}
+                      <div className="relative h-64 overflow-hidden">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-700"
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
+
+                        {/* Badge Référent */}
+                        <div className="absolute top-3 end-3 flex items-center gap-1 bg-white/95 backdrop-blur-sm text-neutral-800 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
+                          <svg width="9" height="9" viewBox="0 0 24 24" fill="#a3e635" aria-hidden="true">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                          </svg>
+                          Référent
+                        </div>
+
+                        <div className="absolute bottom-3 start-3 flex items-center gap-2">
+                          <span
+                            className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full text-white"
+                            style={{ backgroundColor: serviceColors[project.serviceSlug] ?? '#1FAF5A' }}
+                          >
+                            {project.serviceLabel}
+                          </span>
+                          <span className="text-[10px] font-semibold text-white/80">{project.year}</span>
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="p-6 flex flex-col flex-1">
+                        <h3 className="font-semibold text-neutral-900 text-base leading-snug group-hover:text-brand-400 transition-colors">
+                          {project.title}
+                        </h3>
+                        <div className="mt-1.5 flex items-center gap-1.5 text-xs text-neutral-400 font-medium">
+                          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                          </svg>
+                          {project.location}
+                        </div>
+                        <p className="mt-3 text-sm text-neutral-500 leading-relaxed line-clamp-3">
+                          {project.description}
+                        </p>
+                        <div className="mt-4 flex flex-wrap gap-1.5">
+                          {project.tags.filter(Boolean).map(tag => (
+                            <span
+                              key={tag}
+                              className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-neutral-100 text-neutral-500"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="mt-auto pt-4 flex items-center gap-1 text-sm font-semibold text-brand-400 group-hover:gap-2 transition-all">
+                          Voir le projet
+                          <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+                            <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+
+            </div>
+          </section>
+        )
+      })()}
 
       {/* Filter bar */}
       <section className="sticky top-16 z-30 bg-white/90 backdrop-blur-md border-b border-neutral-100 py-4">
@@ -187,8 +306,6 @@ export default function RealisationsClient() {
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
                           </svg>
                           {project.location}
-                          <span className="text-neutral-200 mx-0.5">·</span>
-                          {project.client}
                         </div>
                         <p className="mt-3 text-sm text-neutral-500 leading-relaxed line-clamp-3">
                           {project.description}

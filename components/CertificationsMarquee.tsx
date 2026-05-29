@@ -7,7 +7,7 @@ const certs = [
   { img: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png'},
   { img: '/images/Certifications/qualifelec.png' },
   { img: '/images/Certifications/logo-qualipac.png'},
-  { img: '/images/Certifications/logo-qualiPV-RGE-e1700507436946-768x509-removebg-preview.png' },
+  { img: '/images/Certifications/Logo-QualiPV-RGE.png' },
 
  
 
@@ -16,7 +16,7 @@ const certs = [
   { img: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png' },
   { img: '/images/Certifications/qualifelec.png' },
   { img: '/images/Certifications/logo-qualipac.png' },
-  { img: '/images/Certifications/logo-qualiPV-RGE-e1700507436946-768x509-removebg-preview.png' },
+  { img: '/images/Certifications/Logo-QualiPV-RGE.png' },
 
 ]
 

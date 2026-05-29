@@ -526,7 +526,7 @@ export default function EnergiesRenouvelablesClient({ service }: Props) {
                   </div>
                   <div className="p-4">
                     <div className="font-semibold text-sm text-neutral-900 leading-snug">{project.title}</div>
-                    <div className="text-xs text-neutral-400 mt-1">{project.location} · {project.client}</div>
+                    <div className="text-xs text-neutral-400 mt-1">{project.location}</div>
                     <div className="mt-2 flex flex-wrap gap-1">
                       {project.tags.filter(Boolean).slice(0, 2).map((tag) => (
                         <span key={tag} className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-neutral-200 text-neutral-500">
