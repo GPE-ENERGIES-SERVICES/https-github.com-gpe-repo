@@ -71,7 +71,7 @@ export default function Navbar() {
                 alt="Drapeau de l'Algérie"
                 width={32}
                 height={18}
-                className="flex-shrink-0 h-7 w-auto lg:h-8 xl:h-10 rounded shadow-sm
+                className="flex-shrink-0 h-4 w-auto sm:h-4 lg:h-5 xl:h-6 2xl:h-7 rounded shadow-sm
                            transition-all duration-300 hover:scale-105 hover:shadow-md cursor-default"
               />
             </div>
