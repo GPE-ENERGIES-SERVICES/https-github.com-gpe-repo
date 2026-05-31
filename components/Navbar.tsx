@@ -60,7 +60,7 @@ export default function Navbar() {
                   alt="GPE Énergies"
                   width={10000}
                   height={5000}
-                  className="h-16 w-auto sm:h-20 lg:h-36 xl:h-52 2xl:h-56"
+                  className="h-14 w-auto sm:h-18 lg:h-28 xl:h-40 2xl:h-44"
                   priority
                 />
               </Link>
