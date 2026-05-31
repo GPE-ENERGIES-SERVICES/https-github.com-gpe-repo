@@ -60,7 +60,7 @@ export default function Navbar() {
                   alt="GPE Énergies"
                   width={10000}
                   height={5000}
-                  className="h-20 w-auto sm:h-18 lg:h-28 xl:h-40 2xl:h-44"
+                  className="h-16 w-auto sm:h-18 lg:h-28 xl:h-40 2xl:h-44"
                   priority
                 />
               </Link>
@@ -71,7 +71,7 @@ export default function Navbar() {
                 alt="Drapeau de l'Algérie"
                 width={28}
                 height={14}
-                className="flex-shrink-0 h-3 w-auto sm:h-4 lg:h-5 xl:h-6 2xl:h-7 rounded shadow-sm
+                className="flex-shrink-0 h-7 w-auto sm:h-4 lg:h-5 xl:h-6 2xl:h-7 rounded shadow-sm
                            transition-all duration-300 hover:scale-105 hover:shadow-md cursor-default"
               />
             </div>
