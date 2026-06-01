@@ -54,26 +54,35 @@ export default function Navbar() {
 
             {/* LOGO + DRAPEAU */}
             <div className="flex items-center gap-2 xl:gap-3 flex-shrink-0 -ms-1">
-              <Link href="/" className="flex items-center">
+              <Link href="/" className="flex items-center flex-none">
                 <Image
                   src="/images/logo0.png"
                   alt="GPE Énergies"
-                  width={10000}
-                  height={5000}
-                  className="h-16 w-auto sm:h-18 lg:h-28 xl:h-40 2xl:h-44"
+                  width={655}
+                  height={381}
+                  className="h-20 w-auto max-w-none sm:h-18 lg:h-28 xl:h-40 2xl:h-44"
                   priority
                 />
               </Link>
 
-              {/* Drapeau algérien */}
-              <Image
-                src="/images/flag-algeria.png"
-                alt="Drapeau de l'Algérie"
-                width={28}
-                height={14}
-                className="flex-shrink-0 h-7 w-auto sm:h-4 lg:h-5 xl:h-6 2xl:h-7 rounded shadow-sm
-                           transition-all duration-300 hover:scale-105 hover:shadow-md cursor-default"
-              />
+              {/* Drapeau algérien — conteneur à dimensions fixes (ratio 3:2 réel du fichier) */}
+              {/* w-auto était non-fiable : ratio déclaré 2:1 vs réel 3:2 + logo padding rendent les tailles ambiguës */}
+              <div
+                className="flex-shrink-0 relative overflow-hidden rounded-[2px] shadow-sm cursor-default
+                           w-[21px] h-[14px]
+                           sm:w-6 sm:h-4
+                           lg:w-[27px] lg:h-[18px]
+                           xl:w-[30px] xl:h-5
+                           hover:scale-105 hover:shadow-md transition-all duration-300"
+              >
+                <Image
+                  src="/images/flag-algeria.png"
+                  alt="Drapeau de l'Algérie"
+                  fill
+                  sizes="30px"
+                  className="object-cover"
+                />
+              </div>
             </div>
 
             {/* NAV LINKS */}

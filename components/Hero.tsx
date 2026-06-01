@@ -42,10 +42,10 @@ export default function Hero() {
   const { t } = useLanguage()
 
   const stats = [
-    { value: 10, suffix: '+', labelKey: 'hero.stat.years' },
-    { value: 150, suffix: '+', labelKey: 'hero.stat.projects' },
-    { value: 8, suffix: '', labelKey: 'hero.stat.expertise' },
-    { value: 95, suffix: '%', labelKey: 'hero.stat.satisfaction' },
+    { value: 20, suffix: '+', labelKey: 'hero.stat.years' },
+    { value: 500, suffix: '+', labelKey: 'hero.stat.projects' },
+    { value: 10, suffix: '', labelKey: 'hero.stat.expertise' },
+    { value: 100, suffix: '%', labelKey: 'hero.stat.satisfaction' },
   ]
 
   return (

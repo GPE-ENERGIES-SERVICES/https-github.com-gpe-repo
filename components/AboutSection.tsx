@@ -92,7 +92,7 @@ export default function AboutSection() {
             >
               {[
                 { v: '2023', lKey: 'about.stat.founded' },
-                { v: '+40', lKey: 'about.stat.team' },
+                { v: '+50', lKey: 'about.stat.team' },
                 { v: t('about.stat.regionVal'), lKey: 'about.stat.region' },
               ].map((item, i) => (
                 <div
@@ -100,7 +100,7 @@ export default function AboutSection() {
                   className={`p-5 ${i < 2 ? 'border-r border-[#2e5240]/10' : ''}`}
                 >
                   <div className="text-2xl font-semibold text-[#2e5240]">
-                    {item.v}
+                    {item.v}  
                   </div>
 
                   <div className="mt-1 text-[11px] tracking-widest uppercase text-[#2e5240]/50">

@@ -18,6 +18,8 @@ const serviceColors: Record<string, string> = {
   'renovation-energetique': '#10b981',
   'chauffage-climatisation': '#ef4444',
   'bureau-etudes': '#1FAF5A',
+  'gtb-knx': '#0ea5e9',
+  'vrd': '#f97316',
 }
 
 export default function RealisationsClient() {
@@ -184,7 +186,7 @@ export default function RealisationsClient() {
                             </span>
                           ))}
                         </div>
-                        <div className="mt-auto pt-4 flex items-center gap-1 text-sm font-semibold text-brand-400 group-hover:gap-2 transition-all">
+                        <div className="mt-auto pt-4 flex items-center gap-1 text-sm font-semibold text-brand-400 group-hover:text-[#a3e635] group-hover:gap-2 transition-all">
                           Voir le projet
                           <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
                             <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -323,7 +325,7 @@ export default function RealisationsClient() {
                           ))}
                         </div>
 
-                        <div className="mt-4 flex items-center gap-1 text-sm font-semibold text-brand-400 group-hover:gap-2 transition-all">
+                        <div className="mt-4 flex items-center gap-1 text-sm font-semibold text-brand-400 group-hover:text-[#a3e635] group-hover:gap-2 transition-all">
                           Voir le projet
                           <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
                             <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

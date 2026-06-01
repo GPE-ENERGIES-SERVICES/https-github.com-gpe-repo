@@ -18,6 +18,16 @@ const locations: MapLocation[] = [
     coords: [36.7308, 3.0492],
   },
   {
+    id: 'vitrolles',
+    city: 'Vitrolles',
+    country: 'France',
+    flag: '🇫🇷',
+    address: '92 Boulevard de l\'Europe, 13127 Vitrolles',
+    phone: '+33 4 42 07 22 62',
+    role: 'Agence France',
+    coords: [43.4547, 5.2483],
+  },
+  {
     id: 'saudi',
     city: 'Riyadh',
     country: 'Arabie Saoudite',

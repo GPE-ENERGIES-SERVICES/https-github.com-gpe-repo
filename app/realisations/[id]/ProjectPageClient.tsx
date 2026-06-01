@@ -11,10 +11,12 @@ import { useLanguage } from '@/context/LanguageContext'
 const serviceColors: Record<string, string> = {
   'courants-forts-faibles': '#6366f1',
   'energies-renouvelables': '#f59e0b',
-  'mobilite-electrique': '#1FAF5A',
+  'mobilite-electrique': '#C6FF00',
   'renovation-energetique': '#10b981',
   'chauffage-climatisation': '#ef4444',
   'bureau-etudes': '#1FAF5A',
+  'gtb-knx': '#0ea5e9',
+  'vrd': '#f97316',
 }
 
 interface Props {

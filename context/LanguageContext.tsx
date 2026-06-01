@@ -16,7 +16,7 @@ const t18n: Record<Lang, Record<string, string>> = {
     'nav.cta': 'Demander un devis',
 
     // ── Hero
-    'hero.eyebrow': 'Alger',
+    'hero.eyebrow': 'GPE ENERGIES & SERVICES',
     'hero.title.part1': "L'énergie qui",
     'hero.title.highlight': 'donne vie',
     'hero.title.part2': 'à vos propriétés.',
@@ -31,7 +31,7 @@ const t18n: Record<Lang, Record<string, string>> = {
     // ── Services section
     'services.label': 'Nos expertises',
     'services.title': 'Des solutions complètes,\nde la conception à la réalisation.',
-    'services.subtitle': "Six métiers complémentaires pour répondre à l'ensemble de vos besoins en énergie et en bâtiment.",
+    'services.subtitle': "10 métiers complémentaires pour répondre à l'ensemble de vos besoins en énergie et en bâtiment.",
     'services.learnMore': 'En savoir plus',
 
     // ── References section
@@ -60,7 +60,7 @@ const t18n: Record<Lang, Record<string, string>> = {
     'about.stat.founded': 'Création',
     'about.stat.team': 'Collaborateurs',
     'about.stat.region': "Région d'intervention",
-    'about.stat.regionVal': 'Sud',
+    'about.stat.regionVal': 'Internationale',
 
     // ── Footer
     'footer.tagline': "Expert en installations électriques, énergies renouvelables et solutions CVC.",
@@ -162,6 +162,26 @@ const t18n: Record<Lang, Record<string, string>> = {
     'service.bureau-etudes.benefit3': 'Suivi de chantier & OPC',
     'service.bureau-etudes.benefit4': "Maîtrise d'œuvre complète",
 
+    // ── Service: GTB / KNX
+    'service.gtb-knx.title': 'GTB / KNX',
+    'service.gtb-knx.shortDesc': "Conception et déploiement de systèmes de gestion technique du bâtiment basés sur le protocole KNX pour l'automatisation intelligente de vos espaces.",
+    'service.gtb-knx.desc1': "GPE Énergies & Services conçoit et déploie des systèmes de Gestion Technique du Bâtiment (GTB) basés sur le protocole KNX, standard international ouvert pour l'automatisation des bâtiments. Nos ingénieurs certifiés prennent en charge l'intégralité du projet, de l'étude de conception jusqu'à la mise en service et la formation des équipes d'exploitation.",
+    'service.gtb-knx.desc2': "Grâce à la GTB et au protocole KNX, vous centralisez le pilotage de l'éclairage, des stores, du chauffage, de la climatisation et des contrôles d'accès sur une interface unique et intuitive. Cette approche permet de réduire significativement les consommations énergétiques tout en améliorant le confort des occupants.",
+    'service.gtb-knx.benefit1': 'Programmation KNX certifiée ETS',
+    'service.gtb-knx.benefit2': 'Supervision centralisée (BMS / SCADA)',
+    'service.gtb-knx.benefit3': 'Intégration multi-protocoles (BACnet, Modbus)',
+    'service.gtb-knx.benefit4': 'Télémaintenance et formation exploitation',
+
+    // ── Service: VRD
+    'service.vrd.title': 'VRD',
+    'service.vrd.shortDesc': "Voiries, réseaux et divers : conception et réalisation de tous les réseaux extérieurs, assainissement, terrassement et aménagements de site.",
+    'service.vrd.desc1': "GPE Énergies & Services intervient sur l'ensemble des travaux de Voiries et Réseaux Divers (VRD) : terrassement, création et réhabilitation de voiries, réseaux d'assainissement, adduction d'eau potable, réseaux électriques extérieurs et éclairage public. Nos équipes coordonnent les interventions avec l'ensemble des concessionnaires pour assurer la conformité et la sécurité des ouvrages.",
+    'service.vrd.desc2': "De l'aménagement de lotissements à la viabilisation de zones d'activité ou de parcs industriels, nous accompagnons maîtres d'ouvrage et collectivités de la phase études jusqu'à la réception des travaux. Notre approche globale garantit la cohérence technique entre les différents corps d'état et le respect des délais contractuels.",
+    'service.vrd.benefit1': 'Terrassement et travaux de déblai / remblai',
+    'service.vrd.benefit2': "Réseaux d'assainissement et d'adduction d'eau",
+    'service.vrd.benefit3': 'Éclairage public et réseaux extérieurs',
+    'service.vrd.benefit4': 'Suivi de chantier et coordination concessionnaires',
+
 
     // ── Contact page
     'contact.label': 'Contact',
@@ -231,7 +251,7 @@ const t18n: Record<Lang, Record<string, string>> = {
     'nav.contact': 'Contact',
     'nav.cta': 'Request a quote',
 
-    'hero.eyebrow': 'Algiers',
+    'hero.eyebrow': 'GPE ENERGIES & SERVICES',
     'hero.title.part1': 'The energy that',
     'hero.title.highlight': 'brings life',
     'hero.title.part2': 'to your properties.',
@@ -372,6 +392,26 @@ const t18n: Record<Lang, Record<string, string>> = {
     'service.bureau-etudes.benefit2': 'BIM / Digital Building Models',
     'service.bureau-etudes.benefit3': 'Site Supervision & Project Programming',
     'service.bureau-etudes.benefit4': 'Full Contract Administration (MOE)',
+
+    // ── Service: BMS / KNX Systems
+    'service.gtb-knx.title': 'BMS / KNX Systems',
+    'service.gtb-knx.shortDesc': 'Design and deployment of Building Management Systems based on the KNX protocol for intelligent automation and energy optimisation of your premises.',
+    'service.gtb-knx.desc1': 'GPE Énergies & Services designs and deploys Building Management Systems (BMS) built on the KNX protocol — the open international standard for building automation. Our certified engineers manage the full project lifecycle, from conceptual design through to commissioning and operator training.',
+    'service.gtb-knx.desc2': 'By integrating BMS and KNX, you centralise control of lighting, blinds, heating, air conditioning, and access systems on a single intuitive interface. This approach enables significant energy savings while improving occupant comfort and operational efficiency across all building types.',
+    'service.gtb-knx.benefit1': 'KNX ETS-Certified Programming',
+    'service.gtb-knx.benefit2': 'Centralised Supervision (BMS / SCADA)',
+    'service.gtb-knx.benefit3': 'Multi-Protocol Integration (BACnet, Modbus)',
+    'service.gtb-knx.benefit4': 'Remote Monitoring & Operator Training',
+
+    // ── Service: Civil Engineering & Site Works
+    'service.vrd.title': 'Civil Engineering & Site Works',
+    'service.vrd.shortDesc': 'Roads, utilities, and external networks: design and construction of all site infrastructure, drainage, earthworks, and external service connections.',
+    'service.vrd.desc1': 'GPE Énergies & Services handles the full scope of civil engineering and utility works: earthworks, road construction and rehabilitation, drainage networks, water supply, external electrical networks, street lighting, and telecoms infrastructure. Our teams coordinate with all utility concessionaires to ensure regulatory compliance and structural safety throughout.',
+    'service.vrd.desc2': 'From residential developments and business parks to industrial zones and public spaces, we support project owners and local authorities from the initial design phase through to project handover. Our integrated approach ensures technical coherence across all trades and adherence to contractual deadlines.',
+    'service.vrd.benefit1': 'Earthworks & Site Preparation',
+    'service.vrd.benefit2': 'Drainage, Sewerage & Water Supply Networks',
+    'service.vrd.benefit3': 'Street Lighting & External Electrical Networks',
+    'service.vrd.benefit4': 'Site Management & Utility Coordination',
 
 
     'contact.label': 'Contact',
@@ -579,6 +619,26 @@ const t18n: Record<Lang, Record<string, string>> = {
     'service.bureau-etudes.benefit2': 'نمذجة BIM والنموذج الرقمي للمبنى',
     'service.bureau-etudes.benefit3': 'الإشراف على المواقع وبرمجة المشاريع',
     'service.bureau-etudes.benefit4': 'إدارة عقود كاملة (MOE)',
+
+    // ── Service: أنظمة GTB / KNX
+    'service.gtb-knx.title': 'أنظمة GTB / KNX',
+    'service.gtb-knx.shortDesc': 'تصميم ونشر أنظمة الإدارة التقنية للمباني وفق بروتوكول KNX لأتمتة مبانيكم وتحسين استهلاككم الطاقوي.',
+    'service.gtb-knx.desc1': 'تصمم GPE Énergies & Services وتنشر أنظمة الإدارة التقنية للمباني (GTB) المبنية على بروتوكول KNX، المعيار الدولي المفتوح لأتمتة المباني. يتولى مهندسونا المعتمدون إدارة دورة حياة المشروع الكاملة، من التصميم المفاهيمي وحتى التشغيل وتدريب فرق الاستغلال.',
+    'service.gtb-knx.desc2': 'بفضل تكامل GTB وKNX، تتمكنون من مركزة التحكم في الإضاءة والستائر والتدفئة والتكييف وأنظمة التحكم في الوصول على واجهة واحدة وسهلة الاستخدام. يُتيح هذا النهج توفيرات طاقوية ملموسة مع تحسين راحة شاغلي المبنى وكفاءة التشغيل.',
+    'service.gtb-knx.benefit1': 'برمجة KNX معتمدة وفق معيار ETS',
+    'service.gtb-knx.benefit2': 'إشراف مركزي (BMS / SCADA)',
+    'service.gtb-knx.benefit3': 'تكامل متعدد البروتوكولات (BACnet، Modbus)',
+    'service.gtb-knx.benefit4': 'صيانة عن بُعد وتدريب فرق التشغيل',
+
+    // ── Service: الطرق والشبكات والتهيئة
+    'service.vrd.title': 'الطرق والشبكات والتهيئة',
+    'service.vrd.shortDesc': 'التصميم وإنجاز جميع الشبكات الخارجية وأعمال الصرف الصحي والترابية وتهيئة المواقع.',
+    'service.vrd.desc1': 'تتولى GPE Énergies & Services تنفيذ كامل أعمال الطرق والشبكات والتهيئة (VRD): أعمال ترابية، إنشاء وتأهيل الطرق، شبكات الصرف الصحي، إمداد المياه الصالحة للشرب، الشبكات الكهربائية الخارجية والإنارة العامة. تنسق فرقنا التدخلات مع جميع أصحاب الامتيازات لضمان الامتثال التقني وسلامة المنشآت.',
+    'service.vrd.desc2': 'سواء لمجزأة سكنية أو منطقة نشاط أو حديقة صناعية أو فضاءات عامة، نرافق أصحاب المشاريع والجماعات من مرحلة الدراسة حتى الاستلام النهائي. يضمن نهجنا الشامل التناسق التقني بين مختلف التخصصات والالتزام بالمواعيد التعاقدية.',
+    'service.vrd.benefit1': 'أعمال الترابية والحفر والردم',
+    'service.vrd.benefit2': 'شبكات الصرف الصحي وإمداد المياه',
+    'service.vrd.benefit3': 'الإنارة العامة والشبكات الكهربائية الخارجية',
+    'service.vrd.benefit4': 'الإشراف على المواقع وتنسيق أصحاب الامتيازات',
 
     'contact.label': 'تواصل معنا',
     'contact.title': 'لنتحدث عن مشروعكم.',
