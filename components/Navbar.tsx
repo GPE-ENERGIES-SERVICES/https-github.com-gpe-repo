@@ -67,22 +67,7 @@ export default function Navbar() {
 
               {/* Drapeau algérien — conteneur à dimensions fixes (ratio 3:2 réel du fichier) */}
               {/* w-auto était non-fiable : ratio déclaré 2:1 vs réel 3:2 + logo padding rendent les tailles ambiguës */}
-              <div
-                className="flex-shrink-0 relative overflow-hidden rounded-[2px] shadow-sm cursor-default
-                           w-[21px] h-[14px]
-                           sm:w-6 sm:h-4
-                           lg:w-[27px] lg:h-[18px]
-                           xl:w-[30px] xl:h-5
-                           hover:scale-105 hover:shadow-md transition-all duration-300"
-              >
-                <Image
-                  src="/images/flag-algeria.png"
-                  alt="Drapeau de l'Algérie"
-                  fill
-                  sizes="30px"
-                  className="object-cover"
-                />
-              </div>
+             
             </div>
 
             {/* NAV LINKS */}

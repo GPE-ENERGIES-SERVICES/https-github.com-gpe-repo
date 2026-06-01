@@ -13,7 +13,7 @@ export default function MentionsLegales() {
       <p>
         <strong>GPE Énergies &amp; Services</strong>
         <br />
-        Résidence Coloris, Chemin Sidi Yahia, Bir Mourad Raïs 16005, Alger, Algérie
+        Chemin Sidi Yahia, Résidence Coloris, Bir Mourad Raïs 16005, Alger, Algérie
         <br />
         Téléphone : +213 549 48 00 97
         <br />

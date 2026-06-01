@@ -21,7 +21,7 @@ const officeLocation: MapLocation = {
   city: 'Bir Mourad Raïs',
   country: 'Algérie',
   flag: '🇩🇿',
-  address: 'Résidence Coloris, Chemin Sidi Yahia, Bir Mourad Raïs 16005',
+  address: 'Chemin Sidi Yahia, Résidence Coloris, Bir Mourad Raïs 16005',
   phone: '+213 549 48 00 97',
   role: 'Siège social',
   coords: [36.7308, 3.0492],

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'
 
 const SOCIAL_LINKS = {
-  linkedin: 'https://www.linkedin.com/company/gpe-energies',
+  linkedin: 'https://www.linkedin.com/company/gpe-energies-services-algerie/',
   instagram: 'https://www.instagram.com/gpeenergies',
 }
 
@@ -163,7 +163,7 @@ export default function Footer() {
               </li>
 
               <li className="text-white/80">
-                Résidence Coloris, Chemin Sidi Yahia<br />Bir Mourad Raïs 16005, Alger
+                Chemin Sidi Yahia, Résidence Coloris, <br />Bir Mourad Raïs 16005, Alger
               </li>
             </ul>
 

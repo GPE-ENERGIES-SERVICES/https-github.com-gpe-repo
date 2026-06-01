@@ -105,7 +105,7 @@ export default function ContactSection() {
                     </svg>
                   ),
                   label: 'Adresse',
-                  value: 'Résidence Coloris, Chemin Sidi Yahia, Bir Mourad Raïs 16005, Alger',
+                  value: 'Chemin Sidi Yahia, Résidence Coloris, Bir Mourad Raïs 16005, Alger',
                   href: 'https://www.google.com/maps/search/R%C3%A9sidence+Coloris+Chemin+Sidi+Yahia+Bir+Mourad+Ra%C3%AFs+Alger',
                 },
               ].map((item) => (

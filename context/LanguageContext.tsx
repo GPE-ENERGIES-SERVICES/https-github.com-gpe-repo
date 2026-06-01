@@ -31,7 +31,7 @@ const t18n: Record<Lang, Record<string, string>> = {
     // ── Services section
     'services.label': 'Nos expertises',
     'services.title': 'Des solutions complètes,\nde la conception à la réalisation.',
-    'services.subtitle': "10 métiers complémentaires pour répondre à l'ensemble de vos besoins en énergie et en bâtiment.",
+    'services.subtitle': "8 métiers complémentaires pour répondre à l'ensemble de vos besoins en énergie et en bâtiment.",
     'services.learnMore': 'En savoir plus',
 
     // ── References section

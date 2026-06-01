@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '33442072262'
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '213549480097'
 
 type Role = 'user' | 'bot'
 
@@ -20,7 +20,7 @@ function getTime() {
 }
 
 const FALLBACK =
-  "Je rencontre une difficulté technique. Contactez-nous directement au +33 4 42 07 22 62."
+  "Je rencontre une difficulté technique. Contactez-nous directement au +213 549 48 00 97."
 
 export default function FloatingButtons() {
   const [chatOpen, setChatOpen] = useState(false)

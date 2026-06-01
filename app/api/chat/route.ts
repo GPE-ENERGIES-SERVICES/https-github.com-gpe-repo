@@ -40,7 +40,7 @@ RÈGLES STRICTES :
 
 INFOS ENTREPRISE :
 - Tél : +213 549 48 00 97 | Email : contact@gpealgerie.com
-- Adresse : Résidence Coloris, Chemin Sidi Yahia, Bir Mourad Raïs 16005, Alger
+- Adresse : Chemin Sidi Yahia, Résidence Coloris, Bir Mourad Raïs 16005, Alger
 - Certifications : RGE, Qualifelec, IRVE, AFNOR, OPQIBI
 - Interventions en France et à l'international (Afrique du Nord)
 

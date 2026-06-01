@@ -195,26 +195,7 @@ export const projects: Project[] = [
     ],
     tags: ['Photovoltaïque', 'Energie solaire',],
   },
-  {
-    id: 'me-1',
-    title: 'Prééquipement IRVE - Résidence',
-    location: 'Saint-Raphaël',
-    serviceSlug: 'mobilite-electrique', 
-    serviceLabel: 'Mobilité Électrique',
-    year: 2025 ,
-    description: 'Prééquipement IRVE réalisé sur une résidence à Saint-Raphaël, permettant l’installation future de bornes de recharge pour véhicules électriques.',
-    longDescription: 'Réalisation du prééquipement IRVE sur une résidence située à Saint-Raphaël. Cette installation prépare l’infrastructure nécessaire à l’accueil futur de bornes de recharge pour véhicules électriques, en garantissant une solution prête à être déployée selon les besoins des usagers. Ce projet s’inscrit dans la continuité du développement de la mobilité électrique. Nous remercions WAAT pour sa confiance et la qualité du suivi de ce chantier.',
-    image: '/images/projet3/6.jpg',
-    gallery: [
-      '/images/projet3/2.jpg',
-      '/images/projet3/3.jpg',
-      '/images/projet3/4.jpg',
-      '/images/projet3/5.jpg',
-      '/images/projet3/1.jpg',
-     
-    ],
-    tags: ['', '', ''],
-  },
+  
 
 
 

@@ -58,7 +58,7 @@ export const services: Service[] = [
     ],
     icon: 'zap',
     color: '#1faf5a',
-    image: '/images/services/courantff.jpg',
+    image: '/images/services/cff.jpeg',
   },
   {
     slug: 'energies-renouvelables',
@@ -87,7 +87,7 @@ export const services: Service[] = [
     ],
     icon: 'sun',
     color: '#1faf5a',
-    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80',
+    image: '/images/services/energier.jpeg',
   },
   {
     slug: 'mobilite-electrique',
@@ -108,7 +108,7 @@ export const services: Service[] = [
     ],
     icon: 'car',
     color: '#1faf5a',
-    image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80',
+    image: '/images/services/mobilite.jpeg',
   },
   {
     slug: 'gtb-knx',
@@ -149,7 +149,7 @@ export const services: Service[] = [
     ],
     icon: 'cpu',
     color: '#1faf5a',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+    image: '/images/services/knx.jpeg',
   },
   {
     slug: 'renovation-energetique',
@@ -169,7 +169,7 @@ export const services: Service[] = [
     ],
     icon: 'home',
     color: '#1faf5a',
-    image: '/images/services/renov.jpg',
+    image: '/images/services/renovvv.jpg',
   },
   {
     slug: 'chauffage-climatisation',
@@ -190,7 +190,7 @@ export const services: Service[] = [
     ],
     icon: 'thermometer',
     color: '#1faf5a',
-    image: '/images/services/clim.jpg',
+    image: '/images/services/chauffage.jpeg',
   },
   {
     slug: 'bureau-etudes',
@@ -214,7 +214,7 @@ export const services: Service[] = [
     ],
     icon: 'drafting-compass',
     color: '#1faf5a',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
+    image: '/images/services/bureau.jpeg',
   },
   {
     slug: 'vrd',
@@ -253,7 +253,7 @@ export const services: Service[] = [
     ],
     icon: 'road',
     color: '#1faf5a',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
+    image: '/images/services/vrd.jpeg',
   },
 ]
 
