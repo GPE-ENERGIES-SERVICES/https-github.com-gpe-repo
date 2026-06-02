@@ -97,7 +97,7 @@ export default function AboutSection() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="grid grid-cols-3 rounded-2xl border border-[#2e5240]/10 overflow-hidden bg-white"
+              className="grid grid-cols-2 sm:grid-cols-3 rounded-2xl border border-[#2e5240]/10 overflow-hidden bg-white"
             >
               {[
                 { v: '2023', lKey: 'about.stat.founded' },
@@ -106,13 +106,17 @@ export default function AboutSection() {
               ].map((item, i) => (
                 <div
                   key={item.lKey}
-                  className={`p-5 ${i < 2 ? 'border-r border-[#2e5240]/10' : ''}`}
+                  className={[
+                    'p-4 sm:p-5',
+                    i === 0 ? 'border-r border-[#2e5240]/10' : '',
+                    i === 1 ? 'sm:border-r border-[#2e5240]/10' : '',
+                    i === 2 ? 'col-span-2 sm:col-span-1 border-t sm:border-t-0 border-[#2e5240]/10' : '',
+                  ].join(' ')}
                 >
-                  <div className="text-2xl font-semibold text-[#2e5240]">
-                    {item.v}  
+                  <div className="text-2xl font-semibold text-[#2e5240] leading-tight">
+                    {item.v}
                   </div>
-
-                  <div className="mt-1 text-[11px] tracking-widest uppercase text-[#2e5240]/50">
+                  <div className="mt-1 text-[11px] tracking-widest uppercase text-[#2e5240]/50 leading-snug">
                     {t(item.lKey)}
                   </div>
                 </div>
