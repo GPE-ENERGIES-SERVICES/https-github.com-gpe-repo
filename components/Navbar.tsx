@@ -16,6 +16,7 @@ export default function Navbar() {
 
   const navLinks = [
     { key: 'nav.home', href: '/' },
+    { key: 'nav.about', href: '/a-propos' },
     { key: 'nav.services', href: '/#services' },
     { key: 'nav.realisations', href: '/realisations' },
     { key: 'nav.international', href: '/international' },

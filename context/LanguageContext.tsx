@@ -9,6 +9,7 @@ const t18n: Record<Lang, Record<string, string>> = {
   fr: {
     // ── Navbar
     'nav.home': 'Accueil',
+    'nav.about': 'À propos de nous',
     'nav.services': 'Services',
     'nav.realisations': 'Réalisations',
     'nav.international': "À l'international",
@@ -163,7 +164,7 @@ const t18n: Record<Lang, Record<string, string>> = {
     'service.bureau-etudes.benefit4': "Maîtrise d'œuvre complète",
 
     // ── Service: GTB / KNX
-    'service.gtb-knx.title': 'GTB / KNX',
+    'service.gtb-knx.title': 'Smart building',
     'service.gtb-knx.shortDesc': "Conception et déploiement de systèmes de gestion technique du bâtiment basés sur le protocole KNX pour l'automatisation intelligente de vos espaces.",
     'service.gtb-knx.desc1': "GPE Énergies & Services conçoit et déploie des systèmes de Gestion Technique du Bâtiment (GTB) basés sur le protocole KNX, standard international ouvert pour l'automatisation des bâtiments. Nos ingénieurs certifiés prennent en charge l'intégralité du projet, de l'étude de conception jusqu'à la mise en service et la formation des équipes d'exploitation.",
     'service.gtb-knx.desc2': "Grâce à la GTB et au protocole KNX, vous centralisez le pilotage de l'éclairage, des stores, du chauffage, de la climatisation et des contrôles d'accès sur une interface unique et intuitive. Cette approche permet de réduire significativement les consommations énergétiques tout en améliorant le confort des occupants.",
@@ -245,6 +246,7 @@ const t18n: Record<Lang, Record<string, string>> = {
   /* ─────────────────────────── ENGLISH ─────────────────────────── */
   en: {
     'nav.home': 'Home',
+    'nav.about': 'About Us',
     'nav.services': 'Services',
     'nav.realisations': 'Projects',
     'nav.international': 'International',
@@ -473,6 +475,7 @@ const t18n: Record<Lang, Record<string, string>> = {
   /* ─────────────────────────── ARABIC ─────────────────────────── */
   ar: {
     'nav.home': 'الرئيسية',
+    'nav.about': 'من نحن',
     'nav.services': 'الخدمات',
     'nav.realisations': 'مشاريعنا',
     'nav.international': 'دولي',
