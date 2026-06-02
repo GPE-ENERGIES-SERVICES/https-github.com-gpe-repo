@@ -14,7 +14,6 @@
     "lucide-react": "^1.14.0",
     "next": "^14.2.35",
     "nodemailer": "^8.0.7",
-    "openai": "^6.37.0",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.3",

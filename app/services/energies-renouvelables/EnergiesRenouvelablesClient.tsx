@@ -9,75 +9,6 @@ import { services } from '@/lib/services'
 import { getProjectsByService } from '@/lib/projects'
 import { useLanguage } from '@/context/LanguageContext'
 
-// ─── Types d'installations ────────────────────────────────────────────
-
-type InstallationType = {
-  id: string
-  label: string
-  title: string
-  description: string
-  image: string
-  features: string[]
-  specs: { label: string; value: string }[]
-}
-
-const INSTALLATION_TYPES: InstallationType[] = [
-  {
-    id: 'toiture-terrasse',
-    label: 'Installation 01',
-    title: 'Toiture & Terrasse',
-    description:
-      "Installation de panneaux photovoltaïques sur toiture inclinée ou terrasse plate. Idéale pour valoriser les surfaces de toiture des bâtiments résidentiels, tertiaires et industriels.",
-    image: '/images/projet2/1.jpg',
-    features: [
-      'Intégration architecturale soignée',
-      'Adapté toutes pentes et surfaces',
-      'Systèmes de fixation certifiés',
-      'Étanchéité garantie',
-    ],
-    specs: [
-      { label: 'Puissance', value: 'De 3 kWc à 500 kWc' },
-      { label: 'Usage', value: 'Résidentiel & Tertiaire' },
-    ],
-  },
-  {
-    id: 'ombriere',
-    label: 'Installation 02',
-    title: 'Ombrière Photovoltaïque',
-    description:
-      "Les ombrières photovoltaïques transforment vos parkings et espaces extérieurs en surfaces de production solaire. Double usage : protection des véhicules et génération d'électricité.",
-    image: '/images/projet1/1.jpg',
-    features: [
-      'Valorisation des parkings',
-      'Protection véhicules intégrée',
-      'Compatible bornes IRVE',
-      'Études structurelles complètes',
-    ],
-    specs: [
-      { label: 'Puissance', value: 'De 50 kWc à 2 MWc' },
-      { label: 'Usage', value: 'Entreprises & Collectivités' },
-    ],
-  },
-  {
-    id: 'centrale-sol',
-    label: 'Installation 03',
-    title: 'Centrale Photovoltaïque au Sol',
-    description:
-      "Déploiement de centrales photovoltaïques sur terrain nu ou friches. Solution pour les projets de grande envergure avec autoconsommation ou revente d'énergie sur le réseau.",
-    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=900&q=80',
-    features: [
-      'Grandes capacités de production',
-      'Revente totale ou partielle',
-      'Études de raccordement réseau',
-      'Suivi de production intégré',
-    ],
-    specs: [
-      { label: 'Puissance', value: 'De 100 kWc à plusieurs MWc' },
-      { label: 'Usage', value: 'Industriel & Énergéticiens' },
-    ],
-  },
-]
-
 // ─── Certifications ───────────────────────────────────────────────────
 
 type Certification = {
@@ -89,28 +20,8 @@ type Certification = {
 const CERTIFICATIONS: Certification[] = [
   {
     title: 'QualiPV RGE',
-    image: '/images/Certifications/logo-qualiPV-RGE-e1700507436946-768x509-removebg-preview.png',
+    image: '/images/Certifications/Logo-QualiPV-RGE.png',
     description: 'Qualification RGE pour les installations photovoltaïques',
-  },
-  {
-    title: 'Qualifelec',
-    image: '/images/Certifications/qualifelec.png',
-    description: "Qualification des entreprises d'électricité",
-  },
-  {
-    title: 'AFNOR',
-    image: '/images/Certifications/AFNOR-removebg-preview.png',
-    description: 'Certification qualité et conformité normative',
-  },
-  {
-    title: 'OPQIBI',
-    image: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png',
-    description: "Qualification de l'ingénierie",
-  },
-  {
-    title: 'QualiPAC',
-    image: '/images/Certifications/logo-qualipac.png',
-    description: 'Qualification pompes à chaleur et systèmes solaires',
   },
 ]
 
@@ -308,118 +219,6 @@ export default function EnergiesRenouvelablesClient({ service }: Props) {
               </motion.div>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* ── TYPES D'INSTALLATIONS ─────────────────────────────────────── */}
-      <section className="py-28 bg-[#f7f8f6]">
-        <div className="section-padding container-max">
-
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6 }}
-            className="max-w-2xl mb-24"
-          >
-            <span className="label-tag">Nos installations</span>
-            <h2 className="heading-display text-4xl md:text-5xl text-neutral-950 mt-5 leading-tight">
-              3 types d&apos;installations{' '}
-              <span className="text-[#1faf5a]">photovoltaïques</span>
-            </h2>
-            <p className="mt-5 text-neutral-500 text-lg leading-relaxed">
-              Chaque projet est unique. Nous adaptons notre expertise à votre configuration et vos objectifs.
-            </p>
-          </motion.div>
-
-          {/* Cards alternées */}
-          <div className="space-y-28">
-            {INSTALLATION_TYPES.map((type, i) => (
-              <motion.div
-                key={type.id}
-                initial={{ opacity: 0, y: 32 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-80px' }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className={`flex flex-col lg:items-center gap-12 lg:gap-20 ${
-                  i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'
-                }`}
-              >
-                {/* Image */}
-                <div className="relative w-full lg:w-1/2 h-72 sm:h-80 lg:h-[460px] rounded-3xl overflow-hidden flex-shrink-0">
-                  <Image
-                    src={type.image}
-                    alt={type.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#2e5240]/25 to-transparent" />
-
-                  {/* Badge numéro */}
-                  <div className="absolute top-5 left-5 px-3 py-1.5 rounded-xl bg-black/30 backdrop-blur-sm border border-white/20">
-                    <span className="text-white text-xs font-bold tracking-widest">{type.label}</span>
-                  </div>
-                </div>
-
-                {/* Contenu */}
-                <div className="w-full lg:w-1/2">
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className="w-8 h-px bg-[#1faf5a]" />
-                    <span className="text-xs font-semibold uppercase tracking-widest text-[#1faf5a]">
-                      {type.label}
-                    </span>
-                  </div>
-
-                  <h3 className="text-3xl md:text-4xl font-bold text-neutral-950 leading-tight">
-                    {type.title}
-                  </h3>
-
-                  <p className="mt-5 text-neutral-600 text-base leading-relaxed">
-                    {type.description}
-                  </p>
-
-                  {/* Specs */}
-                  <div className="mt-7 flex flex-wrap gap-3">
-                    {type.specs.map((spec) => (
-                      <div key={spec.label} className="px-4 py-3 rounded-2xl bg-white border border-neutral-200">
-                        <div className="text-[10px] uppercase tracking-widest text-neutral-400 font-medium">{spec.label}</div>
-                        <div className="text-sm font-semibold text-neutral-900 mt-0.5">{spec.value}</div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Features */}
-                  <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {type.features.map((feature) => (
-                      <div key={feature} className="flex items-center gap-2.5">
-                        <div
-                          className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
-                          style={{ backgroundColor: '#1faf5a20' }}
-                        >
-                          <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
-                            <path d="M2 6l3 3 5-5" stroke="#1faf5a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </div>
-                        <span className="text-sm text-neutral-700">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <Link
-                    href="/contact"
-                    className="mt-9 inline-flex items-center gap-2 text-sm font-semibold text-[#2e5240] hover:text-[#a3e635] transition-colors duration-200"
-                  >
-                    Demander un devis gratuit
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>

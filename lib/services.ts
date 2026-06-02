@@ -194,15 +194,38 @@ export const services: Service[] = [
     slug: 'renovation-energetique',
     title: 'service.renovation-energetique.title',
     shortDesc: 'service.renovation-energetique.shortDesc',
-    intro: "Améliorer le confort et réduire la consommation énergétique.",
+    intro:
+      "GPE accompagne ses clients dans l'amélioration de la performance énergétique de leurs bâtiments. De l'audit initial aux travaux d'isolation, nous intervenons sur l'ensemble des postes de consommation afin de réduire les dépenses énergétiques et valoriser le patrimoine immobilier. Certifiés RGE, nos équipes vous accompagnent dans l'accès aux aides financières disponibles.",
     sections: [
       {
-        title: "Prestations",
+        title: '🛠️ Méthodologie & accompagnement',
         items: [
-          "Isolation combles",
-          "ITI",
-          "ITE",
-          "Planchers bas",
+          "Études de conception et d'exécution",
+          'Modélisation et dimensionnement',
+          'Accompagnement, assistance et conseils personnalisés',
+          'Installation, maintenance et dépannage',
+        ],
+      },
+      {
+        title: '🚀 Nos solutions',
+        items: [
+          'Isolation des combles et toitures',
+          "Isolation thermique par l'intérieur (ITI)",
+          "Isolation thermique par l'extérieur (ITE)",
+          'Isolation des planchers bas',
+          'Remplacement des menuiseries (fenêtres, portes)',
+          'Audit énergétique et bilan thermique',
+          "Accompagnement aux aides financières (MaPrimeRénov', CEE)",
+        ],
+      },
+      {
+        title: "🏢 Secteurs d'intervention",
+        items: [
+          'Logements / Habitat',
+          'Tertiaire / Logistique',
+          'Industriel',
+          'Collectivités / Mairies',
+          'Écoles',
         ],
       },
     ],

@@ -3,24 +3,27 @@
 import Image from 'next/image'
 
 const certs = [
-  { img: '/images/Certifications/AFNOR-removebg-preview.png' },
-  { img: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png'},
   { img: '/images/Certifications/qualifelec.png' },
-  { img: '/images/Certifications/logo-qualipac.png'},
   { img: '/images/Certifications/Logo-QualiPV-RGE.png' },
-
- 
-
-  // duplicate for seamless loop
+  { img: '/images/Certifications/logo-qualipac.png' },
   { img: '/images/Certifications/AFNOR-removebg-preview.png' },
   { img: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png' },
+  { img: '/images/Certifications/9001.png' },
+  { img: '/images/Certifications/knx.png' },
+  { img: '/images/Certifications/qualifirvenormale.png' },
+  { img: '/images/Certifications/irvevoiture.png' },
+
+  // duplicate for seamless loop
   { img: '/images/Certifications/qualifelec.png' },
-  { img: '/images/Certifications/logo-qualipac.png' },
   { img: '/images/Certifications/Logo-QualiPV-RGE.png' },
-
+  { img: '/images/Certifications/logo-qualipac.png' },
+  { img: '/images/Certifications/AFNOR-removebg-preview.png' },
+  { img: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png' },
+  { img: '/images/Certifications/9001.png' },
+  { img: '/images/Certifications/knx.png' },
+  { img: '/images/Certifications/qualifirvenormale.png' },
+  { img: '/images/Certifications/irvevoiture.png' },
 ]
-
-
 
 export default function CertificationsMarquee() {
   return (
@@ -31,7 +34,6 @@ export default function CertificationsMarquee() {
       <div className="pointer-events-none absolute inset-y-0 right-0 w-28 z-10 bg-gradient-to-l from-white to-transparent" />
 
       <div className="flex gap-8 animate-marquee w-max">
-
         {certs.map((cert, i) => (
           <div
             key={i}
@@ -40,25 +42,19 @@ export default function CertificationsMarquee() {
                        shadow-md p-6 transition-all duration-300
                        hover:-translate-y-2 hover:shadow-xl hover:border-[#a3e635]/60"
           >
-
-            {/* Glow subtil */}
             <div className="absolute inset-0 rounded-2xl opacity-0
                             group-hover:opacity-100 transition duration-500
                             bg-[#a3e635]/15 blur-2xl" />
-
-            {/* Logo en couleur */}
             <Image
               src={cert.img}
               alt=""
               width={180}
               height={90}
               className="relative z-10 object-contain w-full h-full
-                         group-hover:scale-110
-                         transition duration-300"
+                         group-hover:scale-110 transition duration-300"
             />
           </div>
         ))}
-
       </div>
     </div>
   )

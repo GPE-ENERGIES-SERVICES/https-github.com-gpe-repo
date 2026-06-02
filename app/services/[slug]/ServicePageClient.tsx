@@ -24,18 +24,13 @@ const CERTIFICATIONS_BY_SERVICE: Record<string, Certification[]> = {
       image: '/images/Certifications/qualifelec.png',
       description: "Qualification des entreprises d'électricité",
     },
-    {
-      title: 'AFNOR',
-      image: '/images/Certifications/AFNOR-removebg-preview.png',
-      description: 'Certification qualité et conformité normative',
-    },
-    {
-      title: 'OPQIBI',
-      image: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png',
-      description: "Qualification de l'ingénierie électrique",
-    },
   ],
   'bureau-etudes': [
+    {
+      title: 'ISO 9001',
+      image: '/images/Certifications/9001.png',
+      description: 'Certification système de management de la qualité',
+    },
     {
       title: 'AFNOR',
       image: '/images/Certifications/AFNOR-removebg-preview.png',
@@ -49,36 +44,36 @@ const CERTIFICATIONS_BY_SERVICE: Record<string, Certification[]> = {
   ],
   'mobilite-electrique': [
     {
-      title: 'Qualifelec',
-      image: '/images/Certifications/qualifelec.png',
+      title: 'Qualifelec IRVE',
+      image: '/images/Certifications/qualifirvenormale.png',
       description: 'Qualification IRVE pour les bornes de recharge',
     },
     {
-      title: 'AFNOR',
-      image: '/images/Certifications/AFNOR-removebg-preview.png',
-      description: 'Certification qualité et conformité normative',
-    },
-    {
-      title: 'OPQIBI',
-      image: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png',
-      description: "Qualification de l'ingénierie",
+      title: 'IRVE Véhicules',
+      image: '/images/Certifications/irvevoiture.png',
+      description: "Certification infrastructure de recharge pour véhicules électriques",
     },
   ],
   'renovation-energetique': [
-    {
-      title: 'QualiPAC',
-      image: '/images/Certifications/logo-qualipac.png',
-      description: 'Qualification RGE pour la rénovation énergétique',
-    },
     {
       title: 'Qualifelec',
       image: '/images/Certifications/qualifelec.png',
       description: 'Certification entreprise qualifiée RGE',
     },
     {
-      title: 'AFNOR',
-      image: '/images/Certifications/AFNOR-removebg-preview.png',
-      description: 'Certification qualité et conformité normative',
+      title: 'QualiPAC',
+      image: '/images/Certifications/logo-qualipac.png',
+      description: 'Qualification RGE pour la rénovation énergétique',
+    },
+    {
+      title: 'QualiPV RGE',
+      image: '/images/Certifications/Logo-QualiPV-RGE.png',
+      description: 'Qualification RGE pour les installations photovoltaïques',
+    },
+    {
+      title: 'OPQIBI',
+      image: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png',
+      description: "Qualification de l'ingénierie",
     },
   ],
   'chauffage-climatisation': [
@@ -87,49 +82,29 @@ const CERTIFICATIONS_BY_SERVICE: Record<string, Certification[]> = {
       image: '/images/Certifications/logo-qualipac.png',
       description: 'Qualification pompes à chaleur et systèmes thermiques',
     },
-    {
-      title: 'Qualifelec',
-      image: '/images/Certifications/qualifelec.png',
-      description: 'Certification des installateurs',
-    },
-    {
-      title: 'AFNOR',
-      image: '/images/Certifications/AFNOR-removebg-preview.png',
-      description: 'Certification qualité et conformité normative',
-    },
   ],
   'gtb-knx': [
     {
-      title: 'Qualifelec',
-      image: '/images/Certifications/qualifelec.png',
-      description: "Qualification des entreprises d'électricité et GTB",
-    },
-    {
-      title: 'AFNOR',
-      image: '/images/Certifications/AFNOR-removebg-preview.png',
-      description: 'Certification qualité et conformité normative',
-    },
-    {
-      title: 'OPQIBI',
-      image: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png',
-      description: "Qualification de l'ingénierie technique du bâtiment",
+      title: 'KNX',
+      image: '/images/Certifications/knx.png',
+      description: 'Certification KNX pour les systèmes de gestion technique du bâtiment',
     },
   ],
 }
 
 const CERTIFICATIONS_SUBTITLE_BY_SERVICE: Record<string, string> = {
   'courants-forts-faibles':
-    'Nos qualifications certifient notre expertise en installations électriques courants forts et faibles.',
+    'Notre qualification Qualifelec certifie notre expertise en installations électriques courants forts et faibles.',
   'bureau-etudes':
-    'Nos certifications garantissent la rigueur méthodologique et la qualité de nos études techniques.',
+    "Nos certifications ISO 9001, AFNOR et OPQIBI garantissent la rigueur et la qualité de nos études techniques.",
   'mobilite-electrique':
     'Nos qualifications IRVE certifient la conformité et la sécurité de vos infrastructures de recharge.',
   'renovation-energetique':
-    "Nos certifications RGE vous donnent accès aux aides financières et garantissent la qualité des travaux.",
+    "Nos certifications RGE vous donnent accès aux aides financières et garantissent la qualité des travaux de rénovation.",
   'chauffage-climatisation':
-    'Nos qualifications garantissent des installations thermiques conformes aux normes en vigueur.',
+    'Notre qualification QualiPAC garantit des installations thermiques conformes aux normes en vigueur.',
   'gtb-knx':
-    'Nos qualifications garantissent la maîtrise technique et la conformité de nos installations GTB/KNX.',
+    'Notre certification KNX garantit la maîtrise technique et la conformité de nos installations Smart Building.',
 }
 
 interface Props {
