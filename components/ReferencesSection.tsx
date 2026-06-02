@@ -79,7 +79,7 @@ export default function ReferencesSection() {
 
         {/* Client logos marquee */}
         <div className="mt-16 py-10 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
-  <div className="flex w-max animate-marquee">
+  <div className="flex w-max animate-marquee-slow">
     {marqueeItems.map((client, i) => (
       <div
         key={i}

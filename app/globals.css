@@ -67,6 +67,12 @@ body {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+.animate-marquee-slow {
+  animation: marquee 130s linear infinite;
+}
+.animate-marquee-slow:hover {
+  animation-play-state: paused;
+}
 
 @layer components {
   .section-padding {
