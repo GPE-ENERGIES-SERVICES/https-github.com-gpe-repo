@@ -53,6 +53,7 @@ const partnerCategories = [
       { name: 'Engie',             logo: '/images/LogoPartenaires/PV/engie.png' },
       { name: 'EDF Renouvelables', logo: '/images/LogoPartenaires/PV/edfrenouvelables.png' },
       { name: 'Les Mousquetaires', logo: '/images/LogoPartenaires/PV/mousquetaires.png' },
+      { name: 'Eiffage', logo: '/images/LogoPartenaires/PV/eiffageenergie.png' },
     ],
   },
   {
@@ -68,6 +69,7 @@ const partnerCategories = [
       { name: 'Beev',          logo: '/images/LogoPartenaires/IRVE/beev.png' },
       { name: 'Driveco',       logo: '/images/LogoPartenaires/IRVE/driveco.png' },
       { name: 'Stations-E',    logo: '/images/LogoPartenaires/IRVE/logo-stations-e2.png' },
+      { name: 'Dalkia',        logo: '/images/LogoPartenaires/IRVE/dalkiaelectronics.png' },
     ],
   },
   {

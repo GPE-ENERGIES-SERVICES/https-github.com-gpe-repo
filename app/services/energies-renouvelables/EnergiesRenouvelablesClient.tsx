@@ -130,13 +130,8 @@ export default function EnergiesRenouvelablesClient({ service }: Props) {
                   variants={fadeUp}
                 >
                   <div className="flex items-center gap-3 mb-6">
-                    <div
-                      className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ backgroundColor: `${service.color}15` }}
-                    >
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={service.color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-                      </svg>
+                    <div className="w-5 h-5 rounded-full bg-[#a3e635]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-2 h-2 rounded-full bg-[#a3e635]" />
                     </div>
                     <h3 className="text-xl font-semibold text-neutral-900">{section.title}</h3>
                   </div>

@@ -208,7 +208,7 @@ export default function AProposClient() {
                   <div className="w-10 h-10 rounded-xl bg-[#a3e635]/15 flex items-center justify-center text-xl">🌍</div>
                   <div>
                     <div className="text-sm font-semibold text-[#2e5240]">Présence internationale</div>
-                    <div className="text-xs text-neutral-500">Algérie · France · International</div>
+                    <div className="text-xs text-neutral-500">Algérie · France · Arabie saoudite</div>
                   </div>
                 </div>
               </motion.div>
