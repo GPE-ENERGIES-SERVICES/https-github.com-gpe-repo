@@ -106,7 +106,7 @@ export default function InternationalClient() {
   {/* Background image */}
   <div className="absolute inset-0">
     <Image
-      src="/images/internationalhero.jpg"
+      src="/images/kawkab.jpeg"
       alt="International"
       fill
       priority

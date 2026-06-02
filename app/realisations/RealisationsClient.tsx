@@ -47,7 +47,7 @@ export default function RealisationsClient() {
   {/* Background image */}
   <div className="absolute inset-0">
     <Image
-      src="/images/realisationshero.jpg"
+      src="/images/rhero.jpeg"
       alt="Réalisations"
       fill
       priority
