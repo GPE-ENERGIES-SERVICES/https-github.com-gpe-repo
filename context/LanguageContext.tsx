@@ -105,7 +105,7 @@ const t18n: Record<Lang, Record<string, string>> = {
 
     // ── Service: Courants forts & faibles
     'service.courants-forts-faibles.title': 'Courants forts & faibles',
-    'service.courants-forts-faibles.shortDesc': 'Conception et réalisation de vos installations électriques haute et basse tension, du tableau général jusqu\'aux équipements terminaux.',
+    'service.courants-forts-faibles.shortDesc': 'Installations électriques tertiaires et industrielles en courant fort et courant faible — du raccordement réseau à la mise en service complète.',
     'service.courants-forts-faibles.desc1': 'GPE Énergies & Services prend en charge l\'intégralité de vos installations électriques, de la conception des schémas unifilaires jusqu\'à la mise en service des équipements. Nos techniciens qualifiés interviennent sur tous types de bâtiments : tertiaires, industriels, commerciaux et résidentiels.',
     'service.courants-forts-faibles.desc2': 'Nous mettons notre expertise HTA/BT au service de vos projets en garantissant la conformité aux normes NF C 15-100 et la sécurité de vos installations. De la réalisation de tableaux électriques sur mesure à la maintenance préventive, nous vous accompagnons à chaque étape.',
     'service.courants-forts-faibles.benefit1': 'Conformité normes NF C 15-100',
@@ -115,7 +115,7 @@ const t18n: Record<Lang, Record<string, string>> = {
 
     // ── Service: Énergies renouvelables
     'service.energies-renouvelables.title': 'Énergies renouvelables',
-    'service.energies-renouvelables.shortDesc': 'Installation de systèmes photovoltaïques et de solutions de stockage énergétique pour accélérer votre transition vers l\'énergie verte.',
+    'service.energies-renouvelables.shortDesc': 'Solutions photovoltaïques clé en main, de l\'étude au génie civil — toiture, ombrières et centrales au sol pour particuliers, entreprises et collectivités.',
     'service.energies-renouvelables.desc1': 'Accélérez votre transition énergétique avec nos solutions photovoltaïques sur mesure. Notre équipe certifiée RGE conçoit, installe et met en service des systèmes solaires adaptés à vos besoins : autoconsommation totale ou partielle, vente de surplus ou systèmes hybrides avec stockage batterie.',
     'service.energies-renouvelables.desc2': 'Que vous soyez un particulier, une entreprise ou une collectivité, nous maximisons votre rentabilité et votre autonomie énergétique grâce à une étude personnalisée intégrant l\'ensemble des aides financières disponibles (MaPrimeRénov\', CEE, subventions locales).',
     'service.energies-renouvelables.benefit1': 'Panneaux photovoltaïques monocristallins',
@@ -125,7 +125,7 @@ const t18n: Record<Lang, Record<string, string>> = {
 
     // ── Service: Mobilité électrique
     'service.mobilite-electrique.title': 'Mobilité électrique',
-    'service.mobilite-electrique.shortDesc': 'Déploiement d\'infrastructures de recharge pour véhicules électriques, de la borne résidentielle aux solutions de supervision intelligente.',
+    'service.mobilite-electrique.shortDesc': 'Conception et déploiement d\'infrastructures de recharge pour véhicules électriques — du raccordement réseau à l\'installation de bornes AC et DC.',
     'service.mobilite-electrique.desc1': 'Nous concevons et déployons des infrastructures de recharge pour véhicules électriques adaptées à tous les contextes : résidentiel individuel, copropriété, parc d\'entreprise, espace public ou commerce. Nos techniciens certifiés IRVE garantissent conformité et performance de chaque installation.',
     'service.mobilite-electrique.desc2': 'Nos solutions évolutives et connectées s\'appuient sur des équipements de pointe et des plateformes de supervision intelligente, vous permettant de gérer votre parc de bornes à distance, d\'optimiser la facturation et d\'anticiper les besoins en maintenance.',
     'service.mobilite-electrique.benefit1': 'Bornes résidentielles & professionnelles',
@@ -145,7 +145,7 @@ const t18n: Record<Lang, Record<string, string>> = {
 
     // ── Service: Chauffage & climatisation
     'service.chauffage-climatisation.title': 'Chauffage & climatisation',
-    'service.chauffage-climatisation.shortDesc': 'Solutions CVC sur mesure pour un confort thermique optimal, de l\'installation à la maintenance.',
+    'service.chauffage-climatisation.shortDesc': 'Solutions CVC sur mesure pour un confort thermique optimal — climatisation, chauffage, ventilation et pompes à chaleur, de l\'installation à la maintenance.',
     'service.chauffage-climatisation.desc1': 'GPE Énergies & Services conçoit et installe des systèmes CVC adaptés à chaque usage : pompes à chaleur air/air et air/eau, climatisation réversible multi-split, planchers chauffants et systèmes de ventilation double-flux. Nos équipes qualifiées interviennent en neuf comme en rénovation.',
     'service.chauffage-climatisation.desc2': 'Au-delà de l\'installation, nous assurons la maintenance préventive et corrective de vos équipements pour garantir performances, longévité et économies d\'énergie sur le long terme. Un service de télémaintenance est disponible pour les parcs multi-sites.',
     'service.chauffage-climatisation.benefit1': 'Pompes à chaleur (air/air, air/eau)',
@@ -155,7 +155,7 @@ const t18n: Record<Lang, Record<string, string>> = {
 
     // ── Service: Bureau d'études
     'service.bureau-etudes.title': "Bureau d'études",
-    'service.bureau-etudes.shortDesc': 'Ingénierie, conception et maîtrise d\'œuvre pour vos projets électriques, énergétiques et CVC.',
+    'service.bureau-etudes.shortDesc': 'Ingénierie et conception spécialisées en électricité et énergies renouvelables — études techniques, dimensionnement et suivi de projets.',
     'service.bureau-etudes.desc1': 'Notre bureau d\'études pluridisciplinaire accompagne maîtres d\'ouvrage et promoteurs depuis la phase de programmation jusqu\'à la réception des ouvrages. Nous réalisons études de conception (schémas, plans, CCTP), chiffrages détaillés et dossiers de consultation des entreprises (DCE).',
     'service.bureau-etudes.desc2': 'Grâce à nos outils de modélisation BIM et de simulation thermique dynamique, nous optimisons la conception de vos projets avant leur réalisation, réduisant les risques et maîtrisant les coûts de construction et d\'exploitation.',
     'service.bureau-etudes.benefit1': 'Études techniques & réglementaires',
@@ -165,7 +165,7 @@ const t18n: Record<Lang, Record<string, string>> = {
 
     // ── Service: GTB / KNX
     'service.gtb-knx.title': 'Smart building',
-    'service.gtb-knx.shortDesc': "Conception et déploiement de systèmes de gestion technique du bâtiment basés sur le protocole KNX pour l'automatisation intelligente de vos espaces.",
+    'service.gtb-knx.shortDesc': "Solutions de gestion technique du bâtiment basées sur le protocole KNX — automatisation, supervision et optimisation énergétique de vos installations.",
     'service.gtb-knx.desc1': "GPE Énergies & Services conçoit et déploie des systèmes de Gestion Technique du Bâtiment (GTB) basés sur le protocole KNX, standard international ouvert pour l'automatisation des bâtiments. Nos ingénieurs certifiés prennent en charge l'intégralité du projet, de l'étude de conception jusqu'à la mise en service et la formation des équipes d'exploitation.",
     'service.gtb-knx.desc2': "Grâce à la GTB et au protocole KNX, vous centralisez le pilotage de l'éclairage, des stores, du chauffage, de la climatisation et des contrôles d'accès sur une interface unique et intuitive. Cette approche permet de réduire significativement les consommations énergétiques tout en améliorant le confort des occupants.",
     'service.gtb-knx.benefit1': 'Programmation KNX certifiée ETS',
@@ -175,7 +175,7 @@ const t18n: Record<Lang, Record<string, string>> = {
 
     // ── Service: VRD
     'service.vrd.title': 'VRD',
-    'service.vrd.shortDesc': "Voiries, réseaux et divers : conception et réalisation de tous les réseaux extérieurs, assainissement, terrassement et aménagements de site.",
+    'service.vrd.shortDesc': "Voiries, réseaux et divers — conception et réalisation de tous les aménagements extérieurs, réseaux secs et réseaux humides.",
     'service.vrd.desc1': "GPE Énergies & Services intervient sur l'ensemble des travaux de Voiries et Réseaux Divers (VRD) : terrassement, création et réhabilitation de voiries, réseaux d'assainissement, adduction d'eau potable, réseaux électriques extérieurs et éclairage public. Nos équipes coordonnent les interventions avec l'ensemble des concessionnaires pour assurer la conformité et la sécurité des ouvrages.",
     'service.vrd.desc2': "De l'aménagement de lotissements à la viabilisation de zones d'activité ou de parcs industriels, nous accompagnons maîtres d'ouvrage et collectivités de la phase études jusqu'à la réception des travaux. Notre approche globale garantit la cohérence technique entre les différents corps d'état et le respect des délais contractuels.",
     'service.vrd.benefit1': 'Terrassement et travaux de déblai / remblai',
