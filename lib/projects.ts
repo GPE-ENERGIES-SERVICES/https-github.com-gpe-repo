@@ -112,9 +112,14 @@ export const projects: Project[] = [
     year: 2024,
     description: "Installations électriques CFO/CFA du B&B Hotel Avignon 1 : distribution basse tension, éclairage LED des chambres et espaces communs, SSI et réseaux courants faibles.",
     longDescription: "Réalisation des installations électriques courants forts et courants faibles du B&B Hotel Avignon 1. Les travaux comprennent la distribution basse tension des chambres et des espaces communs, l'éclairage LED haute efficacité, le déploiement d'un système de sécurité incendie (SSI) et les réseaux courants faibles : câblage structuré, contrôle d'accès et télévision.\n\nCe chantier hôtelier a été conduit en coordination étroite avec les équipes de construction afin de respecter les délais d'ouverture de l'établissement et de garantir la conformité de l'ensemble des installations.",
-    // TODO: ajouter les photos du projet B&B Hotel Avignon 1
-    image: '/images/services/cff.jpeg',
-    gallery: [],
+    image: '/images/b%26b%20avignon%201/WhatsApp%20Image%202026-06-01%20at%2021.07.27.jpeg',
+    gallery: [
+      '/images/b%26b%20avignon%201/WhatsApp%20Image%202026-06-01%20at%2021.07.27%20(1).jpeg',
+      '/images/b%26b%20avignon%201/WhatsApp%20Image%202026-06-01%20at%2021.07.27%20(2).jpeg',
+      '/images/b%26b%20avignon%201/WhatsApp%20Image%202026-06-01%20at%2021.07.27%20(3).jpeg',
+      '/images/b%26b%20avignon%201/WhatsApp%20Image%202026-06-01%20at%2021.07.28.jpeg',
+      '/images/b%26b%20avignon%201/WhatsApp%20Image%202026-06-01%20at%2021.07.28%20(1).jpeg',
+    ],
     tags: ['CFO/CFA', 'Hôtellerie', 'SSI', 'LED'],
   },
   {
@@ -126,9 +131,13 @@ export const projects: Project[] = [
     year: 2024,
     description: "Installations électriques CFO/CFA du B&B Hotel Avignon 2 : distribution BT, éclairage LED, système de sécurité incendie et réseaux courants faibles.",
     longDescription: "Réalisation des installations électriques CFO/CFA du B&B Hotel Avignon 2. Les travaux couvrent la distribution basse tension des chambres et parties communes, l'éclairage LED haute performance, le système de sécurité incendie (SSI) ainsi que l'ensemble des réseaux courants faibles : câblage structuré, contrôle d'accès et systèmes audiovisuels.\n\nCe second établissement B&B à Avignon a été réalisé en continuité du premier chantier, permettant une synergie technique et une optimisation des interventions sur les deux sites.",
-    // TODO: ajouter les photos du projet B&B Hotel Avignon 2
-    image: '/images/services/cff.jpeg',
-    gallery: [],
+    image: '/images/b%26b%20avignon%202/WhatsApp%20Image%202026-06-01%20at%2021.06.20.jpeg',
+    gallery: [
+      '/images/b%26b%20avignon%202/WhatsApp%20Image%202026-06-01%20at%2021.06.20%20(1).jpeg',
+      '/images/b%26b%20avignon%202/WhatsApp%20Image%202026-06-01%20at%2021.06.21.jpeg',
+      '/images/b%26b%20avignon%202/WhatsApp%20Image%202026-06-01%20at%2021.06.21%20(1).jpeg',
+      '/images/b%26b%20avignon%202/WhatsApp%20Image%202026-06-01%20at%2021.06.21%20(2).jpeg',
+    ],
     tags: ['CFO/CFA', 'Hôtellerie', 'SSI', 'LED'],
   },
   {
@@ -360,9 +369,14 @@ export const projects: Project[] = [
     year: 2025,
     description: "Centrale photovoltaïque de 300 kWc en toiture du Gymnase Tony Parker à Paris : production d'énergie renouvelable pour réduire l'empreinte carbone de cet équipement sportif de référence.",
     longDescription: "Réalisation d'une centrale photovoltaïque de 300 kWc en toiture du Gymnase Tony Parker à Paris. Ce projet d'envergure pour un équipement sportif de référence comprend la conception, la fourniture, la pose et la mise en service d'une installation photovoltaïque haute performance.\n\nL'intégration de cette centrale solaire contribue à la réduction significative de l'empreinte carbone du gymnase, en produisant une énergie renouvelable locale qui couvre une part importante des besoins électriques de l'établissement.",
-    // TODO: ajouter les photos du projet Gymnase Tony Parker - Paris
-    image: '/images/services/energier.jpeg',
-    gallery: [],
+    image: '/images/fymnase%20tony%20parker%202025/WhatsApp%20Image%202026-06-01%20at%2021.26.17.jpeg',
+    gallery: [
+      '/images/fymnase%20tony%20parker%202025/WhatsApp%20Image%202026-06-01%20at%2021.26.17%20(1).jpeg',
+      '/images/fymnase%20tony%20parker%202025/WhatsApp%20Image%202026-06-01%20at%2021.26.17%20(2).jpeg',
+      '/images/fymnase%20tony%20parker%202025/WhatsApp%20Image%202026-06-01%20at%2021.26.17%20(3).jpeg',
+      '/images/fymnase%20tony%20parker%202025/WhatsApp%20Image%202026-06-01%20at%2021.26.17%20(4).jpeg',
+      '/images/fymnase%20tony%20parker%202025/WhatsApp%20Image%202026-06-01%20at%2021.26.18.jpeg',
+    ],
     tags: ['Photovoltaïque', '300 kWc', 'Équipement sportif', 'RGE'],
   },
   {
@@ -374,9 +388,14 @@ export const projects: Project[] = [
     year: 2025,
     description: "Centrale photovoltaïque de 350 kWc sur une exploitation agricole à Clermont-Ferrand : production solaire intégrée à l'activité agricole avec supervision et suivi de production.",
     longDescription: "Réalisation d'une centrale photovoltaïque de 350 kWc sur une exploitation agricole à Clermont-Ferrand. Ce projet comprend l'ensemble des prestations, de l'étude de faisabilité au génie civil, en passant par la fourniture et la pose des modules photovoltaïques et des équipements électriques associés.\n\nL'installation est couplée à un système de supervision permettant un suivi en temps réel de la production, une détection rapide des anomalies et une optimisation continue des performances.",
-    // TODO: ajouter les photos du projet Exploitation Agricole 350 kWc - Clermont-Ferrand
-    image: '/images/services/energier.jpeg',
-    gallery: [],
+    image: '/images/exploiatation%20agricole%20clerment%20ferand%20350%20kwc%202025/WhatsApp%20Image%202026-06-01%20at%2021.35.09.jpeg',
+    gallery: [
+      '/images/exploiatation%20agricole%20clerment%20ferand%20350%20kwc%202025/WhatsApp%20Image%202026-06-01%20at%2021.35.09%20(1).jpeg',
+      '/images/exploiatation%20agricole%20clerment%20ferand%20350%20kwc%202025/WhatsApp%20Image%202026-06-01%20at%2021.35.09%20(2).jpeg',
+      '/images/exploiatation%20agricole%20clerment%20ferand%20350%20kwc%202025/WhatsApp%20Image%202026-06-01%20at%2021.35.09%20(3).jpeg',
+      '/images/exploiatation%20agricole%20clerment%20ferand%20350%20kwc%202025/WhatsApp%20Image%202026-06-01%20at%2021.35.09%20(4).jpeg',
+      '/images/exploiatation%20agricole%20clerment%20ferand%20350%20kwc%202025/WhatsApp%20Image%202026-06-01%20at%2021.35.09%20(5).jpeg',
+    ],
     tags: ['Photovoltaïque', '350 kWc', 'Agricole', 'RGE'],
   },
   {
@@ -388,9 +407,14 @@ export const projects: Project[] = [
     year: 2025,
     description: "Centrale photovoltaïque de 250 kWc sur le site Agile Université à Nice : production d'énergie renouvelable pour un campus, réduisant les consommations et les émissions de CO₂.",
     longDescription: "Installation d'une centrale photovoltaïque de 250 kWc sur le site Agile Université à Nice. Ce projet académique comprend la conception, la fourniture, la pose et la mise en service d'une installation solaire destinée à couvrir une partie des besoins énergétiques du campus.\n\nL'installation s'inscrit dans une démarche de responsabilité environnementale, permettant de réduire les émissions de CO₂ et la facture énergétique du site, tout en sensibilisant la communauté universitaire aux enjeux de la transition énergétique.",
-    // TODO: ajouter les photos du projet Agile Université 250 kWc - Nice
-    image: '/images/services/energier.jpeg',
-    gallery: [],
+    image: '/images/agile%20nice/WhatsApp%20Image%202026-06-01%20at%2021.40.54.jpeg',
+    gallery: [
+      '/images/agile%20nice/WhatsApp%20Image%202026-06-01%20at%2021.40.54%20(1).jpeg',
+      '/images/agile%20nice/WhatsApp%20Image%202026-06-01%20at%2021.40.54%20(2).jpeg',
+      '/images/agile%20nice/WhatsApp%20Image%202026-06-01%20at%2021.40.54%20(3).jpeg',
+      '/images/agile%20nice/WhatsApp%20Image%202026-06-01%20at%2021.40.54%20(4).jpeg',
+      '/images/agile%20nice/WhatsApp%20Image%202026-06-01%20at%2021.40.54%20(5).jpeg',
+    ],
     tags: ['Photovoltaïque', '250 kWc', 'Enseignement supérieur', 'RGE'],
   },
 
