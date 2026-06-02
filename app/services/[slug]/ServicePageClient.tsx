@@ -32,11 +32,6 @@ const CERTIFICATIONS_BY_SERVICE: Record<string, Certification[]> = {
       description: 'Certification système de management de la qualité',
     },
     {
-      title: 'AFNOR',
-      image: '/images/Certifications/AFNOR-removebg-preview.png',
-      description: 'Certification qualité et conformité normative',
-    },
-    {
       title: 'OPQIBI',
       image: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png',
       description: "Qualification des bureaux d'études et de l'ingénierie",
@@ -96,7 +91,7 @@ const CERTIFICATIONS_SUBTITLE_BY_SERVICE: Record<string, string> = {
   'courants-forts-faibles':
     'Notre qualification Qualifelec certifie notre expertise en installations électriques courants forts et faibles.',
   'bureau-etudes':
-    "Nos certifications ISO 9001, AFNOR et OPQIBI garantissent la rigueur et la qualité de nos études techniques.",
+    "Nos certifications ISO 9001 et OPQIBI garantissent la rigueur et la qualité de nos études techniques.",
   'mobilite-electrique':
     'Nos qualifications IRVE certifient la conformité et la sécurité de vos infrastructures de recharge.',
   'renovation-energetique':
