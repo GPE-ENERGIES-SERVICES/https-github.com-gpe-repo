@@ -35,7 +35,7 @@ export const services: Service[] = [
         title: '🚀 Nos solutions',
         items: [
           'Réseaux basse tension et haute tension (HTA/BT)',
-          'Installation d'armoires et tableaux électriques',
+          "Installation d'armoires et tableaux électriques",
           'Câblage et raccordements électriques',
           'Éclairage intérieur et extérieur',
           "Systèmes d'alimentation de secours (groupes électrogènes, UPS)",
@@ -45,7 +45,7 @@ export const services: Service[] = [
         ],
       },
       {
-        title: '🏢 Secteurs d'intervention',
+        title: "🏢 Secteurs d'intervention",
         items: [
           'Logements / Habitat',
           'Tertiaire / Logistique',
@@ -88,7 +88,7 @@ export const services: Service[] = [
         ],
       },
       {
-        title: '🏢 Secteurs d'intervention',
+        title: "🏢 Secteurs d'intervention",
         items: [
           'Logements / Habitat',
           'Tertiaire / Logistique',
@@ -133,7 +133,7 @@ export const services: Service[] = [
         ],
       },
       {
-        title: '🏢 Secteurs d'intervention',
+        title: "🏢 Secteurs d'intervention",
         items: [
           'Logements / Habitat',
           'Tertiaire / Logistique',
@@ -176,7 +176,7 @@ export const services: Service[] = [
         ],
       },
       {
-        title: '🏢 Secteurs d'intervention',
+        title: "🏢 Secteurs d'intervention",
         items: [
           'Logements / Habitat',
           'Tertiaire / Logistique',
@@ -239,7 +239,7 @@ export const services: Service[] = [
         ],
       },
       {
-        title: '🏢 Secteurs d'intervention',
+        title: "🏢 Secteurs d'intervention",
         items: [
           'Logements / Habitat',
           'Tertiaire / Logistique',
@@ -283,7 +283,7 @@ export const services: Service[] = [
         ],
       },
       {
-        title: '🏢 Secteurs d'intervention',
+        title: "🏢 Secteurs d'intervention",
         items: [
           'Logements / Habitat',
           'Tertiaire / Logistique',
@@ -328,7 +328,7 @@ export const services: Service[] = [
         ],
       },
       {
-        title: '🏢 Secteurs d'intervention',
+        title: "🏢 Secteurs d'intervention",
         items: [
           'Logements / Habitat',
           'Tertiaire / Logistique',
