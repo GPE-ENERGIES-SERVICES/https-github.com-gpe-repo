@@ -134,47 +134,7 @@ export default function AProposClient() {
       </section>
 
       {/* ── PHOTO INSTITUTIONNELLE ───────────────────────────────── */}
-      <section className="pt-4 pb-16 bg-white">
-        <div className="section-padding container-max">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65 }}
-            className="relative w-full rounded-3xl overflow-hidden shadow-2xl shadow-neutral-200/60"
-            style={{ height: 'clamp(220px, 40vw, 500px)' }}
-          >
-            {/* TODO: Remplacer /images/realisationherox.jpeg par la photo institutionnelle de l'entreprise */}
-            <Image
-              src="/images/realisationherox.jpeg"
-              alt="GPE Énergies & Services — équipe et chantiers"
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1280px"
-            />
-
-            {/* Subtle gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1a2e22]/55 via-transparent to-transparent" />
-
-            {/* Caption overlay */}
-            <div className="absolute bottom-0 left-0 right-0 px-7 py-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
-              <div>
-                <p className="text-white font-semibold text-base sm:text-lg leading-tight">
-                  GPE Énergies & Services
-                </p>
-                <p className="text-white/65 text-sm mt-0.5">
-                  Spécialiste des énergies renouvelables et des infrastructures électriques
-                </p>
-              </div>
-              <span className="self-start sm:self-auto inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[#c6ff00] bg-black/20 border border-white/15 px-2.5 py-1.5 rounded-full backdrop-blur-sm whitespace-nowrap">
-                <span className="w-1 h-1 rounded-full bg-[#c6ff00]" />
-                Depuis 2023
-              </span>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
+      
       {/* ── PRÉSENTATION ──────────────────────────────────────────── */}
       <section className="py-28 bg-white">
         <div className="section-padding container-max">
