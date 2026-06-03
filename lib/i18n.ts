@@ -11,8 +11,8 @@ const frTranslations: Record<string, string> = {
   'service.chauffage-climatisation.shortDesc': "Solutions CVC sur mesure pour un confort thermique optimal, de l'installation à la maintenance.",
   'service.bureau-etudes.title': "Bureau d'études",
   'service.bureau-etudes.shortDesc': "Ingénierie, conception et maîtrise d'œuvre pour vos projets électriques, énergétiques et CVC.",
-  'service.gtb-knx.title': 'GTB / KNX',
-  'service.gtb-knx.shortDesc': "Conception et déploiement de systèmes de gestion technique du bâtiment basés sur le protocole KNX pour l'automatisation intelligente de vos espaces.",
+  'service.smart-building.title': 'Smart building',
+  'service.smart-building.shortDesc': "Conception et déploiement de systèmes de gestion technique du bâtiment basés sur le protocole KNX pour l'automatisation intelligente de vos espaces.",
   'service.vrd.title': 'VRD',
   'service.vrd.shortDesc': "Voiries, réseaux et divers : conception et réalisation de tous les réseaux extérieurs, assainissement, terrassement et aménagements de site.",
 }

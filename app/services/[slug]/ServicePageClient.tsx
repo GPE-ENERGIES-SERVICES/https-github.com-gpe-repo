@@ -78,7 +78,7 @@ const CERTIFICATIONS_BY_SERVICE: Record<string, Certification[]> = {
       description: 'Qualification pompes à chaleur et systèmes thermiques',
     },
   ],
-  'gtb-knx': [
+  'smart-building': [
     {
       title: 'KNX',
       image: '/images/Certifications/knx.png',
@@ -93,11 +93,11 @@ type Logiciel = { name: string; image: string }
 
 const LOGICIELS_BY_SERVICE: Record<string, Logiciel[]> = {
   'bureau-etudes': [
-    { name: 'AutoCAD',    image: '/images/bu/AutoCad_new_logo.svg.png' },
-    { name: 'Revit',      image: '/images/bu/revit-logo-2024_0.png' },
-    { name: 'ELIE BT',    image: '/images/bu/Logo-ELIE-BT-2025.png' },
-    { name: 'Logiciel',   image: '/images/bu/1692370555974.png' },
-    { name: 'Logiciel',   image: '/images/bu/logo-pro.png' },
+    { name: 'AutoCAD',    image: '/images/bu/1.png' },
+    { name: 'Revit',      image: '/images/bu/2.png' },
+    { name: 'ELIE BT',    image: '/images/bu/3.png' },
+    { name: 'Logiciel',   image: '/images/bu/4.png' },
+    { name: 'Logiciel',   image: '/images/bu/5.png' },
   ],
 }
 
@@ -112,7 +112,7 @@ const CERTIFICATIONS_SUBTITLE_BY_SERVICE: Record<string, string> = {
     "Nos certifications RGE vous donnent accès aux aides financières et garantissent la qualité des travaux de rénovation.",
   'chauffage-climatisation':
     'Notre qualification QualiPAC garantit des installations thermiques conformes aux normes en vigueur.',
-  'gtb-knx':
+  'smart-building':
     'Notre certification KNX garantit la maîtrise technique et la conformité de nos installations Smart Building.',
 }
 

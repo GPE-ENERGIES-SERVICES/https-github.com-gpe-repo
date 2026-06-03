@@ -13,18 +13,19 @@ export default function Footer() {
 
   const navLinks = [
     { labelKey: 'footer.nav.home', href: '/' },
+    { labelKey: 'footer.nav.about', href: '/a-propos' },
     { labelKey: 'footer.nav.services', href: '/#services' },
     { labelKey: 'footer.nav.references', href: '/realisations' },
-    { labelKey: 'footer.nav.about', href: '/a-propos' },
-    { labelKey: 'footer.nav.contact', href: '/contact' },
     { labelKey: 'nav.international', href: '/international' },
+    { labelKey: 'footer.nav.contact', href: '/contact' },
+
   ]
 
   const keyServices = [
     { labelKey: 'service.courants-forts-faibles.title', href: '/services/courants-forts-faibles' },
     { labelKey: 'service.energies-renouvelables.title', href: '/services/energies-renouvelables' },
     { labelKey: 'service.mobilite-electrique.title', href: '/services/mobilite-electrique' },
-    { labelKey: 'service.gtb-knx.title', href: '/services/gtb-knx' },
+    { labelKey: 'service.smart-building.title', href: '/services/smart-building' },
     { labelKey: 'service.renovation-energetique.title', href: '/services/renovation-energetique' },
     { labelKey: 'service.chauffage-climatisation.title', href: '/services/chauffage-climatisation' },
     { labelKey: 'service.bureau-etudes.title', href: '/services/bureau-etudes' },

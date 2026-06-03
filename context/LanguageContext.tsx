@@ -76,7 +76,7 @@ const t18n: Record<Lang, Record<string, string>> = {
     'footer.nav.home': 'Accueil',
     'footer.nav.services': 'Services',
     'footer.nav.references': 'Réalisations',
-    'footer.nav.about': 'À propos',
+    'footer.nav.about': 'À propos de nous',
     'footer.nav.contact': 'Contact',
 
     // ── Service page
@@ -164,14 +164,14 @@ const t18n: Record<Lang, Record<string, string>> = {
     'service.bureau-etudes.benefit4': "Maîtrise d'œuvre complète",
 
     // ── Service: GTB / KNX
-    'service.gtb-knx.title': 'Smart building',
-    'service.gtb-knx.shortDesc': "Solutions de gestion technique du bâtiment basées sur le protocole KNX — automatisation, supervision et optimisation énergétique de vos installations.",
-    'service.gtb-knx.desc1': "GPE Énergies & Services conçoit et déploie des systèmes de Gestion Technique du Bâtiment (GTB) basés sur le protocole KNX, standard international ouvert pour l'automatisation des bâtiments. Nos ingénieurs certifiés prennent en charge l'intégralité du projet, de l'étude de conception jusqu'à la mise en service et la formation des équipes d'exploitation.",
-    'service.gtb-knx.desc2': "Grâce à la GTB et au protocole KNX, vous centralisez le pilotage de l'éclairage, des stores, du chauffage, de la climatisation et des contrôles d'accès sur une interface unique et intuitive. Cette approche permet de réduire significativement les consommations énergétiques tout en améliorant le confort des occupants.",
-    'service.gtb-knx.benefit1': 'Programmation KNX certifiée ETS',
-    'service.gtb-knx.benefit2': 'Supervision centralisée (BMS / SCADA)',
-    'service.gtb-knx.benefit3': 'Intégration multi-protocoles (BACnet, Modbus)',
-    'service.gtb-knx.benefit4': 'Télémaintenance et formation exploitation',
+    'service.smart-building.title': 'Smart Building',
+    'service.smart-building.shortDesc': "Solutions de gestion technique du bâtiment basées sur le protocole KNX — automatisation, supervision et optimisation énergétique de vos installations.",
+    'service.smart-building.desc1': "GPE Énergies & Services conçoit et déploie des systèmes de Gestion Technique du Bâtiment (GTB) basés sur le protocole KNX, standard international ouvert pour l'automatisation des bâtiments. Nos ingénieurs certifiés prennent en charge l'intégralité du projet, de l'étude de conception jusqu'à la mise en service et la formation des équipes d'exploitation.",
+    'service.smart-building.desc2': "Grâce à la GTB et au protocole KNX, vous centralisez le pilotage de l'éclairage, des stores, du chauffage, de la climatisation et des contrôles d'accès sur une interface unique et intuitive. Cette approche permet de réduire significativement les consommations énergétiques tout en améliorant le confort des occupants.",
+    'service.smart-building.benefit1': 'Programmation KNX certifiée ETS',
+    'service.smart-building.benefit2': 'Supervision centralisée (BMS / SCADA)',
+    'service.smart-building.benefit3': 'Intégration multi-protocoles (BACnet, Modbus)',
+    'service.smart-building.benefit4': 'Télémaintenance et formation exploitation',
 
     // ── Service: VRD
     'service.vrd.title': 'VRD',
@@ -230,7 +230,7 @@ const t18n: Record<Lang, Record<string, string>> = {
     // ── International
     'international.hero.label': 'Présence mondiale',
     'international.hero.title': 'Au-delà des frontières.',
-    'international.hero.sub': "GPE Énergies & Services accompagne des projets d'envergure en France et à l'international, en apportant son expertise technique sur chaque continent.",
+    'international.hero.sub': "GPE Énergies & Services accompagne des projets d'envergure en Algérie et à l'international, en apportant son expertise technique sur chaque continent.",
     'international.locations.title': 'Nos implantations',
     'international.map.title': 'Une présence sur 3 continents.',
     'international.partners.title': 'Partenaires internationaux',
@@ -396,14 +396,14 @@ const t18n: Record<Lang, Record<string, string>> = {
     'service.bureau-etudes.benefit4': 'Full Contract Administration (MOE)',
 
     // ── Service: BMS / KNX Systems
-    'service.gtb-knx.title': 'BMS / KNX Systems',
-    'service.gtb-knx.shortDesc': 'Design and deployment of Building Management Systems based on the KNX protocol for intelligent automation and energy optimisation of your premises.',
-    'service.gtb-knx.desc1': 'GPE Énergies & Services designs and deploys Building Management Systems (BMS) built on the KNX protocol — the open international standard for building automation. Our certified engineers manage the full project lifecycle, from conceptual design through to commissioning and operator training.',
-    'service.gtb-knx.desc2': 'By integrating BMS and KNX, you centralise control of lighting, blinds, heating, air conditioning, and access systems on a single intuitive interface. This approach enables significant energy savings while improving occupant comfort and operational efficiency across all building types.',
-    'service.gtb-knx.benefit1': 'KNX ETS-Certified Programming',
-    'service.gtb-knx.benefit2': 'Centralised Supervision (BMS / SCADA)',
-    'service.gtb-knx.benefit3': 'Multi-Protocol Integration (BACnet, Modbus)',
-    'service.gtb-knx.benefit4': 'Remote Monitoring & Operator Training',
+    'service.smart-building.title': 'BMS / KNX Systems',
+    'service.smart-building.shortDesc': 'Design and deployment of Building Management Systems based on the KNX protocol for intelligent automation and energy optimisation of your premises.',
+    'service.smart-building.desc1': 'GPE Énergies & Services designs and deploys Building Management Systems (BMS) built on the KNX protocol — the open international standard for building automation. Our certified engineers manage the full project lifecycle, from conceptual design through to commissioning and operator training.',
+    'service.smart-building.desc2': 'By integrating BMS and KNX, you centralise control of lighting, blinds, heating, air conditioning, and access systems on a single intuitive interface. This approach enables significant energy savings while improving occupant comfort and operational efficiency across all building types.',
+    'service.smart-building.benefit1': 'KNX ETS-Certified Programming',
+    'service.smart-building.benefit2': 'Centralised Supervision (BMS / SCADA)',
+    'service.smart-building.benefit3': 'Multi-Protocol Integration (BACnet, Modbus)',
+    'service.smart-building.benefit4': 'Remote Monitoring & Operator Training',
 
     // ── Service: Civil Engineering & Site Works
     'service.vrd.title': 'Civil Engineering & Site Works',
@@ -624,14 +624,14 @@ const t18n: Record<Lang, Record<string, string>> = {
     'service.bureau-etudes.benefit4': 'إدارة عقود كاملة (MOE)',
 
     // ── Service: أنظمة GTB / KNX
-    'service.gtb-knx.title': 'أنظمة GTB / KNX',
-    'service.gtb-knx.shortDesc': 'تصميم ونشر أنظمة الإدارة التقنية للمباني وفق بروتوكول KNX لأتمتة مبانيكم وتحسين استهلاككم الطاقوي.',
-    'service.gtb-knx.desc1': 'تصمم GPE Énergies & Services وتنشر أنظمة الإدارة التقنية للمباني (GTB) المبنية على بروتوكول KNX، المعيار الدولي المفتوح لأتمتة المباني. يتولى مهندسونا المعتمدون إدارة دورة حياة المشروع الكاملة، من التصميم المفاهيمي وحتى التشغيل وتدريب فرق الاستغلال.',
-    'service.gtb-knx.desc2': 'بفضل تكامل GTB وKNX، تتمكنون من مركزة التحكم في الإضاءة والستائر والتدفئة والتكييف وأنظمة التحكم في الوصول على واجهة واحدة وسهلة الاستخدام. يُتيح هذا النهج توفيرات طاقوية ملموسة مع تحسين راحة شاغلي المبنى وكفاءة التشغيل.',
-    'service.gtb-knx.benefit1': 'برمجة KNX معتمدة وفق معيار ETS',
-    'service.gtb-knx.benefit2': 'إشراف مركزي (BMS / SCADA)',
-    'service.gtb-knx.benefit3': 'تكامل متعدد البروتوكولات (BACnet، Modbus)',
-    'service.gtb-knx.benefit4': 'صيانة عن بُعد وتدريب فرق التشغيل',
+    'service.smart-building.title': 'أنظمة GTB / KNX',
+    'service.smart-building.shortDesc': 'تصميم ونشر أنظمة الإدارة التقنية للمباني وفق بروتوكول KNX لأتمتة مبانيكم وتحسين استهلاككم الطاقوي.',
+    'service.smart-building.desc1': 'تصمم GPE Énergies & Services وتنشر أنظمة الإدارة التقنية للمباني (GTB) المبنية على بروتوكول KNX، المعيار الدولي المفتوح لأتمتة المباني. يتولى مهندسونا المعتمدون إدارة دورة حياة المشروع الكاملة، من التصميم المفاهيمي وحتى التشغيل وتدريب فرق الاستغلال.',
+    'service.smart-building.desc2': 'بفضل تكامل GTB وKNX، تتمكنون من مركزة التحكم في الإضاءة والستائر والتدفئة والتكييف وأنظمة التحكم في الوصول على واجهة واحدة وسهلة الاستخدام. يُتيح هذا النهج توفيرات طاقوية ملموسة مع تحسين راحة شاغلي المبنى وكفاءة التشغيل.',
+    'service.smart-building.benefit1': 'برمجة KNX معتمدة وفق معيار ETS',
+    'service.smart-building.benefit2': 'إشراف مركزي (BMS / SCADA)',
+    'service.smart-building.benefit3': 'تكامل متعدد البروتوكولات (BACnet، Modbus)',
+    'service.smart-building.benefit4': 'صيانة عن بُعد وتدريب فرق التشغيل',
 
     // ── Service: الطرق والشبكات والتهيئة
     'service.vrd.title': 'الطرق والشبكات والتهيئة',

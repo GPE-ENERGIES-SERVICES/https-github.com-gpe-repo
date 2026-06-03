@@ -78,12 +78,11 @@ export const services: Service[] = [
         title: '🚀 Nos solutions',
         items: [
           'Installations photovoltaïques pour particuliers ≤ 36 kWc',
-          'Générateurs photovoltaïques moyenne puissance ≤ 500 kWc',
-          'Centrales photovoltaïques haute puissance ≥ 500 kWc',
-          'Vente totale',
+          'Installation des générateurs photovoltaïques moyenne puissance ≤ 500 kWc',
+          'Installation Centrales photovoltaïques haute puissance > 500 kWc',
+          'Installation photovoltaïque en vente totale',
           'Installations hybrides avec batteries',
-          'Autoconsommation totale',
-          'Autoconsommation partielle',
+          'Installation en autoconsommation totale / partielle',
         ],
       },
       {
@@ -121,13 +120,12 @@ export const services: Service[] = [
       {
         title: '🚀 Nos solutions',
         items: [
-          'Bornes de recharge résidentielles (wallbox)',
-          'Bornes AC collectives pour copropriétés et parkings',
+          'Bornes de recharge résidentielles',
+          'Bornes collectives pour copropriétés et parkings',
           'Bornes DC rapide et ultra-rapide',
           "Infrastructure IRVE pour flottes d'entreprise",
-          'Prééquipement IRVE pour bâtiments neufs',
+          'Pré-équipement IRVE pour bâtiments neufs',
           'Supervision et télégestion des points de charge',
-          'Étude de renforcement réseau',
         ],
       },
       {
@@ -145,9 +143,9 @@ export const services: Service[] = [
     image: '/images/services/mobilite.jpeg',
   },
   {
-    slug: 'gtb-knx',
-    title: 'service.gtb-knx.title',
-    shortDesc: 'service.gtb-knx.shortDesc',
+    slug: 'smart-building',
+    title: 'service.smart-building.title',
+    shortDesc: 'service.smart-building.shortDesc',
     intro:
       "GPE conçoit et déploie des systèmes de Gestion Technique du Bâtiment (GTB) basés sur le protocole KNX, standard international pour l'automatisation intelligente des espaces. Nos équipes certifiées assurent l'intégration de l'ensemble des équipements techniques — éclairage, stores, chauffage, climatisation et contrôles d'accès — dans une plateforme de supervision centralisée. Cette approche permet une réduction significative des consommations énergétiques tout en améliorant le confort et la maîtrise des installations.",
     sections: [
@@ -191,7 +189,7 @@ export const services: Service[] = [
     title: 'service.renovation-energetique.title',
     shortDesc: 'service.renovation-energetique.shortDesc',
     intro:
-      "GPE accompagne ses clients dans l'amélioration de la performance énergétique de leurs bâtiments. De l'audit initial aux travaux d'isolation, nous intervenons sur l'ensemble des postes de consommation afin de réduire les dépenses énergétiques et valoriser le patrimoine immobilier. Certifiés RGE, nos équipes vous accompagnent dans l'accès aux aides financières disponibles.",
+      "GPE accompagne ses clients dans l'amélioration de la performance énergétique de leurs bâtiments. De l'audit initial aux travaux d'isolation, nous intervenons sur l'ensemble des postes de consommation afin de réduire les dépenses énergétiques et valoriser le patrimoine immobilier.",
     sections: [
       {
         title: '🛠️ Méthodologie & accompagnement',
@@ -211,7 +209,6 @@ export const services: Service[] = [
           'Isolation des planchers bas',
           'Remplacement des menuiseries (fenêtres, portes)',
           'Audit énergétique et bilan thermique',
-          "Accompagnement aux aides financières (MaPrimeRénov', CEE)",
         ],
       },
       {
@@ -253,7 +250,6 @@ export const services: Service[] = [
           'Planchers chauffants et refroidissants',
           'Chaudières gaz à condensation',
           "Systèmes solaires combinés (chauffage + eau chaude sanitaire)",
-          'Maintenance préventive et corrective',
         ],
       },
       {
@@ -283,7 +279,6 @@ export const services: Service[] = [
           "Études de conception et d'exécution",
           'Modélisation et dimensionnement',
           'Accompagnement, assistance et conseils personnalisés',
-          'Installation, maintenance et dépannage',
         ],
       },
       {
@@ -327,7 +322,6 @@ export const services: Service[] = [
           "Études de conception et d'exécution",
           'Modélisation et dimensionnement',
           'Accompagnement, assistance et conseils personnalisés',
-          'Installation, maintenance et dépannage',
         ],
       },
       {
@@ -335,12 +329,8 @@ export const services: Service[] = [
         items: [
           'Terrassement général et travaux de déblai/remblai',
           'Création et réhabilitation de voiries',
-          "Réseaux d'assainissement (eaux usées et eaux pluviales)",
-          "Réseaux d'adduction d'eau potable",
           "Réseaux électriques extérieurs et éclairage public",
           'Réseaux télécoms et fibres optiques',
-          'Pavage, dallage et revêtements extérieurs',
-          'Coordination avec les concessionnaires',
         ],
       },
       {

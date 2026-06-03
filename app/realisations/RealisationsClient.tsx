@@ -14,11 +14,11 @@ const FEATURED_IDS = ['cff-1', 'cff-2', 'cff-3', 'cff-4', 'cff-5']
 const serviceColors: Record<string, string> = {
   'courants-forts-faibles': '#6366f1',
   'energies-renouvelables': '#f59e0b',
-  'mobilite-electrique': '#C6FF00',
+  'mobilite-electrique': '',
   'renovation-energetique': '#10b981',
   'chauffage-climatisation': '#ef4444',
   'bureau-etudes': '#1FAF5A',
-  'gtb-knx': '#0ea5e9',
+  'smart-building': '#0ea5e9',
   'vrd': '#f97316',
 }
 
@@ -69,7 +69,7 @@ export default function RealisationsClient() {
       transition={{ duration: 0.6 }}
       className="max-w-3xl"
     >
-      <span className="label-tag text-[#c6ff00] border-white/10 bg-white/5">
+      <span className="label-tag text-[#87CEEB] border-white/10 bg-white/5">
         {t('realisations.label')}
       </span>
 
