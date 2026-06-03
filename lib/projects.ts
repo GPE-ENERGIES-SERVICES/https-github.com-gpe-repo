@@ -26,7 +26,7 @@ export const projects: Project[] = [
     year: 2024,
     description: "Installation électrique complète du pôle technique Oreca : réseaux HTA/BT, alimentation des ateliers de fabrication et systèmes de sûreté.",
     longDescription: "Réalisation de l'ensemble des installations électriques CFO/CFA du pôle technique Oreca à Signes. Les travaux ont porté sur la distribution haute et basse tension, le câblage des ateliers de fabrication et d'assemblage, ainsi que le déploiement des systèmes de sécurité incendie (SSI), de vidéosurveillance et de contrôle d'accès.\n\nCe chantier exigeant en milieu industriel a nécessité une coordination rigoureuse avec les équipes techniques d'Oreca, afin d'assurer la continuité des activités du site tout au long des travaux.",
-    image: '/images/oreca/2.jpeg',
+    image: '/images/oreca/2.jpg',
     gallery: [
       '/images/oreca/2.jpg',
       '/images/oreca/1.jpeg',
@@ -45,13 +45,14 @@ export const projects: Project[] = [
     year: 2024,
     description: "Installations électriques CFO/CFA de la Cité Scolaire Internationale Jacques Chirac de Marseille : distribution BT, éclairage des bâtiments, SSI et réseaux courants faibles.",
     longDescription: "Réalisation des travaux d'électricité courants forts et courants faibles pour la Cité Scolaire Internationale Jacques Chirac de Marseille. Ce chantier d'établissement scolaire comprend la distribution basse tension, l'éclairage intérieur et extérieur des bâtiments, le déploiement d'un système de sécurité incendie (SSI), ainsi que les réseaux courants faibles : câblage structuré, contrôle d'accès et interphonie.\n\nLes travaux, réalisés sur la période 2024-2025, ont été conduits en coordination étroite avec la maîtrise d'ouvrage afin d'assurer la continuité des activités pédagogiques pendant toute la durée du chantier.",
-    image: '/images/csimarseille/6.jpg',
+    image: '/images/csimarseille/6.jpeg',
     gallery: [
-      '/images/csimarseille/5.jpg',
-      '/images/csimarseille/2.png',
+      '/images/csimarseille/5.jpeg',
+      '/images/csimarseille/2.jpg',
       '/images/csimarseille/3.png',
-      '/images/csimarseille/6.png',
-      '/images/csimarseille/7.png',
+      '/images/csimarseille/3.jpg',
+      '/images/csimarseille/6.jpeg',
+      '/images/csimarseille/7.jpeg',
 
       
       
