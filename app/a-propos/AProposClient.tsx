@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 
 const keyFigures = [
@@ -63,16 +64,32 @@ export default function AProposClient() {
     <main className="min-h-screen">
 
       {/* ── HERO ──────────────────────────────────────────────────── */}
-      <section className="relative pt-36 pb-28 bg-gradient-to-br from-[#1a2e22] via-[#2e5240] to-[#1a2e22] overflow-hidden">
+      <section className="relative min-h-screen flex items-center text-white overflow-hidden">
 
-        {/* Decorative blobs */}
-        <div className="absolute inset-0 pointer-events-none" aria-hidden>
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#a3e635]/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#1faf5a]/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#a3e635/6,_transparent_60%)]" />
+        {/* Background */}
+        <div className="absolute inset-0">
+          {/* TODO: Remplacer /images/kawkab2.jpeg par la photo hero définitive de la page À propos */}
+          <Image
+            src="/images/kawkab2.jpeg"
+            alt="GPE Énergies & Services"
+            fill
+            priority
+            className="object-cover object-[center_40%]"
+          />
+
+          {/* Gradient overlay brand — identique à la page À l'international */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1faf5a]/70 via-black/55 to-[#c6ff00]/25" />
+
+          {/* Glow effects */}
+          <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#1faf5a]/20 blur-3xl rounded-full" />
+          <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-[#c6ff00]/20 blur-3xl rounded-full" />
+
+          {/* Fade bas vers blanc */}
+          <div className="absolute bottom-0 left-0 w-full h-56 bg-gradient-to-t from-white via-white/70 to-transparent" />
         </div>
 
-        <div className="section-padding container-max relative">
+        {/* Content */}
+        <div className="relative section-padding container-max w-full">
 
           {/* Breadcrumb */}
           <motion.div
@@ -98,21 +115,63 @@ export default function AProposClient() {
             transition={{ duration: 0.7 }}
             className="max-w-3xl"
           >
-            <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#a3e635] bg-[#a3e635]/10 border border-[#a3e635]/20 px-3 py-1.5 rounded-full mb-7">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#a3e635] animate-pulse" />
+            <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#c6ff00] bg-white/5 border border-white/10 px-3 py-1.5 rounded-full mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#c6ff00]" />
               GPE Énergies & Services
             </span>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+            <h1 className="heading-display text-5xl md:text-7xl text-white leading-tight">
               À propos{' '}
               <span className="text-[#a3e635]">de nous</span>
             </h1>
 
-            <p className="mt-6 text-lg md:text-xl text-white/65 leading-relaxed max-w-2xl">
+            <p className="mt-6 text-neutral-200 text-lg leading-relaxed max-w-2xl">
               Votre partenaire de confiance dans les énergies renouvelables et les infrastructures électriques.
             </p>
           </motion.div>
 
+        </div>
+      </section>
+
+      {/* ── PHOTO INSTITUTIONNELLE ───────────────────────────────── */}
+      <section className="pt-4 pb-16 bg-white">
+        <div className="section-padding container-max">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65 }}
+            className="relative w-full rounded-3xl overflow-hidden shadow-2xl shadow-neutral-200/60"
+            style={{ height: 'clamp(220px, 40vw, 500px)' }}
+          >
+            {/* TODO: Remplacer /images/realisationherox.jpeg par la photo institutionnelle de l'entreprise */}
+            <Image
+              src="/images/realisationherox.jpeg"
+              alt="GPE Énergies & Services — équipe et chantiers"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1280px"
+            />
+
+            {/* Subtle gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1a2e22]/55 via-transparent to-transparent" />
+
+            {/* Caption overlay */}
+            <div className="absolute bottom-0 left-0 right-0 px-7 py-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+              <div>
+                <p className="text-white font-semibold text-base sm:text-lg leading-tight">
+                  GPE Énergies & Services
+                </p>
+                <p className="text-white/65 text-sm mt-0.5">
+                  Spécialiste des énergies renouvelables et des infrastructures électriques
+                </p>
+              </div>
+              <span className="self-start sm:self-auto inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[#c6ff00] bg-black/20 border border-white/15 px-2.5 py-1.5 rounded-full backdrop-blur-sm whitespace-nowrap">
+                <span className="w-1 h-1 rounded-full bg-[#c6ff00]" />
+                Depuis 2023
+              </span>
+            </div>
+          </motion.div>
         </div>
       </section>
 
