@@ -28,10 +28,10 @@ const officeLocation: MapLocation = {
 }
 
 const serviceOptionsFr = [
-  'Courants forts / faibles',
+  'Courants forts & faibles',
   'Énergies Renouvelables',
   'Mobilité Électrique',
-  'GTB / KNX',
+  'Smart Building',
   'Rénovation Énergétique',
   'Chauffage & Climatisation',
   "Bureau d'Études",
@@ -94,7 +94,7 @@ export default function ContactPageClient() {
         </svg>
       ),
       labelKey: 'contact.info.address',
-      value: 'Résidence Coloris, Chemin Sidi Yahia, Bir Mourad Raïs 16005, Alger',
+      value: 'Chemin Sidi Yahia, Résidence Coloris, Bir Mourad Raïs 16005, Alger',
       href: 'https://www.google.com/maps/search/R%C3%A9sidence+Coloris+Chemin+Sidi+Yahia+Bir+Mourad+Ra%C3%AFs+Alger',
     },
   ]

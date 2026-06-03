@@ -47,17 +47,8 @@ export default function AboutSection() {
               <p>{t('about.p2')}</p>
             </div>
 
-            <div className="mt-10">
-              <a
-                href="/a-propos"
-                className="inline-flex items-center gap-2 bg-[#2e5240] text-white text-sm font-semibold px-6 py-3.5 rounded-full hover:bg-[#a3e635] hover:text-[#1a2e22] transition-colors duration-200 shadow-sm"
-              >
-                En savoir plus
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
+          
+          
 
           </motion.div>
 
@@ -97,26 +88,22 @@ export default function AboutSection() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="grid grid-cols-2 sm:grid-cols-3 rounded-2xl border border-[#2e5240]/10 overflow-hidden bg-white"
+              className="grid grid-cols-3 rounded-2xl border border-[#2e5240]/10 overflow-hidden bg-white"
             >
               {[
                 { v: '2023', lKey: 'about.stat.founded' },
-                { v: '+50', lKey: 'about.stat.team' },
+                { v: '', lKey: 'about.stat.team' },
                 { v: t('about.stat.regionVal'), lKey: 'about.stat.region' },
               ].map((item, i) => (
                 <div
                   key={item.lKey}
-                  className={[
-                    'p-4 sm:p-5',
-                    i === 0 ? 'border-r border-[#2e5240]/10' : '',
-                    i === 1 ? 'sm:border-r border-[#2e5240]/10' : '',
-                    i === 2 ? 'col-span-2 sm:col-span-1 border-t sm:border-t-0 border-[#2e5240]/10' : '',
-                  ].join(' ')}
+                  className={`p-5 ${i < 2 ? 'border-r border-[#2e5240]/10' : ''}`}
                 >
-                  <div className="text-2xl font-semibold text-[#2e5240] leading-tight">
+                  <div className="text-2xl font-semibold text-[#2e5240]">
                     {item.v}
                   </div>
-                  <div className="mt-1 text-[11px] tracking-widest uppercase text-[#2e5240]/50 leading-snug">
+
+                  <div className="mt-1 text-[11px] tracking-widest uppercase text-[#2e5240]/50">
                     {t(item.lKey)}
                   </div>
                 </div>

@@ -15,12 +15,12 @@ interface FormData {
 }
 
 const services = [
-  'Courants forts / faibles',
+  'Courants Forts & Faibles',
   'Énergies Renouvelables',
   'Mobilité Électrique',
-  'GTB / KNX',
+  'Smart building ',
   'Rénovation Énergétique',
-  'Chauffage & Climatisation',
+  'Chauffage  Climatisation',
   "Bureau d'Études",
   'VRD',
   'Autre / Non défini',

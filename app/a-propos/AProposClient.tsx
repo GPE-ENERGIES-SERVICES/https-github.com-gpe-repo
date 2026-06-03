@@ -6,14 +6,14 @@ import Link from 'next/link'
 const keyFigures = [
   {
     emoji: '☀️',
-    value: '+50 MWc',
-    label: 'installés en 3 ans',
+    value: '+100 MWc',
+    label: 'installés en 4 ans',
     desc: 'Une capacité photovoltaïque considérable déployée sur le territoire au cours des trois dernières années.',
   },
   {
     emoji: '🏗️',
     value: '+500',
-    label: 'projets réalisés en France',
+    label: 'projets réalisés',
     desc: 'Plus de 500 chantiers menés à bien sur le territoire français en trois ans d\'activité.',
   },
   {
@@ -37,18 +37,18 @@ const expertise = [
   },
   {
     emoji: '☀️',
-    title: '5 équipes photovoltaïques',
-    desc: "5 équipes d'installateurs spécialisés dans le photovoltaïque, pour des déploiements rapides et conformes.",
+    title: '7 équipes photovoltaïques',
+    desc: "7 équipes d'installateurs spécialisés dans le photovoltaïque, pour des déploiements rapides et conformes.",
   },
   {
     emoji: '⚡',
-    title: '2 équipes électricité',
-    desc: "2 équipes spécialisées dans l'électricité tertiaire et industrielle, pour tous vos projets courants forts et faibles.",
+    title: '3 équipes électricité',
+    desc: "3 équipes spécialisées dans l'électricité tertiaire et industrielle, pour tous vos projets courants forts et faibles.",
   },
   {
     emoji: '🔋',
-    title: '1 équipe IRVE',
-    desc: "1 équipe dédiée à l'installation de bornes de recharge pour véhicules électriques, certifiée IRVE.",
+    title: '2 équipe IRVE',
+    desc: "2 équipe dédiée à l'installation de bornes de recharge pour véhicules électriques, certifiée IRVE.",
   },
 ]
 
