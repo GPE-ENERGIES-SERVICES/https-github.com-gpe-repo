@@ -87,6 +87,20 @@ const CERTIFICATIONS_BY_SERVICE: Record<string, Certification[]> = {
   ],
 }
 
+// ─── Logiciels par service ───────────────────────────────────────────────────
+
+type Logiciel = { name: string; image: string }
+
+const LOGICIELS_BY_SERVICE: Record<string, Logiciel[]> = {
+  'bureau-etudes': [
+    { name: 'AutoCAD',    image: '/images/bu/AutoCad_new_logo.svg.png' },
+    { name: 'Revit',      image: '/images/bu/revit-logo-2024_0.png' },
+    { name: 'ELIE BT',    image: '/images/bu/Logo-ELIE-BT-2025.png' },
+    { name: 'Logiciel',   image: '/images/bu/1692370555974.png' },
+    { name: 'Logiciel',   image: '/images/bu/logo-pro.png' },
+  ],
+}
+
 const CERTIFICATIONS_SUBTITLE_BY_SERVICE: Record<string, string> = {
   'courants-forts-faibles':
     'Notre qualification Qualifelec certifie notre expertise en installations électriques courants forts et faibles.',
@@ -338,6 +352,70 @@ export default function ServicePageClient({ service }: Props) {
                       <div className="text-xs text-neutral-500 mt-1 leading-relaxed">
                         {cert.description}
                       </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )
+      })()}
+
+      {/* Logiciels utilisés */}
+      {(LOGICIELS_BY_SERVICE[service.slug] ?? []).length > 0 && (() => {
+        const logiciels = LOGICIELS_BY_SERVICE[service.slug]!
+        const cols =
+          logiciels.length >= 5
+            ? 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-5'
+            : logiciels.length >= 3
+            ? 'grid-cols-1 sm:grid-cols-3'
+            : 'grid-cols-1 sm:grid-cols-2'
+        return (
+          <section className="py-24 bg-white border-t border-neutral-100">
+            <div className="section-padding container-max">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.6 }}
+                className="max-w-2xl mb-14"
+              >
+                <span className="label-tag">Outils & Technologie</span>
+                <h2 className="heading-display text-4xl md:text-5xl text-neutral-950 mt-5 leading-tight">
+                  Logiciels{' '}
+                  <span style={{ color: service.color }}>utilisés</span>
+                </h2>
+                <p className="mt-5 text-neutral-500 text-lg leading-relaxed">
+                  Nos études sont réalisées avec les outils professionnels de référence du secteur.
+                </p>
+              </motion.div>
+
+              <div className={`grid ${cols} gap-6`}>
+                {logiciels.map((logiciel, i) => (
+                  <motion.div
+                    key={`${logiciel.name}-${i}`}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{ duration: 0.5, delay: i * 0.08 }}
+                    className="group relative flex items-center justify-center p-7 bg-white rounded-2xl border border-neutral-200
+                               hover:-translate-y-1.5 hover:border-[#a3e635]/40
+                               hover:shadow-xl hover:shadow-[#2e5240]/8
+                               transition-all duration-300 ease-in-out cursor-default"
+                  >
+                    {/* Glow overlay */}
+                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                      <div className="absolute inset-0 rounded-2xl bg-[#a3e635]/5" />
+                    </div>
+
+                    <div className="relative h-16 w-full flex items-center justify-center">
+                      <Image
+                        src={logiciel.image}
+                        alt={logiciel.name}
+                        width={160}
+                        height={64}
+                        className="object-contain max-h-16 w-auto transition-all duration-300 group-hover:scale-[1.05]"
+                      />
                     </div>
                   </motion.div>
                 ))}
