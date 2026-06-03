@@ -45,11 +45,14 @@ export const projects: Project[] = [
     year: 2024,
     description: "Installations électriques CFO/CFA de la Cité Scolaire Internationale Jacques Chirac de Marseille : distribution BT, éclairage des bâtiments, SSI et réseaux courants faibles.",
     longDescription: "Réalisation des travaux d'électricité courants forts et courants faibles pour la Cité Scolaire Internationale Jacques Chirac de Marseille. Ce chantier d'établissement scolaire comprend la distribution basse tension, l'éclairage intérieur et extérieur des bâtiments, le déploiement d'un système de sécurité incendie (SSI), ainsi que les réseaux courants faibles : câblage structuré, contrôle d'accès et interphonie.\n\nLes travaux, réalisés sur la période 2024-2025, ont été conduits en coordination étroite avec la maîtrise d'ouvrage afin d'assurer la continuité des activités pédagogiques pendant toute la durée du chantier.",
-    image: '/images/csimarseille/1.jpg',
+    image: '/images/csimarseille/6.jpg',
     gallery: [
-      '/images/csimarseille/1.jpg',
+      '/images/csimarseille/5.jpg',
       '/images/csimarseille/2.png',
       '/images/csimarseille/3.png',
+      '/images/csimarseille/6.png',
+      '/images/csimarseille/7.png',
+
       
       
     ],
@@ -106,11 +109,12 @@ export const projects: Project[] = [
     year: 2023,
     description: "Réalisation des installations électriques CFO/CFA comprenant la distribution basse tension, l’éclairage intérieur, les infrastructures réseaux informatiques, le contrôle d’accès et le pré-équipement pour bornes de recharge IRVE.",
     longDescription: "Réalisation des installations électriques CFO/CFA comprenant la distribution basse tension, l’éclairage intérieur, les infrastructures réseaux informatiques, le contrôle d’accès et le pré-équipement pour bornes de recharge IRVE. Ce projet tertiaire a été conçu pour offrir des espaces de travail performants, confortables et évolutifs, tout en respectant les normes et réglementations en vigueur.Ce projet allie exigences de confort, performance énergétique et anticipation des usages futurs, dans le respect des normes NF C 15-100 et des référentiels environnementaux du programme de construction.",
-    image: '/images/cor%20natura/Oxygen-courtin-promotion-2-052023.jpg',
+    image: '/images/cornatura/1.jpg',
     gallery: [
-      '/images/cor%20natura/Oxygen-courtin-promotion-2-052023.jpg',
-      '/images/cor%20natura/cor-natura-exterieur_7.jpg',
-      '/images/cor%20natura/cor-natura-sophia-antipolis.jpg',
+      '/images/cornatura/1.jpg',
+      '/images/cornatura/2.jpg',
+      '/images/cornatura/3.jpg',
+      '/images/cornatura/4.jpg',
       
     ],
     tags: ['CFO/CFA', 'Tertiaire'],
@@ -160,11 +164,18 @@ export const projects: Project[] = [
     year: 2024,
     description: "Rénovation globale tous corps d’état du restaurant Chicken Street situé au Pontet, dans la région d’Avignon.",
     longDescription: "Rénovation globale tous corps d’état du restaurant Chicken Street situé au Pontet, dans la région d’Avignon. Cette opération comprend la réhabilitation complète des espaces intérieurs et extérieurs, avec des interventions sur les lots de gros œuvre, second œuvre, électricité, plomberie, revêtements, peinture, climatisation et aménagements intérieurs, afin de moderniser l’établissement et d’améliorer les conditions d’accueil.",
-    image: '/images/cheicken%20street%20avignon/2024-06-13.webp',
+    image: '/images/chicken/1.webp',
     gallery: [
-      '/images/cheicken%20street%20avignon/2024-06-13.webp',
-      '/images/cheicken%20street%20avignon/558543_1fea1fca00.jpg',
-      '/images/cheicken%20street%20avignon/1.jpeg',
+      '/images/chicken/1.webp',
+      '/images/chicken/2.jpg',
+      '/images/chicken/3.jpg',
+      '/images/chicken/4.jpeg',
+      '/images/chicken/5.jpeg',
+      '/images/chicken/6.jpeg',
+      '/images/chicken/7.jpeg',
+      
+
+      
     ],
     tags: [ 'Rénovation', 'Tertiaire'],
   },
@@ -181,10 +192,15 @@ export const projects: Project[] = [
     year: 2023,
     description: "Réalisation du déploiement d’infrastructures de recharge pour véhicules électriques (IRVE) sur le site de Sartorius à Aubagne.",
     longDescription: "Réalisation du déploiement d’infrastructures de recharge pour véhicules électriques (IRVE) sur le site de Sartorius à Aubagne. Les travaux comprennent la fourniture et l’installation des bornes de recharge, les raccordements électriques, le tirage des câbles et la mise en service des équipements. Ce projet accompagne la transition énergétique du site en favorisant la mobilité électrique des collaborateurs et visiteurs, tout en garantissant une intégration optimale aux infrastructures existantes.",
-    image: '/images/auchan/WhatsApp%20Image%202026-05-30%20at%2019.19.18.jpeg',
+    image: '/images/santorius/1.jpeg',
     gallery: [
-      '/images/auchan/WhatsApp%20Image%202026-05-30%20at%2019.19.18.jpeg',
-      '/images/auchan/WhatsApp%20Image%202026-05-30%20at%2019.19.18111.jpeg',
+      '/images/santorius/1.jpeg',
+      '/images/santorius/2.jpeg',
+      '/images/santorius/3.jpeg',
+      '/images/santorius/4.jpeg',
+      '/images/santorius/5.jpeg',
+      '/images/santorius/6.jpeg',
+      '/images/santorius/7.jpeg',
       
     ],
     tags: ['IRVE', 'Borne de recharge', 'Grande Distribution', 'Parking'],
