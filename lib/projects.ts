@@ -89,10 +89,11 @@ export const projects: Project[] = [
     longDescription: "Réalisation de l'ensemble des prestations électriques CFO/CFA pour le parc tertiaire Edge à Aubagne. Ce programme de bâtiments de bureaux comprend une distribution HTA/BT performante, un tableau général basse tension (TGBT) intelligent, une gestion technique du bâtiment (GTB) et l'intégralité des courants faibles : câblage structuré, SSI, contrôle d'accès et vidéosurveillance.\n\nLe projet intègre des équipements d'efficacité énergétique permettant une exploitation optimale et maîtrisée des installations sur l'ensemble du parc.",
     image: '/images/edge%20aubagne/5234-edge-park-03.jpg',
     gallery: [
+      '/images/edge%20aubagne/siege-social-alinea.jpg',
       '/images/edge%20aubagne/5234-edge-park-03.jpg',
       '/images/edge%20aubagne/Visu-Napollon.png',
       '/images/edge%20aubagne/6621-img-20230222-wa0006.jpg',
-      '/images/edge%20aubagne/siege-social-alinea.jpg',
+      
     ],
     tags: ['CFO/CFA', 'HTA/BT', 'GTB', 'Tertiaire'],
   },
@@ -121,8 +122,8 @@ export const projects: Project[] = [
     serviceSlug: 'renovation-energetique',
     serviceLabel: 'Rénovation Énergétique',
     year: 2024,
-    description: "Installations électriques CFO/CFA du B&B Hotel Avignon 1 : distribution basse tension, éclairage LED des chambres et espaces communs, SSI et réseaux courants faibles.",
-    longDescription: "Réalisation des installations électriques courants forts et courants faibles du B&B Hotel Avignon 1. Les travaux comprennent la distribution basse tension des chambres et des espaces communs, l'éclairage LED haute efficacité, le déploiement d'un système de sécurité incendie (SSI) et les réseaux courants faibles : câblage structuré, contrôle d'accès et télévision.\n\nCe chantier hôtelier a été conduit en coordination étroite avec les équipes de construction afin de respecter les délais d'ouverture de l'établissement et de garantir la conformité de l'ensemble des installations.",
+    description: "Rénovation globale tous corps d’état du B&B Hotel Avignon 1.",
+    longDescription: "Rénovation globale tous corps d’état du B&B Hotel Avignon 1. Les travaux ont consisté en la réhabilitation complète de l’établissement, comprenant les aménagements intérieurs et extérieurs, les travaux de menuiserie, les revêtements de sols et murs, la plomberie, le chauffage, la climatisation, l’électricité ainsi que la modernisation des espaces communs et des chambres.Cette opération a permis de remettre l’établissement aux standards actuels de confort, de sécurité et de performance énergétique. Le chantier a été mené en étroite coordination avec l’ensemble des intervenants afin de respecter le planning de réalisation et de garantir un niveau de qualité conforme aux exigences du groupe hôtelier.",
     image: '/images/b%26b%20avignon%201/WhatsApp%20Image%202026-06-01%20at%2021.07.27.jpeg',
     gallery: [
       '/images/b%26b%20avignon%201/WhatsApp%20Image%202026-06-01%20at%2021.07.27.jpeg',
@@ -130,7 +131,7 @@ export const projects: Project[] = [
       '/images/b%26b%20avignon%201/WhatsApp%20Image%202026-06-01%20at%2021.07.28.jpeg',
       '/images/b%26b%20avignon%201/WhatsApp%20Image%202026-06-01%20at%2021.07.28%20(1).jpeg',
     ],
-    tags: ['CFO/CFA', 'Hôtellerie', 'SSI', 'LED'],
+    tags: ['Hôtellerie', 'Tertiaire'],
   },
   {
     id: 'cff-7',
@@ -139,8 +140,8 @@ export const projects: Project[] = [
     serviceSlug: 'renovation-energetique',
     serviceLabel: 'Rénovation Énergétique',
     year: 2024,
-    description: "Installations électriques CFO/CFA du B&B Hotel Avignon 2 : distribution BT, éclairage LED, système de sécurité incendie et réseaux courants faibles.",
-    longDescription: "Réalisation des installations électriques CFO/CFA du B&B Hotel Avignon 2. Les travaux couvrent la distribution basse tension des chambres et parties communes, l'éclairage LED haute performance, le système de sécurité incendie (SSI) ainsi que l'ensemble des réseaux courants faibles : câblage structuré, contrôle d'accès et systèmes audiovisuels.\n\nCe second établissement B&B à Avignon a été réalisé en continuité du premier chantier, permettant une synergie technique et une optimisation des interventions sur les deux sites.",
+    description: "Rénovation globale tous corps d’état du B&B Hotel Avignon 2.",
+    longDescription: "Rénovation globale tous corps d’état du B&B Hotel Avignon 2. Les travaux ont porté sur la réhabilitation complète de l’établissement, incluant les aménagements intérieurs et extérieurs, les menuiseries, les revêtements de sols et murs, la plomberie, la climatisation, l’électricité, ainsi que la modernisation des espaces communs et des chambres. Cette opération a permis d'améliorer le confort des usagers, la performance énergétique du bâtiment et la qualité des prestations offertes par l'établissement. Réalisé dans la continuité du premier hôtel B&B d’Avignon, ce chantier a bénéficié d’une organisation optimisée et d’une coordination renforcée entre les différents corps d’état, garantissant le respect des délais et des exigences de qualité du projet.",
     image: '/images/b%26b%20avignon%202/WhatsApp%20Image%202026-06-01%20at%2021.06.20.jpeg',
     gallery: [
       '/images/b%26b%20avignon%202/WhatsApp%20Image%202026-06-01%20at%2021.06.20.jpeg',
@@ -148,7 +149,7 @@ export const projects: Project[] = [
       '/images/b%26b%20avignon%202/WhatsApp%20Image%202026-06-01%20at%2021.06.21.jpeg',
       '/images/b%26b%20avignon%202/WhatsApp%20Image%202026-06-01%20at%2021.06.21%20(2).jpeg',
     ],
-    tags: ['CFO/CFA', 'Hôtellerie', 'SSI', 'LED'],
+    tags: ['Hôtellerie',],
   },
   {
     id: 'cff-8',
@@ -157,15 +158,15 @@ export const projects: Project[] = [
     serviceSlug: 'renovation-energetique',
     serviceLabel: 'Rénovation Énergétique',
     year: 2024,
-    description: "Rénovation électrique et mise aux normes du restaurant Chicken Street au Pontet : remplacement des équipements, éclairage LED haute efficacité et mise en conformité des installations.",
-    longDescription: "Rénovation des installations électriques du restaurant Chicken Street situé au Pontet, dans la région d'Avignon. Les travaux comprennent le remplacement complet des équipements électriques, la mise en place d'un éclairage LED haute efficacité adapté à l'exploitation commerciale, ainsi que la remise en conformité de l'ensemble des installations aux normes en vigueur.\n\nCe chantier de rénovation a été réalisé en site occupé, en étroite coordination avec l'exploitant afin de minimiser l'impact sur l'activité commerciale.",
+    description: "Rénovation globale tous corps d’état du restaurant Chicken Street situé au Pontet, dans la région d’Avignon.",
+    longDescription: "Rénovation globale tous corps d’état du restaurant Chicken Street situé au Pontet, dans la région d’Avignon. Cette opération comprend la réhabilitation complète des espaces intérieurs et extérieurs, avec des interventions sur les lots de gros œuvre, second œuvre, électricité, plomberie, revêtements, peinture, climatisation et aménagements intérieurs, afin de moderniser l’établissement et d’améliorer les conditions d’accueil.",
     image: '/images/cheicken%20street%20avignon/2024-06-13.webp',
     gallery: [
       '/images/cheicken%20street%20avignon/2024-06-13.webp',
       '/images/cheicken%20street%20avignon/558543_1fea1fca00.jpg',
       '/images/cheicken%20street%20avignon/1.jpeg',
     ],
-    tags: ['CFO/CFA', 'Rénovation', 'LED', 'Commerce'],
+    tags: [ 'Rénovation', 'Tertiaire'],
   },
 
   // ────────────────────────────────────────────────────────────
@@ -184,8 +185,7 @@ export const projects: Project[] = [
     gallery: [
       '/images/auchan/WhatsApp%20Image%202026-05-30%20at%2019.19.18.jpeg',
       '/images/auchan/WhatsApp%20Image%202026-05-30%20at%2019.19.18111.jpeg',
-      '/images/auchan/WhatsApp%20Image%202026-05-30%20at%2019.19.50.jpeg',
-      '/images/auchan/WhatsApp%20Image%202026-05-30%20at%2019.19.50%20111.jpeg',
+      
     ],
     tags: ['IRVE', 'Borne de recharge', 'Grande Distribution', 'Parking'],
   },
@@ -258,11 +258,9 @@ export const projects: Project[] = [
     gallery: [
       '/images/meffre/1.jpeg',
       '/images/meffre/2.jpeg',
-      '/images/meffre/3.jpeg',
       '/images/meffre/4.jpeg',
       '/images/meffre/5.jpeg',
       '/images/meffre/6.jpeg',
-      '/images/meffre/7.jpeg',
     ],
     tags: ['IRVE', 'Domaine viticole', 'Borne de recharge'],
   },
@@ -281,7 +279,6 @@ export const projects: Project[] = [
       '/images/coliseetrets/1.jpeg',
       '/images/coliseetrets/2.jpeg',
       '/images/coliseetrets/3.jpeg',
-      '/images/coliseetrets/4.jpeg',
       '/images/coliseetrets/5.jpeg',
     ],
     tags: ['IRVE', 'Borne de recharge', 'Infrastructure'],
@@ -292,22 +289,7 @@ export const projects: Project[] = [
   // ────────────────────────────────────────────────────────────
   // ÉNERGIES RENOUVELABLES
   // ────────────────────────────────────────────────────────────
-  {
-    id: 'er-1',
-    title: "Ombrières photovoltaïques 300 kW",
-    location: 'Marseille',
-    serviceSlug: 'energies-renouvelables',
-    serviceLabel: 'Énergies Renouvelables',
-    year: 2026,
-    description: "Centrale photovoltaïque de 300 kW en ombrières de parking pour une grande surface alimentaire : production d'énergie renouvelable locale et valorisation des espaces de stationnement.",
-    longDescription: "Installation d'une centrale photovoltaïque de 300 kW en ombrières de parking au sein d'une grande surface alimentaire. Ce projet permet de valoriser les espaces de stationnement en les transformant en zones de production d'énergie renouvelable, tout en assurant une protection des véhicules et un meilleur confort pour les usagers. L'installation contribue à la production d'électricité locale et durable, participant ainsi activement à la transition énergétique du site.",
-    image: '',
-    gallery: [
-      '',
 
-    ],
-    tags: ['Photovoltaïque', 'Ombrières', 'Énergie solaire'],
-  },
   {
     id: 'er-2',
     title: "Centrale photovoltaïque 1,2 MW",
@@ -324,52 +306,29 @@ export const projects: Project[] = [
     ],
     tags: ['Photovoltaïque', 'Énergie solaire', 'Toiture'],
   },
-  {
-    id: 'er-3',
-    title: "Installation photovoltaïque 50 kWc",
-    location: 'Toulon',
-    serviceSlug: 'energies-renouvelables',
-    serviceLabel: 'Énergies Renouvelables',
-    year: 2025,
-    description: "Installation d'une centrale photovoltaïque de 50 kWc en toiture à Toulon : production d'énergie solaire locale et durable adaptée aux besoins du site.",
-    longDescription: "Réalisation d'une installation photovoltaïque de 50 kWc en toiture sur un bâtiment situé à Toulon. Ce projet illustre l'intégration de l'énergie solaire à différentes échelles, permettant de produire une électricité locale et renouvelable tout en participant à la transition énergétique.",
-    image: '',
-    gallery: [
-      '',
-
-    ],
-    tags: ['Photovoltaïque', 'Énergie solaire', 'Toiture'],
-  },
+  
   {
     id: 'er-4',
-    title: "Intermarché Super Orgon – Ombrière Photovoltaïque",
+    title: "Intermarché Orgon – Ombrière Photovoltaïque",
     location: 'Orgon',
     serviceSlug: 'energies-renouvelables',
     serviceLabel: 'Énergies Renouvelables',
     year: 2026,
     description: "Ombrière photovoltaïque sur le parking de l'Intermarché Super d'Orgon : production d'énergie renouvelable locale et valorisation des surfaces de stationnement.",
     longDescription: "Réalisation d'une ombrière photovoltaïque sur le parking de l'Intermarché Super d'Orgon (13660). Ce projet permet de valoriser l'espace de stationnement en le transformant en zone de production d'énergie solaire, tout en offrant aux clients une protection contre les intempéries.\n\nL'installation s'inscrit dans la démarche de transition énergétique de l'enseigne, contribuant à la réduction de l'empreinte carbone du site et à la production d'électricité renouvelable en autoconsommation.",
-    image: '',
+    image: '/images/projet1/1.jpg',
     gallery: [
-      '',
+        '/images/projet1/1.jpg',
+        '/images/projet1/2.jpg',
+        '/images/projet1/3.jpg',
+        '/images/projet1/4.jpg',
+        '/images/projet1/5.jpg',
+      
 
     ],
-    tags: ['Photovoltaïque', 'Ombrières', 'Grande Distribution', 'RGE'],
+    tags: ['Photovoltaïque', 'Ombrières', 'Grande Distribution',],
   },
-  {
-    id: 'er-5',
-    title: "Exploitation Agricole GAEC de Tartayrou",
-    location: 'Le Bastit',
-    serviceSlug: 'energies-renouvelables',
-    serviceLabel: 'Énergies Renouvelables',
-    year: 2025,
-    description: "Centrale photovoltaïque en toiture pour le GAEC de Tartayrou au Bastit : production d'énergie solaire adaptée au contexte agricole, avec autoconsommation et revente du surplus.",
-    longDescription: "Réalisation d'une centrale photovoltaïque en toiture pour le Groupement Agricole d'Exploitation en Commun (GAEC) de Tartayrou situé au Bastit (46500). Ce projet agricole intègre la production d'énergie solaire à l'activité de l'exploitation, permettant de réduire significativement la facture énergétique et de valoriser les toitures des bâtiments agricoles.\n\nL'installation, réalisée en autoconsommation avec revente du surplus, bénéficie des qualifications RGE de notre équipe, facilitant l'accès aux dispositifs de soutien financier dédiés au secteur agricole.",
-    // TODO: ajouter les photos du projet GAEC de Tartayrou - Le Bastit
-    image: '',
-    gallery: [],
-    tags: ['Photovoltaïque', 'Agricole', 'Toiture', 'RGE'],
-  },
+
   {
     id: 'er-6',
     title: "SCI Idenium – Centrale Photovoltaïque 250 kWc",
@@ -380,8 +339,15 @@ export const projects: Project[] = [
     description: "Centrale photovoltaïque de 250 kWc pour la SCI Idenium : production d'énergie renouvelable en autoconsommation et valorisation du patrimoine immobilier.",
     longDescription: "Réalisation d'une centrale photovoltaïque de 250 kWc pour la SCI Idenium. Ce projet de moyenne puissance comprend l'étude de faisabilité, le dimensionnement des équipements, la fourniture et la pose des panneaux photovoltaïques, ainsi que le raccordement au réseau et la mise en service.\n\nL'installation est conçue pour maximiser l'autoconsommation du site et valoriser le patrimoine immobilier, tout en bénéficiant des dispositifs de soutien à la production d'énergie renouvelable.",
     // TODO: ajouter les photos du projet SCI Idenium 250 kWc
-    image: '',
-    gallery: [],
+    image: '/images/tony/8.jpeg',
+    gallery: [
+      '/images/tony/1.jpeg',
+      '/images/tony/2.jpeg',
+      '/images/tony/3.jpeg',
+      '/images/tony/4.jpeg',
+      '/images/tony/5.jpeg',
+      '/images/tony/6.jpeg',
+    ],
     tags: ['Photovoltaïque', '250 kWc', 'Tertiaire', 'RGE'],
   },
   {
@@ -393,18 +359,13 @@ export const projects: Project[] = [
     year: 2025,
     description: "Centrale photovoltaïque de 300 kWc en toiture du Gymnase Tony Parker à Paris : production d'énergie renouvelable pour réduire l'empreinte carbone de cet équipement sportif de référence.",
     longDescription: "Réalisation d'une centrale photovoltaïque de 300 kWc en toiture du Gymnase Tony Parker à Paris. Ce projet d'envergure pour un équipement sportif de référence comprend la conception, la fourniture, la pose et la mise en service d'une installation photovoltaïque haute performance.\n\nL'intégration de cette centrale solaire contribue à la réduction significative de l'empreinte carbone du gymnase, en produisant une énergie renouvelable locale qui couvre une part importante des besoins électriques de l'établissement.",
-    image: '/images/tony/8.jpeg',
+    image:'' ,
     gallery: [
-      '/images/tony/1.jpeg',
-      '/images/tony/2.jpeg',
-      '/images/tony/3.jpeg',
-      '/images/tony/4.jpeg',
-      '/images/tony/5.jpeg',
-      '/images/tony/6.jpeg',
+      
       '/images/tony/8.jpeg',
 
     ],
-    tags: ['Photovoltaïque', '300 kWc', 'Équipement sportif', 'RGE'],
+    tags: ['Photovoltaïque', '300 kWc'],
   },
   {
     id: 'er-8',
@@ -425,11 +386,11 @@ export const projects: Project[] = [
  
 
     ],
-    tags: ['Photovoltaïque', '350 kWc', 'Agricole', 'RGE'],
+    tags: ['Photovoltaïque', '350 kWc', 'Agricole',],
   },
   {
     id: 'er-9',
-    title: "Agile Université – Centrale Photovoltaïque 250 kWc",
+    title: "Université de Nice",
     location: 'Nice',
     serviceSlug: 'energies-renouvelables',
     serviceLabel: 'Énergies Renouvelables',
@@ -446,7 +407,7 @@ export const projects: Project[] = [
       '/images/agile/6.jpeg',
 
     ],
-    tags: ['Photovoltaïque', '250 kWc', 'Enseignement supérieur', 'RGE'],
+    tags: ['Photovoltaïque', '250 kWc', 'Tertiaire'],
   },
 
 ]
