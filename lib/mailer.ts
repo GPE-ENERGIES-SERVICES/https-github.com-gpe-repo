@@ -1,4 +1,5 @@
 import nodemailer, { type Transporter } from 'nodemailer'
+import { randomBytes } from 'crypto'
 
 export interface ContactPayload {
   name: string
@@ -24,10 +25,27 @@ function getTransporter(): Transporter | null {
   cachedTransporter = nodemailer.createTransport({
     host,
     port: portNum,
+    // SSL/TLS sur le port 465, STARTTLS sur les autres
     secure: portNum === 465,
     auth: { user, pass },
+    tls: {
+      // Requiert TLS 1.2 minimum (compatible Outlook, Gmail, universités)
+      minVersion: 'TLSv1.2',
+    },
   })
   return cachedTransporter
+}
+
+// Génère un Message-ID ancré sur le domaine expéditeur.
+// C'est une vérification clé d'Outlook/Hotmail et des filtres universitaires.
+function generateMessageId(domain: string): string {
+  const unique = randomBytes(16).toString('hex')
+  return `<${Date.now()}.${unique}@${domain}>`
+}
+
+function senderDomain(): string {
+  const user = process.env.SMTP_USER || ''
+  return user.split('@')[1] || 'gpealgerie.com'
 }
 
 function escapeHtml(s: string): string {
@@ -43,8 +61,15 @@ function sanitizeSubjectPart(s: string): string {
   return s.replace(/[\r\n\t]/g, ' ').trim().slice(0, 80)
 }
 
-// Styles minimalistes — fond blanc, texte noir, lisible sur tous les clients mail
-const BASE = [
+// Nodemailer encode automatiquement les caractères non-ASCII du display name
+// en RFC 2047 (=?UTF-8?...) — compatible avec tous les clients mail.
+const SENDER_NAME  = 'GPE Energies et Services'
+const SENDER_EMAIL = () => process.env.SMTP_USER!
+const FROM         = () => `"${SENDER_NAME}" <${SENDER_EMAIL()}>`
+
+// ─── Templates ───────────────────────────────────────────────────────────────
+
+const BASE_STYLE = [
   'font-family:Arial,Helvetica,sans-serif',
   'font-size:14px',
   'line-height:1.75',
@@ -53,27 +78,24 @@ const BASE = [
   'padding:32px 40px',
   'max-width:600px',
 ].join(';')
-const P = 'margin:0 0 14px;'
 
-// ─── Email reçu par l'entreprise ─────────────────────────────────────────────
+const P = 'margin:0 0 14px;'
 
 function buildContactHtml(p: ContactPayload): string {
   const field = (label: string, value?: string) =>
     value
       ? `<tr>
-           <td style="padding:3px 16px 3px 0;font-weight:bold;vertical-align:top;white-space:nowrap;">${label} :</td>
+           <td style="padding:3px 16px 3px 0;font-weight:bold;vertical-align:top;white-space:nowrap;">${label}&nbsp;:</td>
            <td style="padding:3px 0;">${escapeHtml(value)}</td>
          </tr>`
       : ''
 
   return `<!DOCTYPE html>
 <html lang="fr">
-<head><meta charset="UTF-8" /></head>
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /></head>
 <body style="margin:0;padding:0;background:#ffffff;">
-<div style="${BASE}">
-
+<div style="${BASE_STYLE}">
   <p style="${P}"><strong>Nouvelle demande de contact</strong></p>
-
   <table style="border-collapse:collapse;margin-bottom:20px;">
     ${field('Nom', p.name)}
     ${field('Email', p.email)}
@@ -81,12 +103,9 @@ function buildContactHtml(p: ContactPayload): string {
     ${field('Societe', p.company)}
     ${field('Service', p.service)}
   </table>
-
   <p style="${P}"><strong>Message :</strong></p>
   <p style="margin:0 0 24px;white-space:pre-wrap;">${escapeHtml(p.message)}</p>
-
   <p style="margin:0;color:#666666;font-size:12px;">---<br>Message envoye depuis le site GPE Algerie.</p>
-
 </div>
 </body>
 </html>`
@@ -105,59 +124,58 @@ function buildContactText(p: ContactPayload): string {
   )
 }
 
-// ─── Email de confirmation au visiteur ───────────────────────────────────────
-
-function buildConfirmationHtml(p: ContactPayload): string {
+function buildConfirmationHtml(): string {
   return `<!DOCTYPE html>
 <html lang="fr">
-<head><meta charset="UTF-8" /></head>
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /></head>
 <body style="margin:0;padding:0;background:#ffffff;">
-<div style="${BASE}">
-
+<div style="${BASE_STYLE}">
   <p style="${P}">Bonjour,</p>
   <p style="${P}">Nous vous remercions pour votre prise de contact avec GPE Energies &amp; Services.</p>
   <p style="${P}">Votre demande a bien ete recue.</p>
   <p style="${P}">Notre equipe reviendra vers vous dans les meilleurs delais.</p>
   <p style="margin:24px 0 4px;">Cordialement,</p>
   <p style="margin:0;font-weight:bold;">GPE Energies &amp; Services</p>
-
 </div>
 </body>
 </html>`
 }
 
-function buildConfirmationText(p: ContactPayload): string {
-  return (
-    `Bonjour,\n\n` +
-    `Nous vous remercions pour votre prise de contact avec GPE Energies & Services.\n\n` +
-    `Votre demande a bien ete recue.\n\n` +
-    `Notre equipe reviendra vers vous dans les meilleurs delais.\n\n` +
-    `Cordialement,\n` +
-    `GPE Energies & Services`
-  )
-}
+const CONFIRMATION_TEXT =
+  `Bonjour,\n\n` +
+  `Nous vous remercions pour votre prise de contact avec GPE Energies & Services.\n\n` +
+  `Votre demande a bien ete recue.\n\n` +
+  `Notre equipe reviendra vers vous dans les meilleurs delais.\n\n` +
+  `Cordialement,\n` +
+  `GPE Energies & Services`
 
-// ─── Exports ─────────────────────────────────────────────────────────────────
+// ─── Envoi email entreprise ───────────────────────────────────────────────────
 
 export async function sendContactEmail(
   payload: ContactPayload
 ): Promise<{ sent: boolean; reason?: string }> {
   const transporter = getTransporter()
-  if (!transporter) {
-    return { sent: false, reason: 'smtp-not-configured' }
-  }
+  if (!transporter) return { sent: false, reason: 'smtp-not-configured' }
 
-  const to      = process.env.CONTACT_TO || process.env.SMTP_USER!
-  const from    = `"GPE Algerie" <${process.env.SMTP_USER}>`
+  const to          = process.env.CONTACT_TO || SENDER_EMAIL()
+  const domain      = senderDomain()
   const safeName    = sanitizeSubjectPart(payload.name)
   const safeService = sanitizeSubjectPart(payload.service || 'Demande generale')
 
   await transporter.sendMail({
-    from,
+    // from et envelope.from correspondent tous les deux à contact@gpealgerie.com
+    // → SPF s'applique sur le domaine correct, pas sur celui du visiteur
+    from: FROM(),
     to,
-    // replyTo permet de répondre directement au visiteur depuis la boîte entreprise
     replyTo: payload.email,
     subject: `[GPE] Nouveau contact - ${safeService} (${safeName})`,
+    messageId: generateMessageId(domain),
+    // envelope explicite : garantit que MAIL FROM = contact@gpealgerie.com
+    // (vérification SPF d'Outlook et des serveurs universitaires)
+    envelope: {
+      from: SENDER_EMAIL(),
+      to,
+    },
     html: buildContactHtml(payload),
     text: buildContactText(payload),
   })
@@ -165,22 +183,28 @@ export async function sendContactEmail(
   return { sent: true }
 }
 
+// ─── Envoi email de confirmation au visiteur ──────────────────────────────────
+
 export async function sendConfirmationEmail(
   payload: ContactPayload
 ): Promise<{ sent: boolean }> {
   const transporter = getTransporter()
   if (!transporter) return { sent: false }
 
-  const from = `"GPE Algerie" <${process.env.SMTP_USER}>`
+  const domain = senderDomain()
 
   await transporter.sendMail({
-    from,
-    // Aucun replyTo — l'email est envoyé par l'entreprise au visiteur,
-    // une éventuelle réponse doit revenir à l'entreprise (from = contact@gpealgerie.com)
+    from: FROM(),
     to: payload.email,
-    subject: 'Confirmation de votre demande - GPE Energies & Services',
-    html: buildConfirmationHtml(payload),
-    text: buildConfirmationText(payload),
+    // Pas de replyTo : si le visiteur répond, il écrit directement à contact@gpealgerie.com
+    subject: 'Confirmation de votre demande - GPE Energies et Services',
+    messageId: generateMessageId(domain),
+    envelope: {
+      from: SENDER_EMAIL(),
+      to: payload.email,
+    },
+    html: buildConfirmationHtml(),
+    text: CONFIRMATION_TEXT,
   })
 
   return { sent: true }
