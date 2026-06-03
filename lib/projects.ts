@@ -28,11 +28,11 @@ export const projects: Project[] = [
     longDescription: "Réalisation de l'ensemble des installations électriques CFO/CFA du pôle technique Oreca à Signes. Les travaux ont porté sur la distribution haute et basse tension, le câblage des ateliers de fabrication et d'assemblage, ainsi que le déploiement des systèmes de sécurité incendie (SSI), de vidéosurveillance et de contrôle d'accès.\n\nCe chantier exigeant en milieu industriel a nécessité une coordination rigoureuse avec les équipes techniques d'Oreca, afin d'assurer la continuité des activités du site tout au long des travaux.",
     image: '/images/oreca/1.jpeg',
     gallery: [
-      '/images/oreca/1.jpeg',
       '/images/oreca/2.jpg',
+      '/images/oreca/1.jpeg',
       '/images/oreca/3.jpg',
       '/images/oreca/4.jpeg',
-      '/images/oreca/5.avif',
+      
     ],
     tags: ['CFO/CFA', 'HTA/BT', 'SSI', 'Industrie'],
   },
@@ -285,6 +285,8 @@ export const projects: Project[] = [
       '/images/coliseetrets/5.jpeg',
     ],
     tags: ['IRVE', 'Borne de recharge', 'Infrastructure'],
+
+    
   },
 
   // ────────────────────────────────────────────────────────────
