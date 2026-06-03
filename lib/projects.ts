@@ -62,7 +62,7 @@ export const projects: Project[] = [
     serviceSlug: 'courants-forts-faibles',
     serviceLabel: 'Courants Forts & Faibles',
     year: 2024,
-    description: "Réhabilitation et mise aux normes électriques du Groupe Scolaire Marceau à Marseille : distribution BT, éclairage LED haute efficacité, SSI catégorie A et réseaux numériques pédagogiques.",
+    description: "Réalisation des installations électriques Courants Forts et Courants Faibles (CFO/CFA) du nouveau Groupe Scolaire Marceau à Marseille.",
     longDescription: "Réalisation des installations électriques Courants Forts et Courants Faibles (CFO/CFA) du nouveau Groupe Scolaire Marceau à Marseille. Les prestations comprennent la distribution électrique, l’éclairage, le système de sécurité incendie ainsi que les infrastructures réseaux et de communication de l’établissement.",
     image: '/images/csimarseille/5.jpeg',
     gallery: [
@@ -353,23 +353,7 @@ export const projects: Project[] = [
     ],
     tags: ['Photovoltaïque', '250 kWc', 'Tertiaire', ],
   },
-  {
-    id: 'er-7',
-    title: "Gymnase Tony Parker – Centrale Photovoltaïque 300 kWc",
-    location: 'Paris',
-    serviceSlug: 'energies-renouvelables',
-    serviceLabel: 'Énergies Renouvelables',
-    year: 2025,
-    description: "Centrale photovoltaïque de 300 kWc en toiture du Gymnase Tony Parker à Paris : production d'énergie renouvelable pour réduire l'empreinte carbone de cet équipement sportif de référence.",
-    longDescription: "Réalisation d'une centrale photovoltaïque de 300 kWc en toiture du Gymnase Tony Parker à Paris. Ce projet d'envergure pour un équipement sportif de référence comprend la conception, la fourniture, la pose et la mise en service d'une installation photovoltaïque haute performance.\n\nL'intégration de cette centrale solaire contribue à la réduction significative de l'empreinte carbone du gymnase, en produisant une énergie renouvelable locale qui couvre une part importante des besoins électriques de l'établissement.",
-    image:'' ,
-    gallery: [
-      
-      '/images/tony/8.jpeg',
 
-    ],
-    tags: ['Photovoltaïque', '300 kWc'],
-  },
   {
     id: 'er-8',
     title: "Exploitation Agricole – Centrale Photovoltaïque 350 kWc",
