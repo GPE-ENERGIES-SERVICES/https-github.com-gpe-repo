@@ -25,22 +25,19 @@ function getTransporter(): Transporter | null {
   cachedTransporter = nodemailer.createTransport({
     host,
     port: portNum,
-    // SSL/TLS sur le port 465, STARTTLS sur les autres
     secure: portNum === 465,
     auth: { user, pass },
-    tls: {
-      // Requiert TLS 1.2 minimum (compatible Outlook, Gmail, universités)
-      minVersion: 'TLSv1.2',
-    },
+    tls: { minVersion: 'TLSv1.2' },
+    // Timeouts critiques pour Vercel serverless (limite ~10s sur hobby, 60s sur pro)
+    connectionTimeout: 8000,
+    greetingTimeout:   8000,
+    socketTimeout:     10000,
   })
   return cachedTransporter
 }
 
-// Génère un Message-ID ancré sur le domaine expéditeur.
-// C'est une vérification clé d'Outlook/Hotmail et des filtres universitaires.
 function generateMessageId(domain: string): string {
-  const unique = randomBytes(16).toString('hex')
-  return `<${Date.now()}.${unique}@${domain}>`
+  return `<${Date.now()}.${randomBytes(16).toString('hex')}@${domain}>`
 }
 
 function senderDomain(): string {
@@ -61,13 +58,9 @@ function sanitizeSubjectPart(s: string): string {
   return s.replace(/[\r\n\t]/g, ' ').trim().slice(0, 80)
 }
 
-// Nodemailer encode automatiquement les caractères non-ASCII du display name
-// en RFC 2047 (=?UTF-8?...) — compatible avec tous les clients mail.
 const SENDER_NAME  = 'GPE Energies et Services'
 const SENDER_EMAIL = () => process.env.SMTP_USER!
 const FROM         = () => `"${SENDER_NAME}" <${SENDER_EMAIL()}>`
-
-// ─── Templates ───────────────────────────────────────────────────────────────
 
 const BASE_STYLE = [
   'font-family:Arial,Helvetica,sans-serif',
@@ -149,41 +142,47 @@ const CONFIRMATION_TEXT =
   `Cordialement,\n` +
   `GPE Energies & Services`
 
-// ─── Envoi email entreprise ───────────────────────────────────────────────────
+// ─── Export : email entreprise ────────────────────────────────────────────────
 
 export async function sendContactEmail(
   payload: ContactPayload
 ): Promise<{ sent: boolean; reason?: string }> {
   const transporter = getTransporter()
-  if (!transporter) return { sent: false, reason: 'smtp-not-configured' }
+
+  if (!transporter) {
+    // Variables d'env manquantes — log clair pour le diagnostic Vercel
+    console.error('[mailer] SMTP non configuré. Variables manquantes :', {
+      SMTP_HOST: !!process.env.SMTP_HOST,
+      SMTP_PORT: !!process.env.SMTP_PORT,
+      SMTP_USER: !!process.env.SMTP_USER,
+      SMTP_PASS: !!process.env.SMTP_PASS,
+    })
+    return { sent: false, reason: 'smtp-not-configured' }
+  }
 
   const to          = process.env.CONTACT_TO || SENDER_EMAIL()
   const domain      = senderDomain()
   const safeName    = sanitizeSubjectPart(payload.name)
   const safeService = sanitizeSubjectPart(payload.service || 'Demande generale')
 
+  console.log('[mailer] sendContactEmail → envoi vers', to)
+
   await transporter.sendMail({
-    // from et envelope.from correspondent tous les deux à contact@gpealgerie.com
-    // → SPF s'applique sur le domaine correct, pas sur celui du visiteur
-    from: FROM(),
+    from:      FROM(),
     to,
-    replyTo: payload.email,
-    subject: `[GPE] Nouveau contact - ${safeService} (${safeName})`,
+    replyTo:   payload.email,
+    subject:   `[GPE] Nouveau contact - ${safeService} (${safeName})`,
     messageId: generateMessageId(domain),
-    // envelope explicite : garantit que MAIL FROM = contact@gpealgerie.com
-    // (vérification SPF d'Outlook et des serveurs universitaires)
-    envelope: {
-      from: SENDER_EMAIL(),
-      to,
-    },
-    html: buildContactHtml(payload),
-    text: buildContactText(payload),
+    envelope:  { from: SENDER_EMAIL(), to },
+    html:      buildContactHtml(payload),
+    text:      buildContactText(payload),
   })
 
+  console.log('[mailer] sendContactEmail OK')
   return { sent: true }
 }
 
-// ─── Envoi email de confirmation au visiteur ──────────────────────────────────
+// ─── Export : email de confirmation visiteur ──────────────────────────────────
 
 export async function sendConfirmationEmail(
   payload: ContactPayload
@@ -193,19 +192,18 @@ export async function sendConfirmationEmail(
 
   const domain = senderDomain()
 
+  console.log('[mailer] sendConfirmationEmail → envoi vers', payload.email)
+
   await transporter.sendMail({
-    from: FROM(),
-    to: payload.email,
-    // Pas de replyTo : si le visiteur répond, il écrit directement à contact@gpealgerie.com
-    subject: 'Confirmation de votre demande - GPE Energies et Services',
+    from:      FROM(),
+    to:        payload.email,
+    subject:   'Confirmation de votre demande - GPE Energies et Services',
     messageId: generateMessageId(domain),
-    envelope: {
-      from: SENDER_EMAIL(),
-      to: payload.email,
-    },
-    html: buildConfirmationHtml(),
-    text: CONFIRMATION_TEXT,
+    envelope:  { from: SENDER_EMAIL(), to: payload.email },
+    html:      buildConfirmationHtml(),
+    text:      CONFIRMATION_TEXT,
   })
 
+  console.log('[mailer] sendConfirmationEmail OK')
   return { sent: true }
 }
