@@ -67,14 +67,12 @@ export const projects: Project[] = [
     year: 2024,
     description: "Réalisation des installations électriques Courants Forts et Courants Faibles (CFO/CFA) du nouveau Groupe Scolaire Marceau à Marseille.",
     longDescription: "Réalisation des installations électriques Courants Forts et Courants Faibles (CFO/CFA) du nouveau Groupe Scolaire Marceau à Marseille. Les prestations comprennent la distribution électrique, l’éclairage, le système de sécurité incendie ainsi que les infrastructures réseaux et de communication de l’établissement.",
-    image: '/images/csimarseille/5.jpeg',
+    image:       '/images/gsmarceau/2.webp',
     gallery: [
-      '/images/csimarseille/5.jpeg',
       '/images/gsmarceau/1.webp',
       '/images/gsmarceau/3.jpg',
       '/images/gsmarceau/2.webp',
       '/images/gsmarceau/5.jpg',
-      '/images/csimarseille/6.jpeg',
 
 
      
