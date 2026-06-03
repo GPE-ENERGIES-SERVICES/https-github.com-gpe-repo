@@ -14,7 +14,7 @@ const FEATURED_IDS = ['cff-1', 'cff-2', 'cff-3', 'cff-4', 'cff-5']
 const serviceColors: Record<string, string> = {
   'courants-forts-faibles': '#6366f1',
   'energies-renouvelables': '#f59e0b',
-  'mobilite-electrique': '',
+  'mobilite-electrique': '#87CEEB',
   'renovation-energetique': '#10b981',
   'chauffage-climatisation': '#ef4444',
   'bureau-etudes': '#1FAF5A',
