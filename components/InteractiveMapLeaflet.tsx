@@ -11,6 +11,7 @@ export interface MapLocation {
   flag: string
   address: string
   phone?: string
+  email?: string
   role: string
   coords: [number, number]
 }
@@ -321,6 +322,20 @@ export default function InteractiveMapLeaflet({ locations, initialId, height = 5
                   </svg>
                   <span className="text-xs font-semibold text-neutral-700 group-hover/phone:text-[#2e5240] transition-colors">
                     {active.phone}
+                  </span>
+                </a>
+              )}
+
+              {active.email && (
+                <a
+                  href={`mailto:${active.email}`}
+                  className="flex items-center gap-2.5 group/email"
+                >
+                  <svg className="w-3.5 h-3.5 text-neutral-400 flex-shrink-0 group-hover/email:text-[#2e5240] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                  <span className="text-xs font-semibold text-neutral-700 group-hover/email:text-[#2e5240] transition-colors">
+                    {active.email}
                   </span>
                 </a>
               )}
