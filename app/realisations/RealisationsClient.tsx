@@ -9,7 +9,7 @@ import { projects, serviceLabels } from '@/lib/projects'
 import { useLanguage } from '@/context/LanguageContext'
 
 const ALL = 'all'
-const FEATURED_IDS = ['cff-1', 'cff-2', 'cff-3', 'cff-4', 'cff-5']
+const FEATURED_IDS = ['cff-1', 'cff-8', 'me-2', 'er-2', 'er-4']
 
 const serviceColors: Record<string, string> = {
   'courants-forts-faibles': '#6366f1',
