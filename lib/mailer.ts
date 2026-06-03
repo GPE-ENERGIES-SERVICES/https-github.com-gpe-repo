@@ -1,5 +1,4 @@
-import nodemailer, { type Transporter } from 'nodemailer'
-import { randomBytes } from 'crypto'
+import { Resend } from 'resend'
 
 export interface ContactPayload {
   name: string
@@ -10,39 +9,13 @@ export interface ContactPayload {
   message: string
 }
 
-let cachedTransporter: Transporter | null = null
-
-function getTransporter(): Transporter | null {
-  const host = process.env.SMTP_HOST
-  const port = process.env.SMTP_PORT
-  const user = process.env.SMTP_USER
-  const pass = process.env.SMTP_PASS
-
-  if (!host || !port || !user || !pass) return null
-  if (cachedTransporter) return cachedTransporter
-
-  const portNum = Number(port)
-  cachedTransporter = nodemailer.createTransport({
-    host,
-    port: portNum,
-    secure: portNum === 465,
-    auth: { user, pass },
-    tls: { minVersion: 'TLSv1.2' },
-    // Timeouts critiques pour Vercel serverless (limite ~10s sur hobby, 60s sur pro)
-    connectionTimeout: 8000,
-    greetingTimeout:   8000,
-    socketTimeout:     10000,
-  })
-  return cachedTransporter
-}
-
-function generateMessageId(domain: string): string {
-  return `<${Date.now()}.${randomBytes(16).toString('hex')}@${domain}>`
-}
-
-function senderDomain(): string {
-  const user = process.env.SMTP_USER || ''
-  return user.split('@')[1] || 'gpealgerie.com'
+function getResend(): Resend | null {
+  const key = process.env.RESEND_API_KEY
+  if (!key) {
+    console.error('[mailer] RESEND_API_KEY manquant')
+    return null
+  }
+  return new Resend(key)
 }
 
 function escapeHtml(s: string): string {
@@ -58,9 +31,8 @@ function sanitizeSubjectPart(s: string): string {
   return s.replace(/[\r\n\t]/g, ' ').trim().slice(0, 80)
 }
 
-const SENDER_NAME  = 'GPE Energies et Services'
-const SENDER_EMAIL = () => process.env.SMTP_USER!
-const FROM         = () => `"${SENDER_NAME}" <${SENDER_EMAIL()}>`
+const SENDER_FROM = 'GPE Energies et Services <contact@gpealgerie.com>'
+const CONTACT_TO  = () => process.env.CONTACT_TO || 'contact@gpealgerie.com'
 
 const BASE_STYLE = [
   'font-family:Arial,Helvetica,sans-serif',
@@ -85,7 +57,7 @@ function buildContactHtml(p: ContactPayload): string {
 
   return `<!DOCTYPE html>
 <html lang="fr">
-<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /></head>
+<head><meta charset="UTF-8" /></head>
 <body style="margin:0;padding:0;background:#ffffff;">
 <div style="${BASE_STYLE}">
   <p style="${P}"><strong>Nouvelle demande de contact</strong></p>
@@ -120,7 +92,7 @@ function buildContactText(p: ContactPayload): string {
 function buildConfirmationHtml(): string {
   return `<!DOCTYPE html>
 <html lang="fr">
-<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /></head>
+<head><meta charset="UTF-8" /></head>
 <body style="margin:0;padding:0;background:#ffffff;">
 <div style="${BASE_STYLE}">
   <p style="${P}">Bonjour,</p>
@@ -142,67 +114,59 @@ const CONFIRMATION_TEXT =
   `Cordialement,\n` +
   `GPE Energies & Services`
 
-// ─── Export : email entreprise ────────────────────────────────────────────────
+// ─── Email entreprise ─────────────────────────────────────────────────────────
 
 export async function sendContactEmail(
   payload: ContactPayload
 ): Promise<{ sent: boolean; reason?: string }> {
-  const transporter = getTransporter()
+  const resend = getResend()
+  if (!resend) return { sent: false, reason: 'resend-not-configured' }
 
-  if (!transporter) {
-    // Variables d'env manquantes — log clair pour le diagnostic Vercel
-    console.error('[mailer] SMTP non configuré. Variables manquantes :', {
-      SMTP_HOST: !!process.env.SMTP_HOST,
-      SMTP_PORT: !!process.env.SMTP_PORT,
-      SMTP_USER: !!process.env.SMTP_USER,
-      SMTP_PASS: !!process.env.SMTP_PASS,
-    })
-    return { sent: false, reason: 'smtp-not-configured' }
-  }
-
-  const to          = process.env.CONTACT_TO || SENDER_EMAIL()
-  const domain      = senderDomain()
   const safeName    = sanitizeSubjectPart(payload.name)
   const safeService = sanitizeSubjectPart(payload.service || 'Demande generale')
 
-  console.log('[mailer] sendContactEmail → envoi vers', to)
+  console.log('[mailer] sendContactEmail → envoi vers', CONTACT_TO())
 
-  await transporter.sendMail({
-    from:      FROM(),
-    to,
-    replyTo:   payload.email,
-    subject:   `[GPE] Nouveau contact - ${safeService} (${safeName})`,
-    messageId: generateMessageId(domain),
-    envelope:  { from: SENDER_EMAIL(), to },
-    html:      buildContactHtml(payload),
-    text:      buildContactText(payload),
+  const { error } = await resend.emails.send({
+    from:     SENDER_FROM,
+    to:       CONTACT_TO(),
+    replyTo:  payload.email,
+    subject:  `[GPE] Nouveau contact - ${safeService} (${safeName})`,
+    html:     buildContactHtml(payload),
+    text:     buildContactText(payload),
   })
+
+  if (error) {
+    console.error('[mailer] sendContactEmail erreur:', error)
+    throw new Error(error.message)
+  }
 
   console.log('[mailer] sendContactEmail OK')
   return { sent: true }
 }
 
-// ─── Export : email de confirmation visiteur ──────────────────────────────────
+// ─── Email de confirmation visiteur ──────────────────────────────────────────
 
 export async function sendConfirmationEmail(
   payload: ContactPayload
 ): Promise<{ sent: boolean }> {
-  const transporter = getTransporter()
-  if (!transporter) return { sent: false }
-
-  const domain = senderDomain()
+  const resend = getResend()
+  if (!resend) return { sent: false }
 
   console.log('[mailer] sendConfirmationEmail → envoi vers', payload.email)
 
-  await transporter.sendMail({
-    from:      FROM(),
-    to:        payload.email,
-    subject:   'Confirmation de votre demande - GPE Energies et Services',
-    messageId: generateMessageId(domain),
-    envelope:  { from: SENDER_EMAIL(), to: payload.email },
-    html:      buildConfirmationHtml(),
-    text:      CONFIRMATION_TEXT,
+  const { error } = await resend.emails.send({
+    from:    SENDER_FROM,
+    to:      payload.email,
+    subject: 'Confirmation de votre demande - GPE Energies et Services',
+    html:    buildConfirmationHtml(),
+    text:    CONFIRMATION_TEXT,
   })
+
+  if (error) {
+    console.error('[mailer] sendConfirmationEmail erreur:', error)
+    throw new Error(error.message)
+  }
 
   console.log('[mailer] sendConfirmationEmail OK')
   return { sent: true }

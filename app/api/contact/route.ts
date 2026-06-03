@@ -98,15 +98,9 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    // SMTP non configuré = variables d'env manquantes sur Vercel
+    // Service email non configuré (RESEND_API_KEY manquant)
     if (!contactResult.sent) {
-      console.error('[contact] SMTP non configuré — vérifiez les variables d\'env sur Vercel:', {
-        SMTP_HOST:    !!process.env.SMTP_HOST,
-        SMTP_PORT:    !!process.env.SMTP_PORT,
-        SMTP_USER:    !!process.env.SMTP_USER,
-        SMTP_PASS:    !!process.env.SMTP_PASS,
-        CONTACT_TO:   !!process.env.CONTACT_TO,
-      })
+      console.error('[contact] Service email non configuré — RESEND_API_KEY présent ?', !!process.env.RESEND_API_KEY)
       return NextResponse.json(
         { error: 'Service email non disponible. Contactez-nous directement à contact@gpealgerie.com' },
         { status: 503 }
