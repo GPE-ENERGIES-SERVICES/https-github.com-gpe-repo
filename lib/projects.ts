@@ -50,8 +50,7 @@ export const projects: Project[] = [
       '/images/csimarseille/1.jpg',
       '/images/csimarseille/2.png',
       '/images/csimarseille/3.png',
-      '/images/csimarseille/5.jpeg',
-      '/images/csimarseille/6.png',
+      
       
     ],
     tags: ['CFO/CFA', 'SSI', 'École'],
@@ -70,7 +69,10 @@ export const projects: Project[] = [
       '/images/csimarseille/5.jpeg',
       '/images/gsmarceau/1.webp',
       '/images/gsmarceau/3.jpg',
-      '/images/gsmarceau/4.jpg',
+      '/images/gsmarceau/2.webp',
+      '/images/gsmarceau/5.jpg',
+      '/images/csimarseille/6.jpeg',
+
 
      
     ],
@@ -233,8 +235,13 @@ export const projects: Project[] = [
     description: "Installation de bornes de recharge pour véhicules électriques à l'Hôtel de Saint Maximin : infrastructure IRVE pour la clientèle, raccordement BT et mise en service.",
     longDescription: "Réalisation de l'infrastructure de recharge pour véhicules électriques (IRVE) à l'Hôtel de Saint Maximin. Les travaux comprennent l'installation des bornes de recharge dédiées à la clientèle de l'établissement, le raccordement au réseau basse tension et la mise en service des équipements.\n\nCe projet s'inscrit dans la démarche de développement durable de l'hôtel, offrant à ses clients un service de recharge pratique et fiable, en conformité avec les normes IRVE en vigueur.",
     // TODO: ajouter les photos du projet Hôtel Sainte-Maxime
-    image: '',
-    gallery: [],
+    image: '/images/saintmaximin/2.jpeg',
+    gallery: [
+      '/images/saintmaximin/1.jpeg',
+      '/images/saintmaximin/2.jpeg',
+      '/images/saintmaximin/3.jpeg',
+      '/images/saintmaximin/4.jpeg',
+    ],
     tags: ['IRVE', 'Hôtellerie', 'Borne de recharge'],
   },
   {
@@ -246,9 +253,17 @@ export const projects: Project[] = [
     year: 2024,
     description: "Déploiement d'une infrastructure de recharge pour véhicules électriques au domaine Gabriel Meffre à Gigondas : installation de bornes IRVE, raccordement et mise en service.",
     longDescription: "Réalisation de l'infrastructure IRVE au domaine viticole Gabriel Meffre à Gigondas (84190). Les travaux comprennent la fourniture et l'installation des bornes de recharge pour véhicules électriques, le raccordement au réseau basse tension et la mise en service des équipements.\n\nCe projet illustre notre capacité à intervenir dans des environnements variés, en apportant des solutions de recharge adaptées aux besoins spécifiques d'un domaine viticole de renom, accueillant visiteurs et professionnels.",
-    // TODO: ajouter les photos du projet Maison Gabriel Meffre - Gigondas
-    image: '',
-    gallery: [],
+   
+    image: '/images/meffre/1.jpeg',
+    gallery: [
+      '/images/meffre/1.jpeg',
+      '/images/meffre/2.jpeg',
+      '/images/meffre/3.jpeg',
+      '/images/meffre/4.jpeg',
+      '/images/meffre/5.jpeg',
+      '/images/meffre/6.jpeg',
+      '/images/meffre/7.jpeg',
+    ],
     tags: ['IRVE', 'Domaine viticole', 'Borne de recharge'],
   },
   {
@@ -260,9 +275,15 @@ export const projects: Project[] = [
     year: 2023,
     description: "Équipement IRVE du site Colisée à Trets : installation de bornes de recharge pour véhicules électriques, raccordement au réseau basse tension et mise en service.",
     longDescription: "Réalisation des travaux d'infrastructure de recharge pour véhicules électriques (IRVE) sur le site Colisée à Trets. Les prestations couvrent la fourniture et la pose des bornes de recharge, le raccordement électrique et la mise en service des équipements.\n\nCe projet confirme notre savoir-faire dans le déploiement d'infrastructures IRVE pour des sites variés, avec une installation conforme aux exigences réglementaires et normatives en vigueur.",
-    // TODO: ajouter les photos du projet Colisée - Trets
-    image: '',
-    gallery: [],
+
+    image: '/images/coliseetrets/1.jpeg',
+    gallery: [
+      '/images/coliseetrets/1.jpeg',
+      '/images/coliseetrets/2.jpeg',
+      '/images/coliseetrets/3.jpeg',
+      '/images/coliseetrets/4.jpeg',
+      '/images/coliseetrets/5.jpeg',
+    ],
     tags: ['IRVE', 'Borne de recharge', 'Infrastructure'],
   },
 
@@ -392,8 +413,13 @@ export const projects: Project[] = [
     year: 2025,
     description: "Centrale photovoltaïque de 350 kWc sur une exploitation agricole à Clermont-Ferrand : production solaire intégrée à l'activité agricole avec supervision et suivi de production.",
     longDescription: "Réalisation d'une centrale photovoltaïque de 350 kWc sur une exploitation agricole à Clermont-Ferrand. Ce projet comprend l'ensemble des prestations, de l'étude de faisabilité au génie civil, en passant par la fourniture et la pose des modules photovoltaïques et des équipements électriques associés.\nL'installation est couplée à un système de supervision permettant un suivi en temps réel de la production, une détection rapide des anomalies et une optimisation continue des performances.",
-    image: '',
-    gallery: [
+    image: '/images/cler/1.jpeg',
+    gallery: [ 
+      '/images/cler/1.jpeg',
+      '/images/cler/2.jpeg',
+      '/images/cler/6.jpeg',
+      '/images/cler/8.jpeg',
+      '/images/cler/3.jpeg',
  
 
     ],
