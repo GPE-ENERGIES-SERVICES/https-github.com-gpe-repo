@@ -26,7 +26,7 @@ export const projects: Project[] = [
     year: 2024,
     description: "Installation électrique complète du pôle technique Oreca : réseaux HTA/BT, alimentation des ateliers de fabrication et systèmes de sûreté.",
     longDescription: "Réalisation de l'ensemble des installations électriques CFO/CFA du pôle technique Oreca à Signes. Les travaux ont porté sur la distribution haute et basse tension, le câblage des ateliers de fabrication et d'assemblage, ainsi que le déploiement des systèmes de sécurité incendie (SSI), de vidéosurveillance et de contrôle d'accès.\n\nCe chantier exigeant en milieu industriel a nécessité une coordination rigoureuse avec les équipes techniques d'Oreca, afin d'assurer la continuité des activités du site tout au long des travaux.",
-    image: '/images/oreca/1.jpeg',
+    image: '/images/oreca/2.jpeg',
     gallery: [
       '/images/oreca/2.jpg',
       '/images/oreca/1.jpeg',
@@ -67,7 +67,7 @@ export const projects: Project[] = [
     year: 2024,
     description: "Réalisation des installations électriques Courants Forts et Courants Faibles (CFO/CFA) du nouveau Groupe Scolaire Marceau à Marseille.",
     longDescription: "Réalisation des installations électriques Courants Forts et Courants Faibles (CFO/CFA) du nouveau Groupe Scolaire Marceau à Marseille. Les prestations comprennent la distribution électrique, l’éclairage, le système de sécurité incendie ainsi que les infrastructures réseaux et de communication de l’établissement.",
-    image:       '/images/gsmarceau/2.webp',
+    image:   '/images/gsmarceau/2.webp',
     gallery: [
       '/images/gsmarceau/1.webp',
       '/images/gsmarceau/3.jpg',
