@@ -39,69 +39,148 @@ function escapeHtml(s: string): string {
     .replace(/'/g, '&#39;')
 }
 
-// Empêche l'injection d'en-têtes email via les champs libres
 function sanitizeSubjectPart(s: string): string {
   return s.replace(/[\r\n\t]/g, ' ').trim().slice(0, 80)
 }
 
-function buildHtml(p: ContactPayload): string {
-  const row = (label: string, value?: string) =>
+// Styles minimalistes — fond blanc, texte noir, lisible sur tous les clients mail
+const BASE = [
+  'font-family:Arial,Helvetica,sans-serif',
+  'font-size:14px',
+  'line-height:1.75',
+  'color:#1a1a1a',
+  'background:#ffffff',
+  'padding:32px 40px',
+  'max-width:600px',
+].join(';')
+const P = 'margin:0 0 14px;'
+
+// ─── Email reçu par l'entreprise ─────────────────────────────────────────────
+
+function buildContactHtml(p: ContactPayload): string {
+  const field = (label: string, value?: string) =>
     value
-      ? `<tr><td style="padding:6px 12px;color:#525252;font-size:13px;">${label}</td><td style="padding:6px 12px;color:#171717;font-size:14px;font-weight:500;">${escapeHtml(value)}</td></tr>`
+      ? `<tr>
+           <td style="padding:3px 16px 3px 0;font-weight:bold;vertical-align:top;white-space:nowrap;">${label} :</td>
+           <td style="padding:3px 0;">${escapeHtml(value)}</td>
+         </tr>`
       : ''
-  return `
-    <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fafafa;padding:32px;">
-      <div style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:18px;overflow:hidden;border:1px solid #e8e8e8;">
-        <div style="background:linear-gradient(135deg,#1FAF5A,#C6FF00);padding:24px 28px;color:#fff;">
-          <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.85;">Nouveau contact</div>
-          <div style="font-size:20px;font-weight:600;margin-top:4px;">GPE &Eacute;nergies &amp; Services</div>
-        </div>
-        <div style="padding:28px;">
-          <table style="width:100%;border-collapse:collapse;">
-            ${row('Nom', p.name)}
-            ${row('Email', p.email)}
-            ${row('T&eacute;l&eacute;phone', p.phone)}
-            ${row('Soci&eacute;t&eacute;', p.company)}
-            ${row('Service', p.service)}
-          </table>
-          <div style="margin-top:24px;padding-top:20px;border-top:1px solid #efefef;">
-            <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#737373;font-weight:600;margin-bottom:10px;">Message</div>
-            <div style="font-size:14px;line-height:1.65;color:#262626;white-space:pre-wrap;">${escapeHtml(p.message)}</div>
-          </div>
-        </div>
-        <div style="padding:14px 28px;background:#fafafa;border-top:1px solid #efefef;color:#a3a3a3;font-size:11px;">
-          Re&ccedil;u le ${new Date().toLocaleString('fr-FR', { dateStyle: 'long', timeStyle: 'short' })}
-        </div>
-      </div>
-    </div>
-  `
+
+  return `<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8" /></head>
+<body style="margin:0;padding:0;background:#ffffff;">
+<div style="${BASE}">
+
+  <p style="${P}"><strong>Nouvelle demande de contact</strong></p>
+
+  <table style="border-collapse:collapse;margin-bottom:20px;">
+    ${field('Nom', p.name)}
+    ${field('Email', p.email)}
+    ${field('Telephone', p.phone)}
+    ${field('Societe', p.company)}
+    ${field('Service', p.service)}
+  </table>
+
+  <p style="${P}"><strong>Message :</strong></p>
+  <p style="margin:0 0 24px;white-space:pre-wrap;">${escapeHtml(p.message)}</p>
+
+  <p style="margin:0;color:#666666;font-size:12px;">---<br>Message envoye depuis le site GPE Algerie.</p>
+
+</div>
+</body>
+</html>`
 }
 
-export async function sendContactEmail(payload: ContactPayload): Promise<{ sent: boolean; reason?: string }> {
+function buildContactText(p: ContactPayload): string {
+  return (
+    `Nouvelle demande de contact\n\n` +
+    `Nom : ${p.name}\n` +
+    `Email : ${p.email}\n` +
+    (p.phone   ? `Telephone : ${p.phone}\n`  : '') +
+    (p.company ? `Societe : ${p.company}\n`  : '') +
+    (p.service ? `Service : ${p.service}\n`  : '') +
+    `\nMessage :\n${p.message}\n\n` +
+    `---\nMessage envoye depuis le site GPE Algerie.`
+  )
+}
+
+// ─── Email de confirmation au visiteur ───────────────────────────────────────
+
+function buildConfirmationHtml(p: ContactPayload): string {
+  return `<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="UTF-8" /></head>
+<body style="margin:0;padding:0;background:#ffffff;">
+<div style="${BASE}">
+
+  <p style="${P}">Bonjour,</p>
+  <p style="${P}">Nous vous remercions pour votre prise de contact avec GPE Energies &amp; Services.</p>
+  <p style="${P}">Votre demande a bien ete recue.</p>
+  <p style="${P}">Notre equipe reviendra vers vous dans les meilleurs delais.</p>
+  <p style="margin:24px 0 4px;">Cordialement,</p>
+  <p style="margin:0;font-weight:bold;">GPE Energies &amp; Services</p>
+
+</div>
+</body>
+</html>`
+}
+
+function buildConfirmationText(p: ContactPayload): string {
+  return (
+    `Bonjour,\n\n` +
+    `Nous vous remercions pour votre prise de contact avec GPE Energies & Services.\n\n` +
+    `Votre demande a bien ete recue.\n\n` +
+    `Notre equipe reviendra vers vous dans les meilleurs delais.\n\n` +
+    `Cordialement,\n` +
+    `GPE Energies & Services`
+  )
+}
+
+// ─── Exports ─────────────────────────────────────────────────────────────────
+
+export async function sendContactEmail(
+  payload: ContactPayload
+): Promise<{ sent: boolean; reason?: string }> {
   const transporter = getTransporter()
   if (!transporter) {
     return { sent: false, reason: 'smtp-not-configured' }
   }
 
-  const to = process.env.CONTACT_TO || process.env.SMTP_USER!
-  const fromName = 'GPE Energies - Site web'
+  const to      = process.env.CONTACT_TO || process.env.SMTP_USER!
+  const from    = `"GPE Algerie" <${process.env.SMTP_USER}>`
   const safeName    = sanitizeSubjectPart(payload.name)
   const safeService = sanitizeSubjectPart(payload.service || 'Demande generale')
-  const subject = `[GPE] Contact - ${safeService} (${safeName})`
 
   await transporter.sendMail({
-    from: `"${fromName}" <${process.env.SMTP_USER}>`,
+    from,
     to,
+    // replyTo permet de répondre directement au visiteur depuis la boîte entreprise
     replyTo: payload.email,
-    subject,
-    html: buildHtml(payload),
-    text:
-      `Nom: ${payload.name}\n` +
-      `Email: ${payload.email}\n` +
-      (payload.phone   ? `Telephone: ${payload.phone}\n`  : '') +
-      (payload.company ? `Societe: ${payload.company}\n`  : '') +
-      (payload.service ? `Service: ${payload.service}\n`  : '') +
-      `\n${payload.message}\n`,
+    subject: `[GPE] Nouveau contact - ${safeService} (${safeName})`,
+    html: buildContactHtml(payload),
+    text: buildContactText(payload),
+  })
+
+  return { sent: true }
+}
+
+export async function sendConfirmationEmail(
+  payload: ContactPayload
+): Promise<{ sent: boolean }> {
+  const transporter = getTransporter()
+  if (!transporter) return { sent: false }
+
+  const from = `"GPE Algerie" <${process.env.SMTP_USER}>`
+
+  await transporter.sendMail({
+    from,
+    // Aucun replyTo — l'email est envoyé par l'entreprise au visiteur,
+    // une éventuelle réponse doit revenir à l'entreprise (from = contact@gpealgerie.com)
+    to: payload.email,
+    subject: 'Confirmation de votre demande - GPE Energies & Services',
+    html: buildConfirmationHtml(payload),
+    text: buildConfirmationText(payload),
   })
 
   return { sent: true }

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
-import { sendContactEmail } from '@/lib/mailer'
+import { sendContactEmail, sendConfirmationEmail } from '@/lib/mailer'
 
 export const runtime = 'nodejs'
 
@@ -90,12 +90,13 @@ export async function POST(req: NextRequest) {
     try {
       const result = await sendContactEmail(payload)
       if (!result.sent) {
-        // SMTP not configured — still log so dev mode works.
         console.log('[contact] SMTP not configured, message logged:', {
           ...payload,
           ip,
           at: new Date().toISOString(),
         })
+      } else {
+        await sendConfirmationEmail(payload)
       }
     } catch (mailErr) {
       console.error('[contact] mail send error:', mailErr)
