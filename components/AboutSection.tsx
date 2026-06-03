@@ -92,7 +92,7 @@ export default function AboutSection() {
             >
               {[
                 { v: '2023', lKey: 'about.stat.founded' },
-                { v: '', lKey: 'about.stat.team' },
+                { v: '+50', lKey: 'about.stat.team' },
                 { v: t('about.stat.regionVal'), lKey: 'about.stat.region' },
               ].map((item, i) => (
                 <div
