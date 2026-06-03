@@ -299,9 +299,13 @@ export const projects: Project[] = [
     year: 2026,
     description: "Centrale photovoltaïque de 1,2 MW en toiture bac acier près de Cahors : production d'énergie renouvelable locale grâce à une intégration optimisée sur la structure existante.",
     longDescription: "Installation d'une centrale photovoltaïque de 1,2 MW en toiture bac acier à proximité de Cahors. Ce projet permet de produire une énergie renouvelable locale tout en s'intégrant efficacement à la structure existante, participant ainsi à la transition énergétique du site.",
-    image: '',
+    image: '/images/projet2/1.jpg',
     gallery: [
-      '',
+      '/images/projet2/1.jpg',
+      '/images/projet2/2.jpg',
+      '/images/projet2/3.jpg',
+      '/images/projet2/6.jpg',
+      
 
     ],
     tags: ['Photovoltaïque', 'Énergie solaire', 'Toiture'],
@@ -339,16 +343,15 @@ export const projects: Project[] = [
     description: "Centrale photovoltaïque de 250 kWc pour la SCI Idenium : production d'énergie renouvelable en autoconsommation et valorisation du patrimoine immobilier.",
     longDescription: "Réalisation d'une centrale photovoltaïque de 250 kWc pour la SCI Idenium. Ce projet de moyenne puissance comprend l'étude de faisabilité, le dimensionnement des équipements, la fourniture et la pose des panneaux photovoltaïques, ainsi que le raccordement au réseau et la mise en service.\n\nL'installation est conçue pour maximiser l'autoconsommation du site et valoriser le patrimoine immobilier, tout en bénéficiant des dispositifs de soutien à la production d'énergie renouvelable.",
     // TODO: ajouter les photos du projet SCI Idenium 250 kWc
-    image: '/images/tony/8.jpeg',
+    image: '/images/tony/2.jpeg',
     gallery: [
-      '/images/tony/1.jpeg',
       '/images/tony/2.jpeg',
       '/images/tony/3.jpeg',
-      '/images/tony/4.jpeg',
-      '/images/tony/5.jpeg',
-      '/images/tony/6.jpeg',
+      '/images/tony/10.jpeg',
+      '/images/tony/11.jpeg',
+      
     ],
-    tags: ['Photovoltaïque', '250 kWc', 'Tertiaire', 'RGE'],
+    tags: ['Photovoltaïque', '250 kWc', 'Tertiaire', ],
   },
   {
     id: 'er-7',
