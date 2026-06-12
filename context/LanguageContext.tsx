@@ -606,8 +606,8 @@ const t18n: Record<Lang, Record<string, string>> = {
     'service.bureau-etudes.benefit3': 'Site Supervision & Project Programming',
     'service.bureau-etudes.benefit4': 'Full Contract Administration (MOE)',
 
-    // ── Service: BMS / KNX Systems
-    'service.smart-building.title': 'BMS / KNX Systems',
+    // ── Service: Smart Building
+    'service.smart-building.title': 'Smart Building',
     'service.smart-building.shortDesc': 'Design and deployment of Building Management Systems based on the KNX protocol for intelligent automation and energy optimisation of your premises.',
     'service.smart-building.desc1': 'GPE Énergies & Services designs and deploys Building Management Systems (BMS) built on the KNX protocol — the open international standard for building automation. Our certified engineers manage the full project lifecycle, from conceptual design through to commissioning and operator training.',
     'service.smart-building.desc2': 'By integrating BMS and KNX, you centralise control of lighting, blinds, heating, air conditioning, and access systems on a single intuitive interface. This approach enables significant energy savings while improving occupant comfort and operational efficiency across all building types.',
@@ -1045,8 +1045,8 @@ const t18n: Record<Lang, Record<string, string>> = {
     'service.bureau-etudes.benefit3': 'الإشراف على المواقع وبرمجة المشاريع',
     'service.bureau-etudes.benefit4': 'إدارة عقود كاملة (MOE)',
 
-    // ── Service: أنظمة GTB / KNX
-    'service.smart-building.title': 'أنظمة GTB / KNX',
+    // ── Service: المباني الذكية
+    'service.smart-building.title': 'المباني الذكية',
     'service.smart-building.shortDesc': 'تصميم ونشر أنظمة الإدارة التقنية للمباني وفق بروتوكول KNX لأتمتة مبانيكم وتحسين استهلاككم الطاقوي.',
     'service.smart-building.desc1': 'تصمم GPE Énergies & Services وتنشر أنظمة الإدارة التقنية للمباني (GTB) المبنية على بروتوكول KNX، المعيار الدولي المفتوح لأتمتة المباني. يتولى مهندسونا المعتمدون إدارة دورة حياة المشروع الكاملة، من التصميم المفاهيمي وحتى التشغيل وتدريب فرق الاستغلال.',
     'service.smart-building.desc2': 'بفضل تكامل GTB وKNX، تتمكنون من مركزة التحكم في الإضاءة والستائر والتدفئة والتكييف وأنظمة التحكم في الوصول على واجهة واحدة وسهلة الاستخدام. يُتيح هذا النهج توفيرات طاقوية ملموسة مع تحسين راحة شاغلي المبنى وكفاءة التشغيل.',
@@ -1324,7 +1324,7 @@ const t18n: Record<Lang, Record<string, string>> = {
     'contact.service.0': 'التيارات القوية والضعيفة',
     'contact.service.1': 'الطاقات المتجددة',
     'contact.service.2': 'التنقل الكهربائي',
-    'contact.service.3': 'البناء الذكي',
+    'contact.service.3': 'المباني الذكية',
     'contact.service.4': 'تجديد الكفاءة الطاقوية',
     'contact.service.5': 'التدفئة والتكييف',
     'contact.service.6': 'مكتب الدراسات',
