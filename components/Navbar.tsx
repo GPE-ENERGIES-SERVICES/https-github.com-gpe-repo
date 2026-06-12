@@ -142,9 +142,9 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-white pt-20 px-6 lg:hidden"
+            className="fixed inset-0 z-40 bg-white pt-20 px-6 lg:hidden overflow-y-auto overscroll-contain"
           >
-            <div className="flex flex-col">
+            <div className="flex flex-col pb-10">
 
               {navLinks.map((link, i) => (
                 <motion.div
