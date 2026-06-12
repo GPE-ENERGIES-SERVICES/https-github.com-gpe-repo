@@ -98,17 +98,18 @@ export default function AboutSection() {
               ].map((item, i) => (
                 <div
                   key={item.lKey}
+                  dir="ltr"
                   className={`p-5 ${
                     i === 0 ? 'border-r border-[#2e5240]/10' :
                     i === 1 ? 'sm:border-r sm:border-[#2e5240]/10' :
                     'col-span-2 sm:col-span-1 border-t sm:border-t-0 border-[#2e5240]/10'
                   }`}
                 >
-                  <div className="text-2xl font-semibold text-[#2e5240] text-left" dir="ltr">
+                  <div className="text-2xl font-semibold text-[#2e5240]">
                     {item.v}
                   </div>
 
-                  <div className="mt-1 text-[11px] tracking-widest uppercase text-[#2e5240]/50 text-left">
+                  <div className="mt-1 text-[11px] tracking-widest uppercase text-[#2e5240]/50">
                     {t(item.lKey)}
                   </div>
                 </div>
