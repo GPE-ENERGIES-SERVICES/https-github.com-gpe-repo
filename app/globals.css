@@ -22,8 +22,18 @@ html {
   scroll-behavior: smooth;
 }
 
-html[lang="ar"] {
+/* Arabic mode — force IBM Plex Sans Arabic on every element, including
+   those that Tailwind would otherwise override with font-sans (Outfit). */
+html[lang="ar"],
+html[lang="ar"] body,
+html[lang="ar"] * {
   font-family: var(--font-arabic), sans-serif;
+}
+
+/* Numbers, emails, phone numbers, URLs: keep LTR rendering so they
+   are never reversed by the RTL document flow. */
+html[dir="rtl"] [dir="ltr"] {
+  unicode-bidi: embed;
 }
 
 html[dir="rtl"] .heading-display {

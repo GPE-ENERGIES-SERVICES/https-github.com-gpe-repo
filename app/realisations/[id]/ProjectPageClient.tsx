@@ -69,7 +69,7 @@ export default function ProjectPageClient({ project }: Props) {
                 className="text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full text-white"
                 style={{ backgroundColor: color }}
               >
-                {project.serviceLabel}
+                {t(serviceLabels[project.serviceSlug] ?? project.serviceSlug)}
               </span>
               <span className="text-white/50 text-sm">{project.year}</span>
             </div>
@@ -104,7 +104,7 @@ export default function ProjectPageClient({ project }: Props) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                <span className="label-tag">Présentation du projet</span>
+                <span className="label-tag">{t('project.presentation.label')}</span>
                 <div className="mt-5 prose prose-neutral max-w-none">
                   {project.longDescription.split('\n').map((para, i) => (
                     <p key={i} className="text-neutral-600 leading-relaxed text-base mb-4">
@@ -121,7 +121,7 @@ export default function ProjectPageClient({ project }: Props) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <h2 className="font-semibold text-neutral-900 text-xl mb-5">Photos de réalisation</h2>
+                  <h2 className="font-semibold text-neutral-900 text-xl mb-5">{t('project.gallery.title')}</h2>
                   <div className="grid grid-cols-2 gap-3">
                     {project.gallery.map((src, i) => (
                       <button
@@ -162,22 +162,22 @@ export default function ProjectPageClient({ project }: Props) {
                 {/* Project info card */}
                 <div className="bg-neutral-50 rounded-3xl p-6 border border-neutral-150 space-y-4">
                   <h3 className="font-semibold text-neutral-900 text-sm uppercase tracking-wider">
-                    Fiche projet
+                    {t('project.info.title')}
                   </h3>
 
                   {[
-                    { label: 'Localisation', value: project.location },
-                    { label: 'Année', value: String(project.year) },
-                    { label: 'Domaine', value: serviceLabels[project.serviceSlug] ?? project.serviceLabel },
+                    { label: t('project.info.location'), value: project.location },
+                    { label: t('project.info.year'), value: String(project.year) },
+                    { label: t('project.info.domain'), value: t(serviceLabels[project.serviceSlug] ?? project.serviceSlug) },
                   ].map(({ label, value }) => (
                     <div key={label} className="flex flex-col gap-0.5 border-t border-neutral-200 pt-3 first:border-0 first:pt-0">
                       <span className="text-xs font-medium text-neutral-400 uppercase tracking-wider">{label}</span>
-                      <span className="text-sm font-semibold text-neutral-800">{value}</span>
+                      <span className="text-sm font-semibold text-neutral-800" dir="ltr">{value}</span>
                     </div>
                   ))}
 
                   <div className="border-t border-neutral-200 pt-3">
-                    <span className="text-xs font-medium text-neutral-400 uppercase tracking-wider">Tags</span>
+                    <span className="text-xs font-medium text-neutral-400 uppercase tracking-wider">{t('project.info.tags')}</span>
                     <div className="mt-2 flex flex-wrap gap-1.5">
                       {project.tags.map(tag => (
                         <span
@@ -195,16 +195,16 @@ export default function ProjectPageClient({ project }: Props) {
                 {/* CTA */}
                 <div className="bg-neutral-950 rounded-3xl p-6 text-white">
                   <h3 className="font-semibold text-base leading-snug">
-                    Un projet similaire ?
+                    {t('project.cta.title')}
                   </h3>
                   <p className="mt-2 text-sm text-neutral-400 leading-relaxed">
-                    Obtenez une étude personnalisée sous 24h.
+                    {t('project.cta.subtitle')}
                   </p>
                   <Link
                     href="/contact"
                     className="mt-4 btn-primary w-full justify-center text-sm"
                   >
-                    Nous contacter
+                    {t('project.cta.button')}
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                       <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -221,12 +221,12 @@ export default function ProjectPageClient({ project }: Props) {
         <section className="py-16 bg-white border-t border-neutral-100">
           <div className="section-padding container-max">
             <div className="flex items-center justify-between mb-8">
-              <h3 className="font-semibold text-neutral-800 text-lg">Projets similaires</h3>
+              <h3 className="font-semibold text-neutral-800 text-lg">{t('project.related.title')}</h3>
               <Link
                 href={`/realisations?service=${project.serviceSlug}`}
                 className="text-sm font-semibold text-brand-400 hover:text-brand-500 transition-colors flex items-center gap-1"
               >
-                Voir tous
+                {t('project.related.viewAll')}
                 <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
                   <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>

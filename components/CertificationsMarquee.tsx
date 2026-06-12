@@ -25,7 +25,7 @@ const certs = [
 
 export default function CertificationsMarquee() {
   return (
-    <div className="relative overflow-hidden py-14">
+    <div className="relative overflow-hidden py-14" dir="ltr">
 
       {/* fade edges */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-28 z-10 bg-gradient-to-r from-white to-transparent" />

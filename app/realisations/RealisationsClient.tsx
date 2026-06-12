@@ -107,13 +107,13 @@ export default function RealisationsClient() {
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                   </svg>
-                  Projets Référents
+                  {t('realisations.featured.label')}
                 </span>
                 <h2 className="heading-display text-3xl md:text-4xl text-neutral-950 mt-3">
-                  Nos réalisations phares
+                  {t('realisations.featured.title')}
                 </h2>
                 <p className="mt-3 text-neutral-500 text-base max-w-xl leading-relaxed">
-                  Une sélection de nos projets les plus emblématiques, reflet de notre savoir-faire terrain.
+                  {t('realisations.featured.desc')}
                 </p>
               </motion.div>
 
@@ -148,7 +148,7 @@ export default function RealisationsClient() {
                           <svg width="9" height="9" viewBox="0 0 24 24" fill="#a3e635" aria-hidden="true">
                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                           </svg>
-                          Référent
+                          {t('realisations.featured.badge')}
                         </div>
 
                         <div className="absolute bottom-3 start-3 flex items-center gap-2">
@@ -156,7 +156,7 @@ export default function RealisationsClient() {
                             className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full text-white"
                             style={{ backgroundColor: serviceColors[project.serviceSlug] ?? '#1FAF5A' }}
                           >
-                            {project.serviceLabel}
+                            {t(serviceLabels[project.serviceSlug] ?? project.serviceSlug)}
                           </span>
                           <span className="text-[10px] font-semibold text-white/80">{project.year}</span>
                         </div>
@@ -187,7 +187,7 @@ export default function RealisationsClient() {
                           ))}
                         </div>
                         <div className="mt-auto pt-4 flex items-center gap-1 text-sm font-semibold text-brand-400 group-hover:text-[#a3e635] group-hover:gap-2 transition-all">
-                          Voir le projet
+                          {t('realisations.viewProject')}
                           <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
                             <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                           </svg>
@@ -233,7 +233,7 @@ export default function RealisationsClient() {
                   }`}
                   style={isActive ? { backgroundColor: serviceColors[slug] ?? '#1FAF5A' } : {}}
                 >
-                  {serviceLabels[slug]}
+                  {t(serviceLabels[slug])}
                   <span className="ms-1.5 text-xs opacity-60">({count})</span>
                 </button>
               )
@@ -292,7 +292,7 @@ export default function RealisationsClient() {
                             className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full text-white"
                             style={{ backgroundColor: serviceColors[project.serviceSlug] ?? '#1FAF5A' }}
                           >
-                            {project.serviceLabel}
+                            {t(serviceLabels[project.serviceSlug] ?? project.serviceSlug)}
                           </span>
                           <span className="text-[10px] font-semibold text-white/80">{project.year}</span>
                         </div>
@@ -326,7 +326,7 @@ export default function RealisationsClient() {
                         </div>
 
                         <div className="mt-4 flex items-center gap-1 text-sm font-semibold text-brand-400 group-hover:text-[#a3e635] group-hover:gap-2 transition-all">
-                          Voir le projet
+                          {t('realisations.viewProject')}
                           <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
                             <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                           </svg>

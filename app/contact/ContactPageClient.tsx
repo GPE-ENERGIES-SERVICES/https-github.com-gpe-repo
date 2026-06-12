@@ -16,32 +16,33 @@ interface FormData {
   website?: string
 }
 
-const officeLocation: MapLocation = {
-  id: 'alger',
-  city: 'Bir Mourad Raïs',
-  country: 'Algérie',
-  flag: '🇩🇿',
-  address: 'Chemin Sidi Yahia, Résidence Coloris, Bir Mourad Raïs 16005',
-  phone: '+213 549 48 00 97',
-  role: 'Siège social',
-  coords: [36.7308, 3.0492],
-}
 
-const serviceOptionsFr = [
-  'Courants forts & faibles',
-  'Énergies Renouvelables',
-  'Mobilité Électrique',
-  'Smart Building',
-  'Rénovation Énergétique',
-  'Chauffage & Climatisation',
-  "Bureau d'Études",
-  'VRD',
-  'Autre / Non défini',
+const SERVICE_KEYS = [
+  'contact.service.0',
+  'contact.service.1',
+  'contact.service.2',
+  'contact.service.3',
+  'contact.service.4',
+  'contact.service.5',
+  'contact.service.6',
+  'contact.service.7',
+  'contact.service.8',
 ]
 
 export default function ContactPageClient() {
   const { t } = useLanguage()
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+
+  const officeLocation: MapLocation = {
+    id: 'alger',
+    city: 'Bir Mourad Raïs',
+    country: 'Algérie',
+    flag: '🇩🇿',
+    address: 'Chemin Sidi Yahia, Résidence Coloris, Bir Mourad Raïs 16005',
+    phone: '+213 549 48 00 97',
+    role: t('map.role.head'),
+    coords: [36.7308, 3.0492],
+  }
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>()
 
   const onSubmit = async (data: FormData) => {
@@ -146,7 +147,7 @@ export default function ContactPageClient() {
                       <div className="text-xs font-semibold text-neutral-400 uppercase tracking-wider">
                         {t(item.labelKey)}
                       </div>
-                      <div className="text-sm font-medium text-neutral-700 mt-0.5 group-hover:text-brand-400 transition-colors">
+                      <div className="text-sm font-medium text-neutral-700 mt-0.5 group-hover:text-brand-400 transition-colors" dir="ltr">
                         {item.value}
                       </div>
                     </div>
@@ -262,7 +263,7 @@ export default function ContactPageClient() {
                       </label>
                       <select {...register('service')} className={inputClass()}>
                         <option value="">{t('contact.form.serviceDefault')}</option>
-                        {serviceOptionsFr.map((s) => <option key={s} value={s}>{s}</option>)}
+                        {SERVICE_KEYS.map((key) => <option key={key} value={t(key)}>{t(key)}</option>)}
                       </select>
                     </div>
 

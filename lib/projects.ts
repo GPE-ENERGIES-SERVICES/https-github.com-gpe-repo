@@ -423,12 +423,12 @@ export function getProjectById(id: string): Project | undefined {
 }
 
 export const serviceLabels: Record<string, string> = {
-  'courants-forts-faibles': 'Courants Forts & Faibles',
-  'energies-renouvelables': 'Énergies Renouvelables',
-  'mobilite-electrique': 'Mobilité Électrique',
-  'renovation-energetique': 'Rénovation Énergétique',
-  'chauffage-climatisation': 'Chauffage & Climatisation',
-  'bureau-etudes': "Bureau d'Études",
-  'smart-building': 'Smart Building',
-  'vrd': 'VRD',
+  'courants-forts-faibles': 'service.courants-forts-faibles.title',
+  'energies-renouvelables': 'service.energies-renouvelables.title',
+  'mobilite-electrique': 'service.mobilite-electrique.title',
+  'renovation-energetique': 'service.renovation-energetique.title',
+  'chauffage-climatisation': 'service.chauffage-climatisation.title',
+  'bureau-etudes': 'service.bureau-etudes.title',
+  'smart-building': 'service.smart-building.title',
+  'vrd': 'service.vrd.title',
 }

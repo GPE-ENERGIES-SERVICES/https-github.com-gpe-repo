@@ -1,8 +1,9 @@
-﻿'use client'
+'use client'
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
+import { useLanguage } from '@/context/LanguageContext'
 
 interface FormData {
   name: string
@@ -14,19 +15,20 @@ interface FormData {
   website?: string
 }
 
-const services = [
-  'Courants Forts & Faibles',
-  'Énergies Renouvelables',
-  'Mobilité Électrique',
-  'Smart building ',
-  'Rénovation Énergétique',
-  'Chauffage  Climatisation',
-  "Bureau d'Études",
-  'VRD',
-  'Autre / Non défini',
+const SERVICE_KEYS = [
+  'contact.service.0',
+  'contact.service.1',
+  'contact.service.2',
+  'contact.service.3',
+  'contact.service.4',
+  'contact.service.5',
+  'contact.service.6',
+  'contact.service.7',
+  'contact.service.8',
 ]
 
 export default function ContactSection() {
+  const { t, dir } = useLanguage()
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>()
 
@@ -65,13 +67,12 @@ export default function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="label-tag">Contact</span>
+            <span className="label-tag">{t('contact.label')}</span>
             <h2 className="heading-display text-4xl md:text-5xl text-neutral-950 mt-5 leading-tight">
-              Parlons de votre projet.
+              {t('contact.title')}
             </h2>
             <p className="mt-5 text-neutral-500 text-lg leading-relaxed">
-              Notre Ã©quipe rÃ©pond sous 24h ouvrÃ©es. Que ce soit pour un devis, une Ã©tude de faisabilitÃ©
-              ou une question technique, nous sommes Ã  votre Ã©coute.
+              {t('contact.sub')}
             </p>
 
             <div className="mt-12 space-y-6">
@@ -82,8 +83,8 @@ export default function ContactSection() {
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                     </svg>
                   ),
-                  label: 'TÃ©lÃ©phone',
-                  value: '+213 549 48 00 97',
+                  label: t('contact.info.phone'),
+                  value: <span dir="ltr">+213 549 48 00 97</span>,
                   href: 'tel:+213549480097',
                 },
                 {
@@ -93,8 +94,8 @@ export default function ContactSection() {
                       <polyline points="22,6 12,13 2,6"/>
                     </svg>
                   ),
-                  label: 'Email',
-                  value: 'contact@gpealgerie.com',
+                  label: t('contact.info.email'),
+                  value: <span dir="ltr">contact@gpealgerie.com</span>,
                   href: 'mailto:contact@gpealgerie.com',
                 },
                 {
@@ -104,13 +105,13 @@ export default function ContactSection() {
                       <circle cx="12" cy="10" r="3"/>
                     </svg>
                   ),
-                  label: 'Adresse',
-                  value: 'Chemin Sidi Yahia, Résidence Coloris, Bir Mourad Raïs 16005, Alger',
+                  label: t('contact.info.address'),
+                  value: <span dir="ltr">Chemin Sidi Yahia, Résidence Coloris, Bir Mourad Raïs 16005, Alger</span>,
                   href: 'https://www.google.com/maps/search/R%C3%A9sidence+Coloris+Chemin+Sidi+Yahia+Bir+Mourad+Ra%C3%AFs+Alger',
                 },
-              ].map((item) => (
+              ].map((item, idx) => (
                 <a
-                  key={item.label}
+                  key={idx}
                   href={item.href}
                   className="flex items-start gap-4 group"
                   target={item.href.startsWith('http') ? '_blank' : undefined}
@@ -129,15 +130,17 @@ export default function ContactSection() {
 
             {/* Opening hours */}
             <div className="mt-10 p-5 rounded-2xl bg-white border border-neutral-150">
-              <div className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-3">Horaires d&apos;ouverture</div>
+              <div className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-3">
+                {t('contact.hours.title')}
+              </div>
               <div className="space-y-1.5 text-sm">
                 <div className="flex justify-between text-neutral-700">
-                  <span>Lundi â€“ Vendredi</span>
-                  <span className="font-medium">8h00 â€“ 18h00</span>
+                  <span>{t('contact.hours.weekdays')}</span>
+                  <span className="font-medium">{t('contact.hours.weekdaysTime')}</span>
                 </div>
                 <div className="flex justify-between text-neutral-400">
-                  <span>Samedi â€“ Dimanche</span>
-                  <span>FermÃ©</span>
+                  <span>{t('contact.hours.weekend')}</span>
+                  <span>{t('contact.hours.closed')}</span>
                 </div>
               </div>
             </div>
@@ -158,17 +161,17 @@ export default function ContactSection() {
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold text-neutral-900">Message envoyÃ© !</h3>
+                  <h3 className="text-xl font-semibold text-neutral-900">{t('contact.success.title')}</h3>
                   <p className="mt-2 text-neutral-500 text-sm max-w-xs">
-                    Merci pour votre message. Notre Ã©quipe vous rÃ©pondra dans les 24h ouvrÃ©es.
+                    {t('contact.success.message')}
                   </p>
                   <button onClick={() => setStatus('idle')} className="mt-6 btn-secondary text-sm">
-                    Nouveau message
+                    {t('contact.success.button')}
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
-                  {/* Honeypot â€” must stay empty (hidden from real users) */}
+                  {/* Honeypot — must stay empty */}
                   <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
                     <label>
                       Ne pas remplir
@@ -178,22 +181,22 @@ export default function ContactSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">
-                        Nom complet *
+                        {t('contact.form.name')}
                       </label>
                       <input
                         {...register('name', { required: true })}
-                        placeholder="Jean Dupont"
+                        placeholder={t('contact.form.namePlaceholder')}
                         className={inputClass(!!errors.name)}
                       />
                     </div>
                     <div>
                       <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">
-                        Email *
+                        {t('contact.form.email')}
                       </label>
                       <input
                         {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
                         type="email"
-                        placeholder="jean@exemple.fr"
+                        placeholder={t('contact.form.emailPlaceholder')}
                         className={inputClass(!!errors.email)}
                       />
                     </div>
@@ -201,49 +204,50 @@ export default function ContactSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">
-                        TÃ©lÃ©phone
+                        {t('contact.form.phone')}
                       </label>
                       <input
                         {...register('phone')}
                         type="tel"
-                        placeholder="+33 6 XX XX XX XX"
+                        dir="ltr"
+                        placeholder={t('contact.form.phonePlaceholder')}
                         className={inputClass()}
                       />
                     </div>
                     <div>
                       <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">
-                        SociÃ©tÃ©
+                        {t('contact.form.company')}
                       </label>
                       <input
                         {...register('company')}
-                        placeholder="Votre entreprise"
+                        placeholder={t('contact.form.companyPlaceholder')}
                         className={inputClass()}
                       />
                     </div>
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">
-                      Service concernÃ©
+                      {t('contact.form.service')}
                     </label>
                     <select {...register('service')} className={inputClass()}>
-                      <option value="">SÃ©lectionnez un service</option>
-                      {services.map((s) => (
-                        <option key={s} value={s}>{s}</option>
+                      <option value="">{t('contact.form.serviceDefault')}</option>
+                      {SERVICE_KEYS.map((key) => (
+                        <option key={key} value={t(key)}>{t(key)}</option>
                       ))}
                     </select>
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-neutral-600 mb-1.5 uppercase tracking-wider">
-                      Votre message *
+                      {t('contact.form.message')}
                     </label>
                     <textarea
                       {...register('message', { required: true, minLength: 20 })}
                       rows={5}
-                      placeholder="DÃ©crivez votre projet ou votre demande..."
+                      placeholder={t('contact.form.messagePlaceholder')}
                       className={`${inputClass(!!errors.message)} resize-none`}
                     />
                     {errors.message && (
-                      <p className="text-xs text-red-500 mt-1">Veuillez dÃ©tailler votre message (min. 20 caractÃ¨res)</p>
+                      <p className="text-xs text-red-500 mt-1">{t('contact.form.messageError')}</p>
                     )}
                   </div>
                   <button
@@ -257,11 +261,11 @@ export default function ContactSection() {
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
                         </svg>
-                        Envoi en cours...
+                        {t('contact.form.sending')}
                       </>
                     ) : (
                       <>
-                        Envoyer le message
+                        {t('contact.form.submit')}
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
                         </svg>
@@ -270,11 +274,11 @@ export default function ContactSection() {
                   </button>
                   {status === 'error' && (
                     <p className="text-xs text-red-500 text-center">
-                      Une erreur s&apos;est produite. Veuillez rÃ©essayer ou nous contacter par tÃ©lÃ©phone.
+                      {t('contact.form.error')}
                     </p>
                   )}
                   <p className="text-xs text-neutral-400 text-center">
-                    En envoyant ce formulaire, vous acceptez notre politique de confidentialitÃ©.
+                    {t('contact.form.privacy')}
                   </p>
                 </form>
               )}

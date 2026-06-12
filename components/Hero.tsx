@@ -142,7 +142,7 @@ export default function Hero() {
           >
             {stats.map((stat) => (
               <div key={stat.labelKey}>
-                <div className="text-2xl font-bold flex gap-1">
+                <div className="text-2xl font-bold flex gap-1" dir="ltr">
                   <Counter end={stat.value} />
                   <span>{stat.suffix}</span>
                 </div>

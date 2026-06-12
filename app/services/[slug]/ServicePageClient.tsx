@@ -22,67 +22,67 @@ const CERTIFICATIONS_BY_SERVICE: Record<string, Certification[]> = {
     {
       title: 'Qualifelec',
       image: '/images/Certifications/qualifelec.png',
-      description: "Qualification des entreprises d'électricité",
+      description: 'cert.qualifelec',
     },
   ],
   'bureau-etudes': [
     {
       title: 'ISO 9001',
       image: '/images/Certifications/9001.png',
-      description: 'Certification système de management de la qualité',
+      description: 'cert.iso9001',
     },
     {
       title: 'OPQIBI',
       image: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png',
-      description: "Qualification des bureaux d'études et de l'ingénierie",
+      description: 'cert.opqibi',
     },
   ],
   'mobilite-electrique': [
     {
       title: 'Qualifelec IRVE',
       image: '/images/Certifications/qualifirvenormale.png',
-      description: 'Qualification IRVE pour les bornes de recharge',
+      description: 'cert.qualifelec.irve',
     },
     {
       title: 'IRVE Véhicules',
       image: '/images/Certifications/irvevoiture.png',
-      description: "Certification infrastructure de recharge pour véhicules électriques",
+      description: 'cert.irve',
     },
   ],
   'renovation-energetique': [
     {
       title: 'Qualifelec',
       image: '/images/Certifications/qualifelec.png',
-      description: 'Certification entreprise qualifiée RGE',
+      description: 'cert.qualifelec.rge',
     },
     {
       title: 'QualiPAC',
       image: '/images/Certifications/logo-qualipac.png',
-      description: 'Qualification RGE pour la rénovation énergétique',
+      description: 'cert.qualipac',
     },
     {
       title: 'QualiPV RGE',
       image: '/images/Certifications/Logo-QualiPV-RGE.png',
-      description: 'Qualification RGE pour les installations photovoltaïques',
+      description: 'cert.qualipv',
     },
     {
       title: 'OPQIBI',
       image: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png',
-      description: "Qualification de l'ingénierie",
+      description: 'cert.opqibi.ingenierie',
     },
   ],
   'chauffage-climatisation': [
     {
       title: 'QualiPAC',
       image: '/images/Certifications/logo-qualipac.png',
-      description: 'Qualification pompes à chaleur et systèmes thermiques',
+      description: 'cert.qualipac.thermal',
     },
   ],
   'smart-building': [
     {
       title: 'KNX',
       image: '/images/Certifications/knx.png',
-      description: 'Certification KNX pour les systèmes de gestion technique du bâtiment',
+      description: 'cert.knx',
     },
   ],
 }
@@ -101,20 +101,6 @@ const LOGICIELS_BY_SERVICE: Record<string, Logiciel[]> = {
   ],
 }
 
-const CERTIFICATIONS_SUBTITLE_BY_SERVICE: Record<string, string> = {
-  'courants-forts-faibles':
-    'Notre qualification Qualifelec certifie notre expertise en installations électriques courants forts et faibles.',
-  'bureau-etudes':
-    "Nos certifications ISO 9001 et OPQIBI garantissent la rigueur et la qualité de nos études techniques.",
-  'mobilite-electrique':
-    'Nos qualifications IRVE certifient la conformité et la sécurité de vos infrastructures de recharge.',
-  'renovation-energetique':
-    "Nos certifications RGE vous donnent accès aux aides financières et garantissent la qualité des travaux de rénovation.",
-  'chauffage-climatisation':
-    'Notre qualification QualiPAC garantit des installations thermiques conformes aux normes en vigueur.',
-  'smart-building':
-    'Notre certification KNX garantit la maîtrise technique et la conformité de nos installations Smart Building.',
-}
 
 interface Props {
   service: Service
@@ -194,7 +180,7 @@ export default function ServicePageClient({ service }: Props) {
                   className="text-lg text-neutral-600 leading-relaxed pl-5 py-1 border-l-4 rounded-sm"
                   style={{ borderColor: service.color }}
                 >
-                  {service.intro}
+                  {t(service.intro)}
                 </p>
               </motion.div>
 
@@ -211,7 +197,7 @@ export default function ServicePageClient({ service }: Props) {
                     <div className="w-5 h-5 rounded-full bg-[#a3e635]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <div className="w-2 h-2 rounded-full bg-[#a3e635]" />
                     </div>
-                    <h3 className="text-xl font-semibold text-neutral-900">{section.title}</h3>
+                    <h3 className="text-xl font-semibold text-neutral-900">{t(section.title)}</h3>
                   </div>
 
                   {/* Items grid */}
@@ -229,7 +215,7 @@ export default function ServicePageClient({ service }: Props) {
                             <path d="M2 6l3 3 5-5" stroke={service.color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                           </svg>
                         </div>
-                        <span className="text-sm font-medium text-neutral-700 leading-relaxed">{item}</span>
+                        <span className="text-sm font-medium text-neutral-700 leading-relaxed">{t(item)}</span>
                       </div>
                     ))}
                   </div>
@@ -306,14 +292,13 @@ export default function ServicePageClient({ service }: Props) {
                 transition={{ duration: 0.6 }}
                 className="max-w-2xl mb-14"
               >
-                <span className="label-tag">Qualité & Conformité</span>
+                <span className="label-tag">{t('service.certs.quality.label')}</span>
                 <h2 className="heading-display text-4xl md:text-5xl text-neutral-950 mt-5 leading-tight">
-                  Certifications &{' '}
-                  <span style={{ color: service.color }}>Qualifications</span>
+                  {t('service.certs.quality.title')}{' '}
+                  <span style={{ color: service.color }}>{t('service.certs.quality.title.highlight')}</span>
                 </h2>
                 <p className="mt-5 text-neutral-500 text-lg leading-relaxed">
-                  {CERTIFICATIONS_SUBTITLE_BY_SERVICE[service.slug] ??
-                    'Nos certifications garantissent la qualité et la conformité de nos prestations.'}
+                  {t(`service.${service.slug}.certs.subtitle`) || t('service.certs.default')}
                 </p>
               </motion.div>
 
@@ -350,7 +335,7 @@ export default function ServicePageClient({ service }: Props) {
                     <div className="relative text-center">
                       <div className="text-sm font-semibold text-neutral-800">{cert.title}</div>
                       <div className="text-xs text-neutral-500 mt-1 leading-relaxed">
-                        {cert.description}
+                        {t(cert.description)}
                       </div>
                     </div>
                   </motion.div>
@@ -380,13 +365,13 @@ export default function ServicePageClient({ service }: Props) {
                 transition={{ duration: 0.6 }}
                 className="max-w-2xl mb-14"
               >
-                <span className="label-tag">Outils & Technologie</span>
+                <span className="label-tag">{t('service.tools.label')}</span>
                 <h2 className="heading-display text-4xl md:text-5xl text-neutral-950 mt-5 leading-tight">
-                  Logiciels{' '}
-                  <span style={{ color: service.color }}>utilisés</span>
+                  {t('service.tools.title')}{' '}
+                  <span style={{ color: service.color }}>{t('service.tools.title.highlight')}</span>
                 </h2>
                 <p className="mt-5 text-neutral-500 text-lg leading-relaxed">
-                  Nos études sont réalisées avec les outils professionnels de référence du secteur.
+                  {t('service.tools.subtitle')}
                 </p>
               </motion.div>
 

@@ -102,8 +102,9 @@ export default function Navbar() {
 
               <span className="hidden xl:block h-4 w-px bg-neutral-200" />
               <a
-                href="tel:+213 549 48 00 97"
+                href="tel:+213549480097"
                 className="hidden xl:block text-[13px] font-medium text-[#2e5240]/70 hover:text-[#a3e635] transition-colors whitespace-nowrap"
+                dir="ltr"
               >
                 +213 549 48 00 97
               </a>
@@ -177,6 +178,7 @@ export default function Navbar() {
                 <a
                   href="tel:+213549480097"
                   className="flex items-center justify-center text-sm font-medium text-[#2e5240] px-5 py-3.5 rounded-full border border-neutral-200"
+                  dir="ltr"
                 >
                   +213 549 48 00 97
                 </a>

@@ -134,13 +134,13 @@ export default function Footer() {
 
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="tel:+213 549 48 00 97" className="text-white hover:text-[#a3e635] transition-colors">
+                <a href="tel:+213549480097" className="text-white hover:text-[#a3e635] transition-colors" dir="ltr">
                   +213 549 48 00 97
                 </a>
               </li>
 
               <li>
-                <a href="mailto:contact@gpealgerie.com" className="text-white hover:text-[#a3e635] transition-colors">
+                <a href="mailto:contact@gpealgerie.com" className="text-white hover:text-[#a3e635] transition-colors" dir="ltr">
                   contact@gpealgerie.com
                 </a>
               </li>
@@ -161,7 +161,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/70">
+          <p className="text-xs text-white/70" dir="ltr">
             © {new Date().getFullYear()} GPE Énergies & Services. {t('footer.copyright')}
           </p>
 

@@ -206,7 +206,7 @@ export default function EnergiesRenouvelablesClient({ service }: Props) {
                       key={stat.label}
                       className={`px-5 py-4 ${i < arr.length - 1 ? 'border-b border-neutral-100' : ''}`}
                     >
-                      <div className="text-xl font-bold text-[#2e5240]">{stat.value}</div>
+                      <div className="text-xl font-bold text-[#2e5240]" dir="ltr">{stat.value}</div>
                       <div className="text-xs text-neutral-500 mt-0.5">{stat.label}</div>
                     </div>
                   ))}

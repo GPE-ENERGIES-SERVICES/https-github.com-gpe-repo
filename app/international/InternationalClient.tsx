@@ -6,41 +6,6 @@ import InteractiveMap, { type MapLocation } from '@/components/InteractiveMap'
 import CertificationsMarquee from '@/components/CertificationsMarquee'
 import { useLanguage } from '@/context/LanguageContext'
 
-const locations: MapLocation[] = [
-  {
-    id: 'algerie',
-    city: 'Bir Mourad Raïs',
-    country: 'Algérie',
-    flag: '🇩🇿',
-    address: 'Chemin Sidi Yahia, Résidence Coloris, Bir Mourad Raïs 16005',
-    phone: '+213 549 48 00 97',
-    email: 'contact@gpealgerie.com',
-    role: 'Siège social',
-    coords: [36.7308, 3.0492],
-  },
-  {
-    id: 'vitrolles',
-    city: 'Vitrolles',
-    country: 'France',
-    flag: '🇫🇷',
-    address: '92 Boulevard de l\'Europe, 13127 Vitrolles',
-    phone: '+33 4 42 07 22 62',
-    email: 'contact@gpefrance.eu',
-    role: 'Agence France',
-    coords: [43.4547, 5.2483],
-  },
-  {
-    id: 'saudi',
-    city: 'Riyadh',
-    country: 'Arabie Saoudite',
-    flag: '🇸🇦',
-    address: 'King Fahd District, Riyadh',
-    phone: '+966 50 859 6539',
-    email: 'contact@gpe-gulf.com',
-    role: 'Bureau régional',
-    coords: [24.7136, 46.6753],
-  },
-]
 
 const partnerCategories = [
   {
@@ -95,6 +60,42 @@ const partnerCategories = [
 
 export default function InternationalClient() {
   const { t } = useLanguage()
+
+  const locations: MapLocation[] = [
+    {
+      id: 'algerie',
+      city: 'Bir Mourad Raïs',
+      country: 'Algérie',
+      flag: '🇩🇿',
+      address: 'Chemin Sidi Yahia, Résidence Coloris, Bir Mourad Raïs 16005',
+      phone: '+213 549 48 00 97',
+      email: 'contact@gpealgerie.com',
+      role: t('map.role.head'),
+      coords: [36.7308, 3.0492],
+    },
+    {
+      id: 'vitrolles',
+      city: 'Vitrolles',
+      country: 'France',
+      flag: '🇫🇷',
+      address: "92 Boulevard de l'Europe, 13127 Vitrolles",
+      phone: '+33 4 42 07 22 62',
+      email: 'contact@gpefrance.eu',
+      role: t('map.role.france'),
+      coords: [43.4547, 5.2483],
+    },
+    {
+      id: 'saudi',
+      city: 'Riyadh',
+      country: 'Arabie Saoudite',
+      flag: '🇸🇦',
+      address: 'King Fahd District, Riyadh',
+      phone: '+966 50 859 6539',
+      email: 'contact@gpe-gulf.com',
+      role: t('map.role.regional'),
+      coords: [24.7136, 46.6753],
+    },
+  ]
 
   const stats = [
     { value: '3', labelKey: 'international.stat.0' },
@@ -164,7 +165,7 @@ export default function InternationalClient() {
           key={s.labelKey}
           className="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md"
         >
-          <div className="text-3xl font-bold text-white">{s.value}</div>
+          <div className="text-3xl font-bold text-white" dir="ltr">{s.value}</div>
           <div className="mt-1 text-xs text-neutral-300 uppercase tracking-wider font-semibold">
             {t(s.labelKey)}
           </div>

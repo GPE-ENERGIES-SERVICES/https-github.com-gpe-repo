@@ -89,6 +89,7 @@ export default function AboutSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
               className="grid grid-cols-2 sm:grid-cols-3 rounded-2xl border border-[#2e5240]/10 overflow-hidden bg-white"
+              dir="ltr"
             >
               {[
                 { v: '2023', lKey: 'about.stat.founded' },
@@ -103,7 +104,7 @@ export default function AboutSection() {
                     'col-span-2 sm:col-span-1 border-t sm:border-t-0 border-[#2e5240]/10'
                   }`}
                 >
-                  <div className="text-2xl font-semibold text-[#2e5240]">
+                  <div className="text-2xl font-semibold text-[#2e5240]" dir="ltr">
                     {item.v}
                   </div>
 

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import 'leaflet/dist/leaflet.css'
+import { useLanguage } from '@/context/LanguageContext'
 
 export interface MapLocation {
   id: string
@@ -126,6 +127,7 @@ function injectStyles() {
 }
 
 export default function InteractiveMapLeaflet({ locations, initialId, height = 500 }: Props) {
+  const { t } = useLanguage()
   const containerRef = useRef<HTMLDivElement>(null)
   const mapRef = useRef<import('leaflet').Map | null>(null)
   const markersRef = useRef<Map<string, import('leaflet').Marker>>(new Map())
@@ -245,11 +247,11 @@ export default function InteractiveMapLeaflet({ locations, initialId, height = 5
             <div className="flex items-center gap-2 mb-1">
               <span className="w-2 h-2 rounded-full bg-[#2e5240]" />
               <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-neutral-400">
-                Implantations
+                {t('map.offices.label')}
               </span>
             </div>
             <p className="text-sm font-semibold text-neutral-700 leading-snug">
-              3 bureaux sur 3 continents
+              {t('map.offices.subtitle')}
             </p>
           </div>
 
@@ -320,7 +322,7 @@ export default function InteractiveMapLeaflet({ locations, initialId, height = 5
                   <svg className="w-3.5 h-3.5 text-neutral-400 flex-shrink-0 group-hover/phone:text-[#2e5240] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                   </svg>
-                  <span className="text-xs font-semibold text-neutral-700 group-hover/phone:text-[#2e5240] transition-colors">
+                  <span className="text-xs font-semibold text-neutral-700 group-hover/phone:text-[#2e5240] transition-colors" dir="ltr">
                     {active.phone}
                   </span>
                 </a>
@@ -334,7 +336,7 @@ export default function InteractiveMapLeaflet({ locations, initialId, height = 5
                   <svg className="w-3.5 h-3.5 text-neutral-400 flex-shrink-0 group-hover/email:text-[#2e5240] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
                   </svg>
-                  <span className="text-xs font-semibold text-neutral-700 group-hover/email:text-[#2e5240] transition-colors">
+                  <span className="text-xs font-semibold text-neutral-700 group-hover/email:text-[#2e5240] transition-colors" dir="ltr">
                     {active.email}
                   </span>
                 </a>
@@ -343,7 +345,7 @@ export default function InteractiveMapLeaflet({ locations, initialId, height = 5
               {/* Coordinates badge */}
               <div className="flex items-center gap-2 pt-1">
                 <div className="flex-1 h-px bg-neutral-100" />
-                <span className="text-[10px] text-neutral-300 font-mono">
+                <span className="text-[10px] text-neutral-300 font-mono" dir="ltr">
                   {active.coords[0].toFixed(4)}°, {active.coords[1].toFixed(4)}°
                 </span>
                 <div className="flex-1 h-px bg-neutral-100" />
@@ -359,7 +361,7 @@ export default function InteractiveMapLeaflet({ locations, initialId, height = 5
             <div className="absolute inset-0 bg-neutral-100 flex items-center justify-center z-10">
               <div className="flex items-center gap-3 text-neutral-400">
                 <div className="w-4 h-4 rounded-full border-2 border-[#2e5240] border-t-transparent animate-spin" />
-                <span className="text-sm font-medium">Chargement…</span>
+                <span className="text-sm font-medium">{t('map.loading')}</span>
               </div>
             </div>
           )}
