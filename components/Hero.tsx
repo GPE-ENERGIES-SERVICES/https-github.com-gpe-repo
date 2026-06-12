@@ -139,6 +139,7 @@ export default function Hero() {
             custom={0.55}
             variants={fadeUp}
             className="mt-16 grid grid-cols-2 sm:flex gap-10 text-white"
+            dir="ltr"
           >
             {stats.map((stat) => (
               <div key={stat.labelKey}>
@@ -146,7 +147,7 @@ export default function Hero() {
                   <Counter end={stat.value} />
                   <span>{stat.suffix}</span>
                 </div>
-                <div className="text-sm text-white/60">
+                <div className="text-sm text-white/60 text-left">
                   {t(stat.labelKey)}
                 </div>
               </div>

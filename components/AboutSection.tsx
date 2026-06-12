@@ -104,11 +104,11 @@ export default function AboutSection() {
                     'col-span-2 sm:col-span-1 border-t sm:border-t-0 border-[#2e5240]/10'
                   }`}
                 >
-                  <div className="text-2xl font-semibold text-[#2e5240]" dir="ltr">
+                  <div className="text-2xl font-semibold text-[#2e5240] text-left" dir="ltr">
                     {item.v}
                   </div>
 
-                  <div className="mt-1 text-[11px] tracking-widest uppercase text-[#2e5240]/50">
+                  <div className="mt-1 text-[11px] tracking-widest uppercase text-[#2e5240]/50 text-left">
                     {t(item.lKey)}
                   </div>
                 </div>
