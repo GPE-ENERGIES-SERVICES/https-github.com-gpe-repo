@@ -39,7 +39,7 @@ function Counter({ end, duration = 1600 }: { end: number; duration?: number }) {
 }
 
 export default function Hero() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
 
   const stats = [
     { value: 20, suffix: '+', labelKey: 'hero.stat.years' },
@@ -142,11 +142,11 @@ export default function Hero() {
           >
             {stats.map((stat) => (
               <div key={stat.labelKey} dir="ltr">
-                <div className="text-2xl font-bold flex gap-1">
+                <div className={`text-2xl font-bold flex gap-1${lang === 'ar' ? ' justify-end sm:justify-start' : ''}`}>
                   <Counter end={stat.value} />
                   <span>{stat.suffix}</span>
                 </div>
-                <div className="text-sm text-white/60">
+                <div className={`text-sm text-white/60${lang === 'ar' ? ' text-right sm:text-left' : ''}`}>
                   {t(stat.labelKey)}
                 </div>
               </div>
