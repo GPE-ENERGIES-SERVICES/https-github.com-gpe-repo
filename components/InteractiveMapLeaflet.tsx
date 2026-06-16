@@ -13,6 +13,7 @@ export interface MapLocation {
   address: string
   phone?: string
   email?: string
+  website?: string
   role: string
   coords: [number, number]
 }
@@ -338,6 +339,23 @@ export default function InteractiveMapLeaflet({ locations, initialId, height = 5
                   </svg>
                   <span className="text-xs font-semibold text-neutral-700 group-hover/email:text-[#2e5240] transition-colors" dir="ltr">
                     {active.email}
+                  </span>
+                </a>
+              )}
+
+              {active.website && (
+                <a
+                  href={active.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 group/web"
+                >
+                  <svg className="w-3.5 h-3.5 text-neutral-400 flex-shrink-0 group-hover/web:text-[#2e5240] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                  </svg>
+                  <span className="text-xs font-semibold text-neutral-700 group-hover/web:text-[#2e5240] transition-colors" dir="ltr">
+                    {active.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}
                   </span>
                 </a>
               )}
