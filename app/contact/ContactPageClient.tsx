@@ -97,7 +97,7 @@ export default function ContactPageClient() {
       ),
       labelKey: 'contact.info.address',
       value: 'Chemin Sidi Yahia, Résidence Coloris, Bir Mourad Raïs 16005, Alger',
-      href: 'https://www.google.com/maps/search/?api=1&query=P2QX%2B983+Hydra+Algeria',
+      href: '',
     },
   ]
 
@@ -133,27 +133,38 @@ export default function ContactPageClient() {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <div className="space-y-6">
-                {contactItems.map((item) => (
-                  <a
-                    key={item.labelKey}
-                    href={item.href}
-                    className="flex items-start gap-4 group"
-                    target={item.href.startsWith('http') ? '_blank' : undefined}
-                    rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  >
-                    <div className="w-10 h-10 rounded-xl bg-brand-100 text-brand-400 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-200 transition-colors">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <div className="text-xs font-semibold text-neutral-400 uppercase tracking-wider">
-                        {t(item.labelKey)}
+                {contactItems.map((item) => {
+                  const inner = (
+                    <>
+                      <div className="w-10 h-10 rounded-xl bg-brand-100 text-brand-400 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-200 transition-colors">
+                        {item.icon}
                       </div>
-                      <div className="text-sm font-medium text-neutral-700 mt-0.5 group-hover:text-brand-400 transition-colors" dir="ltr">
-                        {item.value}
+                      <div>
+                        <div className="text-xs font-semibold text-neutral-400 uppercase tracking-wider">
+                          {t(item.labelKey)}
+                        </div>
+                        <div className="text-sm font-medium text-neutral-700 mt-0.5 group-hover:text-brand-400 transition-colors" dir="ltr">
+                          {item.value}
+                        </div>
                       </div>
+                    </>
+                  )
+                  return item.href ? (
+                    <a
+                      key={item.labelKey}
+                      href={item.href}
+                      className="flex items-start gap-4 group"
+                      target={item.href.startsWith('http') ? '_blank' : undefined}
+                      rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    >
+                      {inner}
+                    </a>
+                  ) : (
+                    <div key={item.labelKey} className="flex items-start gap-4 group">
+                      {inner}
                     </div>
-                  </a>
-                ))}
+                  )
+                })}
               </div>
 
               {/* Hours */}
