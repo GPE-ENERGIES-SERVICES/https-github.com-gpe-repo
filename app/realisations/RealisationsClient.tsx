@@ -23,7 +23,7 @@ const serviceColors: Record<string, string> = {
 }
 
 export default function RealisationsClient() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const searchParams = useSearchParams()
   const [activeFilter, setActiveFilter] = useState(ALL)
 
@@ -174,7 +174,7 @@ export default function RealisationsClient() {
                           {project.location}
                         </div>
                         <p className="mt-3 text-sm text-neutral-500 leading-relaxed line-clamp-3">
-                          {project.description}
+                          {project.description[lang as 'fr' | 'en' | 'ar'] ?? project.description.fr}
                         </p>
                         <div className="mt-4 flex flex-wrap gap-1.5">
                           {project.tags.filter(Boolean).map(tag => (
@@ -310,7 +310,7 @@ export default function RealisationsClient() {
                           {project.location}
                         </div>
                         <p className="mt-3 text-sm text-neutral-500 leading-relaxed line-clamp-3">
-                          {project.description}
+                          {project.description[lang as 'fr' | 'en' | 'ar'] ?? project.description.fr}
                         </p>
 
                         {/* Tags */}
