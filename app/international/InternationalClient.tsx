@@ -64,10 +64,11 @@ export default function InternationalClient() {
   const locations: MapLocation[] = [
     {
       id: 'algerie',
-      city: 'Hydra',
+      city: 'Bir Mourad Raïs',
       country: 'Algérie',
       flag: '🇩🇿',
-      address: 'P2QX+983, Hydra, Algérie',
+      address: 'Chemin Sidi Yahia, Résidence Coloris, Bir Mourad Raïs 16005, Alger',
+      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=P2QX%2B983+Hydra+Algeria',
       phone: '+213 549 48 00 97',
       email: 'contact@gpealgerie.com',
       website: 'https://gpealgerie.com/',

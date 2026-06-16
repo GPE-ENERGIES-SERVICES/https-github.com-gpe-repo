@@ -38,10 +38,11 @@ export default function ContactPageClient() {
     city: 'Bir Mourad Raïs',
     country: 'Algérie',
     flag: '🇩🇿',
-    address: 'Chemin Sidi Yahia, Résidence Coloris, Bir Mourad Raïs 16005',
+    address: 'Chemin Sidi Yahia, Résidence Coloris, Bir Mourad Raïs 16005, Alger',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=P2QX%2B983+Hydra+Algeria',
     phone: '+213 549 48 00 97',
     role: t('map.role.head'),
-    coords: [36.7308, 3.0492],
+    coords: [36.7478, 3.0362],
   }
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>()
 
@@ -96,7 +97,7 @@ export default function ContactPageClient() {
       ),
       labelKey: 'contact.info.address',
       value: 'Chemin Sidi Yahia, Résidence Coloris, Bir Mourad Raïs 16005, Alger',
-      href: 'https://www.google.com/maps/search/R%C3%A9sidence+Coloris+Chemin+Sidi+Yahia+Bir+Mourad+Ra%C3%AFs+Alger',
+      href: 'https://www.google.com/maps/search/?api=1&query=P2QX%2B983+Hydra+Algeria',
     },
   ]
 

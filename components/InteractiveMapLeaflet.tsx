@@ -11,6 +11,7 @@ export interface MapLocation {
   country: string
   flag: string
   address: string
+  mapsUrl?: string
   phone?: string
   email?: string
   website?: string
@@ -311,7 +312,18 @@ export default function InteractiveMapLeaflet({ locations, initialId, height = 5
                   <svg className="w-3.5 h-3.5 text-neutral-400 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
                   </svg>
-                  <p className="text-xs text-neutral-500 leading-relaxed">{active.address}</p>
+                  {active.mapsUrl ? (
+                    <a
+                      href={active.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-neutral-500 leading-relaxed hover:text-[#2e5240] transition-colors"
+                    >
+                      {active.address}
+                    </a>
+                  ) : (
+                    <p className="text-xs text-neutral-500 leading-relaxed">{active.address}</p>
+                  )}
                 </div>
               )}
 
