@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!project) return { title: 'Projet introuvable' }
   return {
     title: `${project.title} — GPE Énergies & Services`,
-    description: project.description,
+    description: project.description.fr,
   }
 }
 
