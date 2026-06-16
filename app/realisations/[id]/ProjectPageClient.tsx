@@ -24,7 +24,7 @@ interface Props {
 }
 
 export default function ProjectPageClient({ project }: Props) {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
   const color = serviceColors[project.serviceSlug] ?? '#1FAF5A'
 
@@ -106,7 +106,7 @@ export default function ProjectPageClient({ project }: Props) {
               >
                 <span className="label-tag">{t('project.presentation.label')}</span>
                 <div className="mt-5 prose prose-neutral max-w-none">
-                  {project.longDescription.split('\n').map((para, i) => (
+                  {(project.longDescription[lang as 'fr' | 'en' | 'ar'] ?? project.longDescription.fr).split('\n').map((para, i) => (
                     <p key={i} className="text-neutral-600 leading-relaxed text-base mb-4">
                       {para}
                     </p>
