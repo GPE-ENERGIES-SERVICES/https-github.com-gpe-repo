@@ -9,7 +9,6 @@ const certs = [
   { img: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png' },
   { img: '/images/Certifications/9001.png' },
   { img: '/images/Certifications/knx.png' },
-  { img: '/images/Certifications/qualifirvenormale.png' },
   { img: '/images/Certifications/irvevoiture.png' },
 
   // duplicate for seamless loop
@@ -19,7 +18,6 @@ const certs = [
   { img: '/images/Certifications/opqibi-1-1280x560-removebg-preview.png' },
   { img: '/images/Certifications/9001.png' },
   { img: '/images/Certifications/knx.png' },
-  { img: '/images/Certifications/qualifirvenormale.png' },
   { img: '/images/Certifications/irvevoiture.png' },
 ]
 
