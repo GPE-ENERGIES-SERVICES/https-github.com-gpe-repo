@@ -62,6 +62,7 @@ const t18n: Record<Lang, Record<string, string>> = {
     'about.stat.team': 'Collaborateurs',
     'about.stat.region': "Région d'intervention",
     'about.stat.regionVal': 'Internationale',
+    'about.cta': 'À propos de nous',
 
     // ── Footer
     'footer.tagline': "Expert en installations électriques, énergies renouvelables et solutions CVC.",
@@ -506,6 +507,7 @@ const t18n: Record<Lang, Record<string, string>> = {
     'about.stat.team': 'Partnership',
     'about.stat.region': 'Service region',
     'about.stat.regionVal': 'International',
+    'about.cta': 'About us',
 
     'footer.tagline': 'Expert in electrical installations, renewable energy, and HVAC solutions.',
     'footer.nav.title': 'Navigation',
@@ -946,6 +948,7 @@ const t18n: Record<Lang, Record<string, string>> = {
     'about.stat.team': 'شراكة',
     'about.stat.region': 'منطقة التدخل',
     'about.stat.regionVal': 'دولية',
+    'about.cta': 'تعرف علينا',
 
     'footer.tagline': 'خبراء في التركيبات الكهربائية والطاقات المتجددة وأنظمة التكييف.',
     'footer.nav.title': 'التنقل',
