@@ -116,7 +116,7 @@ export default function EnergiesRenouvelablesClient({ service }: Props) {
                   className="text-lg text-neutral-600 leading-relaxed pl-5 py-1 border-l-4 rounded-sm"
                   style={{ borderColor: service.color }}
                 >
-                  {service.intro}
+                  {t(service.intro)}
                 </p>
               </motion.div>
 
@@ -133,7 +133,7 @@ export default function EnergiesRenouvelablesClient({ service }: Props) {
                     <div className="w-5 h-5 rounded-full bg-[#a3e635]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <div className="w-2 h-2 rounded-full bg-[#a3e635]" />
                     </div>
-                    <h3 className="text-xl font-semibold text-neutral-900">{section.title}</h3>
+                    <h3 className="text-xl font-semibold text-neutral-900">{t(section.title)}</h3>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -152,7 +152,7 @@ export default function EnergiesRenouvelablesClient({ service }: Props) {
                             <path d="M2 6l3 3 5-5" stroke={service.color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         </div>
-                        <span className="text-sm font-medium text-neutral-700 leading-relaxed">{item}</span>
+                        <span className="text-sm font-medium text-neutral-700 leading-relaxed">{t(item)}</span>
                       </div>
                     ))}
                   </div>
@@ -198,7 +198,7 @@ export default function EnergiesRenouvelablesClient({ service }: Props) {
                 {/* Stats rapides */}
                 <div className="rounded-3xl border border-neutral-200 overflow-hidden bg-white">
                   {[
-                    { value: '+150', label: 'Installations réalisées' },
+                    { value: '+500', label: 'Installations réalisées' },
                     { value: '500 kWc', label: 'Plus grande installation' },
                     { value: 'RGE', label: 'Certification QualiPV' },
                   ].map((stat, i, arr) => (
