@@ -12,12 +12,12 @@ const certs = [
   { name: 'IRVE', img: '/images/Certifications/irvevoiture.png' },
 ]
 
-const marqueeItems = [...certs, ...certs]
+const marqueeItems = [...certs, ...certs, ...certs, ...certs, ...certs, ...certs]
 
 export default function CertificationsMarquee() {
   return (
     <div className="py-14 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]" dir="ltr">
-      <div className="flex w-max animate-marquee">
+      <div className="flex w-max animate-marquee-slow">
         {marqueeItems.map((cert, i) => (
           <div
             key={i}
