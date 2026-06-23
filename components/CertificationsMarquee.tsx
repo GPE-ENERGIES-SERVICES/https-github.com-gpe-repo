@@ -29,12 +29,12 @@ export default function CertificationsMarquee() {
       <div className="pointer-events-none absolute inset-y-0 left-0 w-28 z-10 bg-gradient-to-r from-white to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-28 z-10 bg-gradient-to-l from-white to-transparent" />
 
-      <div className="flex gap-8 animate-marquee w-max">
+      <div className="flex animate-marquee w-max">
         {certs.map((cert, i) => (
           <div
             key={i}
             className="group relative flex-shrink-0 flex items-center justify-center
-                       w-60 h-36 rounded-2xl border border-neutral-300 bg-white
+                       mx-4 w-60 h-36 rounded-2xl border border-neutral-300 bg-white
                        shadow-md p-6 transition-all duration-300
                        hover:-translate-y-2 hover:shadow-xl hover:border-[#a3e635]/60"
           >
